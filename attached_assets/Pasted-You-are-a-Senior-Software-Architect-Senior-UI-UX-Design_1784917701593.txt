@@ -1,0 +1,325 @@
+You are a Senior Software Architect, Senior UI/UX Designer, Product Designer, AI Engineer, DevOps Engineer, and Full Stack Engineer.
+
+Your task is to build a production-ready enterprise website for
+
+TurboByte Tech Solutions Private Limited
+
+DO NOT create a prototype.
+
+DO NOT create placeholder pages.
+
+DO NOT generate dummy content.
+
+Everything should be ready for real business deployment.
+
+=================================================
+
+PROJECT GOAL
+
+Build an AI-first corporate website representing TurboByte Tech Solutions Private Limited.
+
+The website should look modern, premium, trustworthy and comparable to websites of companies like Microsoft, OpenAI, IBM, Adobe, Salesforce and Stripe while keeping the existing dark purple interface that has already been designed.
+
+Do NOT redesign the current interface.
+
+Keep the same layout, spacing, animations, cards, gradients, typography and premium feel.
+
+Improve functionality only.
+
+=================================================
+
+DESIGN STYLE
+
+Modern
+
+Minimal
+
+Premium
+
+Corporate
+
+Glassmorphism
+
+Dark Theme
+
+Purple Accent
+
+Gradient Effects
+
+Rounded Cards
+
+Smooth Animations
+
+High Contrast
+
+Enterprise UI
+
+Professional
+
+=================================================
+
+COLOR PALETTE
+
+Primary
+
+#7C3AED
+
+Secondary
+
+#A855F7
+
+Accent
+
+#C084FC
+
+Dark Background
+
+#09090B
+
+Card Background
+
+#111827
+
+Border
+
+rgba(255,255,255,0.08)
+
+Text Primary
+
+#FFFFFF
+
+Text Secondary
+
+#9CA3AF
+
+Success
+
+#22C55E
+
+Warning
+
+#F59E0B
+
+Danger
+
+#EF4444
+
+=================================================
+
+TYPOGRAPHY
+
+Headings
+
+Bold
+
+Large
+
+Modern
+
+Body
+
+Easy to read
+
+Professional
+
+Consistent spacing
+
+=================================================
+
+LOGO
+
+Use the uploaded TurboByte Tech Solutions logo.
+
+Do not recreate it.
+
+Do not redesign it.
+
+Create a transparent version.
+
+Automatically switch between Light Mode and Dark Mode if necessary.
+
+The logo should blend naturally with both themes.
+
+Remove any visible white rectangle around the logo.
+
+Use the logo everywhere
+
+Navbar
+
+Footer
+
+Loading Screen
+
+404 Page
+
+Emails
+
+Dashboard
+
+Favicon
+
+Manifest
+
+Open Graph
+
+=================================================
+
+RESPONSIVE DESIGN
+
+Desktop
+
+Laptop
+
+Tablet
+
+Mobile
+
+Large Monitor
+
+Ultra Wide
+
+Everything must be fully responsive.
+
+No overflow.
+
+No clipped content.
+
+No broken layouts.
+
+=================================================
+
+WEBSITE PAGES
+
+Home
+
+About
+
+Services
+
+Individual Service Pages
+
+Portfolio
+
+Case Studies
+
+Solutions
+
+Blog
+
+Blog Details
+
+Careers
+
+Career Details
+
+Contact
+
+Start Your Project
+
+Privacy Policy
+
+Terms
+
+404
+
+500
+
+=================================================
+
+PERFORMANCE
+
+Optimize everything.
+
+Use lazy loading.
+
+Code splitting.
+
+Dynamic imports.
+
+Image optimization.
+
+Font optimization.
+
+Caching.
+
+Route prefetching.
+
+Loading skeletons.
+
+Minimize JavaScript.
+
+=================================================
+
+SECURITY
+
+HTTPS
+
+CSRF Protection
+
+Rate Limiting
+
+XSS Protection
+
+SQL Injection Protection
+
+Input Validation
+
+Environment Variables
+
+Secure Authentication
+
+Audit Logs
+
+=================================================
+
+SEO
+
+Meta Titles
+
+Meta Descriptions
+
+OpenGraph
+
+Twitter Cards
+
+Structured Data
+
+Sitemap
+
+Robots.txt
+
+Canonical URLs
+
+=================================================
+
+ANALYTICS
+
+Google Analytics
+
+Google Search Console
+
+Performance Monitoring
+
+Lead Analytics
+
+=================================================
+
+QUALITY
+
+Every page should feel premium.
+
+No placeholder content.
+
+No lorem ipsum.
+
+No fake information.
+
+No broken links.
+
+No 404 pages.
+
+No console errors.
+
+No runtime errors.
+
+Everything should be production ready.

@@ -1,0 +1,577 @@
+=========================================================
+CAREERS PAGE
+=========================================================
+
+IMPORTANT
+
+Do NOT redesign the current Careers page.
+
+Keep the existing premium UI.
+
+Maintain the current
+
+Dark Theme
+
+Purple Gradients
+
+Glassmorphism
+
+Spacing
+
+Typography
+
+Animations
+
+Cards
+
+Only improve functionality.
+
+=========================================================
+PAGE HERO
+=========================================================
+
+Title
+
+Build Your Career With TurboByte Tech Solutions
+
+Subtitle
+
+Join our passionate team and help build intelligent digital solutions that shape the future of businesses through Artificial Intelligence and modern technology.
+
+Primary Button
+
+View Open Positions
+
+Secondary Button
+
+Send Us Your Profile
+
+=========================================================
+COMPANY CULTURE
+=========================================================
+
+Display premium cards.
+
+Innovation
+
+Continuous Learning
+
+Team Collaboration
+
+Ownership
+
+Problem Solving
+
+Customer First
+
+Work-Life Balance
+
+Growth Opportunities
+
+=========================================================
+WHY JOIN US
+=========================================================
+
+Flexible Learning
+
+Real Projects
+
+Modern Technologies
+
+AI-First Company
+
+Career Growth
+
+Collaborative Environment
+
+Mentorship
+
+Professional Development
+
+=========================================================
+OPEN POSITIONS
+=========================================================
+
+Create a Jobs section.
+
+Initially allow Admin to manage jobs.
+
+Fields
+
+Job Title
+
+Department
+
+Experience
+
+Employment Type
+
+Location
+
+Work Mode
+
+Salary
+
+Description
+
+Requirements
+
+Responsibilities
+
+Skills Required
+
+Status
+
+Open
+
+Closed
+
+=========================================================
+DEFAULT MESSAGE
+=========================================================
+
+If there are no openings
+
+Display
+
+"We're always looking for passionate and talented individuals.
+
+Share your profile with us and we'll contact you when a suitable opportunity becomes available."
+
+=========================================================
+SEND US YOUR PROFILE
+=========================================================
+
+Clicking
+
+Send Us Your Profile
+
+should NOT redirect away.
+
+Open a premium modal dialog.
+
+Maintain the existing UI style.
+
+=========================================================
+APPLICATION FORM
+=========================================================
+
+Fields
+
+Full Name *
+
+Email Address *
+
+Phone Number *
+
+Current City *
+
+Highest Qualification *
+
+College / University
+
+Graduation Year
+
+Experience
+
+0-1 Years
+
+1-3 Years
+
+3-5 Years
+
+5+ Years
+
+Skills *
+
+LinkedIn Profile
+
+GitHub Profile
+
+Portfolio Website
+
+Resume Upload *
+
+Cover Letter
+
+Preferred Role *
+
+Expected Salary (Optional)
+
+Available to Join
+
+Immediately
+
+15 Days
+
+30 Days
+
+60 Days
+
+Other
+
+=========================================================
+PREFERRED ROLE
+=========================================================
+
+Dropdown
+
+Frontend Developer
+
+Backend Developer
+
+Full Stack Developer
+
+AI Engineer
+
+Machine Learning Engineer
+
+Python Developer
+
+Java Developer
+
+UI/UX Designer
+
+DevOps Engineer
+
+QA Engineer
+
+Business Analyst
+
+Data Analyst
+
+Digital Marketing
+
+Graphic Designer
+
+Video Editor
+
+Content Writer
+
+Sales Executive
+
+HR
+
+Internship
+
+Other
+
+=========================================================
+RESUME
+=========================================================
+
+Allow upload.
+
+Supported
+
+PDF
+
+DOC
+
+DOCX
+
+Maximum
+
+10 MB
+
+Store securely.
+
+=========================================================
+VALIDATION
+=========================================================
+
+Validate
+
+Email
+
+Phone
+
+Required Fields
+
+Resume Type
+
+Maximum Size
+
+Prevent Spam
+
+Prevent Duplicate Submission
+
+=========================================================
+DATABASE
+=========================================================
+
+Create table
+
+job_applications
+
+Columns
+
+Application ID
+
+Reference Number
+
+Full Name
+
+Email
+
+Phone
+
+City
+
+Qualification
+
+College
+
+Graduation Year
+
+Experience
+
+Skills
+
+LinkedIn
+
+GitHub
+
+Portfolio
+
+Preferred Role
+
+Expected Salary
+
+Joining Availability
+
+Resume URL
+
+Cover Letter
+
+Status
+
+Applied At
+
+Updated At
+
+=========================================================
+DEFAULT STATUS
+=========================================================
+
+New
+
+=========================================================
+EMAIL NOTIFICATION
+=========================================================
+
+Immediately send email
+
+To
+
+aae@turbobytetech.com
+
+Subject
+
+📄 New Job Application - {{Candidate Name}}
+
+Include
+
+Application Reference
+
+Candidate Details
+
+Preferred Role
+
+Experience
+
+Qualification
+
+Resume Link
+
+=========================================================
+AUTO REPLY
+=========================================================
+
+Send acknowledgement email.
+
+Subject
+
+Application Received - TurboByte Tech Solutions
+
+Body
+
+Hello {{Candidate Name}}
+
+Thank you for your interest in joining TurboByte Tech Solutions.
+
+Your application has been received successfully.
+
+Reference Number
+
+{{Application Reference}}
+
+Our recruitment team will review your profile and contact you if your qualifications match our current or future opportunities.
+
+Regards
+
+TurboByte Tech Solutions Recruitment Team
+
+=========================================================
+ADMIN DASHBOARD
+=========================================================
+
+Create Recruitment Module.
+
+Show
+
+Total Applications
+
+Today's Applications
+
+This Month
+
+Shortlisted
+
+Interview Scheduled
+
+Selected
+
+Rejected
+
+=========================================================
+APPLICATION MANAGEMENT
+=========================================================
+
+Allow Admin to
+
+View Application
+
+Download Resume
+
+Update Status
+
+Assign Recruiter
+
+Add Internal Notes
+
+Search
+
+Filter
+
+Sort
+
+Delete
+
+Export CSV
+
+Export Excel
+
+=========================================================
+JOB MANAGEMENT
+=========================================================
+
+Allow Admin to
+
+Create Job
+
+Edit Job
+
+Delete Job
+
+Publish
+
+Close Position
+
+Archive
+
+=========================================================
+SEARCH
+=========================================================
+
+Search
+
+Candidate Name
+
+Skills
+
+College
+
+Role
+
+Experience
+
+=========================================================
+ANALYTICS
+=========================================================
+
+Display
+
+Applications Per Month
+
+Applications By Role
+
+Applications By Experience
+
+Hiring Funnel
+
+Selection Rate
+
+=========================================================
+SECURITY
+=========================================================
+
+Store resumes securely.
+
+Use signed URLs.
+
+Never expose storage paths.
+
+Validate uploads.
+
+Virus scan support ready.
+
+=========================================================
+SUCCESS MESSAGE
+=========================================================
+
+Display
+
+✅ Application Submitted Successfully
+
+Reference Number
+
+{{Application Reference}}
+
+Our recruitment team will review your application.
+
+=========================================================
+SEO
+=========================================================
+
+Title
+
+Careers | TurboByte Tech Solutions Private Limited
+
+Meta Description
+
+Explore career opportunities at TurboByte Tech Solutions. Join our AI-first technology company and work on innovative software, automation, and digital transformation projects.
+
+=========================================================
+QUALITY CHECK
+=========================================================
+
+✔ Existing UI maintained
+
+✔ Responsive
+
+✔ Resume Upload Works
+
+✔ Email Notification Works
+
+✔ Database Works
+
+✔ Admin Dashboard Works
+
+✔ Mobile Friendly
+
+✔ No Console Errors
+
+✔ Production Ready
+
+✔ Enterprise Quality

@@ -1,0 +1,1475 @@
+openapi: 3.1.0
+info:
+  # Do not change the title, if the title changes, the import paths will be broken
+  title: Api
+  version: 0.1.0
+  description: API specification
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: newsletter
+    description: Newsletter subscription
+  - name: demo
+    description: AI demo prototype generation
+  - name: inquiries
+    description: Contact and project inquiries
+  - name: caseStudies
+    description: Published case studies
+  - name: projects
+    description: Portfolio projects
+  - name: Storage
+    description: Object storage upload and serving endpoints.
+paths:
+  /newsletter/subscribe:
+    post:
+      operationId: subscribeNewsletter
+      tags: [newsletter]
+      summary: Subscribe to the newsletter
+      description: Stores an email address as a newsletter subscriber
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NewsletterSubscribeRequest"
+      responses:
+        "200":
+          description: Subscribed (or already subscribed)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NewsletterSubscribeResponse"
+        "400":
+          description: Invalid email address
+  /newsletter/unsubscribe:
+    post:
+      operationId: unsubscribeNewsletter
+      tags: [newsletter]
+      summary: Unsubscribe from the newsletter
+      description: Flags the subscriber matching the unique unsubscribe token as unsubscribed
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NewsletterUnsubscribeRequest"
+      responses:
+        "200":
+          description: Unsubscribed (or already unsubscribed)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NewsletterUnsubscribeResponse"
+        "400":
+          description: Missing token
+        "404":
+          description: Unknown unsubscribe token
+  /newsletter/subscribers:
+    get:
+      operationId: listNewsletterSubscribers
+      tags: [newsletter]
+      summary: List newsletter subscribers (admin only)
+      description: Returns every newsletter subscriber, newest first. Requires an authenticated admin session.
+      responses:
+        "200":
+          description: All subscribers, newest first
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/NewsletterSubscriber"
+        "401":
+          description: Not authenticated
+        "403":
+          description: Authenticated but not an admin
+  /inquiries/contact:
+    post:
+      operationId: submitContactInquiry
+      tags: [inquiries]
+      summary: Submit a contact form inquiry
+      description: Stores a contact form message as a company inquiry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContactInquiryInput"
+      responses:
+        "201":
+          description: Inquiry received
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InquiryStatus"
+        "400":
+          description: Invalid inquiry
+  /inquiries/project:
+    post:
+      operationId: submitProjectInquiry
+      tags: [inquiries]
+      summary: Submit a Start Your Project wizard inquiry
+      description: Stores a project wizard submission as a company inquiry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProjectInquiryInput"
+      responses:
+        "201":
+          description: Inquiry received
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InquiryStatus"
+        "400":
+          description: Invalid inquiry
+  /demo/prototype:
+    post:
+      operationId: generateDemoPrototype
+      tags: [demo]
+      summary: Generate a quick AI prototype from a short prompt
+      description: Generates a single-page HTML prototype preview from a visitor prompt (max 200 chars) and optional reference images. Rate limited per IP.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DemoPromptInput"
+      responses:
+        "201":
+          description: Prototype generated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DemoPrototypeResult"
+        "400":
+          description: Invalid prompt
+        "429":
+          description: Too many requests
+  /demo/submissions:
+    post:
+      operationId: submitDemoInquiry
+      tags: [demo]
+      summary: Send a liked prototype to the team with contact details
+      description: Stores the demo request as a project inquiry linked to the generated prototype and notifies the team.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DemoSubmissionInput"
+      responses:
+        "201":
+          description: Submission received
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InquiryStatus"
+        "400":
+          description: Invalid submission
+        "429":
+          description: Too many requests
+  /inquiries:
+    get:
+      operationId: listInquiries
+      tags: [inquiries]
+      summary: List all inquiries (admin only)
+      description: Returns every stored inquiry, newest first. Requires an authenticated admin session.
+      responses:
+        "200":
+          description: All inquiries, newest first
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Inquiry"
+        "401":
+          description: Not authenticated
+        "403":
+          description: Authenticated but not an admin
+  /inquiries/{id}:
+    patch:
+      operationId: updateInquiry
+      tags: [inquiries]
+      summary: Update an inquiry's status, assignee, or internal notes (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateInquiryRequest"
+      responses:
+        "200":
+          description: Updated inquiry
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Inquiry"
+        "400":
+          description: Invalid update
+        "401":
+          description: Not authenticated
+        "403":
+          description: Authenticated but not an admin
+        "404":
+          description: Inquiry not found
+  /inquiries/{id}/status:
+    patch:
+      operationId: updateInquiryStatus
+      tags: [inquiries]
+      summary: Update an inquiry's pipeline status (admin only)
+      description: Sets the lead status of a single inquiry. Requires an authenticated admin session.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateInquiryStatusRequest"
+      responses:
+        "200":
+          description: Updated inquiry
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Inquiry"
+        "400":
+          description: Invalid status
+        "401":
+          description: Not authenticated
+        "403":
+          description: Authenticated but not an admin
+        "404":
+          description: Inquiry not found
+  /case-studies:
+    get:
+      operationId: listCaseStudies
+      tags: [caseStudies]
+      summary: List all published case studies
+      description: Returns every case study, newest first.
+      responses:
+        "200":
+          description: All case studies
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CaseStudy"
+  /case-studies/{slug}:
+    get:
+      operationId: getCaseStudy
+      tags: [caseStudies]
+      summary: Get a single case study by slug
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: The case study
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CaseStudy"
+        "404":
+          description: Case study not found
+  /projects:
+    get:
+      operationId: listProjects
+      tags: [projects]
+      summary: List published portfolio projects
+      description: Returns published projects (with images), newest first.
+      responses:
+        "200":
+          description: Published projects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Project"
+  /projects/{slug}:
+    get:
+      operationId: getProject
+      tags: [projects]
+      summary: Get a single published project by slug
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: The project
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Project"
+        "404":
+          description: Project not found
+  /admin/projects:
+    get:
+      operationId: adminListProjects
+      tags: [projects]
+      summary: List all projects including drafts (admin only)
+      responses:
+        "200":
+          description: All projects, newest first
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Project"
+        "401":
+          description: Not authenticated
+        "403":
+          description: Authenticated but not an admin
+    post:
+      operationId: adminCreateProject
+      tags: [projects]
+      summary: Create a project (admin only)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProjectInput"
+      responses:
+        "201":
+          description: Created project
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Project"
+        "400":
+          description: Invalid project
+        "401":
+          description: Not authenticated
+        "403":
+          description: Authenticated but not an admin
+        "409":
+          description: Slug already exists
+  /admin/projects/{id}:
+    patch:
+      operationId: adminUpdateProject
+      tags: [projects]
+      summary: Update a project (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProjectUpdateInput"
+      responses:
+        "200":
+          description: Updated project
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Project"
+        "400":
+          description: Invalid update
+        "401":
+          description: Not authenticated
+        "403":
+          description: Authenticated but not an admin
+        "404":
+          description: Project not found
+        "409":
+          description: Slug already exists
+    delete:
+      operationId: adminDeleteProject
+      tags: [projects]
+      summary: Delete a project (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+        "401":
+          description: Not authenticated
+        "403":
+          description: Authenticated but not an admin
+        "404":
+          description: Project not found
+  /admin/projects/{id}/images:
+    post:
+      operationId: adminAddProjectImage
+      tags: [projects]
+      summary: Attach an uploaded image to a project (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProjectImageInput"
+      responses:
+        "201":
+          description: Created image record
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProjectImage"
+        "400":
+          description: Invalid image
+        "401":
+          description: Not authenticated
+        "403":
+          description: Authenticated but not an admin
+        "404":
+          description: Project not found
+  /admin/project-images/{id}:
+    delete:
+      operationId: adminDeleteProjectImage
+      tags: [projects]
+      summary: Delete a project image (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+        "401":
+          description: Not authenticated
+        "403":
+          description: Authenticated but not an admin
+        "404":
+          description: Image not found
+  /project-categories:
+    get:
+      operationId: listProjectCategories
+      tags: [projects]
+      summary: List project categories
+      responses:
+        "200":
+          description: All categories, alphabetical
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ProjectCategory"
+  /admin/project-categories:
+    post:
+      operationId: adminCreateProjectCategory
+      tags: [projects]
+      summary: Create a project category (admin only)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProjectCategoryInput"
+      responses:
+        "201":
+          description: Created category
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProjectCategory"
+        "400":
+          description: Invalid category
+        "401":
+          description: Not authenticated
+        "403":
+          description: Authenticated but not an admin
+        "409":
+          description: Category already exists
+  /admin/project-categories/{id}:
+    delete:
+      operationId: adminDeleteProjectCategory
+      tags: [projects]
+      summary: Delete a project category (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+        "401":
+          description: Not authenticated
+        "403":
+          description: Authenticated but not an admin
+        "404":
+          description: Category not found
+  /jobs:
+    get:
+      operationId: listJobs
+      tags: [careers]
+      summary: List open job postings
+      responses:
+        "200":
+          description: Open jobs, newest first
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Job"
+  /admin/jobs:
+    get:
+      operationId: adminListJobs
+      tags: [careers]
+      summary: List all job postings including closed/archived (admin only)
+      responses:
+        "200":
+          description: All jobs, newest first
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Job"
+        "401":
+          description: Not authenticated
+        "403":
+          description: Authenticated but not an admin
+    post:
+      operationId: adminCreateJob
+      tags: [careers]
+      summary: Create a job posting (admin only)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/JobInput"
+      responses:
+        "201":
+          description: Created job
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Job"
+        "400":
+          description: Invalid job
+        "401":
+          description: Not authenticated
+        "403":
+          description: Authenticated but not an admin
+  /admin/jobs/{id}:
+    patch:
+      operationId: adminUpdateJob
+      tags: [careers]
+      summary: Update a job posting (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/JobUpdate"
+      responses:
+        "200":
+          description: Updated job
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Job"
+        "400":
+          description: Invalid update
+        "401":
+          description: Not authenticated
+        "403":
+          description: Authenticated but not an admin
+        "404":
+          description: Job not found
+    delete:
+      operationId: adminDeleteJob
+      tags: [careers]
+      summary: Delete a job posting (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+        "401":
+          description: Not authenticated
+        "403":
+          description: Authenticated but not an admin
+        "404":
+          description: Job not found
+  /careers/resume-upload-url:
+    post:
+      operationId: requestResumeUploadUrl
+      tags: [careers]
+      summary: Request a presigned upload URL for a resume (public, rate limited)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ResumeUploadRequest"
+      responses:
+        "200":
+          description: Presigned upload URL and internal object path
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResumeUploadResponse"
+        "400":
+          description: Unsupported file type or size
+        "429":
+          description: Rate limited
+  /careers/applications:
+    post:
+      operationId: submitJobApplication
+      tags: [careers]
+      summary: Submit a job application
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/JobApplicationInput"
+      responses:
+        "201":
+          description: Application accepted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InquiryStatus"
+        "400":
+          description: Invalid application
+        "429":
+          description: Rate limited
+  /admin/applications:
+    get:
+      operationId: adminListApplications
+      tags: [careers]
+      summary: List all job applications (admin only)
+      responses:
+        "200":
+          description: Applications, newest first
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/JobApplication"
+        "401":
+          description: Not authenticated
+        "403":
+          description: Authenticated but not an admin
+  /admin/applications/{id}:
+    patch:
+      operationId: adminUpdateApplication
+      tags: [careers]
+      summary: Update an application's status, recruiter, or notes (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateApplicationRequest"
+      responses:
+        "200":
+          description: Updated application
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JobApplication"
+        "400":
+          description: Invalid update
+        "401":
+          description: Not authenticated
+        "403":
+          description: Authenticated but not an admin
+        "404":
+          description: Application not found
+    delete:
+      operationId: adminDeleteApplication
+      tags: [careers]
+      summary: Delete an application (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+        "401":
+          description: Not authenticated
+        "403":
+          description: Authenticated but not an admin
+        "404":
+          description: Application not found
+  /storage/uploads/request-url:
+    post:
+      tags: [Storage]
+      operationId: requestUploadUrl
+      summary: Request a presigned URL for file upload (admin only)
+      description: |
+        Returns a presigned GCS URL for direct upload. The client sends JSON
+        metadata here, then uploads the file directly to the returned URL.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UploadUrlRequest'
+      responses:
+        '200':
+          description: Presigned upload URL generated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadUrlResponse'
+        '400':
+          description: Missing or invalid required fields.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Authenticated but not an admin
+        '500':
+          description: Failed to generate upload URL.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+  /storage/public-objects/{filePath}:
+    get:
+      tags: [Storage]
+      operationId: getPublicObject
+      summary: Serve a public asset from PUBLIC_OBJECT_SEARCH_PATHS
+      parameters:
+        - name: filePath
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Object content streamed with correct Content-Type.
+          content:
+            '*/*':
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: File not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+        '500':
+          description: Failed to serve public object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+  /storage/objects/{objectPath}:
+    get:
+      tags: [Storage]
+      operationId: getStorageObject
+      summary: Serve an object entity from PRIVATE_OBJECT_DIR
+      parameters:
+        - name: objectPath
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Object content streamed with correct Content-Type.
+          content:
+            '*/*':
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Object not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+        '500':
+          description: Failed to serve object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      description: Returns server health status
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+components:
+  schemas:
+    NewsletterSubscribeRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          minLength: 3
+      required:
+        - email
+    NewsletterSubscribeResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [subscribed, already_subscribed]
+      required:
+        - status
+    NewsletterUnsubscribeRequest:
+      type: object
+      properties:
+        token:
+          type: string
+          minLength: 1
+      required:
+        - token
+    NewsletterUnsubscribeResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [unsubscribed, already_unsubscribed]
+      required:
+        - status
+    NewsletterSubscriber:
+      type: object
+      properties:
+        id:
+          type: integer
+        email:
+          type: string
+        createdAt:
+          type: string
+        unsubscribedAt:
+          type: ["string", "null"]
+      required:
+        - id
+        - email
+        - createdAt
+        - unsubscribedAt
+    DemoPromptInput:
+      type: object
+      properties:
+        prompt: { type: string, minLength: 5, maxLength: 200 }
+        images:
+          type: array
+          maxItems: 2
+          description: Optional reference images (logo, sketch, inspiration) the prototype should be based on.
+          items:
+            type: object
+            properties:
+              mediaType:
+                type: string
+                enum: [image/jpeg, image/png, image/webp, image/gif]
+              data:
+                type: string
+                maxLength: 2800000
+                description: Base64-encoded image bytes (no data URL prefix). Max ~2MB per image.
+            required:
+              - mediaType
+              - data
+        website:
+          type: string
+          description: Honeypot field — must be empty; bots that fill it are silently dropped.
+      required:
+        - prompt
+    DemoPrototypeResult:
+      type: object
+      properties:
+        prototypeId: { type: integer }
+        html: { type: string }
+      required:
+        - prototypeId
+        - html
+    DemoSubmissionInput:
+      type: object
+      properties:
+        prototypeId: { type: integer }
+        prompt: { type: string, minLength: 5, maxLength: 200 }
+        name: { type: string, minLength: 1 }
+        email: { type: string, minLength: 3 }
+        company: { type: string }
+        phone: { type: string, minLength: 5 }
+        budget: { type: string }
+        timeline: { type: string }
+        details: { type: string }
+        website:
+          type: string
+          description: Honeypot field — must be empty; bots that fill it are silently dropped.
+      required:
+        - prototypeId
+        - prompt
+        - name
+        - email
+        - phone
+    ContactInquiryInput:
+      type: object
+      properties:
+        name: { type: string, minLength: 1 }
+        email: { type: string, minLength: 3 }
+        company: { type: string }
+        phone: { type: string, minLength: 5 }
+        service: { type: string, minLength: 1 }
+        budget: { type: string, minLength: 1 }
+        message: { type: string, minLength: 1 }
+        website:
+          type: string
+          description: Honeypot field — must be empty; bots that fill it are silently dropped.
+      required: [name, email, phone, service, budget, message]
+    ProjectInquiryInput:
+      type: object
+      properties:
+        projectName: { type: string, minLength: 1 }
+        description: { type: string, minLength: 1 }
+        industry: { type: string, minLength: 1 }
+        services:
+          type: array
+          items: { type: string }
+        budget: { type: string }
+        timeline: { type: string, minLength: 1 }
+        name: { type: string, minLength: 1 }
+        company: { type: string, minLength: 1 }
+        email: { type: string, minLength: 3 }
+        phone: { type: string, minLength: 1 }
+        website:
+          type: string
+          description: Honeypot field — must be empty; bots that fill it are silently dropped.
+      required: [projectName, description, industry, timeline, name, company, email, phone]
+    Inquiry:
+      type: object
+      properties:
+        id: { type: integer }
+        type: { type: string, enum: [contact, project] }
+        name: { type: string }
+        email: { type: string }
+        company: { type: ["string", "null"] }
+        phone: { type: ["string", "null"] }
+        service: { type: ["string", "null"] }
+        budget: { type: ["string", "null"] }
+        message: { type: ["string", "null"] }
+        projectName: { type: ["string", "null"] }
+        description: { type: ["string", "null"] }
+        industry: { type: ["string", "null"] }
+        services: { type: ["string", "null"] }
+        timeline: { type: ["string", "null"] }
+        status: { type: string, enum: [new, contacted, closed] }
+        referenceNumber: { type: ["string", "null"] }
+        ipAddress: { type: ["string", "null"] }
+        browser: { type: ["string", "null"] }
+        device: { type: ["string", "null"] }
+        assignedTo: { type: ["string", "null"] }
+        internalNotes: { type: ["string", "null"] }
+        createdAt: { type: string }
+        updatedAt: { type: string }
+      required:
+        [
+          id,
+          type,
+          name,
+          email,
+          company,
+          phone,
+          service,
+          budget,
+          message,
+          projectName,
+          description,
+          industry,
+          services,
+          timeline,
+          status,
+          referenceNumber,
+          ipAddress,
+          browser,
+          device,
+          assignedTo,
+          internalNotes,
+          createdAt,
+          updatedAt,
+        ]
+    UpdateInquiryStatusRequest:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [new, contacted, closed]
+      required:
+        - status
+    InquiryStatus:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [received]
+        referenceNumber:
+          type: string
+          description: Public lead reference number shown to the visitor and used in emails.
+      required:
+        - status
+    Job:
+      type: object
+      properties:
+        id: { type: integer }
+        title: { type: string }
+        department: { type: string }
+        experience: { type: string }
+        employmentType: { type: string }
+        location: { type: string }
+        workMode: { type: string }
+        salary: { type: ["string", "null"] }
+        description: { type: string }
+        requirements: { type: ["string", "null"] }
+        responsibilities: { type: ["string", "null"] }
+        skills: { type: ["string", "null"] }
+        status: { type: string, enum: [open, closed, archived] }
+        createdAt: { type: string }
+        updatedAt: { type: string }
+      required:
+        [
+          id,
+          title,
+          department,
+          experience,
+          employmentType,
+          location,
+          workMode,
+          salary,
+          description,
+          requirements,
+          responsibilities,
+          skills,
+          status,
+          createdAt,
+          updatedAt,
+        ]
+    JobInput:
+      type: object
+      properties:
+        title: { type: string, minLength: 1 }
+        department: { type: string, minLength: 1 }
+        experience: { type: string, minLength: 1 }
+        employmentType: { type: string, minLength: 1 }
+        location: { type: string, minLength: 1 }
+        workMode: { type: string, minLength: 1 }
+        salary: { type: ["string", "null"] }
+        description: { type: string, minLength: 1 }
+        requirements: { type: ["string", "null"] }
+        responsibilities: { type: ["string", "null"] }
+        skills: { type: ["string", "null"] }
+        status: { type: string, enum: [open, closed, archived] }
+      required:
+        [title, department, experience, employmentType, location, workMode, description]
+    JobUpdate:
+      type: object
+      properties:
+        title: { type: string, minLength: 1 }
+        department: { type: string, minLength: 1 }
+        experience: { type: string, minLength: 1 }
+        employmentType: { type: string, minLength: 1 }
+        location: { type: string, minLength: 1 }
+        workMode: { type: string, minLength: 1 }
+        salary: { type: ["string", "null"] }
+        description: { type: string, minLength: 1 }
+        requirements: { type: ["string", "null"] }
+        responsibilities: { type: ["string", "null"] }
+        skills: { type: ["string", "null"] }
+        status: { type: string, enum: [open, closed, archived] }
+    JobApplicationInput:
+      type: object
+      properties:
+        jobId: { type: ["integer", "null"] }
+        fullName: { type: string, minLength: 1 }
+        email: { type: string, minLength: 3 }
+        phone: { type: string, minLength: 5 }
+        city: { type: string, minLength: 1 }
+        qualification: { type: string, minLength: 1 }
+        college: { type: string }
+        graduationYear: { type: string }
+        experience: { type: string }
+        skills: { type: string, minLength: 1 }
+        linkedin: { type: string }
+        github: { type: string }
+        portfolio: { type: string }
+        preferredRole: { type: string, minLength: 1 }
+        expectedSalary: { type: string }
+        joiningAvailability: { type: string }
+        resumePath: { type: string, minLength: 1 }
+        coverLetter: { type: string }
+        website:
+          type: string
+          description: Honeypot field — must be empty; bots that fill it are silently dropped.
+      required:
+        [fullName, email, phone, city, qualification, skills, preferredRole, resumePath]
+    JobApplication:
+      type: object
+      properties:
+        id: { type: integer }
+        referenceNumber: { type: string }
+        jobId: { type: ["integer", "null"] }
+        fullName: { type: string }
+        email: { type: string }
+        phone: { type: string }
+        city: { type: string }
+        qualification: { type: string }
+        college: { type: ["string", "null"] }
+        graduationYear: { type: ["string", "null"] }
+        experience: { type: ["string", "null"] }
+        skills: { type: string }
+        linkedin: { type: ["string", "null"] }
+        github: { type: ["string", "null"] }
+        portfolio: { type: ["string", "null"] }
+        preferredRole: { type: string }
+        expectedSalary: { type: ["string", "null"] }
+        joiningAvailability: { type: ["string", "null"] }
+        resumePath: { type: string }
+        coverLetter: { type: ["string", "null"] }
+        status:
+          type: string
+          enum: [new, shortlisted, interview_scheduled, selected, rejected]
+        assignedRecruiter: { type: ["string", "null"] }
+        internalNotes: { type: ["string", "null"] }
+        ipAddress: { type: ["string", "null"] }
+        createdAt: { type: string }
+        updatedAt: { type: string }
+      required:
+        [
+          id,
+          referenceNumber,
+          jobId,
+          fullName,
+          email,
+          phone,
+          city,
+          qualification,
+          college,
+          graduationYear,
+          experience,
+          skills,
+          linkedin,
+          github,
+          portfolio,
+          preferredRole,
+          expectedSalary,
+          joiningAvailability,
+          resumePath,
+          coverLetter,
+          status,
+          assignedRecruiter,
+          internalNotes,
+          ipAddress,
+          createdAt,
+          updatedAt,
+        ]
+    ResumeUploadRequest:
+      type: object
+      properties:
+        fileName: { type: string, minLength: 1 }
+        fileSize: { type: integer, minimum: 1 }
+      required: [fileName, fileSize]
+    ResumeUploadResponse:
+      type: object
+      properties:
+        uploadURL: { type: string }
+        objectPath: { type: string }
+      required: [uploadURL, objectPath]
+    UpdateApplicationRequest:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [new, shortlisted, interview_scheduled, selected, rejected]
+        assignedRecruiter: { type: ["string", "null"] }
+        internalNotes: { type: ["string", "null"] }
+    UpdateInquiryRequest:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [new, contacted, closed]
+        assignedTo: { type: ["string", "null"] }
+        internalNotes: { type: ["string", "null"] }
+    CaseStudy:
+      type: object
+      properties:
+        id: { type: integer }
+        slug: { type: string }
+        title: { type: string }
+        tagline: { type: string }
+        category: { type: string }
+        tags:
+          type: array
+          items: { type: string }
+        metricLabel: { type: string }
+        metricValue: { type: string }
+        secondaryMetricLabel: { type: ["string", "null"] }
+        secondaryMetricValue: { type: ["string", "null"] }
+        completedAt: { type: string }
+        client: { type: string }
+        summary: { type: string }
+        challenge: { type: string }
+        solution: { type: string }
+        outcomes:
+          type: array
+          items: { type: string }
+        techStack:
+          type: array
+          items: { type: string }
+        engagementType: { type: string }
+        duration: { type: string }
+      required:
+        [
+          id,
+          slug,
+          title,
+          tagline,
+          category,
+          tags,
+          metricLabel,
+          metricValue,
+          secondaryMetricLabel,
+          secondaryMetricValue,
+          completedAt,
+          client,
+          summary,
+          challenge,
+          solution,
+          outcomes,
+          techStack,
+          engagementType,
+          duration,
+        ]
+    ProjectImage:
+      type: object
+      properties:
+        id: { type: integer }
+        projectId: { type: integer }
+        imagePath: { type: string }
+        kind: { type: string, enum: [desktop, mobile, dashboard, feature] }
+        altText: { type: ["string", "null"] }
+        sortOrder: { type: integer }
+      required: [id, projectId, imagePath, kind, altText, sortOrder]
+    ProjectImageInput:
+      type: object
+      properties:
+        imagePath: { type: string, minLength: 1 }
+        kind: { type: string, enum: [desktop, mobile, dashboard, feature] }
+        altText: { type: string }
+        sortOrder: { type: integer }
+      required: [imagePath]
+    Project:
+      type: object
+      properties:
+        id: { type: integer }
+        slug: { type: string }
+        title: { type: string }
+        category: { type: string }
+        shortDescription: { type: string }
+        overview: { type: string }
+        clientIndustry: { type: ["string", "null"] }
+        challenge: { type: string }
+        solution: { type: string }
+        techStack:
+          type: array
+          items: { type: string }
+        processNotes: { type: ["string", "null"] }
+        results: { type: ["string", "null"] }
+        lessonsLearned: { type: ["string", "null"] }
+        thumbnailPath: { type: ["string", "null"] }
+        completedAt: { type: ["string", "null"] }
+        published: { type: boolean }
+        seoTitle: { type: ["string", "null"] }
+        seoDescription: { type: ["string", "null"] }
+        createdAt: { type: string }
+        updatedAt: { type: string }
+        images:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProjectImage"
+      required:
+        [
+          id,
+          slug,
+          title,
+          category,
+          shortDescription,
+          overview,
+          clientIndustry,
+          challenge,
+          solution,
+          techStack,
+          processNotes,
+          results,
+          lessonsLearned,
+          thumbnailPath,
+          completedAt,
+          published,
+          seoTitle,
+          seoDescription,
+          createdAt,
+          updatedAt,
+          images,
+        ]
+    ProjectInput:
+      type: object
+      properties:
+        slug: { type: string, minLength: 1 }
+        title: { type: string, minLength: 1 }
+        category: { type: string, minLength: 1 }
+        shortDescription: { type: string, minLength: 1 }
+        overview: { type: string, minLength: 1 }
+        clientIndustry: { type: ["string", "null"] }
+        challenge: { type: string, minLength: 1 }
+        solution: { type: string, minLength: 1 }
+        techStack:
+          type: array
+          items: { type: string }
+        processNotes: { type: ["string", "null"] }
+        results: { type: ["string", "null"] }
+        lessonsLearned: { type: ["string", "null"] }
+        thumbnailPath: { type: ["string", "null"] }
+        completedAt: { type: ["string", "null"] }
+        published: { type: boolean }
+        seoTitle: { type: ["string", "null"] }
+        seoDescription: { type: ["string", "null"] }
+      required: [slug, title, category, shortDescription, overview, challenge, solution, techStack]
+    ProjectUpdateInput:
+      type: object
+      properties:
+        slug: { type: string, minLength: 1 }
+        title: { type: string, minLength: 1 }
+        category: { type: string, minLength: 1 }
+        shortDescription: { type: string, minLength: 1 }
+        overview: { type: string, minLength: 1 }
+        clientIndustry: { type: ["string", "null"] }
+        challenge: { type: string, minLength: 1 }
+        solution: { type: string, minLength: 1 }
+        techStack:
+          type: array
+          items: { type: string }
+        processNotes: { type: ["string", "null"] }
+        results: { type: ["string", "null"] }
+        lessonsLearned: { type: ["string", "null"] }
+        thumbnailPath: { type: ["string", "null"] }
+        completedAt: { type: ["string", "null"] }
+        published: { type: boolean }
+        seoTitle: { type: ["string", "null"] }
+        seoDescription: { type: ["string", "null"] }
+    ProjectCategory:
+      type: object
+      properties:
+        id: { type: integer }
+        slug: { type: string }
+        name: { type: string }
+      required: [id, slug, name]
+    ProjectCategoryInput:
+      type: object
+      properties:
+        name: { type: string, minLength: 1 }
+      required: [name]
+    UploadUrlRequest:
+      type: object
+      required: [name, size, contentType]
+      properties:
+        name:
+          type: string
+          minLength: 1
+        size:
+          type: integer
+          minimum: 1
+        contentType:
+          type: string
+          minLength: 1
+    UploadUrlResponse:
+      type: object
+      required: [uploadURL, objectPath]
+      properties:
+        uploadURL:
+          type: string
+        objectPath:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/UploadUrlRequest'
+    ErrorEnvelope:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: string
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+

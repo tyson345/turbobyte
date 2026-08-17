@@ -1,0 +1,544 @@
+You are a senior full-stack developer, UI/UX designer, SEO specialist, and conversion-rate optimization expert.
+
+I have an existing live business website for:
+
+Company: TurboByte Tech Solutions Private Limited
+Website: https://turbobytetechsolutions.com/
+Location: Bengaluru, India
+Email: [aae@turbobytetech.com](mailto:aae@turbobytetech.com)
+WhatsApp/Phone: +91 7019793408
+
+Your task is to audit, improve, and professionally rebuild the existing website while preserving all working functionality and important existing content.
+
+Do not create a prototype. Build a complete, responsive, production-ready business website that can be deployed and used with real customers.
+
+## Main objective
+
+Transform the website into a premium, trustworthy, modern, AI-focused technology company website that generates leads and clearly explains the company’s services.
+
+The website must communicate within five seconds that TurboByte Tech Solutions builds:
+
+* Business websites
+* E-commerce websites
+* Web and mobile applications
+* Custom software
+* AI chatbots
+* AI automation
+* CRM systems
+* WhatsApp integrations
+* Lead-generation systems
+* Digital branding and marketing solutions
+
+## Step 1: Audit the existing project
+
+First, inspect the complete codebase and identify:
+
+* Current framework and technologies
+* Existing pages and sections
+* Broken links
+* Console errors
+* Missing images or assets
+* Duplicate code
+* Poorly structured components
+* Mobile responsiveness problems
+* Accessibility problems
+* SEO problems
+* Performance issues
+* Forms that do not work
+* Placeholder or dummy content
+* Inconsistent branding
+* Security concerns
+
+Preserve useful content and functionality. Refactor poor-quality code instead of unnecessarily replacing everything.
+
+## Step 2: Design direction
+
+Create a premium, futuristic, professional technology-company design.
+
+Use:
+
+* White or very light backgrounds for primary content
+* Purple and blue gradients as brand accents
+* Dark navy or black sections where appropriate
+* Clean cards
+* Subtle neon effects
+* Smooth gradients
+* Modern typography
+* Spacious layouts
+* Premium icons
+* Soft shadows
+* Rounded corners
+* Subtle animations
+* Strong mobile responsiveness
+
+Avoid:
+
+* Excessive animations
+* Cheap-looking neon effects
+* Cluttered sections
+* Too many colors
+* Large walls of text
+* Generic template appearance
+* Unnecessary 3D effects that reduce performance
+* Fake statistics or fake client logos
+
+The design should feel credible enough for real businesses, clinics, startups, restaurants, retailers, and corporate clients.
+
+## Step 3: Improve the homepage
+
+Create the following homepage structure.
+
+### Header
+
+Include:
+
+* TurboByte Tech Solutions logo
+* Home
+* Services
+* Solutions
+* Portfolio
+* About
+* Contact
+* A prominent “Book a Free Consultation” button
+* Mobile hamburger navigation
+* Sticky navigation after scrolling
+
+### Hero section
+
+Use this main headline:
+
+“AI-Powered Websites, Apps and Automation for Growing Businesses”
+
+Use this supporting text:
+
+“TurboByte Tech Solutions designs and develops high-performance websites, custom applications, AI automation, CRM systems and WhatsApp integrations that help businesses work smarter and grow faster.”
+
+Add two buttons:
+
+* Book a Free Consultation
+* View Our Work
+
+Add a professional technology visual, dashboard illustration, application interface, or abstract AI graphic. Do not use irrelevant stock photos.
+
+Also include small trust points:
+
+* Custom-built solutions
+* Mobile responsive
+* SEO ready
+* Secure and scalable
+* End-to-end support
+
+### Services section
+
+Create six professional service cards:
+
+1. Website and E-commerce Development
+2. Web and Mobile Application Development
+3. AI Chatbots and Automation
+4. CRM and Business Management Systems
+5. WhatsApp and API Integrations
+6. Branding and Digital Growth Solutions
+
+Each card should contain:
+
+* Relevant icon
+* Short description
+* “Learn More” link
+* Clear hover state
+
+### Why choose us section
+
+Include:
+
+* Business-focused development
+* Custom solutions instead of generic templates
+* Transparent communication
+* Modern and scalable technology
+* Post-launch support
+* Fast and responsive delivery
+
+Do not make unrealistic promises.
+
+### Development process section
+
+Show the process clearly:
+
+1. Discovery and consultation
+2. Strategy and planning
+3. UI/UX design
+4. Development
+5. Testing
+6. Deployment
+7. Maintenance and growth
+
+### Featured work section
+
+Create reusable portfolio cards.
+
+Each portfolio item must support:
+
+* Project image
+* Project name
+* Client industry
+* Problem
+* Solution
+* Services delivered
+* Technology stack
+* Results
+* Live website link
+* Case-study link
+
+Use clearly marked sample content only where real project details are unavailable. Do not present sample projects as real clients.
+
+### Technology section
+
+Display technologies in organized categories:
+
+Frontend:
+
+* React
+* Next.js
+* HTML
+* CSS
+* JavaScript
+* TypeScript
+
+Backend:
+
+* Node.js
+* Express
+* Python
+* APIs
+
+Database:
+
+* PostgreSQL
+* MySQL
+* MongoDB
+* Supabase
+* Firebase
+
+Cloud and deployment:
+
+* Vercel
+* Replit
+* AWS
+* Cloudflare
+
+Automation and integrations:
+
+* OpenAI
+* WhatsApp Cloud API
+* CRM integrations
+* Zapier
+* Make
+
+Only display technologies that the project or company genuinely supports. Keep the data easy to edit.
+
+### Testimonials section
+
+Build a reusable testimonials component.
+
+Do not invent testimonials. If there are no real testimonials, display an admin-friendly empty state or hide the section until real testimonials are added.
+
+### Call-to-action section
+
+Use:
+
+“Ready to Build Your Next Digital Solution?”
+
+Supporting text:
+
+“Tell us about your business, challenges and goals. Our team will help you identify the right website, application or automation solution.”
+
+Button:
+
+“Book a Free Consultation”
+
+### Contact section
+
+Add a lead-generation form with:
+
+* Full name
+* Business name
+* Email
+* Phone/WhatsApp number
+* Required service
+* Approximate budget
+* Project description
+* Consent checkbox
+
+Add validation, loading state, success state and error handling.
+
+Display:
+
+TurboByte Tech Solutions Private Limited
+Bengaluru, India
+[aae@turbobytetech.com](mailto:aae@turbobytetech.com)
++91 7019793408
+
+Add clickable email and WhatsApp links.
+
+Use this WhatsApp pre-filled message:
+
+“Hello TurboByte Tech Solutions, I would like to discuss a website, application or automation project.”
+
+### Footer
+
+Include:
+
+* Company name and description
+* Services
+* Quick links
+* Contact information
+* Social links
+* Privacy Policy
+* Terms and Conditions
+* Cookie Policy
+* Copyright year generated dynamically
+
+## Step 4: Create dedicated pages
+
+Create or improve the following pages:
+
+* Home
+* About Us
+* Services
+* Website Development
+* E-commerce Development
+* Application Development
+* AI Chatbots and Automation
+* CRM and Business Automation
+* WhatsApp Integration
+* Portfolio
+* Individual case-study template
+* Contact
+* Privacy Policy
+* Terms and Conditions
+* Cookie Policy
+* 404 page
+
+Each service page should contain:
+
+* Clear headline
+* Business problems solved
+* Services included
+* Features
+* Benefits
+* Development process
+* Technology used
+* Frequently asked questions
+* Strong call-to-action
+
+## Step 5: SEO improvements
+
+Implement complete on-page technical SEO.
+
+Add:
+
+* Unique page titles
+* Unique meta descriptions
+* Correct H1, H2 and H3 structure
+* Canonical URLs
+* Open Graph metadata
+* Twitter/X card metadata
+* Favicon
+* Web manifest where appropriate
+* Robots.txt
+* XML sitemap
+* Image alt text
+* Semantic HTML
+* Internal linking
+* Breadcrumbs on relevant pages
+* Organization schema
+* LocalBusiness schema
+* Service schema
+* FAQ schema where valid
+* ContactPoint schema
+
+Use Bengaluru and Bangalore naturally where appropriate, without keyword stuffing.
+
+Important target phrases include:
+
+* Website development company in Bangalore
+* AI automation company in Bangalore
+* Custom software development company in Bangalore
+* E-commerce website development
+* AI chatbot development
+* WhatsApp automation services
+* CRM development company
+* Web application development company
+
+Do not repeat keywords unnaturally.
+
+## Step 6: Performance
+
+Optimize the website for production.
+
+Implement:
+
+* Responsive images
+* Lazy loading
+* Modern image formats
+* Image compression
+* Code splitting
+* Route-level lazy loading where appropriate
+* Minified production build
+* Font optimization
+* Reduced JavaScript
+* Proper caching
+* Elimination of layout shifts
+* Lightweight animations
+* Removal of unused dependencies
+
+Target strong Lighthouse scores, especially on mobile.
+
+## Step 7: Accessibility
+
+Ensure:
+
+* Keyboard navigation
+* Visible focus states
+* Sufficient color contrast
+* Proper labels
+* Accessible form errors
+* Semantic landmarks
+* Descriptive link text
+* ARIA attributes only where necessary
+* Reduced-motion support
+* Accessible mobile menu
+
+## Step 8: Lead storage and integrations
+
+Connect the consultation form to a reliable backend.
+
+Preferred implementation:
+
+* Store leads securely in Supabase or PostgreSQL
+* Create a leads table
+* Include submission timestamp
+* Save service, budget and project details
+* Prevent spam
+* Validate data on the server
+* Keep secrets in environment variables
+* Never expose private keys in frontend code
+
+Lead fields:
+
+* id
+* full_name
+* business_name
+* email
+* phone
+* service
+* budget
+* project_description
+* consent
+* source_page
+* created_at
+* status
+
+Default status should be “New”.
+
+Also add:
+
+* Email notification to [aae@turbobytetech.com](mailto:aae@turbobytetech.com) after a successful submission
+* Optional WhatsApp contact redirect after submission
+* Clearly commented integration points for CRM or automation tools
+
+If credentials are unavailable, build the complete integration structure, provide the SQL schema, create an `.env.example` file and show exactly where the credentials must be entered.
+
+Do not hard-code secrets.
+
+## Step 9: Code quality
+
+Use:
+
+* Reusable components
+* Clear folder structure
+* Consistent naming
+* TypeScript where supported
+* Centralized site configuration
+* Centralized contact information
+* Centralized services and portfolio data
+* Error boundaries where appropriate
+* Clean API structure
+* Proper loading and empty states
+* Helpful comments only where necessary
+
+Avoid:
+
+* Huge single-file components
+* Repeated contact information in multiple files
+* Inline secrets
+* Unused code
+* Unnecessary libraries
+* Broken imports
+* Placeholder lorem ipsum text
+
+Create a configuration file where I can easily edit:
+
+* Company name
+* Phone
+* Email
+* Address
+* Social links
+* Services
+* Portfolio items
+* Testimonials
+* Technology stack
+* SEO defaults
+
+## Step 10: Security
+
+Implement:
+
+* Server-side validation
+* Input sanitization
+* Rate limiting where supported
+* Spam protection
+* Secure environment variables
+* Safe error messages
+* Secure database access
+* Protection against common form injection attacks
+* Appropriate security headers
+* No sensitive data in browser logs
+
+## Step 11: Final verification
+
+Before completing the work:
+
+* Run the development server
+* Run the production build
+* Fix all build errors
+* Fix console errors
+* Test every page
+* Test all navigation
+* Test mobile, tablet and desktop layouts
+* Test the contact form
+* Test invalid form submissions
+* Check all buttons and links
+* Check WhatsApp and email links
+* Verify sitemap and robots.txt
+* Verify metadata for every page
+* Check the 404 page
+* Remove placeholder text
+* Remove unused dependencies
+* Confirm there are no exposed secrets
+
+## Final response requirements
+
+After completing the website, provide:
+
+1. Summary of changes made
+2. List of files created or modified
+3. Technology stack used
+4. Database setup instructions
+5. Environment variables required
+6. Deployment instructions
+7. Form testing instructions
+8. SEO improvements completed
+9. Any content or credentials I still need to provide
+10. A list of sample or placeholder content that must be replaced
+
+Do not stop after giving suggestions. Inspect the existing code, implement the improvements, test the application and make it production-ready.

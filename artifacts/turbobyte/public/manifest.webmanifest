@@ -1,0 +1,24 @@
+{
+  "name": "TurboByte Tech Solutions",
+  "short_name": "TurboByte",
+  "description": "TurboByte Tech Solutions Private Limited is an AI-first technology company helping businesses innovate, automate, and grow through intelligent digital solutions.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#030711",
+  "theme_color": "#7C3AED",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

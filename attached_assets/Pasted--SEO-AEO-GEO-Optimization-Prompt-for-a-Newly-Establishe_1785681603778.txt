@@ -1,0 +1,283 @@
+# SEO + AEO + GEO Optimization Prompt for a Newly Established Company
+
+You are an expert Technical SEO, AI Search Optimization (AEO), Generative Engine Optimization (GEO), React/Next.js developer, and UX specialist.
+
+The website belongs to **TurboByte Tech Solutions Private Limited**, a newly established AI-first software development company.
+
+## Important Context
+
+This is a **new company**.
+
+Do NOT generate or display:
+
+* Fake testimonials
+* Fake client reviews
+* Fake client logos
+* Fake case studies
+* Fake project counts
+* Fake awards
+* Fake certifications
+* Fake statistics
+* Fake success metrics
+* Fake years of experience
+
+Only use truthful, professional, and trustworthy content.
+
+---
+
+## Primary Goal
+
+Improve the website to achieve:
+
+* SEO Score: 95+
+* AEO Score: 95+
+* GEO Score: 95+
+
+without changing the current design, branding, animations, responsiveness, or functionality.
+
+---
+
+# 1. Technical SEO
+
+Optimize:
+
+* Page titles
+* Meta descriptions
+* Canonical URLs
+* Robots metadata
+* Open Graph metadata
+* Twitter Cards
+* Favicon
+* Theme color
+* Sitemap
+* Robots.txt
+* Structured internal linking
+
+---
+
+# 2. AI Search Optimization (AEO)
+
+Immediately below the hero section, add a concise summary answering:
+
+* What is TurboByte Tech Solutions?
+* Who do we help?
+* What services do we provide?
+* Why choose us?
+
+Keep the summary easy for Google AI, ChatGPT, Gemini, Claude, Copilot, and Perplexity to understand.
+
+---
+
+# 3. Add Clear Audience Sections
+
+Include sections explaining who the company serves:
+
+* Startups
+* Small Businesses
+* Medium Businesses
+* Enterprises
+* Educational Institutions
+* Healthcare
+* Retail
+* Manufacturing
+* Finance
+* Logistics
+* Hospitality
+* Real Estate
+
+Explain how each audience benefits.
+
+---
+
+# 4. Improve Every Service Page
+
+For every service include:
+
+* What it is
+* Why businesses need it
+* Who should use it
+* Benefits
+* Technologies used
+* Typical timeline
+* Maintenance options
+
+---
+
+# 5. Add Practical Examples Instead of Client Projects
+
+Since this is a new company, create a section titled:
+
+### Solutions We Can Build
+
+Include examples such as:
+
+* Business Websites
+* AI Chatbots
+* ERP Systems
+* CRM Software
+* Attendance Management Systems
+* HRMS
+* School Management Software
+* Hospital Management Systems
+* Inventory Management
+* E-commerce Platforms
+* Booking Platforms
+* Restaurant Ordering Systems
+* Mobile Applications
+* SaaS Platforms
+* Custom Dashboards
+* Automation Workflows
+
+Clearly state that these are examples of the types of solutions TurboByte can develop.
+
+Do not imply they have already been delivered.
+
+---
+
+# 6. Trust Building Without Fake Reviews
+
+Instead of testimonials, add sections like:
+
+## Why Choose TurboByte Tech Solutions
+
+Highlight:
+
+* Modern technology stack
+* AI-first development approach
+* Custom software solutions
+* Scalable architecture
+* Responsive design
+* Secure coding practices
+* Performance optimization
+* Ongoing maintenance
+* Transparent communication
+* Dedicated support
+
+---
+
+# 7. Development Process
+
+Create a professional workflow:
+
+1. Discovery Call
+2. Requirement Analysis
+3. Planning
+4. UI/UX Design
+5. Development
+6. Testing
+7. Deployment
+8. Training
+9. Maintenance & Support
+
+---
+
+# 8. FAQ Optimization
+
+Create useful FAQs such as:
+
+* What services does TurboByte provide?
+* How long does a website take to build?
+* How much does custom software cost?
+* Do you develop mobile apps?
+* Can you build AI-powered applications?
+* Do you provide website maintenance?
+* Can existing software be upgraded?
+* Which industries do you serve?
+* How do I start a project?
+
+Each FAQ should have a concise answer immediately below the question.
+
+Implement matching FAQ schema.
+
+---
+
+# 9. Structured Data
+
+Implement valid JSON-LD for:
+
+* Organization
+* LocalBusiness
+* WebSite
+* WebPage
+* Service
+* BreadcrumbList
+* FAQPage
+* ContactPoint
+* PostalAddress
+* OfferCatalog
+
+Only include Article schema if there is actual article content.
+
+---
+
+# 10. GEO Optimization
+
+Optimize content for AI-powered search by including:
+
+* Clear definitions
+* Business use cases
+* Decision-making guidance
+* Comparison tables
+* Checklists
+* Practical examples
+* Industry-specific explanations
+
+Write naturally and avoid keyword stuffing.
+
+---
+
+# 11. Company Transparency
+
+Add a section explaining:
+
+"TurboByte Tech Solutions is a newly established technology company focused on delivering modern AI-powered software solutions. While we are at the beginning of our journey, our mission is to build reliable, scalable, and high-quality digital products for businesses of all sizes."
+
+This builds trust without making unsupported claims.
+
+---
+
+# 12. Contact & Conversion
+
+Strengthen calls to action throughout the site:
+
+* Request a Free Consultation
+* Get a Custom Quote
+* Schedule a Discovery Call
+* Discuss Your Project
+* Contact Our Team
+
+---
+
+# 13. Performance & Accessibility
+
+Ensure:
+
+* Fast loading
+* Semantic HTML
+* Proper heading hierarchy
+* Accessible forms
+* Optimized images
+* Mobile responsiveness
+* Core Web Vitals optimization
+
+---
+
+# 14. Validation Checklist
+
+Before completing the work, verify:
+
+* No fake claims
+* No fake testimonials
+* No fake statistics
+* No fake projects
+* No broken links
+* Proper schema validation
+* Complete SEO metadata
+* Open Graph tags
+* Twitter Cards
+* FAQ schema
+* Breadcrumb schema
+* Mobile optimization
+* Accessibility compliance
+
+Finally, provide a summary of all modified files and explain how each change improves SEO, AEO, GEO, user trust, and AI search visibility while maintaining complete honesty about the company's current stage.

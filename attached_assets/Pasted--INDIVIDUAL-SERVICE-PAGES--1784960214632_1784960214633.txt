@@ -1,0 +1,508 @@
+=========================================================
+INDIVIDUAL SERVICE PAGES
+=========================================================
+
+IMPORTANT
+
+Do NOT redesign the website.
+
+Keep the exact same premium UI.
+
+Keep the dark theme.
+
+Keep purple gradients.
+
+Keep glassmorphism.
+
+Keep typography.
+
+Keep spacing.
+
+Keep animations.
+
+Every "Learn More" button on the Services page must navigate to its own fully functional page.
+
+There must never be a 404 page.
+
+=========================================================
+SERVICES
+=========================================================
+
+Create individual pages for:
+
+1.
+AI Customer-Support Chatbots
+
+2.
+AI Voice Agents & Virtual Receptionists
+
+3.
+AI Lead-Generation & Sales Assistants
+
+4.
+Company Knowledge-Base Assistants
+
+5.
+Business Workflow Automation
+
+6.
+AI-Powered Website Development
+
+7.
+Custom Application Development
+
+8.
+Brand Identity & Graphic Design
+
+9.
+AI Image Solutions
+
+10.
+AI Video & Cinematic Content
+
+11.
+Content & Digital Marketing Creatives
+
+12.
+Corporate Presentations & Documentation
+
+13.
+AI Consulting & Custom Solutions
+
+=========================================================
+PAGE STRUCTURE
+=========================================================
+
+Every page should contain
+
+Hero Section
+
+Overview
+
+Business Problems We Solve
+
+Features
+
+Benefits
+
+Industries Served
+
+Development Process
+
+Technology Stack
+
+Frequently Asked Questions
+
+Related Services
+
+Contact CTA
+
+Start Your Project CTA
+
+=========================================================
+HERO SECTION
+=========================================================
+
+Large title
+
+Professional subtitle
+
+Animated background
+
+Glassmorphism card
+
+Primary Button
+
+Start Your Project
+
+Secondary Button
+
+Book Free Consultation
+
+=========================================================
+OVERVIEW
+=========================================================
+
+Write professional business-oriented content.
+
+Explain
+
+What the service is
+
+Who it is for
+
+Why businesses need it
+
+How TurboByte delivers it
+
+Avoid unnecessary marketing buzzwords.
+
+Keep content concise, professional and informative.
+
+=========================================================
+BUSINESS PROBLEMS WE SOLVE
+=========================================================
+
+Display as premium cards.
+
+Examples
+
+Manual work
+
+Slow customer support
+
+Poor lead conversion
+
+Disconnected systems
+
+Low productivity
+
+High operational cost
+
+Limited scalability
+
+=========================================================
+FEATURES
+=========================================================
+
+Display feature cards.
+
+Examples
+
+AI Automation
+
+Cloud Ready
+
+Fast Performance
+
+Secure Architecture
+
+Responsive Design
+
+Enterprise Grade
+
+Easy Integration
+
+Analytics
+
+=========================================================
+BENEFITS
+=========================================================
+
+Explain measurable business benefits.
+
+Increase productivity
+
+Reduce costs
+
+Improve customer satisfaction
+
+Faster response times
+
+Business growth
+
+Better decision making
+
+Scalable infrastructure
+
+=========================================================
+INDUSTRIES
+=========================================================
+
+Healthcare
+
+Education
+
+Finance
+
+Retail
+
+Manufacturing
+
+Hospitality
+
+Real Estate
+
+Professional Services
+
+Startups
+
+SMEs
+
+Enterprise Businesses
+
+=========================================================
+OUR PROCESS
+=========================================================
+
+Timeline
+
+1
+
+Consultation
+
+2
+
+Requirement Analysis
+
+3
+
+Planning
+
+4
+
+Design
+
+5
+
+Development
+
+6
+
+Testing
+
+7
+
+Deployment
+
+8
+
+Support
+
+=========================================================
+TECHNOLOGY STACK
+=========================================================
+
+Display premium technology cards.
+
+React
+
+Next.js
+
+TypeScript
+
+Node.js
+
+Python
+
+Java
+
+PostgreSQL
+
+MongoDB
+
+Docker
+
+AWS
+
+Supabase
+
+OpenAI
+
+Anthropic
+
+Google AI
+
+Tailwind CSS
+
+=========================================================
+WHY CHOOSE TURBOBYTE
+=========================================================
+
+AI-First Company
+
+Experienced Team
+
+Business Focused
+
+Scalable Solutions
+
+Secure Development
+
+Modern Technologies
+
+Transparent Communication
+
+Long-Term Support
+
+=========================================================
+FAQ
+=========================================================
+
+Create accordion.
+
+Examples
+
+How long does development take?
+
+Can this integrate with existing systems?
+
+Do you provide maintenance?
+
+Can features be customized?
+
+What industries do you serve?
+
+=========================================================
+RELATED SERVICES
+=========================================================
+
+Display related service cards.
+
+Example
+
+AI Chatbots
+
+↓
+
+Business Automation
+
+↓
+
+Knowledge Base Assistant
+
+↓
+
+Voice Agent
+
+Users should easily navigate between services.
+
+=========================================================
+CTA
+=========================================================
+
+Heading
+
+Ready to Transform Your Business?
+
+Content
+
+Let's build an intelligent solution tailored specifically for your business.
+
+Buttons
+
+Start Your Project
+
+Contact Us
+
+=========================================================
+FORM INTEGRATION
+=========================================================
+
+When user clicks
+
+Start Your Project
+
+Automatically open the project enquiry form.
+
+The service currently being viewed should already be selected.
+
+Example
+
+If user is on
+
+AI Chatbots
+
+the dropdown should automatically select
+
+AI Customer-Support Chatbots
+
+=========================================================
+CONTACT FORM
+=========================================================
+
+If user clicks
+
+Contact Us
+
+Open Contact Form.
+
+Automatically populate
+
+Interested Service
+
+with current page.
+
+=========================================================
+SEO
+=========================================================
+
+Generate unique
+
+Page Title
+
+Meta Description
+
+OpenGraph
+
+Twitter Card
+
+Canonical URL
+
+Structured Data
+
+for every service.
+
+=========================================================
+BREADCRUMB
+=========================================================
+
+Display
+
+Home
+
+>
+
+Services
+
+>
+
+Current Service
+
+=========================================================
+PERFORMANCE
+=========================================================
+
+Lazy load images.
+
+Optimize animations.
+
+Fast loading.
+
+No layout shift.
+
+=========================================================
+RESPONSIVE
+=========================================================
+
+Desktop
+
+Laptop
+
+Tablet
+
+Mobile
+
+Ultra Wide
+
+=========================================================
+QUALITY CHECK
+=========================================================
+
+✔ No 404 pages.
+
+✔ Every Learn More button works.
+
+✔ Every CTA works.
+
+✔ Responsive.
+
+✔ SEO optimized.
+
+✔ Production ready.
+
+✔ Enterprise quality.
+
+✔ No placeholder content.
+
+✔ Maintain current UI.

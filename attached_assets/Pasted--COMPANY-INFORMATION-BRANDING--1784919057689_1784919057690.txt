@@ -1,0 +1,371 @@
+=========================================================
+COMPANY INFORMATION & BRANDING
+=========================================================
+
+Replace every placeholder company name, email, phone number, logo, address, and dummy content across the entire website.
+
+Use the following official company information.
+
+=========================================================
+COMPANY DETAILS
+=========================================================
+
+Company Name
+
+TurboByte Tech Solutions Private Limited
+
+Tagline
+
+Building the Future of Business with Artificial Intelligence.
+
+Business Type
+
+AI-First Technology Company
+
+Industry
+
+Artificial Intelligence
+Software Development
+Business Automation
+Digital Transformation
+
+Founded
+
+2026
+
+Headquarters
+
+Kudlu Gate,
+Bengaluru,
+Karnataka,
+India
+
+Business Email
+
+aae@turbobytetech.com
+
+Phone Number
+
++91 7019793408
+
+Website
+
+https://turbobytetechsolutions.com
+
+=========================================================
+OFFICIAL WEBSITE DESCRIPTION
+=========================================================
+
+TurboByte Tech Solutions Private Limited is an AI-first technology company helping businesses innovate, automate, and grow through intelligent digital solutions.
+
+We specialize in premium websites, custom software, AI-powered applications, business automation, branding, digital experiences, and scalable technology solutions that solve real business challenges.
+
+Our focus is on delivering secure, modern, reliable, and future-ready products that combine artificial intelligence, creativity, and engineering excellence.
+
+=========================================================
+MISSION
+=========================================================
+
+To empower businesses with intelligent technology, automation, and AI-driven solutions that improve efficiency, accelerate growth, and create measurable business value.
+
+=========================================================
+VISION
+=========================================================
+
+To become one of the world's most respected AI-first technology companies by delivering innovative, reliable, and future-ready digital solutions.
+
+=========================================================
+CORE VALUES
+=========================================================
+
+Innovation
+
+Integrity
+
+Customer Success
+
+Quality
+
+Transparency
+
+Reliability
+
+Continuous Learning
+
+Long-Term Partnerships
+
+=========================================================
+COMPANY HIGHLIGHTS
+=========================================================
+
+AI-First Development
+
+Enterprise Solutions
+
+Business Automation
+
+Scalable Architecture
+
+Premium UI/UX
+
+Modern Technologies
+
+Fast Delivery
+
+Dedicated Support
+
+Secure Development
+
+=========================================================
+OFFICIAL SERVICES
+=========================================================
+
+Display these services consistently across the website.
+
+AI Customer-Support Chatbots
+
+AI Voice Agents & Virtual Receptionists
+
+AI Lead-Generation & Sales Assistants
+
+Company Knowledge-Base Assistants
+
+Business Workflow Automation
+
+AI-Powered Website Development
+
+Custom Application Development
+
+Web Application Development
+
+Mobile App Development
+
+SaaS Product Development
+
+Business Dashboards
+
+AI Image Solutions
+
+AI Video & Cinematic Content
+
+Brand Identity & Graphic Design
+
+Corporate Presentations
+
+Business Documentation
+
+Content & Digital Marketing Creatives
+
+AI Consulting
+
+Custom AI Solutions
+
+=========================================================
+SOCIAL MEDIA
+=========================================================
+
+Prepare placeholders for
+
+LinkedIn
+
+Instagram
+
+Facebook
+
+X (Twitter)
+
+GitHub
+
+YouTube
+
+The icons should only appear if the respective URL is configured in settings.
+
+=========================================================
+CLICKABLE CONTACT DETAILS
+=========================================================
+
+Business Email
+
+mailto:aae@turbobytetech.com
+
+Phone
+
+tel:+917019793408
+
+Address
+
+Open Google Maps using
+
+"Kudlu Gate Bengaluru Karnataka"
+
+Address should open Google Maps in a new tab.
+
+=========================================================
+CONTACT PAGE
+=========================================================
+
+Replace all fake information.
+
+Remove fake US address.
+
+Remove fake phone number.
+
+Remove fake email.
+
+Display
+
+Business Email
+
+Phone Number
+
+Business Hours
+
+Address
+
+Response Time
+
+Business Hours
+
+Monday - Saturday
+
+9:00 AM – 7:00 PM IST
+
+Response Time
+
+Within 24 Business Hours
+
+=========================================================
+TRUST SECTION
+=========================================================
+
+Add a trust card.
+
+✔ AI-First Technology Company
+
+✔ Secure Development
+
+✔ Enterprise Quality
+
+✔ Customer Focused
+
+✔ Future Ready Solutions
+
+=========================================================
+FOOTER
+=========================================================
+
+Display
+
+TurboByte Tech Solutions Private Limited
+
+Building the Future of Business with Artificial Intelligence.
+
+Quick Links
+
+Services
+
+Resources
+
+Company
+
+Contact
+
+Email
+
+Phone
+
+Address
+
+Copyright
+
+© 2026 TurboByte Tech Solutions Private Limited.
+
+All Rights Reserved.
+
+=========================================================
+LOGO
+=========================================================
+
+Use the uploaded TurboByte Tech Solutions logo everywhere.
+
+Navbar
+
+Footer
+
+Loading Screen
+
+Emails
+
+Admin Dashboard
+
+404 Page
+
+500 Page
+
+Manifest
+
+Favicon
+
+OpenGraph
+
+Apple Touch Icon
+
+If the uploaded logo contains a white background,
+
+create a transparent version.
+
+Use transparent version in Dark Mode.
+
+Keep the original appearance.
+
+Do not modify brand colors.
+
+=========================================================
+BRANDING RULES
+=========================================================
+
+Maintain a consistent identity across every page.
+
+The website should always communicate:
+
+Professional
+
+Modern
+
+AI-First
+
+Premium
+
+Reliable
+
+Innovative
+
+Business Focused
+
+Future Ready
+
+Never use placeholder content.
+
+Never use lorem ipsum.
+
+Never use fake company information.
+
+=========================================================
+FINAL CHECK
+=========================================================
+
+✔ Replace all placeholder company details.
+
+✔ Replace fake contact information.
+
+✔ Ensure all contact links are clickable.
+
+✔ Maintain consistent branding.
+
+✔ Use the uploaded logo across the entire website.
+
+✔ Keep the existing UI exactly as it is.
+
+✔ Enterprise quality.
+
+✔ Production ready.

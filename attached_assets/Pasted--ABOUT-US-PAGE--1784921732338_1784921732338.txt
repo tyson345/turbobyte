@@ -1,0 +1,323 @@
+=========================================================
+ABOUT US PAGE
+=========================================================
+
+Do NOT redesign the existing UI.
+
+Keep the same premium dark theme, purple gradients, glassmorphism, spacing, typography and animations.
+
+Only improve the content and functionality.
+
+The About page should communicate trust, professionalism and innovation while remaining clean and easy to read.
+
+=========================================================
+PAGE HERO
+=========================================================
+
+Title
+
+About TurboByte Tech Solutions
+
+Subtitle
+
+Building the Future of Business with Artificial Intelligence.
+
+Background
+
+Use the same animated gradient used throughout the website.
+
+Include a subtle animated AI-inspired background without affecting performance.
+
+=========================================================
+WHO WE ARE
+=========================================================
+
+Section Title
+
+Who We Are
+
+Content
+
+TurboByte Tech Solutions Private Limited is an AI-first technology company dedicated to helping businesses innovate, automate, and grow through intelligent digital solutions.
+
+We combine artificial intelligence, software engineering, creativity, and modern technologies to build premium websites, custom applications, business automation systems, AI-powered assistants, branding, and scalable digital products.
+
+Our focus is on solving real business challenges with practical, secure, and future-ready technology.
+
+Display this inside a premium glass card.
+
+=========================================================
+MISSION
+=========================================================
+
+Section Title
+
+Our Mission
+
+Content
+
+To empower businesses with intelligent technology, automation, and AI-driven digital solutions that improve efficiency, accelerate growth, and create measurable business value.
+
+Display with a premium icon.
+
+=========================================================
+VISION
+=========================================================
+
+Section Title
+
+Our Vision
+
+Content
+
+To become one of the world's most respected AI-first technology companies by delivering innovative, reliable, and future-ready digital solutions.
+
+=========================================================
+OUR VALUES
+=========================================================
+
+Create animated cards.
+
+Innovation
+
+Integrity
+
+Customer Success
+
+Quality
+
+Reliability
+
+Transparency
+
+Continuous Learning
+
+Long-Term Partnerships
+
+Hover animation.
+
+=========================================================
+WHY CHOOSE TURBOBYTE
+=========================================================
+
+Display premium cards.
+
+AI-First Development
+
+Enterprise Quality
+
+Modern Technologies
+
+Business-Focused Solutions
+
+Scalable Architecture
+
+Secure Development
+
+Transparent Communication
+
+Dedicated Support
+
+Each card should contain a short explanation.
+
+=========================================================
+OUR APPROACH
+=========================================================
+
+Create a timeline.
+
+1
+
+Understand Your Business
+
+2
+
+Plan the Right Solution
+
+3
+
+Design Modern Experiences
+
+4
+
+Develop High-Quality Software
+
+5
+
+Test Thoroughly
+
+6
+
+Deploy Securely
+
+7
+
+Provide Continuous Support
+
+Animated timeline.
+
+=========================================================
+TECHNOLOGY EXPERTISE
+=========================================================
+
+Display technologies in premium cards.
+
+Artificial Intelligence
+
+Machine Learning
+
+React
+
+Next.js
+
+Node.js
+
+Python
+
+Java
+
+TypeScript
+
+PostgreSQL
+
+MongoDB
+
+Docker
+
+AWS
+
+OpenAI
+
+Anthropic
+
+Google AI
+
+Supabase
+
+Tailwind CSS
+
+Cloud Technologies
+
+=========================================================
+INDUSTRIES WE SERVE
+=========================================================
+
+Healthcare
+
+Education
+
+Retail
+
+Real Estate
+
+Finance
+
+Manufacturing
+
+Logistics
+
+Hospitality
+
+Professional Services
+
+Startups
+
+SMEs
+
+Enterprise Businesses
+
+=========================================================
+OUR PROMISE
+=========================================================
+
+Heading
+
+Your Technology Partner for Long-Term Growth
+
+Content
+
+We build secure, scalable and intelligent digital solutions designed to help businesses grow with confidence. Our goal is to become a trusted technology partner, delivering long-term value through innovation, quality and continuous improvement.
+
+=========================================================
+CALL TO ACTION
+=========================================================
+
+Heading
+
+Let's Build the Future Together
+
+Content
+
+Whether you're launching a startup, growing your business or exploring AI, our team is ready to help transform your ideas into reality.
+
+Buttons
+
+Start Your Project
+
+Contact Us
+
+=========================================================
+PAGE FEATURES
+=========================================================
+
+Smooth reveal animations.
+
+Responsive layout.
+
+Glass cards.
+
+Premium icons.
+
+Consistent spacing.
+
+No unnecessary animations.
+
+Fast loading.
+
+=========================================================
+SEO
+=========================================================
+
+Page Title
+
+About Us | TurboByte Tech Solutions Private Limited
+
+Meta Description
+
+Learn about TurboByte Tech Solutions Private Limited, an AI-first technology company delivering intelligent software, automation, custom applications, premium websites and business transformation solutions.
+
+Keywords
+
+About TurboByte
+
+AI Company
+
+Technology Company
+
+Software Development
+
+Business Automation
+
+Artificial Intelligence
+
+Bengaluru
+
+India
+
+=========================================================
+QUALITY CHECK
+=========================================================
+
+✔ Keep the existing UI.
+
+✔ Professional content.
+
+✔ No placeholder text.
+
+✔ Mobile responsive.
+
+✔ Fast loading.
+
+✔ SEO optimized.
+
+✔ Production ready.

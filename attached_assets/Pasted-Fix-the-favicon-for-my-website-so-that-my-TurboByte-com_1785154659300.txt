@@ -1,0 +1,65 @@
+Fix the favicon for my website so that my TurboByte company logo appears beside the website URL in Google Search results instead of the default globe icon.
+
+Website:
+https://turbobytetechsolutions.com
+
+Tasks:
+
+1. Use the uploaded square TurboByte logo as the website favicon.
+
+2. Save the favicon files in the correct public/static directory. Create these versions if required:
+   - favicon.ico
+   - favicon-48x48.png
+   - favicon-96x96.png
+   - favicon-192x192.png
+   - favicon-512x512.png
+   - apple-touch-icon.png
+
+3. Ensure every favicon image has:
+   - A square 1:1 aspect ratio
+   - A transparent or clean branded background
+   - No stretching or distortion
+   - A clearly visible logo at small sizes
+
+4. Add the correct favicon references inside the <head> section of the website:
+
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+5. Make sure the favicon links use absolute root paths and are present on the homepage.
+
+6. Check that these URLs open publicly without login, errors, redirects or access restrictions:
+   https://turbobytetechsolutions.com/favicon.ico
+   https://turbobytetechsolutions.com/favicon-48x48.png
+   https://turbobytetechsolutions.com/favicon-192x192.png
+
+7. Make sure robots.txt does not block the favicon files, public folder, images or Googlebot-Image.
+
+8. Add or update the web app manifest with the correct logo icons.
+
+9. Remove any old default Replit favicon, Vite favicon, React favicon, globe icon or placeholder favicon references.
+
+10. Search the entire codebase for:
+    favicon
+    icon
+    vite.svg
+    react.svg
+    logo.svg
+    manifest
+
+Replace any default website favicon with the TurboByte favicon.
+
+11. Do not change the website design, content, navigation, colours, layout or functionality.
+
+12. After completing the update, deploy the website and confirm that the TurboByte favicon appears correctly in:
+    - Browser tab
+    - Page source
+    - Mobile browser
+    - Favicon URL
+    - Web app manifest
+
+Important:
+The primary favicon should be square and at least 48 × 48 pixels. Use a stable favicon URL that will not be changed frequently.

@@ -1,0 +1,407 @@
+You are a Senior Full Stack Engineer, DevOps Engineer, QA Engineer and Security Engineer.
+
+IMPORTANT
+
+DO NOT redesign the website.
+
+DO NOT change the UI.
+
+DO NOT change colors.
+
+DO NOT change layout.
+
+DO NOT change animations.
+
+DO NOT change typography.
+
+Keep everything visually identical.
+
+Your task is ONLY to audit, debug, verify and fix the backend functionality.
+
+=========================================================
+COMPLETE PROJECT AUDIT
+=========================================================
+
+Perform a complete audit of the project.
+
+Check every frontend page.
+
+Check every backend route.
+
+Check every API endpoint.
+
+Check every server action.
+
+Check every database connection.
+
+Check every environment variable.
+
+Check every email integration.
+
+Check every upload function.
+
+Check every form submission.
+
+=========================================================
+CONTACT FORM
+=========================================================
+
+Verify that Contact Us form
+
+✔ Validates correctly
+
+✔ Sends request to backend
+
+✔ Saves into database
+
+✔ Sends email to
+
+aae@turbobytetech.com
+
+✔ Sends acknowledgement email to customer
+
+If any step fails
+
+Explain exactly why.
+
+Fix it.
+
+=========================================================
+START YOUR PROJECT
+=========================================================
+
+Verify
+
+Start Your Project form
+
+Check
+
+Validation
+
+API
+
+Database
+
+Email
+
+Reference Number Generation
+
+Success Popup
+
+Fix every issue.
+
+=========================================================
+CAREERS FORM
+=========================================================
+
+Verify
+
+Resume Upload
+
+Job Application
+
+Database
+
+Email Notification
+
+Acknowledgement Email
+
+Resume Storage
+
+Fix every issue.
+
+=========================================================
+DATABASE
+=========================================================
+
+Identify
+
+Which database is connected.
+
+Examples
+
+PostgreSQL
+
+Supabase
+
+Neon
+
+MongoDB
+
+SQLite
+
+Bolt Database
+
+Display
+
+Database Provider
+
+Connection Status
+
+Connected Tables
+
+If no database exists
+
+Create one.
+
+Create tables
+
+leads
+
+job_applications
+
+projects
+
+services
+
+blog_posts
+
+users
+
+audit_logs
+
+Verify
+
+Create
+
+Read
+
+Update
+
+Delete
+
+operations.
+
+=========================================================
+EMAIL SYSTEM
+=========================================================
+
+Determine
+
+Which email provider is configured.
+
+Examples
+
+Resend
+
+SMTP
+
+SendGrid
+
+Mailgun
+
+Nodemailer
+
+If no provider exists
+
+Recommend the best one.
+
+Implement it.
+
+Use
+
+aae@turbobytetech.com
+
+as notification email.
+
+Send acknowledgement email to customer.
+
+Store API Keys using Environment Variables.
+
+Never hardcode secrets.
+
+=========================================================
+ENVIRONMENT VARIABLES
+=========================================================
+
+Check
+
+DATABASE_URL
+
+EMAIL_API_KEY
+
+SMTP_HOST
+
+SMTP_PORT
+
+SMTP_USER
+
+SMTP_PASSWORD
+
+RESEND_API_KEY
+
+NEXTAUTH_SECRET
+
+JWT_SECRET
+
+Any missing variables
+
+List them.
+
+Explain what they are used for.
+
+=========================================================
+SERVER ROUTES
+=========================================================
+
+Verify
+
+Every form
+
+actually calls backend.
+
+Verify
+
+HTTP Status Codes
+
+Validation
+
+Error Handling
+
+Logging
+
+=========================================================
+DEBUGGING
+=========================================================
+
+Find
+
+Console Errors
+
+Runtime Errors
+
+API Errors
+
+Database Errors
+
+Email Errors
+
+Hydration Errors
+
+Import Errors
+
+Build Errors
+
+Fix every issue.
+
+=========================================================
+TESTING
+=========================================================
+
+Automatically simulate
+
+New Contact Form Submission
+
+New Project Request
+
+New Career Application
+
+Verify
+
+Database
+
+Email
+
+Dashboard
+
+Notifications
+
+=========================================================
+ADMIN DASHBOARD
+=========================================================
+
+Verify
+
+New Lead appears.
+
+New Job Application appears.
+
+Search works.
+
+Filters work.
+
+Status Update works.
+
+Export works.
+
+=========================================================
+SECURITY
+=========================================================
+
+Verify
+
+Rate Limiting
+
+CSRF Protection
+
+XSS Protection
+
+SQL Injection Protection
+
+Authentication
+
+Secure Headers
+
+Secrets
+
+=========================================================
+PERFORMANCE
+=========================================================
+
+Verify
+
+Fast Loading
+
+Lazy Loading
+
+Optimized Images
+
+Bundle Size
+
+Memory Usage
+
+=========================================================
+FINAL REPORT
+=========================================================
+
+Generate a detailed report.
+
+Include
+
+Overall Project Health %
+
+Database Connected?
+
+Email Working?
+
+Resume Upload Working?
+
+Contact Form Working?
+
+Project Form Working?
+
+Career Form Working?
+
+Any Missing Environment Variables?
+
+Any Missing API Keys?
+
+List every bug found.
+
+List every bug fixed.
+
+List remaining issues.
+
+If emails are NOT working,
+
+tell me EXACTLY why.
+
+Do NOT assume.
+
+Verify by checking the code.
+
+If email provider is missing,
+
+implement Resend as the default provider and explain exactly what I need to configure before deployment.
+
+Do not stop until every critical backend issue has been identified and either fixed or clearly reported.

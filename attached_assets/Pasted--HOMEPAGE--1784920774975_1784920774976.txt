@@ -1,0 +1,439 @@
+=========================================================
+HOMEPAGE
+=========================================================
+
+Do NOT redesign the homepage.
+
+Keep the existing premium UI, spacing, colors, gradients, animations, typography, cards and layout.
+
+Improve the content, functionality and professionalism only.
+
+The homepage should feel like a modern AI technology company similar to OpenAI, Stripe, Microsoft or IBM while preserving the current TurboByte design.
+
+=========================================================
+HERO SECTION
+=========================================================
+
+Display the company logo.
+
+Headline
+
+Building Intelligent Digital Solutions for Modern Businesses
+
+Sub Heading
+
+TurboByte Tech Solutions Private Limited helps businesses innovate, automate, and grow with AI-powered software, premium websites, intelligent automation, custom applications, and scalable digital solutions.
+
+Primary Button
+
+Start Your Project
+
+Secondary Button
+
+Explore Our Services
+
+Buttons should have smooth hover animations.
+
+=========================================================
+BACKGROUND
+=========================================================
+
+Keep the existing dark gradient.
+
+Maintain animated glowing effects.
+
+Keep glassmorphism cards.
+
+Do not make the background busy.
+
+Animations should be smooth and lightweight.
+
+=========================================================
+TRUST BADGES
+=========================================================
+
+Below Hero display
+
+✔ AI-First Company
+
+✔ Business Automation
+
+✔ Enterprise Solutions
+
+✔ Secure Development
+
+✔ Future Ready Technology
+
+Animated fade-in.
+
+=========================================================
+COMPANY STATS
+=========================================================
+
+Show animated counters.
+
+Years of Innovation
+
+AI Solutions Delivered
+
+Automation Workflows
+
+Projects Completed
+
+Client Satisfaction
+
+The counters should animate only once when visible.
+
+If exact values are not available, use configurable placeholders that can be updated later from the Admin Dashboard rather than displaying misleading numbers.
+
+=========================================================
+ABOUT PREVIEW
+=========================================================
+
+Section Title
+
+Who We Are
+
+Content
+
+TurboByte Tech Solutions Private Limited is an AI-first technology company helping businesses innovate, automate, and grow through intelligent software, automation, AI solutions, and modern digital experiences.
+
+Button
+
+Learn More
+
+=========================================================
+OUR SERVICES
+=========================================================
+
+Display premium service cards.
+
+Services
+
+AI Customer-Support Chatbots
+
+AI Voice Agents & Virtual Receptionists
+
+AI Lead-Generation & Sales Assistants
+
+Company Knowledge-Base Assistants
+
+Business Workflow Automation
+
+AI-Powered Website Development
+
+Custom Application Development
+
+Brand Identity & Graphic Design
+
+AI Image Solutions
+
+AI Video & Cinematic Content
+
+Content & Digital Marketing Creatives
+
+Corporate Presentations & Documentation
+
+AI Consulting & Custom Solutions
+
+Each card should include
+
+Icon
+
+Short Description
+
+Learn More
+
+Each Learn More button should navigate to the correct Service Page.
+
+Never show 404.
+
+=========================================================
+WHY CHOOSE TURBOBYTE
+=========================================================
+
+Create a premium section.
+
+Cards
+
+AI-First Development
+
+Enterprise Quality
+
+Modern Technologies
+
+Scalable Solutions
+
+Secure Architecture
+
+Dedicated Support
+
+Business-Focused Approach
+
+Future Ready
+
+Hover animation.
+
+=========================================================
+HOW WE WORK
+=========================================================
+
+Step 1
+
+Discovery & Consultation
+
+Step 2
+
+Planning & Strategy
+
+Step 3
+
+Design & Development
+
+Step 4
+
+Testing & Quality Assurance
+
+Step 5
+
+Deployment
+
+Step 6
+
+Continuous Support
+
+Display as timeline.
+
+=========================================================
+FEATURED SOLUTIONS
+=========================================================
+
+Highlight
+
+AI Chatbots
+
+Business Automation
+
+Web Applications
+
+AI Voice Agents
+
+Knowledge Base Systems
+
+Lead Generation Systems
+
+Each card links to the related service page.
+
+=========================================================
+WHY AI
+=========================================================
+
+Create a modern section.
+
+Heading
+
+Why Businesses Choose Artificial Intelligence
+
+Content
+
+Explain how AI improves customer experience, automates repetitive tasks, reduces operational costs, increases productivity, and enables smarter business decisions.
+
+Add simple animated icons.
+
+=========================================================
+TECHNOLOGIES
+=========================================================
+
+Display technologies used by the company.
+
+React
+
+Next.js
+
+TypeScript
+
+Node.js
+
+Python
+
+Java
+
+PostgreSQL
+
+MongoDB
+
+Docker
+
+AWS
+
+Vercel
+
+OpenAI
+
+Anthropic
+
+Google AI
+
+Supabase
+
+Tailwind CSS
+
+Display in premium technology cards.
+
+=========================================================
+TESTIMONIALS
+=========================================================
+
+Create a testimonial carousel.
+
+If no testimonials exist,
+
+show
+
+"Client testimonials will appear here as we complete more successful projects."
+
+This content should be manageable from the Admin Dashboard.
+
+=========================================================
+CALL TO ACTION
+=========================================================
+
+Heading
+
+Let's Build Something Extraordinary Together
+
+Content
+
+Whether you're launching a startup, scaling a business, or exploring AI automation, TurboByte Tech Solutions is ready to help.
+
+Primary Button
+
+Start Your Project
+
+Secondary Button
+
+Contact Us
+
+=========================================================
+FAQ
+=========================================================
+
+Create accordion.
+
+Questions
+
+What services do you provide?
+
+How long does development take?
+
+Do you build AI solutions?
+
+Do you provide ongoing support?
+
+Can you automate existing business processes?
+
+Do you work with startups?
+
+=========================================================
+NEWSLETTER
+=========================================================
+
+Allow users to subscribe.
+
+Fields
+
+Email Address
+
+Button
+
+Subscribe
+
+Store subscribers in database.
+
+=========================================================
+FINAL CTA
+=========================================================
+
+Heading
+
+Ready to Transform Your Business?
+
+Buttons
+
+Book Free Consultation
+
+Start Your Project
+
+=========================================================
+SCROLL EXPERIENCE
+=========================================================
+
+Smooth scrolling.
+
+Reveal animations.
+
+No lag.
+
+No layout shifts.
+
+=========================================================
+RESPONSIVE
+=========================================================
+
+Optimize for
+
+Desktop
+
+Laptop
+
+Tablet
+
+Mobile
+
+Ultra Wide
+
+=========================================================
+PERFORMANCE
+=========================================================
+
+Optimize
+
+Images
+
+Fonts
+
+Animations
+
+Bundle Size
+
+Loading Speed
+
+=========================================================
+SEO
+=========================================================
+
+Homepage Title
+
+TurboByte Tech Solutions Private Limited | AI-First Technology Company
+
+Meta Description
+
+TurboByte Tech Solutions Private Limited delivers AI-powered automation, premium websites, custom software, business automation, branding, and digital transformation solutions for businesses.
+
+=========================================================
+QUALITY CHECK
+=========================================================
+
+✔ Keep existing design.
+
+✔ Improve professionalism.
+
+✔ No placeholder content.
+
+✔ No broken links.
+
+✔ All buttons functional.
+
+✔ Responsive.
+
+✔ Production Ready.

@@ -1,0 +1,364 @@
+=========================================================
+FINAL WEBSITE AUDIT, DEBUGGING & PRODUCTION TEST
+=========================================================
+
+IMPORTANT
+
+Do NOT redesign the website.
+
+Do NOT change the existing UI, colors, layout, spacing, typography or animations.
+
+Only audit, debug, test and fix issues.
+
+=========================================================
+CONTACT FORM TEST
+=========================================================
+
+Verify that when a visitor fills the Contact Us form and clicks "Send Message":
+
+✔ Form validation works.
+✔ Required fields are enforced.
+✔ Email validation works.
+✔ Phone validation works.
+✔ Duplicate submissions are prevented.
+✔ Spam protection is enabled.
+✔ Success message is displayed.
+✔ A unique reference number is generated.
+
+=========================================================
+EMAIL DELIVERY TEST
+=========================================================
+
+Verify that every successful Contact Form submission:
+
+1. Sends an email notification to:
+
+aae@turbobytetech.com
+
+2. Sends an automatic acknowledgement email to the customer.
+
+If emails are not configured, clearly identify:
+
+• Which email service is being used (SMTP, Resend, SendGrid, etc.).
+• Why emails are not being sent.
+• What configuration is missing.
+• Which environment variables are required.
+
+Do not simply simulate success if email delivery is not actually configured.
+
+=========================================================
+DATABASE VERIFICATION
+=========================================================
+
+Identify exactly where Contact Form submissions are stored.
+
+Display:
+
+Database Provider
+
+Project Name
+
+Table Name
+
+Storage Location
+
+Expected Schema
+
+If using Bolt Database (Supabase), specify:
+
+Table Name
+
+Columns
+
+Primary Key
+
+Status
+
+Created At
+
+Updated At
+
+If no database is connected, state that clearly instead of pretending data is being saved.
+
+=========================================================
+START PROJECT FORM
+=========================================================
+
+Verify the "Start Your Project" form.
+
+Ensure it:
+
+✔ Saves to the database.
+✔ Sends notification email.
+✔ Sends acknowledgement email.
+✔ Generates a reference number.
+✔ Uses the same validation as Contact Us.
+
+=========================================================
+CAREER APPLICATION TEST
+=========================================================
+
+Verify that:
+
+Resume uploads work.
+
+Allowed file types:
+
+PDF
+
+DOC
+
+DOCX
+
+Maximum 10 MB.
+
+Check that:
+
+Applications are saved.
+
+Resume is stored securely.
+
+HR email notification is sent.
+
+Acknowledgement email is sent to the applicant.
+
+=========================================================
+ADMIN DASHBOARD
+=========================================================
+
+Verify that new:
+
+Leads
+
+Project Requests
+
+Job Applications
+
+appear immediately inside the Admin Dashboard.
+
+Confirm:
+
+Search works.
+
+Filters work.
+
+Status updates work.
+
+CSV Export works.
+
+=========================================================
+DATABASE TEST
+=========================================================
+
+Test every database table.
+
+Verify:
+
+leads
+
+job_applications
+
+projects
+
+blog_posts
+
+services
+
+users
+
+audit_logs
+
+Ensure:
+
+Create
+
+Read
+
+Update
+
+Delete
+
+operations work correctly.
+
+=========================================================
+WEBSITE TEST
+=========================================================
+
+Check every page.
+
+Home
+
+About
+
+Services
+
+Service Details
+
+Solutions
+
+Portfolio
+
+Case Studies
+
+Blog
+
+Careers
+
+Contact
+
+Privacy Policy
+
+Terms
+
+404 Page
+
+Verify there are:
+
+No broken links.
+
+No 404 errors.
+
+No blank pages.
+
+No missing images.
+
+=========================================================
+RESPONSIVE TEST
+=========================================================
+
+Test on:
+
+Desktop
+
+Laptop
+
+Tablet
+
+Mobile
+
+Verify:
+
+Navigation
+
+Forms
+
+Buttons
+
+Cards
+
+Images
+
+Footer
+
+No overflow.
+
+=========================================================
+PERFORMANCE TEST
+=========================================================
+
+Check:
+
+Image optimization.
+
+Lazy loading.
+
+JavaScript errors.
+
+Console warnings.
+
+Network failures.
+
+Loading performance.
+
+Hydration issues.
+
+Memory leaks.
+
+=========================================================
+SECURITY TEST
+=========================================================
+
+Verify:
+
+Environment variables are used.
+
+Secrets are not exposed.
+
+SQL Injection protection.
+
+XSS protection.
+
+CSRF protection.
+
+Rate limiting.
+
+Secure headers.
+
+=========================================================
+SEO TEST
+=========================================================
+
+Verify:
+
+Meta Titles
+
+Meta Descriptions
+
+OpenGraph
+
+Twitter Cards
+
+robots.txt
+
+sitemap.xml
+
+Canonical URLs
+
+Structured Data
+
+=========================================================
+ACCESSIBILITY TEST
+=========================================================
+
+Verify:
+
+Keyboard navigation.
+
+Alt text.
+
+ARIA labels.
+
+Focus states.
+
+Color contrast.
+
+=========================================================
+FINAL REPORT
+=========================================================
+
+Generate a detailed audit report.
+
+Include:
+
+1. Overall website health (percentage).
+
+2. List every bug found.
+
+3. List every bug fixed.
+
+4. List any remaining issues.
+
+5. Confirm whether email delivery is FULLY WORKING.
+
+6. Confirm whether the database is ACTUALLY saving submissions.
+
+7. State exactly where the database is hosted.
+
+8. State exactly which email provider is configured.
+
+9. Confirm production readiness.
+
+Do not claim anything is working unless it has been verified.
+If configuration is incomplete, explicitly state what still needs to be configured before deployment.
+
+The goal is a production-ready corporate website with zero critical issues.

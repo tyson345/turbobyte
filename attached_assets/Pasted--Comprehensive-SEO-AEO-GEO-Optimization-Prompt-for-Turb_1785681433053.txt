@@ -1,0 +1,554 @@
+# Comprehensive SEO + AEO + GEO Optimization Prompt for TurboByte Tech Solutions
+
+You are an expert SEO Engineer, Technical SEO Specialist, AI Search Optimization (AEO), GEO (Generative Engine Optimization), and React/Next.js developer.
+
+Analyze the entire TurboByte Tech Solutions website and implement all necessary improvements to achieve an SEO score above 95/100, AEO above 95/100, and GEO above 95/100 while preserving the existing UI, UX, branding, animations, responsiveness, and functionality.
+
+## General Rules
+
+* Do NOT redesign the website.
+* Do NOT remove any existing sections.
+* Preserve all animations and styling.
+* Maintain accessibility best practices.
+* Ensure all changes are production-ready.
+* Keep the website fast and optimized.
+* Avoid duplicate content.
+* Ensure all pages remain mobile friendly.
+
+---
+
+# 1. Improve SEO Metadata
+
+Update every page with optimized metadata.
+
+For each page include:
+
+* Unique title (30–65 characters)
+* Unique meta description (110–165 characters)
+* Canonical URL
+* Meta robots
+* Open Graph tags
+* Twitter Card tags
+* Theme color
+* Favicon
+* Apple touch icon
+
+Include:
+
+* og:title
+* og:description
+* og:image
+* og:url
+* og:type
+* twitter:card
+* twitter:title
+* twitter:description
+* twitter:image
+
+Ensure every page has unique metadata.
+
+---
+
+# 2. Title Optimization
+
+Make the homepage title keyword focused.
+
+Example:
+
+TurboByte Tech Solutions | AI Website & Software Development Company
+
+or another SEO-optimized alternative.
+
+Ensure the H1 and title describe the same topic naturally without being identical.
+
+---
+
+# 3. Meta Description
+
+Create an engaging meta description highlighting:
+
+* Website Development
+* Web Applications
+* Mobile Apps
+* AI Solutions
+* ERP
+* CRM
+* Automation
+* Cloud Solutions
+* Digital Transformation
+
+Include a strong call to action.
+
+---
+
+# 4. Add AI Search Summary
+
+Immediately below the hero section create a concise summary block.
+
+Example content should answer:
+
+What is TurboByte Tech Solutions?
+
+Who is it for?
+
+What services are offered?
+
+Why choose TurboByte?
+
+Keep this section concise, information-rich, and optimized for AI extraction.
+
+---
+
+# 5. Improve AEO
+
+For every important section:
+
+Add a short direct answer immediately below the heading before any detailed explanation.
+
+For example:
+
+Question:
+What is Website Development?
+
+Immediately answer:
+
+Website development is the process of designing and building responsive websites that help businesses establish a strong online presence and generate leads.
+
+Then continue with detailed content.
+
+Apply this pattern throughout the website.
+
+---
+
+# 6. Add Natural Language Questions
+
+Create headings like:
+
+What services do you provide?
+
+How much does software development cost?
+
+How long does development take?
+
+Why should businesses choose TurboByte?
+
+Who can benefit from AI automation?
+
+Which industries do you serve?
+
+How do I start a project?
+
+Do you provide maintenance?
+
+Can you build custom software?
+
+Can you modernize existing software?
+
+These should be visible content.
+
+---
+
+# 7. Audience Section
+
+Add a professional section titled:
+
+Who We Help
+
+Include:
+
+* Startups
+* Small Businesses
+* Medium Businesses
+* Enterprises
+* Educational Institutions
+* Healthcare
+* Finance
+* Retail
+* Manufacturing
+* Logistics
+* Real Estate
+* Hospitality
+
+Explain how each audience benefits.
+
+---
+
+# 8. Industry Use Cases
+
+For every service include:
+
+Best for
+
+Common use cases
+
+Business problems solved
+
+Expected outcomes
+
+Use bullet points where appropriate.
+
+---
+
+# 9. Add Comparison Tables
+
+Where appropriate create responsive comparison tables.
+
+Examples:
+
+Business Need → Recommended Service
+
+Need → Solution
+
+Problem → TurboByte Solution
+
+Company Size → Recommended Technology
+
+Tables must be mobile responsive.
+
+---
+
+# 10. Add Process Steps
+
+Convert service workflows into numbered steps.
+
+Example:
+
+Discovery
+
+Planning
+
+UI/UX
+
+Development
+
+Testing
+
+Deployment
+
+Training
+
+Support
+
+---
+
+# 11. Expand Content Depth
+
+Increase topical authority by naturally expanding existing sections.
+
+Add:
+
+Real examples
+
+Business scenarios
+
+Benefits
+
+Expected ROI
+
+Technology stack
+
+Deployment methods
+
+Security practices
+
+Maintenance
+
+Scalability
+
+Performance optimization
+
+Cloud hosting
+
+Integrations
+
+API support
+
+Do not add filler content.
+
+---
+
+# 12. Add Real Project Examples
+
+Create a section showcasing example solutions.
+
+Examples:
+
+Attendance Management System
+
+CRM
+
+ERP
+
+Hospital Management
+
+School ERP
+
+AI Chatbot
+
+Inventory Management
+
+Website Portfolio
+
+Restaurant Ordering System
+
+Booking Platform
+
+E-commerce
+
+HRMS
+
+Mention these as examples of the types of software TurboByte builds.
+
+---
+
+# 13. Add Testimonials and Case Study Structure
+
+Create sections prepared for:
+
+Client testimonials
+
+Case studies
+
+Project outcomes
+
+Performance metrics
+
+Screenshots
+
+Even if placeholders are used, structure them professionally.
+
+---
+
+# 14. Add Last Updated Date
+
+Display:
+
+Last Updated
+
+Current Date
+
+Automatically update if possible.
+
+---
+
+# 15. Schema Markup
+
+Implement structured data using JSON-LD.
+
+Include:
+
+Organization
+
+WebSite
+
+WebPage
+
+Article
+
+BreadcrumbList
+
+FAQPage
+
+Service
+
+LocalBusiness
+
+ContactPoint
+
+PostalAddress
+
+OfferCatalog
+
+SoftwareApplication (where appropriate)
+
+Ensure all schemas are connected correctly.
+
+Validate schema.
+
+---
+
+# 16. FAQ Schema
+
+Every visible FAQ must also exist in FAQPage schema.
+
+Do not generate hidden FAQs.
+
+---
+
+# 17. Breadcrumb Schema
+
+Implement BreadcrumbList across all pages.
+
+---
+
+# 18. Improve Internal Linking
+
+Review all pages.
+
+Create logical internal links between:
+
+Services
+
+Portfolio
+
+About
+
+Careers
+
+Contact
+
+Blog
+
+Solutions
+
+Industries
+
+Avoid orphan pages.
+
+---
+
+# 19. Add Author Signals
+
+Connect content with TurboByte Tech Solutions as the publisher.
+
+Include:
+
+Organization
+
+Logo
+
+Website
+
+Social profiles
+
+Publisher
+
+Author
+
+---
+
+# 20. External Authority References
+
+Where factual claims are made, naturally reference authoritative sources such as:
+
+React Documentation
+
+Node.js Documentation
+
+TypeScript Documentation
+
+Google Cloud
+
+Microsoft Azure
+
+OpenAI
+
+Only when contextually appropriate.
+
+---
+
+# 21. GEO Optimization
+
+Optimize the website for AI search engines including:
+
+Google AI Overviews
+
+ChatGPT
+
+Claude
+
+Gemini
+
+Perplexity
+
+Copilot
+
+Use:
+
+Clear summaries
+
+Entity-rich content
+
+Natural language
+
+Definitions
+
+Decision-support content
+
+Comparison tables
+
+Use cases
+
+Examples
+
+Checklists
+
+Structured sections
+
+High topical authority
+
+---
+
+# 22. Performance
+
+Maintain or improve:
+
+Core Web Vitals
+
+Lazy loading
+
+Image optimization
+
+Code splitting
+
+Accessibility
+
+Semantic HTML
+
+ARIA labels
+
+Responsive design
+
+Fast loading speed
+
+---
+
+# 23. Validation
+
+After implementation verify:
+
+✓ SEO metadata
+
+✓ Structured data
+
+✓ Accessibility
+
+✓ Mobile responsiveness
+
+✓ Internal links
+
+✓ Heading hierarchy
+
+✓ Canonical URLs
+
+✓ Open Graph
+
+✓ Twitter Cards
+
+✓ FAQ Schema
+
+✓ Breadcrumb Schema
+
+✓ Article Schema
+
+✓ Organization Schema
+
+✓ No broken links
+
+✓ No duplicate metadata
+
+✓ Production-ready code
+
+---
+
+Finally, provide a summary of every file modified, explain why each change was made, and ensure the website is fully optimized for modern search engines, AI search assistants, and generative search platforms without affecting existing design or functionality.

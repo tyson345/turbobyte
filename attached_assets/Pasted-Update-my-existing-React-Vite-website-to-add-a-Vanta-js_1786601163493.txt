@@ -1,0 +1,100 @@
+Update my existing React/Vite website to add a Vanta.js animated CLOUDS background effect to the hero section.
+
+Use the following Vanta configuration as the visual reference:
+
+```js
+VANTA.CLOUDS({
+  el: "#your-element-selector",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  skyColor: 0x4a00ff,
+  cloudColor: 0x7d7dbb,
+  cloudShadowColor: 0x0,
+  sunColor: 0xff6e00,
+  sunGlareColor: 0xb13131,
+  speed: 1.60
+})
+```
+
+Requirements:
+
+1. First inspect my existing project structure and identify:
+
+   * React entry point
+   * Hero/Landing page component
+   * Existing CSS/Tailwind setup
+   * Package manager being used
+   * Existing Three.js or animation libraries
+
+2. Do NOT replace or redesign my existing website.
+
+3. Integrate Vanta Clouds specifically into the existing hero section.
+
+4. Use the React-compatible approach rather than blindly inserting the original HTML `<script>` tags.
+
+5. Install the required dependencies if they are not already installed:
+
+   * `three`
+   * `vanta`
+
+6. Create a reusable component such as:
+   `VantaClouds.tsx`
+
+7. Initialize Vanta inside `useEffect()` using a `useRef()` for the container element.
+
+8. Properly destroy the Vanta instance when the component unmounts to prevent memory leaks and duplicate WebGL instances.
+
+9. Use these exact visual settings:
+
+   * skyColor: `0x4a00ff`
+   * cloudColor: `0x7d7dbb`
+   * cloudShadowColor: `0x000000`
+   * sunColor: `0xff6e00`
+   * sunGlareColor: `0xb13131`
+   * speed: `1.60`
+   * mouseControls: true
+   * touchControls: true
+   * gyroControls: false
+   * minHeight: 200
+   * minWidth: 200
+
+10. Make the Vanta canvas cover the entire hero section:
+
+    * position: absolute
+    * inset: 0
+    * width: 100%
+    * height: 100%
+    * behind all hero content
+
+11. Keep the existing hero text, buttons, navbar, images, and other content unchanged and visible above the animation.
+
+12. Make sure the hero section has appropriate positioning such as:
+    `position: relative`
+    and the Vanta background has a lower z-index than the content.
+
+13. Ensure the effect is responsive on desktop, tablet, and mobile.
+
+14. Do not allow the Vanta canvas to create unwanted horizontal/vertical scrolling.
+
+15. If the hero already has a background image, gradient, video, or other background animation, integrate the Vanta effect carefully without breaking the existing design. Do not remove existing functionality unless absolutely necessary.
+
+16. Optimize the effect for performance, especially on mobile devices.
+
+17. Respect the existing project's TypeScript/ESLint conventions.
+
+18. After implementation:
+
+    * run the project
+    * check for TypeScript/build errors
+    * fix any dependency/import errors
+    * verify the Vanta animation appears correctly
+    * verify the hero content remains clickable
+    * verify there are no console errors
+
+Important:
+Do not create a new demo page. Integrate this into my EXISTING website and preserve the current design.
+
+Before modifying files, inspect the existing code and determine the correct hero component to modify.

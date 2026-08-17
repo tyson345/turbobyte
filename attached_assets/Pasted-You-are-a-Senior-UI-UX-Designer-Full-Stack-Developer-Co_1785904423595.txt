@@ -1,0 +1,716 @@
+You are a Senior UI/UX Designer, Full Stack Developer, Conversion Rate Optimization (CRO) Expert, and Digital Marketing Specialist.
+
+Your task is NOT to redesign the company website.
+
+Instead, build a HIGH-CONVERTING LANDING PAGE for a limited Independence Day campaign.
+
+Company:
+TurboByte Tech Solutions Pvt Ltd
+
+Campaign Name:
+Operation Tiranga 2026
+
+Offer Duration:
+5 August – 15 August
+
+The page must feel premium, modern, trustworthy and designed to maximize enquiries.
+
+The landing page should have its own route:
+
+/operation-tiranga
+
+DO NOT replace the original homepage.
+
+After creating the page, modify the homepage to promote this campaign.
+
+------------------------------------------------
+
+DESIGN STYLE
+
+Use a premium Indian technology startup aesthetic.
+
+Primary Colors
+
+Royal Purple
+Blue
+White
+Small Indian tricolor accents
+
+NO cheap gradients.
+NO clutter.
+NO oversized shadows.
+
+The page should look like a premium SaaS company.
+
+Think:
+
+Stripe
+Framer
+Linear
+Vercel
+Apple
+Not generic agency templates.
+
+------------------------------------------------
+
+STEP 1
+
+Create a sticky announcement bar.
+
+Background:
+
+Dark Purple
+
+Content:
+
+🇮🇳 OPERATION TIRANGA 2026
+
+Independence Day Digital Growth Campaign
+
+Offer Ends 15 August
+
+Add LIVE countdown timer.
+
+The timer must automatically stop after the campaign ends.
+
+------------------------------------------------
+
+STEP 2
+
+Hero Section
+
+Left Side
+
+Small Badge
+
+🇮🇳 Independence Day Digital Campaign
+
+Headline
+
+Operation Tiranga 2026
+
+Subheadline
+
+Launch Your Business Online
+Starting From ₹4,999
+
+Description
+
+Premium websites, applications,
+AI automation,
+CRM,
+WhatsApp integration,
+branding,
+SEO
+and complete business solutions
+designed to grow your business.
+
+Buttons
+
+Primary
+
+Claim Independence Day Offer
+
+Secondary
+
+View Packages
+
+Below Buttons
+
+Trust Chips
+
+✓ Rapid Delivery
+
+✓ Written Scope
+
+✓ 30-Day Support
+
+✓ Bangalore Based Team
+
+Right Side
+
+Use premium device mockups.
+
+Laptop
+
+Phone
+
+Dashboard
+
+Indian Flag
+
+Skyline
+
+Modern illustration
+
+NOT cheap stock photos.
+
+------------------------------------------------
+
+STEP 3
+
+Sticky Floating Button
+
+Bottom Right
+
+Green WhatsApp
+
+Message
+
+Hello TurboByte,
+
+I want to claim the Operation Tiranga Independence Day offer.
+
+------------------------------------------------
+
+STEP 4
+
+Below Hero
+
+Trust Statistics
+
+500+
+
+Projects Delivered
+
+200+
+
+Happy Clients
+
+99%
+
+Client Satisfaction
+
+48-72 Hours
+
+Fast Delivery
+
+Animated counters.
+
+------------------------------------------------
+
+STEP 5
+
+Website Packages
+
+Redesign every pricing card.
+
+Starter
+
+₹4,999
+
+Growth
+
+₹9,999
+
+Premium
+
+₹14,999
+
+Business Pro
+
+₹24,999
+
+AI Business
+
+₹39,999+
+
+Growth package should be highlighted.
+
+Add
+
+MOST POPULAR
+
+orange ribbon.
+
+Buttons
+
+Select Starter
+
+Select Growth
+
+Select Premium
+
+Select Business Pro
+
+Request AI Consultation
+
+Cards should animate on hover.
+
+------------------------------------------------
+
+STEP 6
+
+Limited-Time Bonuses
+
+Completely redesign.
+
+Use modern cards.
+
+Not icon grid.
+
+Include
+
+Free Domain
+
+Business Email
+
+SSL
+
+WhatsApp
+
+Google Maps
+
+AI Chatbot
+
+30-Day Support
+
+Website Training
+
+Homepage Banner
+
+Left side
+
+Large Gift Box Illustration
+
+Text
+
+Benefits Worth ₹35,000+
+
+Right side
+
+Bonus Cards
+
+------------------------------------------------
+
+STEP 7
+
+Website Rescue Campaign
+
+Premium dark section.
+
+Headline
+
+Is Your Website Losing Customers?
+
+Description
+
+We'll analyze your website,
+speed,
+SEO,
+mobile experience,
+and tell you exactly how to improve it.
+
+Cards
+
+Website Audit
+
+Speed Report
+
+Mobile Review
+
+Free Consultation
+
+CTA
+
+Request My Free Audit
+
+------------------------------------------------
+
+STEP 8
+
+Why Businesses Choose TurboByte
+
+5 premium feature cards
+
+Fast Delivery
+
+Premium Quality
+
+AI Powered
+
+Secure & Reliable
+
+Dedicated Support
+
+------------------------------------------------
+
+STEP 9
+
+Development Process
+
+Timeline
+
+01
+
+Discovery
+
+02
+
+Planning
+
+03
+
+Design
+
+04
+
+Development
+
+05
+
+Launch
+
+06
+
+Support
+
+Use connected timeline.
+
+------------------------------------------------
+
+STEP 10
+
+Portfolio
+
+DO NOT use fake client names.
+
+Create reusable project cards.
+
+Categories
+
+Dental
+
+Restaurant
+
+Interior
+
+Construction
+
+Ecommerce
+
+Clinic
+
+Use placeholders marked clearly.
+
+------------------------------------------------
+
+STEP 11
+
+Testimonials
+
+Carousel
+
+Photo
+
+Name
+
+Company
+
+City
+
+Rating
+
+Real testimonials only.
+
+If unavailable
+
+hide the section.
+
+------------------------------------------------
+
+STEP 12
+
+FAQ
+
+Modern accordion.
+
+Questions
+
+Is hosting included?
+
+Can I pay 50% first?
+
+When does development start?
+
+Can I upgrade later?
+
+Do you redesign websites?
+
+What payment methods are accepted?
+
+Is GST included?
+
+------------------------------------------------
+
+STEP 13
+
+Lead Section
+
+Dark premium section.
+
+Headline
+
+Claim Your Operation Tiranga Offer
+
+Left
+
+Offer Details
+
+Phone
+
+Email
+
+Location
+
+Right
+
+Modern Form
+
+Fields
+
+Full Name
+
+Business
+
+Phone
+
+Email
+
+Service
+
+Package
+
+Project Details
+
+Checkbox
+
+Button
+
+Claim Independence Day Offer
+
+------------------------------------------------
+
+STEP 14
+
+Footer
+
+Include
+
+Quick Links
+
+Services
+
+Contact
+
+WhatsApp
+
+Instagram
+
+LinkedIn
+
+Email
+
+Company
+
+Copyright
+
+------------------------------------------------
+
+STEP 15
+
+Homepage Changes
+
+DO NOT replace homepage.
+
+Instead add:
+
+1.
+
+Announcement Bar
+
+🇮🇳 Operation Tiranga Offer Live
+
+Ends 15 August
+
+Claim Offer →
+
+Clickable.
+
+2.
+
+Hero Banner
+
+Limited Time Offer
+
+Buttons
+
+Claim Offer
+
+View Campaign
+
+3.
+
+Popup
+
+After 8 seconds
+
+Show
+
+🇮🇳 Independence Day Offer
+
+Starting ₹4,999
+
+Offer Ends Soon
+
+Buttons
+
+Claim Now
+
+Maybe Later
+
+Do not repeatedly show after dismissal.
+
+Store preference in local storage.
+
+4.
+
+Floating Ribbon
+
+Desktop
+
+Right Side
+
+Operation Tiranga
+
+Ends 15 Aug
+
+Claim Offer
+
+------------------------------------------------
+
+STEP 16
+
+Animations
+
+Use Framer Motion.
+
+Fade
+
+Slide
+
+Hover
+
+Counters
+
+Smooth transitions.
+
+NO excessive animations.
+
+------------------------------------------------
+
+STEP 17
+
+Performance
+
+Image lazy loading.
+
+Code splitting.
+
+Compress assets.
+
+Responsive images.
+
+Lighthouse score
+
+90+
+
+------------------------------------------------
+
+STEP 18
+
+SEO
+
+Title
+
+Operation Tiranga 2026 | Independence Day Website Offer | TurboByte Tech Solutions
+
+Meta Description
+
+Launch your business online with premium websites starting from ₹4,999. Limited Independence Day Offer till 15 August.
+
+Schema
+
+Offer
+
+Organization
+
+FAQ
+
+Breadcrumb
+
+Open Graph
+
+Twitter Cards
+
+------------------------------------------------
+
+STEP 19
+
+Mobile
+
+Completely optimize.
+
+Buttons full width.
+
+Cards stack perfectly.
+
+Sticky CTA
+
+Bottom
+
+Claim Offer
+
+WhatsApp
+
+------------------------------------------------
+
+STEP 20
+
+Final QA
+
+Check
+
+Desktop
+
+Tablet
+
+Mobile
+
+No overflow
+
+No broken spacing
+
+No console errors
+
+No broken links
+
+No placeholder lorem ipsum
+
+No fake statistics
+
+No duplicated sections
+
+Build production version.
+
+------------------------------------------------
+
+VERY IMPORTANT
+
+This campaign should feel like a premium ₹2,00,000 marketing landing page.
+
+Every section must encourage users to enquire.
+
+Avoid generic templates.
+
+Optimize specifically for lead generation and conversions.

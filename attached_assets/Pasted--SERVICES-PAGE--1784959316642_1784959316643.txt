@@ -1,0 +1,467 @@
+=========================================================
+SERVICES PAGE
+=========================================================
+
+Do NOT redesign the existing Services page.
+
+Keep the current premium UI, dark theme, purple gradients, glassmorphism, typography, spacing and animations exactly as they are.
+
+Improve only the content, functionality and user experience.
+
+The Services page should present TurboByte Tech Solutions as an enterprise AI-first technology company.
+
+=========================================================
+PAGE HERO
+=========================================================
+
+Title
+
+AI-Powered Digital Solutions for Modern Businesses
+
+Subtitle
+
+From intelligent automation to premium software development, TurboByte Tech Solutions delivers scalable, secure and future-ready technology solutions designed to help businesses innovate and grow.
+
+Primary Button
+
+Start Your Project
+
+Secondary Button
+
+Talk to Our Experts
+
+=========================================================
+INTRODUCTION
+=========================================================
+
+Heading
+
+Our Services
+
+Content
+
+We combine artificial intelligence, modern software engineering, automation and creativity to build intelligent digital solutions that improve business efficiency, customer experience and long-term growth.
+
+=========================================================
+SERVICES GRID
+=========================================================
+
+Create premium service cards.
+
+Each card should include
+
+Professional icon
+
+Service Name
+
+Short Description
+
+Key Benefits
+
+Learn More button
+
+Request Quote button
+
+Hover animation
+
+Gradient border
+
+Glass effect
+
+=========================================================
+SERVICES
+=========================================================
+
+1.
+
+AI Customer-Support Chatbots
+
+Description
+
+AI-powered chatbots that answer customer queries 24/7, reduce support costs and improve customer satisfaction.
+
+Benefits
+
+24/7 Support
+
+Instant Responses
+
+Lead Capture
+
+Customer Assistance
+
+=========================================================
+
+2.
+
+AI Voice Agents & Virtual Receptionists
+
+Description
+
+AI-powered voice assistants that answer calls, schedule appointments and handle customer conversations automatically.
+
+Benefits
+
+Call Automation
+
+Appointment Booking
+
+Voice AI
+
+Professional Reception
+
+=========================================================
+
+3.
+
+AI Lead-Generation & Sales Assistants
+
+Description
+
+AI assistants that capture, qualify and nurture leads while improving sales efficiency.
+
+Benefits
+
+Lead Qualification
+
+CRM Integration
+
+Sales Automation
+
+Higher Conversion
+
+=========================================================
+
+4.
+
+Company Knowledge-Base Assistants
+
+Description
+
+Internal AI assistants trained on company documents to help employees find accurate information instantly.
+
+Benefits
+
+Employee Productivity
+
+Instant Search
+
+Document Intelligence
+
+Knowledge Management
+
+=========================================================
+
+5.
+
+Business Workflow Automation
+
+Description
+
+Automate repetitive business processes using AI-powered workflows and intelligent integrations.
+
+Benefits
+
+Reduce Manual Work
+
+Increase Productivity
+
+Save Time
+
+Improve Accuracy
+
+=========================================================
+
+6.
+
+AI-Powered Website Development
+
+Description
+
+Premium, responsive and SEO-optimized websites enhanced with intelligent AI features.
+
+Benefits
+
+Modern UI
+
+Fast Performance
+
+SEO Ready
+
+Scalable
+
+=========================================================
+
+7.
+
+Custom Application Development
+
+Description
+
+Build secure web applications, mobile apps, SaaS products and enterprise software tailored to business needs.
+
+Benefits
+
+Custom Features
+
+Enterprise Quality
+
+Scalable Architecture
+
+Secure Development
+
+=========================================================
+
+8.
+
+Brand Identity & Graphic Design
+
+Description
+
+Professional branding solutions including logos, marketing materials and corporate identity.
+
+=========================================================
+
+9.
+
+AI Image Solutions
+
+Description
+
+AI-generated visuals, product images, image enhancement, restoration and creative assets.
+
+=========================================================
+
+10.
+
+AI Video & Cinematic Content
+
+Description
+
+AI-powered promotional videos, product showcases, social media content and cinematic storytelling.
+
+=========================================================
+
+11.
+
+Content & Digital Marketing Creatives
+
+Description
+
+Website copy, social media creatives, advertisements and marketing campaigns powered by AI and creativity.
+
+=========================================================
+
+12.
+
+Corporate Presentations & Documentation
+
+Description
+
+Professional pitch decks, company profiles, proposals, reports and corporate documents.
+
+=========================================================
+
+13.
+
+AI Consulting & Custom Solutions
+
+Description
+
+Strategic AI consulting, business automation planning and custom technology solutions designed around business goals.
+
+=========================================================
+FEATURE COMPARISON
+=========================================================
+
+Create a comparison section showing how our solutions help businesses.
+
+Columns
+
+Manual Process
+
+Traditional Software
+
+TurboByte AI Solutions
+
+Compare
+
+Speed
+
+Automation
+
+Scalability
+
+Cost Efficiency
+
+Customer Experience
+
+Decision Making
+
+=========================================================
+OUR PROCESS
+=========================================================
+
+Discovery
+
+Planning
+
+Design
+
+Development
+
+Testing
+
+Deployment
+
+Support
+
+Display as animated timeline.
+
+=========================================================
+WHY CHOOSE OUR SERVICES
+=========================================================
+
+AI-First Development
+
+Enterprise Security
+
+Modern Technologies
+
+Business-Centric Solutions
+
+Future Ready
+
+Transparent Communication
+
+Long-Term Support
+
+=========================================================
+CALL TO ACTION
+=========================================================
+
+Heading
+
+Need a Custom Solution?
+
+Content
+
+Every business is different. Our experts can design an AI-powered solution tailored specifically to your business goals.
+
+Buttons
+
+Start Your Project
+
+Book Free Consultation
+
+=========================================================
+FAQ
+=========================================================
+
+Create accordion.
+
+Questions
+
+Which industries do you work with?
+
+Can AI integrate with our existing software?
+
+How long does development take?
+
+Do you provide support after launch?
+
+Can services be customized?
+
+=========================================================
+RELATED SERVICES
+=========================================================
+
+At the bottom of each service card display
+
+Related Solutions
+
+This should help users discover additional services.
+
+=========================================================
+SEARCH & FILTER
+=========================================================
+
+Allow visitors to
+
+Search services
+
+Filter by category
+
+AI
+
+Development
+
+Automation
+
+Branding
+
+Creative
+
+Consulting
+
+=========================================================
+CONTACT INTEGRATION
+=========================================================
+
+Every
+
+Request Quote
+
+Learn More
+
+Start Project
+
+button should open
+
+Start Your Project form
+
+or
+
+Contact form
+
+with the selected service automatically pre-selected.
+
+=========================================================
+ROUTING
+=========================================================
+
+Every Learn More button must open the correct individual service page.
+
+No 404 errors.
+
+Automatically create routes if missing.
+
+=========================================================
+SEO
+=========================================================
+
+Title
+
+Our Services | TurboByte Tech Solutions Private Limited
+
+Meta Description
+
+Explore AI-powered software development, business automation, AI chatbots, custom applications, branding and intelligent technology solutions from TurboByte Tech Solutions.
+
+=========================================================
+QUALITY CHECK
+=========================================================
+
+✔ Keep existing UI.
+
+✔ Premium animations.
+
+✔ Mobile responsive.
+
+✔ No broken routes.
+
+✔ No placeholder content.
+
+✔ Every service functional.
+
+✔ Production ready.

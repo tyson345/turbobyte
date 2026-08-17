@@ -1,0 +1,7 @@
+- [Verifying below-fold UI (footers)](below-fold-verification.md) — Screenshot tool captures viewport-from-top only; min-h-screen pages always push the footer out of frame, use the testing subagent instead.
+- [Stale API-client dist](api-client-stale-dist.md) — TS2305 for existing workspace-lib exports means stale composite dist; run `tsc -b` in the lib after regenerating clients.
+- [Vitest stale dist tests](vitest-stale-dist.md) — vitest can run compiled tests from dist/ and fail on stale imports; include only src/**/*.test.ts.
+- [Presigned upload verification](presigned-upload-verification.md) — public upload flows must re-verify stored object size/type/prefix at submit; client-declared values are untrusted.
+- [Tester admin login limits](tester-admin-login.md) — Clerk may switch to email-code verification for the testing subagent, blocking admin-page e2e; verify admin flows at data/API level instead.
+- [CSS rewrite regressions](css-rewrite-regressions.md) — shared index.css rewrites silently drop classes/tokens other pages use; diff removals and grep before accepting.
+- [Public AI endpoint guardrails](public-ai-endpoint-guardrails.md) — per-IP limits are spoofable via XFF; use last hop + global budget + concurrency cap + CSP on generated HTML.

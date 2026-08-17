@@ -1,0 +1,430 @@
+=========================================================
+CONTACT PAGE
+=========================================================
+
+IMPORTANT
+
+DO NOT redesign this page.
+
+DO NOT change the layout.
+
+DO NOT move sections.
+
+DO NOT change spacing.
+
+DO NOT change typography.
+
+DO NOT change the existing premium dark UI.
+
+Keep exactly the same layout shown in the current project.
+
+Only improve functionality and replace placeholder content.
+
+=========================================================
+LEFT CONTACT CARD
+=========================================================
+
+Keep the existing design.
+
+Replace the fake information.
+
+Replace
+
+hello@turbobyte.tech
+
+with
+
+aae@turbobytetech.com
+
+Replace
+
++1 (415) 555-0199
+
+with
+
++91 7019793408
+
+Replace
+
+San Francisco, CA
+
+with
+
+Kudlu Gate,
+Bengaluru,
+Karnataka,
+India
+
+Replace
+
+Mon–Fri, 9am–6pm PT
+
+with
+
+Monday – Saturday
+
+9:00 AM – 7:00 PM IST
+
+Add
+
+Response Time
+
+Within 24 Business Hours
+
+=========================================================
+CLICKABLE CONTACT DETAILS
+=========================================================
+
+Email
+
+mailto:aae@turbobytetech.com
+
+Phone
+
+tel:+917019793408
+
+Address
+
+Open Google Maps
+
+Search
+
+Kudlu Gate Bengaluru Karnataka
+
+Open in new tab.
+
+=========================================================
+CONTACT FORM
+=========================================================
+
+KEEP THE CURRENT DESIGN.
+
+Do not redesign the form.
+
+Keep the same field arrangement.
+
+Keep the same spacing.
+
+Keep the same animations.
+
+Keep same button style.
+
+=========================================================
+FIELDS
+=========================================================
+
+Full Name *
+
+Email *
+
+Phone *
+
+Company
+
+Service *
+
+Budget *
+
+Message *
+
+Do NOT add unnecessary fields that change the design.
+
+=========================================================
+SERVICE DROPDOWN
+=========================================================
+
+Replace existing options with
+
+AI Customer-Support Chatbots
+
+AI Voice Agents & Virtual Receptionists
+
+AI Lead-Generation & Sales Assistants
+
+Company Knowledge-Base Assistants
+
+Business Workflow Automation
+
+AI-Powered Website Development
+
+Custom Application Development
+
+Brand Identity & Graphic Design
+
+AI Image Solutions
+
+AI Video & Cinematic Content
+
+Content & Digital Marketing Creatives
+
+Corporate Presentations & Documentation
+
+AI Consulting & Custom Solutions
+
+Dropdown should be searchable.
+
+=========================================================
+BUDGET RANGE
+=========================================================
+
+Replace existing values.
+
+Use Indian Rupees.
+
+₹10,000 – ₹50,000
+
+₹50,000 – ₹2,00,000
+
+₹2,00,000 – ₹5,00,000
+
+₹5,00,000 – ₹10,00,000
+
+Dropdown should be searchable.
+
+=========================================================
+FORM VALIDATION
+=========================================================
+
+Validate
+
+Email
+
+Phone
+
+Required Fields
+
+Prevent spam
+
+Prevent SQL Injection
+
+Prevent XSS
+
+Prevent duplicate submission
+
+Rate limiting
+
+=========================================================
+DATABASE
+=========================================================
+
+When customer submits form
+
+Store in database table
+
+leads
+
+Columns
+
+Lead ID
+
+Reference Number
+
+Full Name
+
+Email
+
+Phone
+
+Company
+
+Service
+
+Budget
+
+Message
+
+IP Address
+
+Browser
+
+Device
+
+Status
+
+Created At
+
+Updated At
+
+=========================================================
+EMAIL NOTIFICATION
+=========================================================
+
+After successful submission
+
+Immediately send email to
+
+aae@turbobytetech.com
+
+Subject
+
+🚀 New Lead - {{Customer Name}}
+
+Include
+
+Reference Number
+
+Customer Details
+
+Selected Service
+
+Budget
+
+Message
+
+Submission Time
+
+=========================================================
+AUTO REPLY
+=========================================================
+
+Automatically send acknowledgement email.
+
+Subject
+
+Thank You for Contacting TurboByte Tech Solutions
+
+Body
+
+Hello {{Customer Name}}
+
+Thank you for contacting TurboByte Tech Solutions.
+
+We have received your enquiry successfully.
+
+Reference Number
+
+{{Lead Reference}}
+
+Our team will contact you within one business day.
+
+Regards
+
+TurboByte Tech Solutions Private Limited
+
+=========================================================
+SUCCESS MESSAGE
+=========================================================
+
+After form submission
+
+Show premium success popup.
+
+Green check icon.
+
+Message
+
+Thank you!
+
+Your enquiry has been submitted successfully.
+
+Reference Number
+
+{{Lead Reference}}
+
+We will contact you within 24 business hours.
+
+=========================================================
+START YOUR PROJECT
+=========================================================
+
+Do NOT redesign this page.
+
+Use exactly the same design language.
+
+Use same Service dropdown.
+
+Use same Budget dropdown.
+
+If visitor clicks
+
+Start Project
+
+from a service page
+
+Automatically preselect that service.
+
+=========================================================
+ADMIN DASHBOARD
+=========================================================
+
+Every enquiry should appear instantly.
+
+Create Lead Management.
+
+Show
+
+Total Leads
+
+Unread Leads
+
+Today's Leads
+
+Monthly Leads
+
+Lead Status
+
+Search
+
+Filter
+
+Export CSV
+
+Export Excel
+
+Assign Team Member
+
+Internal Notes
+
+=========================================================
+SECURITY
+=========================================================
+
+Store secrets using environment variables.
+
+Never expose API keys.
+
+Validate every request.
+
+Audit all submissions.
+
+Secure file handling.
+
+=========================================================
+PERFORMANCE
+=========================================================
+
+No loading delay.
+
+No console errors.
+
+No duplicate submissions.
+
+Optimize server functions.
+
+=========================================================
+FINAL CHECK
+=========================================================
+
+✔ Keep the existing Contact page UI exactly the same.
+
+✔ Replace fake information.
+
+✔ Keep same layout.
+
+✔ Keep same cards.
+
+✔ Keep same form.
+
+✔ Save every enquiry to database.
+
+✔ Send email to aae@turbobytetech.com.
+
+✔ Send acknowledgement email to customer.
+
+✔ Show success popup.
+
+✔ Fully responsive.
+
+✔ Production ready.
+
+✔ Enterprise quality.

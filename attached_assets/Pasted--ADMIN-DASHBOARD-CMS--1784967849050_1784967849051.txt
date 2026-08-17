@@ -1,0 +1,625 @@
+=========================================================
+ADMIN DASHBOARD & CMS
+=========================================================
+
+IMPORTANT
+
+Create a secure, production-ready Admin Dashboard.
+
+This dashboard is for internal company use only.
+
+Do NOT change the public website UI.
+
+Keep the existing design of the website exactly the same.
+
+Create a separate Admin Panel.
+
+Use the same premium design language
+
+Dark Theme
+
+Purple Accent
+
+Glassmorphism
+
+Smooth Animations
+
+Responsive Layout
+
+=========================================================
+ADMIN LOGIN
+=========================================================
+
+Create a secure login page.
+
+Fields
+
+Email
+
+Password
+
+Remember Me
+
+Forgot Password
+
+Sign In
+
+Enable
+
+JWT Authentication
+
+Secure Sessions
+
+Role Based Access
+
+Rate Limiting
+
+=========================================================
+USER ROLES
+=========================================================
+
+Create roles
+
+Super Admin
+
+Administrator
+
+HR
+
+Sales
+
+Content Manager
+
+Developer
+
+Viewer
+
+Permissions should be configurable.
+
+=========================================================
+DASHBOARD HOME
+=========================================================
+
+Display summary cards
+
+Total Leads
+
+Today's Leads
+
+Monthly Leads
+
+Active Projects
+
+Portfolio Items
+
+Blog Posts
+
+Job Applications
+
+Open Positions
+
+Unread Messages
+
+Website Visitors
+
+=========================================================
+QUICK ACTIONS
+=========================================================
+
+Buttons
+
+Add Blog
+
+Add Portfolio
+
+Create Job
+
+View Leads
+
+View Applications
+
+Manage Services
+
+Website Settings
+
+=========================================================
+LEAD MANAGEMENT
+=========================================================
+
+Display all enquiries.
+
+Columns
+
+Lead ID
+
+Reference Number
+
+Customer Name
+
+Company
+
+Email
+
+Phone
+
+Selected Service
+
+Budget
+
+Status
+
+Assigned To
+
+Created Date
+
+Actions
+
+View
+
+Edit
+
+Delete
+
+Export
+
+=========================================================
+LEAD STATUS
+=========================================================
+
+New
+
+Contacted
+
+Proposal Sent
+
+Negotiation
+
+Won
+
+Lost
+
+Closed
+
+=========================================================
+JOB APPLICATION MANAGEMENT
+=========================================================
+
+Display
+
+Application ID
+
+Candidate Name
+
+Email
+
+Phone
+
+Preferred Role
+
+Experience
+
+Qualification
+
+Resume
+
+Status
+
+Applied Date
+
+Allow
+
+Download Resume
+
+Update Status
+
+Assign Recruiter
+
+Internal Notes
+
+Export
+
+=========================================================
+PORTFOLIO MANAGEMENT
+=========================================================
+
+Allow
+
+Create Project
+
+Edit Project
+
+Delete Project
+
+Upload Images
+
+Manage Categories
+
+Publish
+
+Unpublish
+
+Preview
+
+SEO Settings
+
+=========================================================
+BLOG MANAGEMENT
+=========================================================
+
+Create complete CMS.
+
+Allow
+
+Create Blog
+
+Edit Blog
+
+Delete Blog
+
+Draft
+
+Publish
+
+Schedule
+
+Categories
+
+Tags
+
+Featured Image
+
+SEO
+
+Slug
+
+Rich Text Editor
+
+=========================================================
+SERVICES MANAGEMENT
+=========================================================
+
+Allow editing of
+
+Service Title
+
+Description
+
+Features
+
+Pricing (Optional)
+
+Images
+
+FAQs
+
+SEO
+
+Icons
+
+=========================================================
+TEAM MANAGEMENT
+=========================================================
+
+Manage
+
+Team Members
+
+Designation
+
+Photo
+
+Bio
+
+LinkedIn
+
+Display Order
+
+Status
+
+=========================================================
+CAREERS MANAGEMENT
+=========================================================
+
+Create Jobs
+
+Close Jobs
+
+Edit Jobs
+
+Delete Jobs
+
+View Applications
+
+Shortlist Candidates
+
+Schedule Interviews
+
+Reject
+
+Hire
+
+=========================================================
+TESTIMONIAL MANAGEMENT
+=========================================================
+
+Allow adding
+
+Client Name
+
+Company
+
+Photo
+
+Review
+
+Rating
+
+Status
+
+Display Order
+
+If no testimonials exist,
+
+keep section hidden.
+
+=========================================================
+WEBSITE SETTINGS
+=========================================================
+
+Editable
+
+Company Name
+
+Tagline
+
+Address
+
+Phone
+
+Email
+
+Business Hours
+
+Social Links
+
+Logo
+
+Favicon
+
+Footer
+
+Google Maps
+
+Google Analytics ID
+
+Meta Verification Codes
+
+=========================================================
+SEO MANAGEMENT
+=========================================================
+
+Allow editing
+
+Page Title
+
+Meta Description
+
+Keywords
+
+OpenGraph
+
+Twitter Cards
+
+Canonical URL
+
+Schema Markup
+
+Robots
+
+Sitemap
+
+=========================================================
+EMAIL SETTINGS
+=========================================================
+
+Manage
+
+SMTP
+
+Sender Email
+
+Reply Email
+
+Notification Email
+
+Auto Reply Templates
+
+=========================================================
+MEDIA LIBRARY
+=========================================================
+
+Upload
+
+Images
+
+Videos
+
+PDF
+
+Documents
+
+Icons
+
+Logos
+
+Search
+
+Folders
+
+Preview
+
+Delete
+
+=========================================================
+ANALYTICS
+=========================================================
+
+Dashboard
+
+Visitors
+
+Page Views
+
+Most Visited Pages
+
+Lead Sources
+
+Top Services
+
+Monthly Growth
+
+Traffic Sources
+
+=========================================================
+NOTIFICATIONS
+=========================================================
+
+Show
+
+New Leads
+
+New Applications
+
+New Messages
+
+System Alerts
+
+Unread Count
+
+=========================================================
+SEARCH
+=========================================================
+
+Global Search
+
+Projects
+
+Blogs
+
+Leads
+
+Applications
+
+Services
+
+=========================================================
+DATABASE BACKUP
+=========================================================
+
+Allow
+
+Backup Database
+
+Restore Backup
+
+Download Backup
+
+=========================================================
+AUDIT LOGS
+=========================================================
+
+Record
+
+Login
+
+Logout
+
+Lead Updated
+
+Blog Published
+
+Project Deleted
+
+Settings Changed
+
+Role Changed
+
+=========================================================
+SECURITY
+=========================================================
+
+Enable
+
+Role Permissions
+
+CSRF Protection
+
+XSS Protection
+
+SQL Injection Protection
+
+Secure Headers
+
+Session Timeout
+
+2FA Ready
+
+Password Hashing
+
+=========================================================
+RESPONSIVE
+=========================================================
+
+Desktop
+
+Laptop
+
+Tablet
+
+Mobile
+
+=========================================================
+PERFORMANCE
+=========================================================
+
+Lazy Loading
+
+Pagination
+
+Caching
+
+Image Optimization
+
+Fast Search
+
+=========================================================
+QUALITY CHECK
+=========================================================
+
+✔ Secure Login
+
+✔ Responsive
+
+✔ Role Based Access
+
+✔ CRUD Operations Working
+
+✔ Dashboard Analytics
+
+✔ Blog CMS
+
+✔ Portfolio CMS
+
+✔ Lead Management
+
+✔ Recruitment Management
+
+✔ Website Settings
+
+✔ Notifications
+
+✔ Audit Logs
+
+✔ Backup System
+
+✔ Enterprise Ready
