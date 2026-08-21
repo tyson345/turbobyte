@@ -1,30 +1,28 @@
 import express, { type Express } from "express";
 import cors from "cors";
-import pinoHttp from "pino-http";
 import router from "./routes";
 import { logger } from "./lib/logger";
 
 const app: Express = express();
 
-app.use(
-  pinoHttp({
-    logger,
-    serializers: {
-      req(req) {
-        return {
-          id: req.id,
-          method: req.method,
-          url: req.url?.split("?")[0],
-        };
+app.use((req, res, next) => {
+  const startedAt = Date.now();
+  (req as unknown as { log: typeof logger }).log = logger;
+
+  res.once("finish", () => {
+    logger.info(
+      {
+        method: req.method,
+        url: req.originalUrl.split("?")[0],
+        statusCode: res.statusCode,
+        durationMs: Date.now() - startedAt,
       },
-      res(res) {
-        return {
-          statusCode: res.statusCode,
-        };
-      },
-    },
-  }),
-);
+      "HTTP request completed",
+    );
+  });
+
+  next();
+});
 
 // Secure response headers for all API responses.
 app.use((_req, res, next) => {

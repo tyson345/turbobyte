@@ -8,7 +8,7 @@
 # Environment variables / secrets are set in the Cloudflare dashboard or via
 # `wrangler secret put <KEY>` — never commit secrets to this file.
 
-name = "turbobyte-api-server"
+name = "turbobyte"
 main = "src/worker.ts"
 
 # Must be >= 2026-08-04 per task requirements.
