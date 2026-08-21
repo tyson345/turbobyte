@@ -11,6 +11,7 @@
 name = "turbobyte"
 main = "src/worker.ts"
 keep_vars = true
+workers_dev = true
 
 # Must be >= 2026-08-04 per task requirements.
 compatibility_date = "2026-08-04"
