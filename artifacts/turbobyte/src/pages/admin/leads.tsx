@@ -1,5 +1,4 @@
-import { useMemo, useState, useRef, useEffect } from 'react';
-import { Show, useClerk, useUser } from '@clerk/react';
+import { useMemo, useState } from 'react';
 import { Link, Redirect } from 'wouter';
 import { useQueryClient } from '@tanstack/react-query';
 import {
@@ -10,7 +9,8 @@ import {
 } from '@workspace/api-client-react';
 import type { Inquiry, InquiryStatusProperty } from '@workspace/api-client-react';
 import { useSEO } from '@/hooks/use-seo';
-import { basePath } from '@/lib/clerk';
+import { useAuth } from '@/lib/auth';
+import { basePath } from '@/lib/paths';
 import {
   Loader2, Mail, Phone, Building2, Calendar, MessageSquare, Rocket, 
   ShieldAlert, LogOut, ChevronDown, ChevronUp, Download, FileSpreadsheet, Search
@@ -242,8 +242,7 @@ function InquiryCard({ inquiry }: { inquiry: Inquiry }) {
 
 function LeadsContent() {
   const { data, isLoading, error } = useListInquiries();
-  const { signOut } = useClerk();
-  const { user } = useUser();
+  const { signOut, user } = useAuth();
   const [statusFilter, setStatusFilter] = useState<InquiryStatusProperty | 'all'>('all');
   const [typeFilter, setTypeFilter] = useState<'all' | 'contact' | 'project'>('all');
   const [search, setSearch] = useState('');
@@ -365,7 +364,7 @@ function LeadsContent() {
           </Link>
           <button
             type="button"
-            onClick={() => signOut({ redirectUrl: basePath || '/' })}
+            onClick={() => signOut()}
             className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm text-foreground hover:bg-white/10"
           >
             <LogOut className="h-4 w-4" /> Sign out
@@ -386,7 +385,7 @@ function LeadsContent() {
             This account isn&apos;t authorized to view leads.
           </p>
           <p className="mt-1 text-sm text-muted-foreground">
-            Signed in as {user?.primaryEmailAddress?.emailAddress}. Only
+            Signed in as {user?.email}. Only
             company admin accounts can access this page.
           </p>
         </div>
@@ -524,14 +523,19 @@ function LeadsContent() {
 
 export default function AdminLeadsPage() {
   useSEO('Admin — Leads', 'Private lead management for TurboByte Tech Solutions.', { noindex: true });
-  return (
-    <>
-      <Show when="signed-in">
-        <LeadsContent />
-      </Show>
-      <Show when="signed-out">
-        <Redirect to="/sign-in" />
-      </Show>
-    </>
-  );
+  const { session, loading } = useAuth();
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center py-24">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  if (!session) {
+    return <Redirect to="/sign-in" />;
+  }
+
+  return <LeadsContent />;
 }

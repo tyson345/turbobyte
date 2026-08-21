@@ -23,8 +23,52 @@ import {
   AdminCreateProjectCategoryResponse,
 } from "@workspace/api-zod";
 import { requireAdmin } from "../middlewares/requireAdmin";
+import {
+  ObjectNotFoundError,
+  ObjectStorageService,
+} from "../lib/objectStorage";
 
 const router: IRouter = Router();
+const objectStorageService = new ObjectStorageService();
+const MAX_PROJECT_IMAGE_BYTES = 10 * 1024 * 1024;
+const ALLOWED_PROJECT_IMAGE_TYPES = new Set([
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+  "image/gif",
+]);
+
+/**
+ * Verifies that an object path refers to an actual stored object under the
+ * /objects/uploads/ prefix. Admin image/thumbnail submissions must pass this
+ * check so the DB never references stale or non-existent objects.
+ * Returns an error message, or null when the path is acceptable.
+ */
+async function verifyUploadedObjectPath(
+  objectPath: string,
+): Promise<string | null> {
+  if (!objectPath.startsWith("/objects/uploads/")) {
+    return "Invalid object path: must reference an uploaded file";
+  }
+  try {
+    const handle = await objectStorageService.getObjectEntityFile(objectPath);
+    const metadata = await objectStorageService.getObjectMetadata(handle);
+    const size = Number(metadata.size ?? 0);
+    if (!size || size > MAX_PROJECT_IMAGE_BYTES) {
+      return "Image is empty or exceeds the 10 MB limit";
+    }
+    const contentType = String(metadata.contentType ?? "").toLowerCase();
+    if (!ALLOWED_PROJECT_IMAGE_TYPES.has(contentType)) {
+      return "Unsupported image type";
+    }
+  } catch (err) {
+    if (err instanceof ObjectNotFoundError) {
+      return "Referenced file not found in storage";
+    }
+    throw err;
+  }
+  return null;
+}
 
 function slugify(value: string): string {
   return value
@@ -139,6 +183,14 @@ router.patch("/admin/projects/:id", requireAdmin, async (req, res): Promise<void
   }
   const data = { ...parsed.data };
   if (data.slug) data.slug = slugify(data.slug);
+  // Verify thumbnailPath refers to an actual stored object if being updated.
+  if (data.thumbnailPath) {
+    const thumbError = await verifyUploadedObjectPath(data.thumbnailPath);
+    if (thumbError) {
+      res.status(400).json({ error: thumbError });
+      return;
+    }
+  }
   try {
     const [row] = await db
       .update(projectsTable)
@@ -183,6 +235,12 @@ router.post("/admin/projects/:id/images", requireAdmin, async (req, res): Promis
   const parsed = AdminAddProjectImageBody.safeParse(req.body);
   if (!parsed.success) {
     res.status(400).json({ error: "Invalid image", details: parsed.error.issues });
+    return;
+  }
+  // Verify the uploaded file actually exists in storage before referencing it.
+  const imageError = await verifyUploadedObjectPath(parsed.data.imagePath);
+  if (imageError) {
+    res.status(400).json({ error: imageError });
     return;
   }
   const [project] = await db.select().from(projectsTable).where(eq(projectsTable.id, id));

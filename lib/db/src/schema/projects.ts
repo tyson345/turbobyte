@@ -1,4 +1,12 @@
-import { pgTable, serial, text, timestamp, boolean, integer } from "drizzle-orm/pg-core";
+import {
+  boolean,
+  index,
+  integer,
+  pgTable,
+  serial,
+  text,
+  timestamp,
+} from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod/v4";
 
@@ -35,17 +43,25 @@ export const projectsTable = pgTable("projects", {
     .$onUpdate(() => new Date()),
 });
 
-export const projectImagesTable = pgTable("project_images", {
-  id: serial("id").primaryKey(),
-  projectId: integer("project_id")
-    .notNull()
-    .references(() => projectsTable.id, { onDelete: "cascade" }),
-  imagePath: text("image_path").notNull(),
-  kind: text("kind").notNull().default("feature"), // desktop | mobile | dashboard | feature
-  altText: text("alt_text"),
-  sortOrder: integer("sort_order").notNull().default(0),
-  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
-});
+export const projectImagesTable = pgTable(
+  "project_images",
+  {
+    id: serial("id").primaryKey(),
+    projectId: integer("project_id")
+      .notNull()
+      .references(() => projectsTable.id, { onDelete: "cascade" }),
+    imagePath: text("image_path").notNull(),
+    kind: text("kind").notNull().default("feature"), // desktop | mobile | dashboard | feature
+    altText: text("alt_text"),
+    sortOrder: integer("sort_order").notNull().default(0),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (table) => [
+    index("project_images_project_id_idx").on(table.projectId),
+  ],
+);
 
 export const insertProjectSchema = createInsertSchema(projectsTable).omit({
   id: true,

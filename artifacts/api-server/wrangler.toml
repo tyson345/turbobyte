@@ -1,0 +1,52 @@
+# Cloudflare Workers configuration for the TurboByte Tech Solutions API server.
+#
+# Deployment targets:
+#   turbobytetechsolutions.com/api/*
+#   www.turbobytetechsolutions.com/api/*
+#
+# The Worker uses nodejs_compat so Express and all Node built-ins work as-is.
+# Environment variables / secrets are set in the Cloudflare dashboard or via
+# `wrangler secret put <KEY>` — never commit secrets to this file.
+
+name = "turbobyte-api-server"
+main = "src/worker.ts"
+
+# Must be >= 2026-08-04 per task requirements.
+compatibility_date = "2026-08-04"
+
+# Node compatibility supplies the built-ins Express depends on. The HTTP
+# server flag enables server-side node:http plus the cloudflare:node
+# httpServerHandler bridge.
+compatibility_flags = ["nodejs_compat", "enable_nodejs_http_server_modules"]
+
+# ── Routes ──────────────────────────────────────────────────────────────────
+# All /api/* traffic on both apex and www is handled by this Worker.
+[[routes]]
+pattern = "turbobytetechsolutions.com/api/*"
+zone_name = "turbobytetechsolutions.com"
+
+[[routes]]
+pattern = "www.turbobytetechsolutions.com/api/*"
+zone_name = "turbobytetechsolutions.com"
+
+# ── Cron Triggers ───────────────────────────────────────────────────────────
+# Fires the `scheduled` export once per minute, driving:
+#   - processDueNotifications  (email-queue retry sweep)
+#   - announceNewBlogPosts     (new blog post subscriber emails)
+
+[triggers]
+crons = ["* * * * *"]
+
+# ── Observability ───────────────────────────────────────────────────────────
+[observability]
+enabled = true
+
+# ── Environment variable bindings ───────────────────────────────────────────
+# Non-secret, environment-specific vars can be listed here.
+# All secrets (DATABASE_URL, RESEND_API_KEY, storage credentials, etc.)
+# must be set via: wrangler secret put <KEY>
+
+[vars]
+NODE_ENV = "production"
+ALLOWED_ORIGINS = "https://turbobytetechsolutions.com,https://www.turbobytetechsolutions.com"
+PUBLIC_SITE_URL = "https://turbobytetechsolutions.com"

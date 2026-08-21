@@ -3,13 +3,7 @@ import { logger } from "./lib/logger";
 import { startEmailQueueWorker } from "./lib/emailQueue";
 import { announceNewBlogPosts } from "./lib/blogAnnouncements";
 
-const rawPort = process.env["PORT"];
-
-if (!rawPort) {
-  throw new Error(
-    "PORT environment variable is required but was not provided.",
-  );
-}
+const rawPort = process.env["PORT"] ?? "8080";
 
 const port = Number(rawPort);
 

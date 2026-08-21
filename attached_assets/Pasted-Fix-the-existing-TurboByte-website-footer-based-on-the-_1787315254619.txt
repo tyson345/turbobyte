@@ -1,0 +1,445 @@
+Fix the existing TurboByte website footer based on the provided desktop and mobile screenshots.
+
+IMPORTANT:
+Do NOT redesign the website.
+Do NOT change the existing dark theme, purple colors, content, navigation, or overall visual style.
+Only fix the footer alignment, spacing, responsiveness, logo positioning, typography, and overflow issues.
+
+### 1. FIX LEFT SPACE AROUND FOOTER LOGO
+
+Currently the TurboByte footer logo has too much empty space on its left side on both desktop and mobile.
+
+Investigate BOTH possible causes:
+
+1. CSS margin/padding around the logo wrapper.
+2. Transparent/empty whitespace inside the actual logo image file.
+
+The visible TurboByte symbol/text should align with the beginning of the footer content.
+
+Remove unnecessary:
+
+* margin-left
+* padding-left
+* translateX
+* absolute positioning offsets
+* oversized image wrappers
+* justify-content:center if it causes misalignment
+
+The logo container should start exactly at the same horizontal position as:
+
+"TurboByte Tech Solutions Private Limited"
+
+and the description below it.
+
+The left edges must visually line up.
+
+If the PNG/logo file itself contains transparent whitespace, crop the displayed area properly or use CSS/object positioning so the visible logo starts at the correct point.
+
+Do NOT stretch or distort the logo.
+
+Suggested structure:
+
+```css
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-logo {
+  display: block;
+  width: auto;
+  max-width: 260px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  object-fit: contain;
+  object-position: left center;
+}
+```
+
+### 2. DESKTOP FOOTER ALIGNMENT
+
+Create a properly aligned responsive footer container.
+
+Use something similar to:
+
+```css
+.footer-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 70px 40px;
+}
+```
+
+Desktop footer columns should follow a clean grid:
+
+Brand | Quick Links | Services | Resources/Company | Contact
+
+Use CSS Grid instead of manually positioned elements.
+
+Example:
+
+```css
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr 1.25fr 1fr 1.1fr;
+  gap: 48px;
+  align-items: start;
+}
+```
+
+All columns should have consistent top alignment.
+
+Do not leave a huge blank gap before the TurboByte logo.
+
+### 3. TABLET RESPONSIVENESS
+
+For tablets approximately 768px–1100px:
+
+Change the footer to approximately 2 or 3 columns depending on available width.
+
+Do not squeeze five columns together.
+
+Use responsive CSS grid such as:
+
+```css
+@media (max-width: 1100px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+```
+
+### 4. MOBILE FOOTER
+
+The current mobile version is too wide and appears to create internal horizontal/vertical scrolling.
+
+Fix this completely.
+
+For screens below approximately 768px:
+
+* Footer width must be 100%.
+* No horizontal scrollbar.
+* No fixed desktop width.
+* Remove unnecessary min-width.
+* No content should go outside the viewport.
+* Reduce horizontal padding.
+* Logo should align naturally to the left.
+* Brand description should use the full available width.
+* Footer sections should stack cleanly.
+
+Recommended:
+
+```css
+@media (max-width: 768px) {
+  .footer-container {
+    width: 100%;
+    padding: 48px 20px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .footer-brand {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer-logo {
+    max-width: 230px;
+    margin: 0;
+  }
+}
+```
+
+For slightly larger phones, Quick Links and Services may optionally use two columns ONLY if there is enough space.
+
+For small phones below 480px use a single column.
+
+```css
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+```
+
+The mobile footer must work correctly at:
+
+320px
+360px
+375px
+390px
+414px
+430px
+480px
+768px
+
+### 5. REMOVE INTERNAL FOOTER SCROLLBAR
+
+The footer must NOT have its own vertical scrollbar like the current mobile screenshot.
+
+Remove styles such as:
+
+```css
+height: ...
+max-height: ...
+overflow-y: auto;
+overflow: scroll;
+```
+
+unless absolutely required.
+
+Footer height should be automatic:
+
+```css
+height: auto;
+min-height: auto;
+overflow: visible;
+```
+
+The page itself should scroll normally.
+
+Also prevent horizontal overflow globally:
+
+```css
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+```
+
+But do NOT use overflow-x:hidden as a shortcut for broken layouts.
+
+Actually fix elements causing overflow.
+
+### 6. FIX CONTACT EMAIL WRAPPING
+
+Currently the email:
+
+[aae@turbobytetech.com](mailto:aae@turbobytetech.com)
+
+is breaking incorrectly across lines.
+
+Keep email formatting clean.
+
+Use:
+
+```css
+.footer-contact a {
+  overflow-wrap: anywhere;
+}
+```
+
+On desktop the email should preferably stay on one line.
+
+Make the Contact column wide enough to accommodate it.
+
+### 7. TURBOBYTE TYPOGRAPHY
+
+Keep the existing professional technology-company aesthetic.
+
+The actual TurboByte logo IMAGE should remain unchanged.
+
+For any textual "TurboByte" branding used in the navbar or website UI, use typography visually close to the TurboByte logo.
+
+The TurboByte logo uses a custom futuristic geometric techno style.
+
+Closest web-font direction:
+
+* Audiowide
+* Orbitron ExtraBold
+* Michroma
+* Oxanium
+* futuristic Ethnocentric-style font if available
+
+Preferred:
+
+Use **Audiowide or Orbitron ExtraBold** for textual TurboByte branding.
+
+Example:
+
+```css
+.brand-name {
+  font-family: "Audiowide", "Orbitron", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+```
+
+"TURBOBYTE" should look:
+
+* futuristic
+* geometric
+* wide
+* bold
+* technological
+* premium
+* uppercase where appropriate
+
+Use the existing purple gradient for branded typography where suitable.
+
+Example:
+
+```css
+.brand-gradient {
+  background: linear-gradient(
+    90deg,
+    #4c46a8,
+    #713db4,
+    #9b2d94
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+```
+
+### 8. TECH SOLUTIONS TYPOGRAPHY
+
+For small text such as:
+
+TECH SOLUTIONS
+
+use:
+
+```css
+font-family: "Orbitron", sans-serif;
+font-weight: 500;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+```
+
+This should resemble the spacing/style used in the official logo.
+
+### 9. WEBSITE BODY TYPOGRAPHY
+
+Do NOT use futuristic fonts everywhere.
+
+Use a clean professional font for normal website text such as:
+
+* Navigation
+* Paragraphs
+* Footer links
+* Contact details
+* Buttons
+
+Preferred:
+
+```css
+font-family: "Inter", "Manrope", sans-serif;
+```
+
+Recommended typography hierarchy:
+
+TurboByte branding → Audiowide / Orbitron ExtraBold
+
+TECH SOLUTIONS → Orbitron Medium
+
+Section headings → Manrope / Inter 600–700
+
+Body → Inter / Manrope 400
+
+Navigation → Inter / Manrope 500
+
+Buttons → Inter / Manrope 600
+
+### 10. FOOTER TEXT SPACING
+
+Improve readability while maintaining the current design.
+
+Footer column headings:
+
+* font-weight: 600–700
+* slightly brighter than links
+
+Footer links:
+
+* consistent line-height
+* consistent vertical spacing
+* subtle hover transition
+
+Example:
+
+```css
+.footer-column h3 {
+  margin: 0 0 24px;
+  font-weight: 650;
+}
+
+.footer-column a {
+  display: inline-block;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+```
+
+### 11. IMPORTANT RESPONSIVE RULES
+
+Do not use:
+
+* fixed footer widths
+* fixed footer heights
+* huge margins
+* absolute positioning for footer layout
+* negative margins
+* excessive transforms
+* desktop-only pixel positioning
+
+Use:
+
+* max-width
+* CSS Grid
+* Flexbox
+* clamp()
+* responsive padding
+* responsive gap
+* minmax()
+* auto height
+
+### 12. FINAL RESULT
+
+After fixing it, verify the footer at:
+
+1920px desktop
+1440px desktop
+1366px laptop
+1024px tablet
+768px tablet
+430px phone
+390px phone
+375px phone
+360px phone
+320px phone
+
+Desktop:
+The TurboByte logo must start at the same left alignment as its company name and description.
+
+Mobile:
+The TurboByte logo, company name, and description must start from the same left edge.
+
+There must be:
+
+* no unnecessary blank space to the left of the logo
+* no footer scrollbar
+* no horizontal overflow
+* no cut-off content
+* no overlapping text
+* no incorrectly wrapped email
+* no oversized spaces between columns
+
+Preserve the current TurboByte dark/purple design exactly and only improve alignment, responsiveness and typography.

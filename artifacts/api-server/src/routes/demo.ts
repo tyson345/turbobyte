@@ -5,7 +5,7 @@ import {
   GenerateDemoPrototypeBody,
   SubmitDemoInquiryBody,
 } from "@workspace/api-zod";
-import { anthropic } from "@workspace/integrations-anthropic-ai";
+import { getAnthropicClient } from "@workspace/integrations-anthropic-ai";
 import { requireAdmin } from "../middlewares/requireAdmin";
 import {
   buildProjectInquiryEmail,
@@ -128,7 +128,7 @@ demoRouter.post("/demo/prototype", async (req, res): Promise<void> => {
       })),
       { type: "text" as const, text: parsed.data.prompt },
     ];
-    const message = await anthropic.messages.create({
+    const message = await getAnthropicClient().messages.create({
       model: "claude-sonnet-4-6",
       max_tokens: 8192,
       system: SYSTEM_PROMPT,

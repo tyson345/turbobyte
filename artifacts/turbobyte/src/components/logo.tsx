@@ -1,9 +1,11 @@
 import { siteConfig } from '@/config/site';
-import logoMark from '@/assets/logo-mark.png';
-import logoFull from '@/assets/logo-full.png';
+import logoMark from '@/assets/logo-official-mark.png';
+import logoWordmark from '@/assets/logo-official-wordmark.png';
+import logoTechSolutions from '@/assets/logo-official-tech.png';
 
 interface LogoProps {
   className?: string;
+  size?: 'nav' | 'footer';
   /**
    * 'horizontal' — brand mark + wordmark, for the navbar and tight spaces.
    * 'full' — the complete stacked logo, for the footer and error pages.
@@ -11,42 +13,70 @@ interface LogoProps {
   variant?: 'horizontal' | 'full';
 }
 
-export function Logo({ className = '', variant = 'horizontal' }: LogoProps) {
+export function Logo({ className = '', variant = 'horizontal', size = 'nav' }: LogoProps) {
   if (variant === 'full') {
     return (
-      <div className={`flex items-center ${className}`}>
+      <div
+        className={`flex w-full max-w-xs flex-col items-center ${className}`}
+        role="img"
+        aria-label={siteConfig.legalName}
+        data-testid="img-logo-full"
+      >
         <img
-          src={logoFull}
-          alt={siteConfig.legalName}
-          className="h-28 w-auto"
-          data-testid="img-logo-full"
+          src={logoMark}
+          alt=""
+          aria-hidden="true"
+          className="block h-auto w-1/2"
+        />
+        <img
+          src={logoWordmark}
+          alt=""
+          aria-hidden="true"
+          className="mt-3 block h-auto w-full"
+        />
+        <img
+          src={logoTechSolutions}
+          alt=""
+          aria-hidden="true"
+          className="mt-3 block h-auto w-3/4 brightness-0 invert"
         />
       </div>
     );
   }
 
+  const isFooter = size === 'footer';
+
   return (
-    <div className={`flex items-center gap-2.5 ${className}`}>
+    <div
+      className={`flex items-center gap-2 ${
+        isFooter
+          ? 'w-full max-w-[22rem]'
+          : 'w-[12rem] max-w-[calc(100vw-6rem)] sm:w-[13.75rem]'
+      } ${className}`}
+      role="img"
+      aria-label={siteConfig.name}
+      data-testid="img-logo-horizontal"
+    >
       <img
         src={logoMark}
         alt=""
         aria-hidden="true"
-        className="h-8 w-auto"
-        data-testid="img-logo-mark"
+        className="block h-auto w-[25%] shrink-0"
       />
-      <span className="flex flex-col leading-none">
-        <span
-          className="text-xl font-bold tracking-tight"
-          style={{ fontFamily: 'var(--app-font-display)' }}
-        >
-          <span className="text-white">Turbo</span>
-          <span className="gradient-text">Byte</span>
-        </span>
-        <span className="text-[8px] font-semibold uppercase tracking-[0.35em] text-muted-foreground mt-0.5">
-          Tech Solutions
-        </span>
+      <span className="flex min-w-0 flex-1 flex-col items-center">
+        <img
+          src={logoWordmark}
+          alt=""
+          aria-hidden="true"
+          className="block h-auto w-full"
+        />
+        <img
+          src={logoTechSolutions}
+          alt=""
+          aria-hidden="true"
+          className="mt-1 block h-auto w-[74.5%] brightness-0 invert"
+        />
       </span>
-      <span className="sr-only">{siteConfig.name}</span>
     </div>
   );
 }

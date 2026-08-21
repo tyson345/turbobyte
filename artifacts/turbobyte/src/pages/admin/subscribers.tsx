@@ -1,8 +1,7 @@
-import { Show, useClerk, useUser } from '@clerk/react';
+import { useAuth } from '@/lib/auth';
 import { Redirect, Link } from 'wouter';
 import { useListNewsletterSubscribers } from '@workspace/api-client-react';
 import { useSEO } from '@/hooks/use-seo';
-import { basePath } from '@/lib/clerk';
 import { Loader2, Mail, Calendar, ShieldAlert, LogOut, Rocket, MessageSquare } from 'lucide-react';
 
 function formatDate(iso: string): string {
@@ -14,8 +13,7 @@ function formatDate(iso: string): string {
 
 function SubscribersContent() {
   const { data, isLoading, error } = useListNewsletterSubscribers();
-  const { signOut } = useClerk();
-  const { user } = useUser();
+  const { signOut, user } = useAuth();
 
   const status = (error as { status?: number } | null)?.status;
 
@@ -57,7 +55,7 @@ function SubscribersContent() {
           </Link>
           <button
             type="button"
-            onClick={() => signOut({ redirectUrl: basePath || '/' })}
+            onClick={() => signOut()}
             className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm text-foreground hover:bg-white/10"
           >
             <LogOut className="h-4 w-4" /> Sign out
@@ -78,7 +76,7 @@ function SubscribersContent() {
             This account isn&apos;t authorized to view subscribers.
           </p>
           <p className="mt-1 text-sm text-muted-foreground">
-            Signed in as {user?.primaryEmailAddress?.emailAddress}. Only
+            Signed in as {user?.email}. Only
             company admin accounts can access this page.
           </p>
         </div>
@@ -145,14 +143,19 @@ function SubscribersContent() {
 
 export default function AdminSubscribersPage() {
   useSEO('Admin — Subscribers', 'Private subscriber list for TurboByte Tech Solutions.', { noindex: true });
-  return (
-    <>
-      <Show when="signed-in">
-        <SubscribersContent />
-      </Show>
-      <Show when="signed-out">
-        <Redirect to="/sign-in" />
-      </Show>
-    </>
-  );
+  const { session, loading } = useAuth();
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center py-24">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  if (!session) {
+    return <Redirect to="/sign-in" />;
+  }
+
+  return <SubscribersContent />;
 }

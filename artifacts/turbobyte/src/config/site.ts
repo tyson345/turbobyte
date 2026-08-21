@@ -32,10 +32,15 @@ export const siteConfig = {
     ),
 
   address: {
-    lines: ['Kudlu Gate', 'Bengaluru', 'Karnataka', 'India'],
-    display: 'Kudlu Gate, Bengaluru, Karnataka, India',
-    mapsUrl:
-      'https://www.google.com/maps/search/?api=1&query=Kudlu%20Gate%20Bengaluru%20Karnataka',
+    lines: [
+      '46 Ground Floor, Novel Tech Park',
+      'Hosur Road, Kudlu Gate',
+      'Bengaluru, Karnataka 560068',
+      'India',
+    ],
+    display:
+      '46 Ground Floor, Novel Tech Park, Hosur Road, Kudlu Gate, Bengaluru, Karnataka 560068, India',
+    mapsUrl: 'https://maps.app.goo.gl/Aq9CcAukrGPsvP5h9',
   },
 
   businessHours: {

@@ -5,3 +5,4 @@
 - [Tester admin login limits](tester-admin-login.md) — Clerk may switch to email-code verification for the testing subagent, blocking admin-page e2e; verify admin flows at data/API level instead.
 - [CSS rewrite regressions](css-rewrite-regressions.md) — shared index.css rewrites silently drop classes/tokens other pages use; diff removals and grep before accepting.
 - [Public AI endpoint guardrails](public-ai-endpoint-guardrails.md) — per-IP limits are spoofable via XFF; use last hop + global budget + concurrency cap + CSP on generated HTML.
+- [Cloudflare Node HTTP bridge](cloudflare-node-http-bridge.md) — Workers typings may lag the documented Express bridge; require the HTTP-server compatibility flag and validate with Wrangler.

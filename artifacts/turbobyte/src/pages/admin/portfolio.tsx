@@ -1,5 +1,5 @@
-import { useState, useRef, useMemo } from 'react';
-import { Show, useClerk, useUser } from '@clerk/react';
+import { useState, useMemo } from 'react';
+import { useAuth } from '@/lib/auth';
 import { Link, Redirect } from 'wouter';
 import { useQueryClient } from '@tanstack/react-query';
 import { 
@@ -19,11 +19,10 @@ import {
 } from '@workspace/api-client-react';
 import type { Project, ProjectCategory, ProjectImageKind } from '@workspace/api-client-react';
 import { useSEO } from '@/hooks/use-seo';
-import { basePath } from '@/lib/clerk';
 import { useUpload } from '@workspace/object-storage-web';
 import { 
   Loader2, Mail, ShieldAlert, LogOut, MessageSquare, Rocket, Plus, Search, 
-  Pencil, Trash2, X, Check, Image as ImageIcon, UploadCloud, GripVertical, Building2
+  Pencil, Trash2, X, Image as ImageIcon, UploadCloud, Building2
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -45,8 +44,7 @@ function formatDate(iso: string): string {
 
 function AdminPortfolioContent() {
   const queryClient = useQueryClient();
-  const { signOut } = useClerk();
-  const { user } = useUser();
+  const { signOut, user } = useAuth();
   const { uploadFile, isUploading } = useUpload();
 
   const { data: projects = [], isLoading, error } = useAdminListProjects();
@@ -103,7 +101,6 @@ function AdminPortfolioContent() {
 
   const addImage = useAdminAddProjectImage({
     mutation: { onSuccess: (data) => {
-      // Update currentProject to show new images
       if (currentProject) {
         setCurrentProject({ ...currentProject, images: [...currentProject.images, data] });
       }
@@ -240,7 +237,7 @@ function AdminPortfolioContent() {
             </button>
           </Link>
           <button
-            onClick={() => signOut({ redirectUrl: basePath || '/' })}
+            onClick={() => signOut()}
             className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm text-foreground hover:bg-white/10"
           >
             <LogOut className="h-4 w-4" /> Sign out
@@ -252,7 +249,7 @@ function AdminPortfolioContent() {
         <div className="rounded-2xl border border-amber-500/30 bg-amber-500/10 p-8 text-center mb-8">
           <ShieldAlert className="mx-auto mb-3 h-8 w-8 text-amber-400" />
           <p className="text-foreground font-medium">This account isn't authorized to view portfolio admin.</p>
-          <p className="mt-1 text-sm text-muted-foreground">Signed in as {user?.primaryEmailAddress?.emailAddress}.</p>
+          <p className="mt-1 text-sm text-muted-foreground">Signed in as {user?.email}.</p>
         </div>
       )}
 
@@ -279,7 +276,7 @@ function AdminPortfolioContent() {
             className="h-10 rounded-md border border-input bg-card px-3 py-2 text-sm"
           >
             <option value="all">All Categories</option>
-            {categories.map(c => <option key={c.id} value={c.name}>{c.name}</option>)}
+            {categories.map((c: ProjectCategory) => <option key={c.id} value={c.name}>{c.name}</option>)}
           </select>
         </div>
         <div className="flex items-center gap-3">
@@ -370,7 +367,7 @@ function AdminPortfolioContent() {
                   onChange={e => setFormData({ ...formData, category: e.target.value })}
                   className="w-full h-10 rounded-md border border-input bg-background px-3 py-2 text-sm"
                 >
-                  {categories.map(c => <option key={c.id} value={c.name}>{c.name}</option>)}
+                  {categories.map((c: ProjectCategory) => <option key={c.id} value={c.name}>{c.name}</option>)}
                 </select>
               </div>
               <div>
@@ -471,7 +468,7 @@ function AdminPortfolioContent() {
               </Button>
             </div>
             <div className="border border-white/10 rounded-lg divide-y divide-white/10">
-              {categories.map(c => (
+              {categories.map((c: ProjectCategory) => (
                 <div key={c.id} className="flex justify-between items-center p-3 text-sm">
                   <span>{c.name}</span>
                   <Button variant="ghost" size="icon" className="h-8 w-8 text-destructive" onClick={() => deleteCategory.mutate({ id: c.id })}>
@@ -566,14 +563,19 @@ function AdminPortfolioContent() {
 
 export default function AdminPortfolioPage() {
   useSEO('Admin — Portfolio', 'Manage portfolio projects and case studies.', { noindex: true });
-  return (
-    <>
-      <Show when="signed-in">
-        <AdminPortfolioContent />
-      </Show>
-      <Show when="signed-out">
-        <Redirect to="/sign-in" />
-      </Show>
-    </>
-  );
+  const { session, loading } = useAuth();
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center py-24">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  if (!session) {
+    return <Redirect to="/sign-in" />;
+  }
+
+  return <AdminPortfolioContent />;
 }

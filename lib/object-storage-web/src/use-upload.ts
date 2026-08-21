@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react';
 import type { UppyFile } from '@uppy/core';
+import { customFetch } from '@workspace/api-client-react';
 
 interface UploadMetadata {
   name: string;
@@ -61,8 +62,9 @@ export function useUpload(options: UseUploadOptions = {}) {
 
   const requestUploadUrl = useCallback(
     async (file: File): Promise<UploadResponse> => {
-      const response = await fetch(`${basePath}/uploads/request-url`, {
+      return customFetch<UploadResponse>(`${basePath}/uploads/request-url`, {
         method: 'POST',
+        responseType: 'json',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -72,15 +74,8 @@ export function useUpload(options: UseUploadOptions = {}) {
           contentType: file.type || 'application/octet-stream',
         }),
       });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.error || 'Failed to get upload URL');
-      }
-
-      return response.json();
     },
-    [],
+    [basePath],
   );
 
   const uploadToPresignedUrl = useCallback(
@@ -136,8 +131,11 @@ export function useUpload(options: UseUploadOptions = {}) {
       url: string;
       headers?: Record<string, string>;
     }> => {
-      const response = await fetch(`${basePath}/uploads/request-url`, {
+      const data = await customFetch<UploadResponse>(
+        `${basePath}/uploads/request-url`,
+        {
         method: 'POST',
+        responseType: 'json',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -146,20 +144,15 @@ export function useUpload(options: UseUploadOptions = {}) {
           size: file.size,
           contentType: file.type || 'application/octet-stream',
         }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to get upload URL');
-      }
-
-      const data = await response.json();
+        },
+      );
       return {
         method: 'PUT',
         url: data.uploadURL,
         headers: { 'Content-Type': file.type || 'application/octet-stream' },
       };
     },
-    [],
+    [basePath],
   );
 
   return {

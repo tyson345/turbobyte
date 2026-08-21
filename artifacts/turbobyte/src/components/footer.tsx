@@ -28,16 +28,16 @@ const companyLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-background pt-16 md:pt-24 pb-8 md:pb-12 border-t border-white/5">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-x-6 gap-y-10 md:p-12 lg:gap-8 mb-12 md:mb-20">
+    <footer className="w-full overflow-visible bg-background border-t border-white/5">
+      <div className="mx-auto w-full max-w-[1440px] px-5 py-12 sm:px-8 sm:py-16 lg:px-10 lg:py-[70px]">
+        <div className="grid grid-cols-1 gap-9 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-12 xl:grid-cols-[1.7fr_1fr_1.25fr_1fr_1.2fr] xl:gap-12">
           {/* Company Info */}
-          <div className="col-span-2">
-            <Logo variant="full" className="mb-6 -ml-2" />
-            <p className="font-medium text-white mb-2" style={{ fontFamily: 'var(--app-font-display)' }}>
+          <div className="min-w-0 sm:col-span-2 xl:col-span-1">
+            <Logo size="footer" className="mb-5 m-0 p-0" />
+            <p className="mb-2 font-medium text-white" style={{ fontFamily: 'var(--app-font-display)' }}>
               {siteConfig.legalName}
             </p>
-            <p className="text-base text-muted-foreground leading-relaxed font-light mb-8 max-w-sm">
+            <p className="mb-7 max-w-sm text-base font-light leading-relaxed text-muted-foreground">
               {siteConfig.tagline}
             </p>
             {hasAnySocial() && (
@@ -48,14 +48,14 @@ export function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="font-medium text-white mb-6" style={{ fontFamily: 'var(--app-font-display)' }}>
+          <div className="min-w-0">
+            <h4 className="mb-5 font-semibold text-white" style={{ fontFamily: 'var(--app-font-display)' }}>
               Quick Links
             </h4>
-            <ul className="space-y-4">
+            <ul className="space-y-3.5">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-muted-foreground hover:text-white transition-colors">
+                  <Link href={link.href} className="inline-block text-sm leading-relaxed text-muted-foreground transition-colors hover:text-white">
                     {link.label}
                   </Link>
                 </li>
@@ -64,23 +64,23 @@ export function Footer() {
           </div>
 
           {/* Services */}
-          <div>
-            <h4 className="font-medium text-white mb-6" style={{ fontFamily: 'var(--app-font-display)' }}>
+          <div className="min-w-0">
+            <h4 className="mb-5 font-semibold text-white" style={{ fontFamily: 'var(--app-font-display)' }}>
               Services
             </h4>
-            <ul className="space-y-4">
+            <ul className="space-y-3.5">
               {serviceCategories.map((category) => (
                 <li key={category.slug}>
                   <Link
                     href={`/services/${category.slug}`}
-                    className="text-sm text-muted-foreground hover:text-white transition-colors"
+                    className="inline-block text-sm leading-relaxed text-muted-foreground transition-colors hover:text-white"
                   >
                     {category.title}
                   </Link>
                 </li>
               ))}
               <li>
-                <Link href="/services" className="text-sm text-muted-foreground hover:text-white transition-colors">
+                <Link href="/services" className="inline-block text-sm leading-relaxed text-muted-foreground transition-colors hover:text-white">
                   All Services
                 </Link>
               </li>
@@ -88,26 +88,26 @@ export function Footer() {
           </div>
 
           {/* Resources & Company */}
-          <div>
-            <h4 className="font-medium text-white mb-6" style={{ fontFamily: 'var(--app-font-display)' }}>
+          <div className="min-w-0">
+            <h4 className="mb-5 font-semibold text-white" style={{ fontFamily: 'var(--app-font-display)' }}>
               Resources
             </h4>
-            <ul className="space-y-4 mb-10">
+            <ul className="space-y-3.5">
               {resourceLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-muted-foreground hover:text-white transition-colors">
+                  <Link href={link.href} className="inline-block text-sm leading-relaxed text-muted-foreground transition-colors hover:text-white">
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-            <h4 className="font-medium text-white mb-6" style={{ fontFamily: 'var(--app-font-display)' }}>
+            <h4 className="mb-5 mt-10 font-semibold text-white xl:mt-12" style={{ fontFamily: 'var(--app-font-display)' }}>
               Company
             </h4>
-            <ul className="space-y-4">
+            <ul className="space-y-3.5">
               {companyLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-muted-foreground hover:text-white transition-colors">
+                  <Link href={link.href} className="inline-block text-sm leading-relaxed text-muted-foreground transition-colors hover:text-white">
                     {link.label}
                   </Link>
                 </li>
@@ -116,13 +116,13 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
-            <h4 className="font-medium text-white mb-6" style={{ fontFamily: 'var(--app-font-display)' }}>
+          <div className="min-w-0">
+            <h4 className="mb-5 font-semibold text-white" style={{ fontFamily: 'var(--app-font-display)' }}>
               Contact
             </h4>
-            <ul className="space-y-4 text-sm text-muted-foreground">
+            <ul className="space-y-3.5 text-sm text-muted-foreground">
               <li>
-                <a href={siteConfig.emailHref} className="hover:text-white transition-colors break-all" data-testid="link-footer-email">
+                <a href={siteConfig.emailHref} className="block leading-relaxed transition-colors hover:text-white [overflow-wrap:anywhere]" data-testid="link-footer-email">
                   {siteConfig.email}
                 </a>
               </li>
@@ -142,7 +142,7 @@ export function Footer() {
                   WhatsApp Us
                 </a>
               </li>
-              <li className="leading-relaxed mt-6">
+              <li className="mt-5 leading-relaxed">
                 <a
                   href={siteConfig.address.mapsUrl}
                   target="_blank"
@@ -158,7 +158,7 @@ export function Footer() {
                   ))}
                 </a>
               </li>
-              <li className="pt-2 text-xs font-light text-muted-foreground/70">
+              <li className="pt-1 text-xs font-light text-muted-foreground/70">
                 {siteConfig.businessHours.days}
                 <br />
                 {siteConfig.businessHours.hours}
@@ -168,7 +168,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-6 md:pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 text-center md:text-left">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-6 text-center md:mt-16 md:flex-row md:gap-6 md:pt-8 md:text-left">
           <p className="text-xs md:text-sm text-muted-foreground/70 font-light" data-testid="text-copyright">
             © {siteConfig.foundedYear} {siteConfig.legalName}. All Rights Reserved.
           </p>

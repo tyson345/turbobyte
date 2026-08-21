@@ -62,5 +62,14 @@ channel = "stable-25_05"
 [userenv.development]
 NOTIFY_EMAIL = "aae@turbobytetech.com"
 
+[userenv.shared]
+OBJECT_STORAGE_BUCKET = "turbobyte-private"
+OBJECT_STORAGE_ENDPOINT = "https://tcymduyyzrgeowthzxgy.supabase.co/storage/v1/s3"
+OBJECT_STORAGE_REGION = "ap-south-1"
+SUPABASE_ANON_KEY = "sb_publishable_qfkG5sOek7K2HB9qgExWNQ_HY7ehrQU"
+SUPABASE_URL = "https://tcymduyyzrgeowthzxgy.supabase.co"
+VITE_SUPABASE_ANON_KEY = "sb_publishable_qfkG5sOek7K2HB9qgExWNQ_HY7ehrQU"
+VITE_SUPABASE_URL = "https://tcymduyyzrgeowthzxgy.supabase.co"
+
 [objectStorage]
 defaultBucketID = "replit-objstore-a7ffac0e-d8f0-4bba-97ed-33d4d4d4235c"

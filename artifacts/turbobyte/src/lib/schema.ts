@@ -40,9 +40,10 @@ export function organizationSchema() {
 export function postalAddressSchema() {
   return {
     '@type': 'PostalAddress',
-    streetAddress: 'Kudlu Gate',
+    streetAddress: '46 Ground Floor, Novel Tech Park, Hosur Road, Kudlu Gate',
     addressLocality: 'Bengaluru',
     addressRegion: 'Karnataka',
+    postalCode: '560068',
     addressCountry: 'IN',
   };
 }

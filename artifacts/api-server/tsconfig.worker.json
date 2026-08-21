@@ -1,0 +1,29 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist-worker",
+    "rootDir": "src",
+    "noEmit": true,
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "src/worker.ts",
+    "src/types/**/*.d.ts"
+  ],
+  "references": [
+    {
+      "path": "../../lib/db"
+    },
+    {
+      "path": "../../lib/api-zod"
+    },
+    {
+      "path": "../../lib/blog"
+    },
+    {
+      "path": "../../lib/integrations-anthropic-ai"
+    }
+  ]
+}

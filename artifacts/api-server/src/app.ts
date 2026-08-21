@@ -1,13 +1,6 @@
 import express, { type Express } from "express";
 import cors from "cors";
 import pinoHttp from "pino-http";
-import { clerkMiddleware } from "@clerk/express";
-import { publishableKeyFromHost } from "@clerk/shared/keys";
-import {
-  CLERK_PROXY_PATH,
-  clerkProxyMiddleware,
-  getClerkProxyHost,
-} from "./middlewares/clerkProxyMiddleware";
 import router from "./routes";
 import { logger } from "./lib/logger";
 
@@ -32,7 +25,6 @@ app.use(
     },
   }),
 );
-app.use(CLERK_PROXY_PATH, clerkProxyMiddleware());
 
 // Secure response headers for all API responses.
 app.use((_req, res, next) => {
@@ -47,16 +39,15 @@ app.use((_req, res, next) => {
   next();
 });
 
-// Credentialed CORS restricted to this app's own domains — never reflect
-// arbitrary origins on cookie-authenticated endpoints.
-const allowedHosts = new Set(
-  [
-    ...(process.env.REPLIT_DOMAINS?.split(",") ?? []),
-    process.env.REPLIT_DEV_DOMAIN,
-  ]
-    .filter((d): d is string => Boolean(d))
-    .map((d) => d.trim()),
+// Build the allowed-origin set from ALLOWED_ORIGINS (comma-separated full
+// origins, e.g. "https://turbobytetechsolutions.com,https://www.turbobytetechsolutions.com").
+// Localhost is always allowed for portable local development.
+const allowedOrigins = new Set<string>(
+  (process.env.ALLOWED_ORIGINS?.split(",") ?? [])
+    .filter((o): o is string => Boolean(o))
+    .map((o) => o.trim()),
 );
+
 app.use(
   cors({
     credentials: true,
@@ -64,30 +55,22 @@ app.use(
       if (!origin) return callback(null, true); // same-origin / curl
       try {
         const { hostname } = new URL(origin);
-        callback(null, allowedHosts.has(hostname) || hostname === "localhost" || hostname === "127.0.0.1");
+        if (hostname === "localhost" || hostname === "127.0.0.1") {
+          return callback(null, true);
+        }
+        callback(null, allowedOrigins.has(origin));
       } catch {
         callback(null, false);
       }
     },
   }),
 );
+
 // The demo prototype endpoint accepts small base64 reference images, so it
 // needs a larger JSON body limit than the rest of the API.
 app.use("/api/demo/prototype", express.json({ limit: "8mb" }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// Resolve the publishable key from the incoming request host so the same
-// server can serve multiple Clerk custom domains. Falls back to
-// CLERK_PUBLISHABLE_KEY when the host doesn't map to a custom domain.
-app.use(
-  clerkMiddleware((req) => ({
-    publishableKey: publishableKeyFromHost(
-      getClerkProxyHost(req) ?? "",
-      process.env.CLERK_PUBLISHABLE_KEY,
-    ),
-  })),
-);
 
 app.use("/api", router);
 

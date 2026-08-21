@@ -12,6 +12,7 @@ import { requireAdmin } from "../middlewares/requireAdmin";
 import {
   ObjectNotFoundError,
   ObjectStorageService,
+  type ObjectHandle,
 } from "../lib/objectStorage";
 import {
   buildApplicationAutoReplyEmail,
@@ -47,14 +48,14 @@ async function verifyUploadedResume(resumePath: string): Promise<string | null> 
   if (!resumePath.startsWith("/objects/uploads/")) {
     return "Invalid resume upload";
   }
-  let metadata: { size?: unknown; contentType?: unknown };
+  let handle: ObjectHandle;
   try {
-    const file = await objectStorageService.getObjectEntityFile(resumePath);
-    [metadata] = await file.getMetadata();
+    handle = await objectStorageService.getObjectEntityFile(resumePath);
   } catch (err) {
     if (err instanceof ObjectNotFoundError) return "Resume file not found";
     throw err;
   }
+  const metadata = await objectStorageService.getObjectMetadata(handle);
   const size = Number(metadata.size ?? 0);
   if (!size || size > MAX_RESUME_BYTES) {
     return "File too large. Maximum size is 10 MB.";

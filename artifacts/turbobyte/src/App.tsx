@@ -1,28 +1,19 @@
-import { lazy, Suspense, useEffect, useRef } from 'react';
-import { QueryClient, QueryClientProvider, useQueryClient } from '@tanstack/react-query';
+import { lazy, Suspense, useEffect } from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
-import { Route, Switch, Router as WouterRouter, useLocation } from 'wouter';
-import { ClerkProvider, useClerk } from '@clerk/react';
+import { Route, Switch, Router as WouterRouter } from 'wouter';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { ScrollToTop } from '@/components/scroll-to-top';
+import { BackToTopButton } from '@/components/back-to-top-button';
 import { AnnouncementBar } from '@/components/campaign/announcement-bar';
 import { CampaignPopup } from '@/components/campaign/campaign-popup';
 import logoMark from '@/assets/logo-mark.png';
-import {
-  clerkPubKey,
-  clerkProxyUrl,
-  clerkAppearance,
-  basePath,
-  stripBase,
-} from '@/lib/clerk';
+import { basePath } from '@/lib/paths';
+import { AuthProvider } from '@/lib/auth';
 
 const queryClient = new QueryClient();
-
-if (!clerkPubKey) {
-  throw new Error('Missing VITE_CLERK_PUBLISHABLE_KEY in .env file');
-}
 
 // Lazy load all pages. Import functions are kept in a list so the same
 // modules can be quietly prefetched in the background after first paint —
@@ -47,7 +38,6 @@ const importPrivacy = () => import('@/pages/privacy');
 const importTerms = () => import('@/pages/terms');
 const importCookies = () => import('@/pages/cookies');
 const importSignIn = () => import('@/pages/sign-in');
-const importSignUp = () => import('@/pages/sign-up');
 const importNotFound = () => import('@/pages/not-found');
 const importServerError = () => import('@/pages/500');
 const importDemo = () => import('@/pages/demo');
@@ -73,7 +63,6 @@ const Privacy = lazy(importPrivacy);
 const Terms = lazy(importTerms);
 const Cookies = lazy(importCookies);
 const SignInPage = lazy(importSignIn);
-const SignUpPage = lazy(importSignUp);
 const AdminLeads = lazy(() => import('@/pages/admin/leads'));
 const AdminSubscribers = lazy(() => import('@/pages/admin/subscribers'));
 const AdminPortfolio = lazy(() => import('@/pages/admin/portfolio'));
@@ -107,7 +96,6 @@ const PREFETCH_PAGES = [
   importTerms,
   importCookies,
   importSignIn,
-  importSignUp,
   importUnsubscribe,
   importNotFound,
   importServerError,
@@ -206,9 +194,8 @@ function Router() {
             <Route path="/terms" component={Terms} />
             <Route path="/cookies" component={Cookies} />
             
-            {/* Auth — /*? optional wildcard is required for Clerk OAuth sub-paths */}
-            <Route path="/sign-in/*?" component={SignInPage} />
-            <Route path="/sign-up/*?" component={SignUpPage} />
+            {/* Auth — admin-only sign-in (no public sign-up) */}
+            <Route path="/sign-in" component={SignInPage} />
 
             {/* Admin */}
             <Route path="/admin/leads" component={AdminLeads} />
@@ -223,66 +210,9 @@ function Router() {
         </Suspense>
       </main>
       <Footer />
+      <BackToTopButton />
       <CampaignPopup />
     </div>
-  );
-}
-
-// Keeps the webview up-to-date when the signed-in user changes.
-function ClerkQueryClientCacheInvalidator() {
-  const { addListener } = useClerk();
-  const qc = useQueryClient();
-  const prevUserIdRef = useRef<string | null | undefined>(undefined);
-
-  useEffect(() => {
-    const unsubscribe = addListener(({ user }) => {
-      const userId = user?.id ?? null;
-      if (prevUserIdRef.current !== undefined && prevUserIdRef.current !== userId) {
-        qc.clear();
-      }
-      prevUserIdRef.current = userId;
-    });
-    return unsubscribe;
-  }, [addListener, qc]);
-
-  return null;
-}
-
-function ClerkProviderWithRoutes() {
-  const [, setLocation] = useLocation();
-
-  return (
-    <ClerkProvider
-      publishableKey={clerkPubKey}
-      proxyUrl={clerkProxyUrl}
-      appearance={clerkAppearance}
-      signInUrl={`${basePath}/sign-in`}
-      signUpUrl={`${basePath}/sign-up`}
-      localization={{
-        signIn: {
-          start: {
-            title: 'Welcome back',
-            subtitle: 'Sign in to TurboByte Tech Solutions',
-          },
-        },
-        signUp: {
-          start: {
-            title: 'Create your account',
-            subtitle: 'Join TurboByte Tech Solutions',
-          },
-        },
-      }}
-      routerPush={(to) => setLocation(stripBase(to))}
-      routerReplace={(to) => setLocation(stripBase(to), { replace: true })}
-    >
-      <QueryClientProvider client={queryClient}>
-        <ClerkQueryClientCacheInvalidator />
-        <TooltipProvider>
-          <Router />
-          <Toaster />
-        </TooltipProvider>
-      </QueryClientProvider>
-    </ClerkProvider>
   );
 }
 
@@ -294,7 +224,14 @@ function App() {
 
   return (
     <WouterRouter base={basePath}>
-      <ClerkProviderWithRoutes />
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          <TooltipProvider>
+            <Router />
+            <Toaster />
+          </TooltipProvider>
+        </AuthProvider>
+      </QueryClientProvider>
     </WouterRouter>
   );
 }
