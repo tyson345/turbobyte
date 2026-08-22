@@ -2,6 +2,7 @@ import express, { type Express } from "express";
 import cors from "cors";
 import router from "./routes";
 import { logger } from "./lib/logger";
+import { injectDatabase } from "./middlewares/injectDatabase";
 
 const app: Express = express();
 
@@ -69,6 +70,12 @@ app.use(
 app.use("/api/demo/prototype", express.json({ limit: "8mb" }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Provide a request-scoped database. Under Node/Replit this is a no-op and
+// handlers use the default module-global pool; inside a Cloudflare Worker it
+// opens a per-request Hyperdrive-backed pg.Client and exposes its Drizzle DB
+// to all downstream handlers/services via the request context.
+app.use("/api", injectDatabase);
 
 app.use("/api", router);
 

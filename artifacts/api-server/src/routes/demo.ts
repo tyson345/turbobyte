@@ -1,6 +1,6 @@
 import { Router, type IRouter } from "express";
 import { and, eq, isNull, lt } from "drizzle-orm";
-import { db, demoPrototypesTable, inquiriesTable } from "@workspace/db";
+import { demoPrototypesTable, inquiriesTable } from "@workspace/db";
 import {
   GenerateDemoPrototypeBody,
   SubmitDemoInquiryBody,
@@ -12,6 +12,7 @@ import {
   buildLeadAutoReplyEmail,
 } from "../lib/emailNotifications";
 import { enqueueInquiryNotification } from "../lib/emailQueue";
+import { getDb } from "../lib/context";
 import {
   generateReferenceNumber,
   getClientIp,
@@ -68,6 +69,7 @@ function checkGlobalBudget(): boolean {
 }
 
 demoRouter.post("/demo/prototype", async (req, res): Promise<void> => {
+  const db = getDb();
   const parsed = GenerateDemoPrototypeBody.safeParse(req.body);
   if (!parsed.success) {
     res.status(400).json({ error: "Invalid prompt" });
@@ -174,6 +176,7 @@ demoRouter.post("/demo/prototype", async (req, res): Promise<void> => {
 });
 
 demoRouter.post("/demo/submissions", async (req, res): Promise<void> => {
+  const db = getDb();
   const parsed = SubmitDemoInquiryBody.safeParse(req.body);
   if (!parsed.success) {
     res.status(400).json({ error: "Invalid submission" });
@@ -288,10 +291,10 @@ demoRouter.post("/demo/submissions", async (req, res): Promise<void> => {
       content: proto.html,
     },
   ];
-  await enqueueInquiryNotification(inserted.id, adminEmail);
+  await enqueueInquiryNotification(db, inserted.id, adminEmail);
 
   const autoReply = buildLeadAutoReplyEmail(name, meta.referenceNumber);
-  await enqueueInquiryNotification(inserted.id, autoReply, email);
+  await enqueueInquiryNotification(db, inserted.id, autoReply, email);
 
   res.status(201).json({ status: "received", referenceNumber: inserted.referenceNumber });
 });
@@ -299,6 +302,7 @@ demoRouter.post("/demo/submissions", async (req, res): Promise<void> => {
 // Called via navigator.sendBeacon when a visitor leaves the demo page:
 // erase their prototype unless it was submitted as an inquiry.
 demoRouter.post("/demo/prototypes/:id/discard", async (req, res): Promise<void> => {
+  const db = getDb();
   const id = Number(req.params.id);
   if (!Number.isInteger(id) || id <= 0) {
     res.status(400).json({ error: "Invalid id" });
@@ -320,6 +324,7 @@ demoRouter.get(
   "/demo/prototypes/:id",
   requireAdmin,
   async (req, res): Promise<void> => {
+    const db = getDb();
     const id = Number(req.params.id);
     if (!Number.isInteger(id) || id <= 0) {
       res.status(400).json({ error: "Invalid id" });

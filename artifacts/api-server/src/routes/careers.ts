@@ -1,6 +1,6 @@
 import { Router, type IRouter } from "express";
 import { desc, eq } from "drizzle-orm";
-import { db, jobsTable, jobApplicationsTable } from "@workspace/db";
+import { jobsTable, jobApplicationsTable } from "@workspace/db";
 import {
   AdminCreateJobBody,
   AdminUpdateJobBody,
@@ -19,6 +19,7 @@ import {
   buildJobApplicationEmail,
 } from "../lib/emailNotifications";
 import { enqueueInquiryNotification } from "../lib/emailQueue";
+import { getDb, registerBackgroundWork } from "../lib/context";
 import {
   generateReferenceNumber,
   getClientIp,
@@ -96,6 +97,7 @@ function parseId(raw: unknown): number | null {
 // ---------------------------------------------------------------------------
 
 careersRouter.get("/jobs", async (_req, res): Promise<void> => {
+  const db = getDb();
   const rows = await db
     .select()
     .from(jobsTable)
@@ -112,6 +114,7 @@ careersRouter.get(
   "/admin/jobs",
   requireAdmin,
   async (_req, res): Promise<void> => {
+    const db = getDb();
     const rows = await db
       .select()
       .from(jobsTable)
@@ -124,6 +127,7 @@ careersRouter.post(
   "/admin/jobs",
   requireAdmin,
   async (req, res): Promise<void> => {
+    const db = getDb();
     const parsed = AdminCreateJobBody.safeParse(req.body);
     if (!parsed.success) {
       res.status(400).json({ error: "Invalid job" });
@@ -151,6 +155,7 @@ careersRouter.patch(
       res.status(404).json({ error: "Not found" });
       return;
     }
+    const db = getDb();
     const parsed = AdminUpdateJobBody.safeParse(req.body);
     if (!parsed.success || Object.keys(parsed.data).length === 0) {
       res.status(400).json({ error: "Invalid update" });
@@ -178,6 +183,7 @@ careersRouter.delete(
       res.status(404).json({ error: "Not found" });
       return;
     }
+    const db = getDb();
     const [deleted] = await db
       .delete(jobsTable)
       .where(eq(jobsTable.id, id))
@@ -247,6 +253,7 @@ careersRouter.post(
 careersRouter.post(
   "/careers/applications",
   async (req, res): Promise<void> => {
+    const db = getDb();
     const parsed = SubmitJobApplicationBody.safeParse(req.body);
     if (!parsed.success) {
       res.status(400).json({ error: "Missing or invalid required fields" });
@@ -348,35 +355,41 @@ careersRouter.post(
       .status(201)
       .json({ status: "received", referenceNumber: inserted.referenceNumber });
 
-    enqueueInquiryNotification(
-      null,
-      buildJobApplicationEmail(
-        {
-          fullName: data.fullName,
-          email: normalizedEmail,
-          phone: data.phone,
-          city: data.city,
-          qualification: data.qualification,
-          experience: data.experience,
-          preferredRole: data.preferredRole,
-          skills: data.skills,
-          resumePath: data.resumePath,
-        },
-        { referenceNumber: inserted.referenceNumber, submittedAt },
-      ),
-    ).catch((err) => {
-      req.log.error({ err }, "Failed to queue application notification");
-    });
-    enqueueInquiryNotification(
-      null,
-      buildApplicationAutoReplyEmail(
-        data.fullName,
-        inserted.referenceNumber,
-      ),
-      normalizedEmail,
-    ).catch((err) => {
-      req.log.error({ err }, "Failed to queue application auto-reply");
-    });
+    registerBackgroundWork(
+      enqueueInquiryNotification(
+        db,
+        null,
+        buildJobApplicationEmail(
+          {
+            fullName: data.fullName,
+            email: normalizedEmail,
+            phone: data.phone,
+            city: data.city,
+            qualification: data.qualification,
+            experience: data.experience,
+            preferredRole: data.preferredRole,
+            skills: data.skills,
+            resumePath: data.resumePath,
+          },
+          { referenceNumber: inserted.referenceNumber, submittedAt },
+        ),
+      ).catch((err) => {
+        req.log.error({ err }, "Failed to queue application notification");
+      }),
+    );
+    registerBackgroundWork(
+      enqueueInquiryNotification(
+        db,
+        null,
+        buildApplicationAutoReplyEmail(
+          data.fullName,
+          inserted.referenceNumber,
+        ),
+        normalizedEmail,
+      ).catch((err) => {
+        req.log.error({ err }, "Failed to queue application auto-reply");
+      }),
+    );
   },
 );
 
@@ -388,6 +401,7 @@ careersRouter.get(
   "/admin/applications",
   requireAdmin,
   async (_req, res): Promise<void> => {
+    const db = getDb();
     const rows = await db
       .select()
       .from(jobApplicationsTable)
@@ -408,6 +422,7 @@ careersRouter.patch(
       res.status(404).json({ error: "Not found" });
       return;
     }
+    const db = getDb();
     const parsed = AdminUpdateApplicationBody.safeParse(req.body);
     if (!parsed.success || Object.keys(parsed.data).length === 0) {
       res.status(400).json({ error: "Invalid update" });
@@ -435,6 +450,7 @@ careersRouter.delete(
       res.status(404).json({ error: "Not found" });
       return;
     }
+    const db = getDb();
     const [deleted] = await db
       .delete(jobApplicationsTable)
       .where(eq(jobApplicationsTable.id, id))

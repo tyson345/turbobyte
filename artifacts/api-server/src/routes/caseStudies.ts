@@ -1,11 +1,13 @@
 import { Router, type IRouter } from "express";
 import { eq, desc } from "drizzle-orm";
-import { db, caseStudiesTable } from "@workspace/db";
+import { caseStudiesTable } from "@workspace/db";
 import { ListCaseStudiesResponse, GetCaseStudyResponse } from "@workspace/api-zod";
+import { getDb } from "../lib/context";
 
 const router: IRouter = Router();
 
 router.get("/case-studies", async (_req, res): Promise<void> => {
+  const db = getDb();
   const rows = await db
     .select()
     .from(caseStudiesTable)
@@ -14,6 +16,7 @@ router.get("/case-studies", async (_req, res): Promise<void> => {
 });
 
 router.get("/case-studies/:slug", async (req, res): Promise<void> => {
+  const db = getDb();
   const raw = req.params.slug;
   const slug = Array.isArray(raw) ? raw[0] : raw;
   const [row] = await db

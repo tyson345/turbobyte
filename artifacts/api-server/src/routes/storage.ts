@@ -7,9 +7,9 @@ import { Router, type IRouter, type Request, type Response } from 'express';
 
 import { eq, sql } from 'drizzle-orm';
 import {
-  db,
   projectsTable,
   projectImagesTable,
+  type Database,
 } from '@workspace/db';
 
 import {
@@ -17,13 +17,17 @@ import {
   ObjectStorageService,
 } from '../lib/objectStorage';
 import { requireAdmin, isAdminRequest } from '../middlewares/requireAdmin';
+import { getDb } from '../lib/context';
 
 /**
  * An object entity may be served anonymously only when it is referenced by a
  * PUBLISHED project (as its thumbnail or one of its gallery images).
  * Anything else (draft project media, orphaned uploads) requires an admin.
  */
-async function isPubliclyReferenced(objectPath: string): Promise<boolean> {
+async function isPubliclyReferenced(
+  db: Database,
+  objectPath: string,
+): Promise<boolean> {
   const [byThumbnail] = await db
     .select({ id: projectsTable.id })
     .from(projectsTable)
@@ -100,13 +104,14 @@ router.post(
  */
 router.get('/storage/objects/*path', async (req: Request, res: Response) => {
   try {
+    const db = getDb();
     const raw = req.params.path;
     const wildcardPath = Array.isArray(raw) ? raw.join('/') : raw;
     const objectPath = `/objects/${wildcardPath}`;
 
     // Draft/orphaned media is admin-only; only assets referenced by a
     // published project may be served anonymously.
-    if (!(await isPubliclyReferenced(objectPath))) {
+    if (!(await isPubliclyReferenced(db, objectPath))) {
       if (!(await isAdminRequest(req))) {
         res.status(404).json({ error: 'Object not found' });
         return;

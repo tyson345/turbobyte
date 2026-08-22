@@ -1,12 +1,13 @@
 import { eq, isNull } from "drizzle-orm";
 import {
-  db,
   blogAnnouncementsTable,
   emailNotificationsTable,
   subscribersTable,
+  type Database,
 } from "@workspace/db";
 import { blogPosts } from "@workspace/blog";
 import { logger } from "./logger";
+import { getDb } from "./context";
 import { buildNewBlogPostEmail } from "./emailNotifications";
 import { kickOffDeliveries } from "./emailQueue";
 
@@ -24,7 +25,10 @@ import { kickOffDeliveries } from "./emailQueue";
  * posts are recorded as 'skipped' without emailing anyone, so enabling this
  * feature doesn't blast subscribers with old articles.
  */
-export async function announceNewBlogPosts(): Promise<void> {
+export async function announceNewBlogPosts(
+  db: Database = getDb(),
+): Promise<void> {
+  const deliveries: Promise<unknown>[] = [];
   const isBootstrap =
     (await db.select({ id: blogAnnouncementsTable.id }).from(blogAnnouncementsTable).limit(1))
       .length === 0;
@@ -79,9 +83,14 @@ export async function announceNewBlogPosts(): Promise<void> {
         { postSlug: post.slug, subscriberCount: notificationIds.length },
         "Enqueued new blog post announcement emails",
       );
-      kickOffDeliveries(notificationIds);
+      deliveries.push(kickOffDeliveries(notificationIds, db));
     }
   }
+
+  // Ensure delivery attempts settle before we return — the scheduled handler
+  // and Node startup path close/own the DB after this resolves. In a request
+  // context the work is also tracked via registerBackgroundWork.
+  await Promise.allSettled(deliveries);
 
   if (isBootstrap && blogPosts.length > 0) {
     logger.info(
@@ -92,7 +101,10 @@ export async function announceNewBlogPosts(): Promise<void> {
 }
 
 /** Whether a post has already been announced (used by tests/diagnostics). */
-export async function isPostAnnounced(slug: string): Promise<boolean> {
+export async function isPostAnnounced(
+  slug: string,
+  db: Database = getDb(),
+): Promise<boolean> {
   const rows = await db
     .select({ id: blogAnnouncementsTable.id })
     .from(blogAnnouncementsTable)

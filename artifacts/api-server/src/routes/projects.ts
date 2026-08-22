@@ -1,12 +1,12 @@
 import { Router, type IRouter } from "express";
 import { eq, desc, asc, inArray } from "drizzle-orm";
 import {
-  db,
   projectsTable,
   projectImagesTable,
   projectCategoriesTable,
   type Project,
   type ProjectImage,
+  type Database,
 } from "@workspace/db";
 import {
   ListProjectsResponse,
@@ -27,6 +27,7 @@ import {
   ObjectNotFoundError,
   ObjectStorageService,
 } from "../lib/objectStorage";
+import { getDb } from "../lib/context";
 
 const router: IRouter = Router();
 const objectStorageService = new ObjectStorageService();
@@ -89,7 +90,10 @@ function serialize(project: Project, images: ProjectImage[]) {
   };
 }
 
-async function loadImages(projectIds: number[]): Promise<ProjectImage[]> {
+async function loadImages(
+  db: Database,
+  projectIds: number[],
+): Promise<ProjectImage[]> {
   if (projectIds.length === 0) return [];
   return db
     .select()
@@ -109,16 +113,18 @@ function isUniqueViolation(error: unknown): boolean {
 // ---------- Public ----------
 
 router.get("/projects", async (_req, res): Promise<void> => {
+  const db = getDb();
   const rows = await db
     .select()
     .from(projectsTable)
     .where(eq(projectsTable.published, true))
     .orderBy(desc(projectsTable.createdAt));
-  const images = await loadImages(rows.map((r) => r.id));
+  const images = await loadImages(db, rows.map((r) => r.id));
   res.json(ListProjectsResponse.parse(rows.map((r) => serialize(r, images))));
 });
 
 router.get("/projects/:slug", async (req, res): Promise<void> => {
+  const db = getDb();
   const raw = req.params.slug;
   const slug = Array.isArray(raw) ? raw[0] : raw;
   const [row] = await db.select().from(projectsTable).where(eq(projectsTable.slug, slug));
@@ -126,11 +132,12 @@ router.get("/projects/:slug", async (req, res): Promise<void> => {
     res.status(404).json({ error: "Project not found" });
     return;
   }
-  const images = await loadImages([row.id]);
+  const images = await loadImages(db, [row.id]);
   res.json(GetProjectResponse.parse(serialize(row, images)));
 });
 
 router.get("/project-categories", async (_req, res): Promise<void> => {
+  const db = getDb();
   const rows = await db
     .select()
     .from(projectCategoriesTable)
@@ -143,12 +150,14 @@ router.get("/project-categories", async (_req, res): Promise<void> => {
 // ---------- Admin ----------
 
 router.get("/admin/projects", requireAdmin, async (_req, res): Promise<void> => {
+  const db = getDb();
   const rows = await db.select().from(projectsTable).orderBy(desc(projectsTable.createdAt));
-  const images = await loadImages(rows.map((r) => r.id));
+  const images = await loadImages(db, rows.map((r) => r.id));
   res.json(AdminListProjectsResponse.parse(rows.map((r) => serialize(r, images))));
 });
 
 router.post("/admin/projects", requireAdmin, async (req, res): Promise<void> => {
+  const db = getDb();
   const parsed = AdminCreateProjectBody.safeParse(req.body);
   if (!parsed.success) {
     res.status(400).json({ error: "Invalid project", details: parsed.error.issues });
@@ -171,6 +180,7 @@ router.post("/admin/projects", requireAdmin, async (req, res): Promise<void> => 
 });
 
 router.patch("/admin/projects/:id", requireAdmin, async (req, res): Promise<void> => {
+  const db = getDb();
   const id = Number(req.params.id);
   if (!Number.isInteger(id)) {
     res.status(400).json({ error: "Invalid id" });
@@ -201,7 +211,7 @@ router.patch("/admin/projects/:id", requireAdmin, async (req, res): Promise<void
       res.status(404).json({ error: "Project not found" });
       return;
     }
-    const images = await loadImages([row.id]);
+    const images = await loadImages(db, [row.id]);
     res.json(AdminUpdateProjectResponse.parse(serialize(row, images)));
   } catch (error) {
     if (isUniqueViolation(error)) {
@@ -213,6 +223,7 @@ router.patch("/admin/projects/:id", requireAdmin, async (req, res): Promise<void
 });
 
 router.delete("/admin/projects/:id", requireAdmin, async (req, res): Promise<void> => {
+  const db = getDb();
   const id = Number(req.params.id);
   if (!Number.isInteger(id)) {
     res.status(400).json({ error: "Invalid id" });
@@ -227,6 +238,7 @@ router.delete("/admin/projects/:id", requireAdmin, async (req, res): Promise<voi
 });
 
 router.post("/admin/projects/:id/images", requireAdmin, async (req, res): Promise<void> => {
+  const db = getDb();
   const id = Number(req.params.id);
   if (!Number.isInteger(id)) {
     res.status(400).json({ error: "Invalid id" });
@@ -257,6 +269,7 @@ router.post("/admin/projects/:id/images", requireAdmin, async (req, res): Promis
 });
 
 router.delete("/admin/project-images/:id", requireAdmin, async (req, res): Promise<void> => {
+  const db = getDb();
   const id = Number(req.params.id);
   if (!Number.isInteger(id)) {
     res.status(400).json({ error: "Invalid id" });
@@ -274,6 +287,7 @@ router.delete("/admin/project-images/:id", requireAdmin, async (req, res): Promi
 });
 
 router.post("/admin/project-categories", requireAdmin, async (req, res): Promise<void> => {
+  const db = getDb();
   const parsed = AdminCreateProjectCategoryBody.safeParse(req.body);
   if (!parsed.success) {
     res.status(400).json({ error: "Invalid category" });
@@ -301,6 +315,7 @@ router.post("/admin/project-categories", requireAdmin, async (req, res): Promise
 });
 
 router.delete("/admin/project-categories/:id", requireAdmin, async (req, res): Promise<void> => {
+  const db = getDb();
   const id = Number(req.params.id);
   if (!Number.isInteger(id)) {
     res.status(400).json({ error: "Invalid id" });

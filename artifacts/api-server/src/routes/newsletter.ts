@@ -1,8 +1,9 @@
 import { Router } from "express";
 import { desc, eq, sql } from "drizzle-orm";
 import { UnsubscribeNewsletterBody } from "@workspace/api-zod";
-import { db, subscribersTable, insertSubscriberSchema } from "@workspace/db";
+import { subscribersTable, insertSubscriberSchema } from "@workspace/db";
 import { requireAdmin } from "../middlewares/requireAdmin";
+import { getDb } from "../lib/context";
 
 const newsletterRouter: Router = Router();
 
@@ -10,6 +11,7 @@ newsletterRouter.get(
   "/newsletter/subscribers",
   requireAdmin,
   async (_req, res): Promise<void> => {
+    const db = getDb();
     const rows = await db
       .select()
       .from(subscribersTable)
@@ -28,6 +30,7 @@ newsletterRouter.get(
 const subscribeBodySchema = insertSubscriberSchema;
 
 newsletterRouter.post("/newsletter/subscribe", async (req, res) => {
+  const db = getDb();
   const parsed = subscribeBodySchema.safeParse(req.body);
   if (!parsed.success) {
     res.status(400).json({ message: "Invalid email address" });
@@ -56,6 +59,7 @@ newsletterRouter.post("/newsletter/subscribe", async (req, res) => {
 const unsubscribeBodySchema = UnsubscribeNewsletterBody;
 
 newsletterRouter.post("/newsletter/unsubscribe", async (req, res) => {
+  const db = getDb();
   const parsed = unsubscribeBodySchema.safeParse(req.body);
   if (!parsed.success) {
     res.status(400).json({ message: "Missing unsubscribe token" });

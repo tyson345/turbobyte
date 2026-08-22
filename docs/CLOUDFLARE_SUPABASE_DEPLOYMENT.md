@@ -35,9 +35,9 @@
 ```
 Browser
   │
-  ├─ GET /api/*  ──────────────► Cloudflare Worker  (turbobyte-api-server)
+  ├─ GET /api/*  ──────────────► Cloudflare Worker  (turbobyte)
   │                                    │
-  │                                    ├── Postgres   → Supabase DB
+  │                                    ├── Hyperdrive → Supabase Postgres
   │                                    ├── Auth JWTs  → Supabase Auth (verified by the API)
   │                                    └── S3 uploads → Supabase Storage (S3-compat endpoint)
   │
@@ -98,11 +98,14 @@ From **Project Settings → Database → Connection string (URI)**:
 
 | Variable | Value |
 |---|---|
-| `DATABASE_URL` | Full `postgresql://postgres:[PASSWORD]@db.[REF].supabase.co:5432/postgres` |
+| Hyperdrive origin | Full Postgres URI for the Hyperdrive configuration |
 
-> **Tip — connection pooling.** For Workers (many short-lived connections) use
-> the **Transaction** pooler string on port 6543 instead of port 5432. Find it
-> in *Project Settings → Database → Connection pooling*.
+> **Workers use Hyperdrive, not a `DATABASE_URL` secret.** Hyperdrive provides
+> the connection pool, and the Worker receives a `HYPERDRIVE` binding. Prefer
+> Supabase's **Direct connection** URI as the Hyperdrive origin. If the direct
+> hostname has no public IPv4 DNS record and Cloudflare rejects it, use the
+> Supabase **Session pooler** URI on port 5432 as the compatible fallback. Do
+> not use the Transaction pooler on port 6543 as a Hyperdrive origin.
 
 ### 3.3 Enable Supabase Auth
 
@@ -195,7 +198,8 @@ bucket. The API's own CORS setting is separate and is controlled by
 | `OBJECT_STORAGE_REGION` | public | Worker variable |
 | `OBJECT_STORAGE_BUCKET` | public | Worker variable |
 | `OBJECT_STORAGE_PUBLIC_BUCKET` | public | Optional Worker variable |
-| `DATABASE_URL` | **secret** | `wrangler secret put DATABASE_URL` |
+| `HYPERDRIVE` | Cloudflare binding | `[[hyperdrive]]` in `wrangler.toml` |
+| `DATABASE_URL` | **secret** | Local Node/Replit runtime only; not set on the Worker |
 | `RESEND_API_KEY` | **secret** | `wrangler secret put RESEND_API_KEY` |
 | `OBJECT_STORAGE_ACCESS_KEY_ID` | **secret** | `wrangler secret put OBJECT_STORAGE_ACCESS_KEY_ID` |
 | `OBJECT_STORAGE_SECRET_ACCESS_KEY` | **secret** | `wrangler secret put OBJECT_STORAGE_SECRET_ACCESS_KEY` |
@@ -208,10 +212,9 @@ bucket. The API's own CORS setting is separate and is controlled by
 ### 4.2 Setting secrets (Workers)
 
 ```bash
-# Run once per secret from the repo root (requires `wrangler login` first).
+# Run once per non-database secret from the repo root (requires `wrangler login` first).
 cd artifacts/api-server
 
-wrangler secret put DATABASE_URL
 wrangler secret put RESEND_API_KEY
 wrangler secret put OBJECT_STORAGE_ACCESS_KEY_ID
 wrangler secret put OBJECT_STORAGE_SECRET_ACCESS_KEY
@@ -222,7 +225,26 @@ wrangler secret put ANTHROPIC_API_KEY
 Each command prompts for the value interactively — it is never echoed or
 stored in shell history.
 
-### 4.3 Setting build-time env (Pages)
+### 4.3 Create and bind Hyperdrive (Workers)
+
+1. Cloudflare dashboard → **Storage & databases → Postgres & MySQL
+   (Hyperdrive)** → **Connect database** → **Connect to public database**.
+2. Name the configuration and enter the Supabase origin URI described in §3.2.
+   Cloudflare encrypts those origin credentials.
+3. Copy the generated Hyperdrive configuration ID into
+   `artifacts/api-server/wrangler.toml`:
+
+   ```toml
+   [[hyperdrive]]
+   binding = "HYPERDRIVE"
+   id = "<hyperdrive-configuration-id>"
+   ```
+
+The binding name must remain exactly `HYPERDRIVE`; the Worker uses it to create
+one short-lived `pg.Client` per request while Hyperdrive owns the underlying
+connection pool.
+
+### 4.4 Setting build-time env (Pages)
 
 In the Cloudflare dashboard → **Pages → turbobyte → Settings →
 Environment variables → Build-time**:
@@ -441,8 +463,9 @@ cd artifacts/api-server
 pnpm run deploy:worker
 ```
 
-The Worker name (`turbobyte-api-server`) and routes are already defined in
-`artifacts/api-server/wrangler.toml`.
+Before deploying, complete §4.3 so `wrangler.toml` contains the active
+`HYPERDRIVE` binding ID. The Worker name (`turbobyte`) and routes are already
+defined in `artifacts/api-server/wrangler.toml`.
 
 ### 8.3 Subsequent deploys
 
@@ -455,6 +478,9 @@ pnpm --filter @workspace/api-server run deploy:worker
 ```bash
 curl -si https://turbobytetechsolutions.com/api/healthz | head -5
 # Expect: HTTP/2 200
+
+curl -si https://turbobytetechsolutions.com/api/projects | head -5
+# Expect: HTTP/2 200 (an empty JSON list is valid for a new database)
 ```
 
 ### 8.5 Cron trigger

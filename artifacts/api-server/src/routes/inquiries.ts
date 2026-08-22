@@ -1,6 +1,6 @@
 import { Router, type IRouter } from "express";
 import { desc, eq } from "drizzle-orm";
-import { db, inquiriesTable } from "@workspace/db";
+import { inquiriesTable, type Database } from "@workspace/db";
 import {
   SubmitContactInquiryBody,
   SubmitProjectInquiryBody,
@@ -14,6 +14,7 @@ import {
   buildProjectInquiryEmail,
 } from "../lib/emailNotifications";
 import { enqueueInquiryNotification } from "../lib/emailQueue";
+import { getDb, registerBackgroundWork } from "../lib/context";
 import {
   generateReferenceNumber,
   getClientIp,
@@ -45,6 +46,7 @@ function isUniqueViolation(err: unknown): boolean {
  * collision so a duplicate suffix never surfaces as a 500 to the visitor.
  */
 async function insertLead(
+  db: Database,
   values: Omit<typeof inquiriesTable.$inferInsert, "referenceNumber">,
 ): Promise<{ id: number; referenceNumber: string }> {
   let lastErr: unknown;
@@ -71,6 +73,7 @@ inquiriesRouter.get(
   "/inquiries",
   requireAdmin,
   async (_req, res): Promise<void> => {
+    const db = getDb();
     const rows = await db
       .select()
       .from(inquiriesTable)
@@ -83,6 +86,7 @@ inquiriesRouter.patch(
   "/inquiries/:id",
   requireAdmin,
   async (req, res): Promise<void> => {
+    const db = getDb();
     const id = Number.parseInt(String(req.params.id), 10);
     if (!Number.isInteger(id) || id <= 0) {
       res.status(404).json({ error: "Not found" });
@@ -114,6 +118,7 @@ inquiriesRouter.patch(
   "/inquiries/:id/status",
   requireAdmin,
   async (req, res): Promise<void> => {
+    const db = getDb();
     const id = Number.parseInt(String(req.params.id), 10);
     if (!Number.isInteger(id) || id <= 0) {
       res.status(404).json({ error: "Not found" });
@@ -143,6 +148,7 @@ inquiriesRouter.patch(
 );
 
 inquiriesRouter.post("/inquiries/contact", async (req, res): Promise<void> => {
+  const db = getDb();
   const parsed = SubmitContactInquiryBody.safeParse(req.body);
   if (!parsed.success) {
     req.log.warn({ errors: parsed.error.message }, "Invalid contact inquiry");
@@ -180,7 +186,7 @@ inquiriesRouter.post("/inquiries/contact", async (req, res): Promise<void> => {
   const { browser, device } = parseUserAgent(req.headers["user-agent"]);
   const submittedAt = new Date();
 
-  const inquiry = await insertLead({
+  const inquiry = await insertLead(db, {
     type: "contact",
     name,
     email: normalizedEmail,
@@ -202,26 +208,33 @@ inquiriesRouter.post("/inquiries/contact", async (req, res): Promise<void> => {
   // Queue the notifications after the response — persisted first, then
   // delivered/retried in the background so the visitor is never delayed.
   if (inquiry) {
-    enqueueInquiryNotification(
-      inquiry.id,
-      buildContactInquiryEmail(
-        { name, email, company, phone, service, budget, message },
-        { referenceNumber, submittedAt },
-      ),
-    ).catch((err) => {
-      req.log.error({ err }, "Failed to queue contact inquiry notification");
-    });
-    enqueueInquiryNotification(
-      inquiry.id,
-      buildLeadAutoReplyEmail(name, referenceNumber),
-      normalizedEmail,
-    ).catch((err) => {
-      req.log.error({ err }, "Failed to queue contact auto-reply");
-    });
+    registerBackgroundWork(
+      enqueueInquiryNotification(
+        db,
+        inquiry.id,
+        buildContactInquiryEmail(
+          { name, email, company, phone, service, budget, message },
+          { referenceNumber, submittedAt },
+        ),
+      ).catch((err) => {
+        req.log.error({ err }, "Failed to queue contact inquiry notification");
+      }),
+    );
+    registerBackgroundWork(
+      enqueueInquiryNotification(
+        db,
+        inquiry.id,
+        buildLeadAutoReplyEmail(name, referenceNumber),
+        normalizedEmail,
+      ).catch((err) => {
+        req.log.error({ err }, "Failed to queue contact auto-reply");
+      }),
+    );
   }
 });
 
 inquiriesRouter.post("/inquiries/project", async (req, res): Promise<void> => {
+  const db = getDb();
   const parsed = SubmitProjectInquiryBody.safeParse(req.body);
   if (!parsed.success) {
     req.log.warn({ errors: parsed.error.message }, "Invalid project inquiry");
@@ -277,7 +290,7 @@ inquiriesRouter.post("/inquiries/project", async (req, res): Promise<void> => {
   const { browser, device } = parseUserAgent(req.headers["user-agent"]);
   const submittedAt = new Date();
 
-  const inquiry = await insertLead({
+  const inquiry = await insertLead(db, {
     type: "project",
     name,
     email: normalizedEmail,
@@ -302,33 +315,39 @@ inquiriesRouter.post("/inquiries/project", async (req, res): Promise<void> => {
   // Queue the notifications after the response — persisted first, then
   // delivered/retried in the background so the visitor is never delayed.
   if (inquiry) {
-    enqueueInquiryNotification(
-      inquiry.id,
-      buildProjectInquiryEmail(
-        {
-          name,
-          email,
-          company,
-          phone,
-          projectName,
-          description,
-          industry,
-          services: servicesStr,
-          budget,
-          timeline,
-        },
-        { referenceNumber, submittedAt },
-      ),
-    ).catch((err) => {
-      req.log.error({ err }, "Failed to queue project inquiry notification");
-    });
-    enqueueInquiryNotification(
-      inquiry.id,
-      buildLeadAutoReplyEmail(name, referenceNumber),
-      normalizedEmail,
-    ).catch((err) => {
-      req.log.error({ err }, "Failed to queue project auto-reply");
-    });
+    registerBackgroundWork(
+      enqueueInquiryNotification(
+        db,
+        inquiry.id,
+        buildProjectInquiryEmail(
+          {
+            name,
+            email,
+            company,
+            phone,
+            projectName,
+            description,
+            industry,
+            services: servicesStr,
+            budget,
+            timeline,
+          },
+          { referenceNumber, submittedAt },
+        ),
+      ).catch((err) => {
+        req.log.error({ err }, "Failed to queue project inquiry notification");
+      }),
+    );
+    registerBackgroundWork(
+      enqueueInquiryNotification(
+        db,
+        inquiry.id,
+        buildLeadAutoReplyEmail(name, referenceNumber),
+        normalizedEmail,
+      ).catch((err) => {
+        req.log.error({ err }, "Failed to queue project auto-reply");
+      }),
+    );
   }
 });
 

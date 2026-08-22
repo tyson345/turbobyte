@@ -1,5 +1,6 @@
 import { and, eq, lte } from "drizzle-orm";
-import { db, emailNotificationsTable } from "@workspace/db";
+import { emailNotificationsTable, type Database } from "@workspace/db";
+import { getDb, registerBackgroundWork } from "./context";
 import { logger } from "./logger";
 import {
   deliverNotificationEmail,
@@ -30,11 +31,12 @@ function backoffMs(attemptsMade: number): number {
 }
 
 /**
- * Persist a notification for an inquiry, then kick off delivery in the
- * background. Returns once the row is safely stored — the actual send never
- * delays the caller.
+ * Persist a notification for an inquiry, then attempt delivery. HTTP callers
+ * register this composite promise as background work, so the visitor is not
+ * delayed and a request-scoped database remains open through both phases.
  */
 export async function enqueueInquiryNotification(
+  db: Database,
   inquiryId: number | null,
   email: NotificationEmail,
   recipient?: string,
@@ -53,10 +55,11 @@ export async function enqueueInquiryNotification(
     .returning({ id: emailNotificationsTable.id });
 
   if (inserted) {
-    // Fire-and-forget: first attempt happens off the request path.
-    void attemptDelivery(inserted.id).catch((err) => {
-      logger.error({ err, notificationId: inserted.id },
-        "Unexpected error attempting email notification delivery");
+    await attemptDelivery(inserted.id, db).catch((err) => {
+      logger.error(
+        { err, notificationId: inserted.id },
+        "Unexpected error attempting email notification delivery",
+      );
     });
   }
 }
@@ -65,15 +68,22 @@ export async function enqueueInquiryNotification(
  * Persist one notification per recipient (already inserted by the caller,
  * e.g. inside a transaction) and kick off delivery in the background.
  */
-export function kickOffDeliveries(notificationIds: number[]): void {
-  for (const id of notificationIds) {
-    void attemptDelivery(id).catch((err) => {
+export function kickOffDeliveries(
+  notificationIds: number[],
+  db: Database = getDb(),
+): Promise<unknown> {
+  const promises = notificationIds.map((id) => {
+    const promise = attemptDelivery(id, db).catch((err) => {
       logger.error(
         { err, notificationId: id },
         "Unexpected error attempting email notification delivery",
       );
     });
-  }
+    // Keep any request-scoped connection open until delivery settles.
+    registerBackgroundWork(promise);
+    return promise;
+  });
+  return Promise.allSettled(promises);
 }
 
 /**
@@ -81,7 +91,10 @@ export function kickOffDeliveries(notificationIds: number[]): void {
  * 'sent' on success, 'pending' with a back-off on retryable failure,
  * 'failed' once MAX_ATTEMPTS is exhausted.
  */
-export async function attemptDelivery(notificationId: number): Promise<void> {
+export async function attemptDelivery(
+  notificationId: number,
+  db: Database = getDb(),
+): Promise<void> {
   const [notification] = await db
     .select()
     .from(emailNotificationsTable)
@@ -157,7 +170,9 @@ export async function attemptDelivery(notificationId: number): Promise<void> {
 }
 
 /** Deliver every pending notification whose retry time has arrived. */
-export async function processDueNotifications(): Promise<void> {
+export async function processDueNotifications(
+  db: Database = getDb(),
+): Promise<void> {
   const due = await db
     .select({ id: emailNotificationsTable.id })
     .from(emailNotificationsTable)
@@ -169,7 +184,7 @@ export async function processDueNotifications(): Promise<void> {
     );
 
   for (const { id } of due) {
-    await attemptDelivery(id);
+    await attemptDelivery(id, db);
   }
 }
 

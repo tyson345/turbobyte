@@ -21,6 +21,13 @@ compatibility_date = "2026-08-04"
 # httpServerHandler bridge.
 compatibility_flags = ["nodejs_compat", "enable_nodejs_http_server_modules"]
 
+# ── Hyperdrive ──────────────────────────────────────────────────────────────
+# Hyperdrive owns the Supabase connection pool. Its origin credentials are
+# encrypted in Cloudflare; the Worker receives only this binding.
+[[hyperdrive]]
+binding = "HYPERDRIVE"
+id = "dbf76c9d296446729a15cb7bcbfecf87"
+
 # ── Routes ──────────────────────────────────────────────────────────────────
 # All /api/* traffic on both apex and www is handled by this Worker.
 [[routes]]
@@ -44,9 +51,10 @@ crons = ["* * * * *"]
 enabled = true
 
 # ── Environment variable bindings ───────────────────────────────────────────
-# Non-secret, environment-specific vars can be listed here.
-# All secrets (DATABASE_URL, RESEND_API_KEY, storage credentials, etc.)
-# must be set via: wrangler secret put <KEY>
+# Non-secret, environment-specific vars can be listed here. Database access is
+# through the HYPERDRIVE binding above, not a DATABASE_URL Worker secret.
+# Other secrets (RESEND_API_KEY, storage credentials, etc.) must be set via
+# wrangler secret put <KEY>.
 
 [vars]
 NODE_ENV = "production"
