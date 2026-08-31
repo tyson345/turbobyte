@@ -97,7 +97,7 @@ export function VantaNet() {
             scale: 1.0,
             scaleMobile: 1.0,
             color: 0x8e3fff,
-            backgroundColor: 0xF5F5DC,
+            backgroundColor: 0xEADDEE,
             points: 9.0,
             maxDistance: 25.0,
             spacing: 16.0,
