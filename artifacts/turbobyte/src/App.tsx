@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
-import { Route, Switch, Router as WouterRouter } from 'wouter';
+import { Route, Switch, Router as WouterRouter, useLocation } from 'wouter';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { ScrollToTop } from '@/components/scroll-to-top';
@@ -12,6 +12,7 @@ import { CampaignPopup } from '@/components/campaign/campaign-popup';
 import logoMark from '@/assets/logo-mark.png';
 import { basePath } from '@/lib/paths';
 import { AuthProvider } from '@/lib/auth';
+import { MarketingPageBanner } from '@/components/marketing-page-banner';
 
 const queryClient = new QueryClient();
 
@@ -145,12 +146,29 @@ function PageLoader() {
 
 function Router() {
   usePrefetchPages();
+  const [location] = useLocation();
+  const hasMarketingBanner =
+    /^\/(?:services|portfolio|case-studies|blog)(?:\/|$)/.test(location) ||
+    [
+      '/about',
+      '/solutions',
+      '/careers',
+      '/contact',
+      '/start-project',
+      '/demo',
+      '/operation-tiranga',
+    ].includes(location);
 
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden w-full relative">
       <AnnouncementBar />
       <Navbar />
       <main className="flex-1 flex flex-col">
+        {hasMarketingBanner && (
+          <MarketingPageBanner
+            compensateForPagePadding={location !== '/operation-tiranga'}
+          />
+        )}
         <Suspense fallback={<PageLoader />}>
           <ScrollToTop />
           <Switch>
