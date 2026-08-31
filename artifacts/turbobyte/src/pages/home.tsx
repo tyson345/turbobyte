@@ -160,7 +160,7 @@ export default function Home() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-center"
             >
-              <div className="inline-flex items-center gap-2 text-primary text-xs font-semibold mb-6 tracking-widest uppercase">
+              <div className="inline-flex items-center gap-2 text-primary text-sm sm:text-base md:text-lg font-bold mb-6 tracking-[0.16em] uppercase">
                 <TextScramble>BENGALURU AI TECH STUDIO</TextScramble>
               </div>
 
