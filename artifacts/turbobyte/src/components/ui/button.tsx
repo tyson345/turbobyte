@@ -17,7 +17,7 @@ const buttonVariants = cva(
           'border [border-color:var(--button-outline)] shadow-sm active:shadow-none hover:bg-white/5 hover:border-white/10 hover:-translate-y-0.5 active:translate-y-0 motion-reduce:hover:translate-y-0',
         secondary:
           'border bg-secondary text-secondary-foreground border border-secondary-border hover:bg-secondary/80 hover:-translate-y-0.5 active:translate-y-0 motion-reduce:hover:translate-y-0',
-        ghost: 'border border-transparent hover:bg-white/5 hover:text-white',
+        ghost: 'border border-transparent hover:bg-primary/10 hover:text-primary',
         link: 'text-primary underline-offset-4 hover:underline hover:text-primary/80',
         premium: 'relative overflow-hidden border border-white/10 bg-gradient-to-r from-primary via-[#a855f7] to-[#DCBBE5] text-white shadow-[0_10px_30px_-12px_rgba(224,188,231,0.55)] after:pointer-events-none after:absolute after:inset-0 after:-translate-x-full after:bg-gradient-to-r after:from-transparent after:via-white/25 after:to-transparent hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-12px_rgba(224,188,231,0.7)] hover:after:animate-[shimmer_850ms_ease-out_1] active:translate-y-0 motion-reduce:hover:translate-y-0 motion-reduce:hover:after:animate-none'
       },
