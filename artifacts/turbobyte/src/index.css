@@ -137,34 +137,34 @@
 .dark {
   /* Light lavender theme with deep plum typography */
   --background: 286 27% 90%;
-  --foreground: 270 22% 16%;
+  --foreground: 270 30% 12%;
   --border: 286 28% 78%;
   
   --card: 285 36% 96%;
-  --card-foreground: 270 22% 16%;
+  --card-foreground: 270 30% 12%;
   --card-border: 286 28% 78%;
   
   --sidebar: 285 36% 96%;
-  --sidebar-foreground: 270 22% 16%;
+  --sidebar-foreground: 270 30% 12%;
   --sidebar-border: 286 28% 78%;
   --sidebar-primary: 262 83% 58%;
   --sidebar-primary-foreground: 0 0% 100%;
   --sidebar-accent: 292 42% 85%;
-  --sidebar-accent-foreground: 270 22% 16%;
+  --sidebar-accent-foreground: 270 30% 12%;
   --sidebar-ring: 262 83% 58%;
   
   --popover: 285 36% 97%;
-  --popover-foreground: 270 22% 16%;
+  --popover-foreground: 270 30% 12%;
   --popover-border: 286 28% 78%;
   
   --primary: 262 83% 58%;
   --primary-foreground: 0 0% 100%;
   --secondary: 292 42% 85%;
-  --secondary-foreground: 270 22% 16%;
+  --secondary-foreground: 270 30% 12%;
   --muted: 290 34% 86%;
-  --muted-foreground: 270 12% 38%;
+  --muted-foreground: 270 18% 28%;
   --accent: 286 36% 83%;
-  --accent-foreground: 270 22% 16%;
+  --accent-foreground: 270 30% 12%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
   --input: 286 28% 78%;
@@ -194,6 +194,7 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
+    text-rendering: optimizeLegibility;
     background-image:
       radial-gradient(circle at 12% 8%, rgba(255, 250, 255, 0.62), transparent 31rem),
       radial-gradient(circle at 88% 24%, rgba(224, 188, 231, 0.42), transparent 36rem),
@@ -231,9 +232,36 @@
 }
 
 @layer utilities {
+  .nav-link {
+    color: hsl(var(--foreground) / 0.88);
+    font-weight: 600;
+  }
+
+  .nav-link:hover,
+  .nav-link-active {
+    color: hsl(var(--primary));
+  }
+
+  .nav-dropdown-link {
+    color: hsl(var(--foreground) / 0.88);
+    font-weight: 500;
+  }
+
+  .nav-dropdown-link:hover {
+    color: hsl(var(--primary));
+    background: hsl(var(--primary) / 0.1);
+  }
+
+  .nav-shell-scrolled {
+    background: hsl(var(--background) / 0.94) !important;
+    border-bottom: 1px solid hsl(var(--border) / 0.9) !important;
+    backdrop-filter: blur(18px) saturate(130%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(130%) !important;
+  }
+
   /*
    * Compatibility for sections authored against the former dark theme.
-   * Keep legacy white-text utilities readable on beige surfaces while
+   * Keep legacy white-text utilities readable on light surfaces while
    * preserving white labels on purple CTAs and intentionally dark badges.
    */
   .dark [class~="text-white"],
