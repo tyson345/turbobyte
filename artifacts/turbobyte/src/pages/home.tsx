@@ -164,7 +164,7 @@ export default function Home() {
                 <TextScramble>BENGALURU AI TECH STUDIO</TextScramble>
               </div>
 
-              <h1 className="text-4xl sm:text-6xl md:text-7xl font-medium mb-6 leading-[1.05] tracking-tight" style={{ fontFamily: 'var(--app-font-display)' }}>
+              <h1 className="text-5xl sm:text-7xl md:text-8xl font-medium mb-6 leading-[1.02] tracking-tight" style={{ fontFamily: 'var(--app-font-display)' }}>
                 <span className="text-white">Precision Software.</span>
                 <br />
                 <span className="premium-gradient-text">
@@ -172,7 +172,7 @@ export default function Home() {
                 </span>
               </h1>
 
-              <p className="text-lg md:text-xl text-foreground/85 mb-8 max-w-3xl mx-auto leading-relaxed font-normal md:font-light">
+              <p className="text-xl md:text-2xl text-foreground/85 mb-8 max-w-4xl mx-auto leading-relaxed font-normal md:font-light">
                 We design, build, and ship enterprise-grade websites, custom applications, and intelligent automation for ambitious businesses ready to scale.
               </p>
 
