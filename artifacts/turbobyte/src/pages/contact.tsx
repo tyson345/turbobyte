@@ -34,6 +34,7 @@ import { siteConfig, trustItems, hasAnySocial } from '@/config/site';
 import { contactServiceOptions, budgetOptions } from '@/config/services';
 import { cn } from '@/lib/utils';
 import { AmbientHero } from '@/components/ambient-hero';
+import { MarketingImage } from '@/components/marketing-image';
 
 export default function Contact() {
   const seoTitle = 'Contact TurboByte Tech Solutions';
@@ -52,7 +53,7 @@ export default function Contact() {
   const search = useSearch();
   const params = useMemo(() => new URLSearchParams(search), [search]);
   const rawService = params.get('service') || '';
-  
+
   const defaultService = contactServiceOptions.includes(rawService) ? rawService : '';
 
   const [submittedData, setSubmittedData] = useState<{ referenceNumber?: string } | null>(null);
@@ -65,7 +66,7 @@ export default function Contact() {
     service: defaultService,
     budget: '',
     message: '',
-    website: '', 
+    website: '',
   });
   const [consent, setConsent] = useState(false);
   const [serviceOpen, setServiceOpen] = useState(false);
@@ -96,7 +97,7 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg(null);
-    
+
     // Client-side validation
     if (!formData.name || !formData.email || !formData.phone || !formData.service || !formData.budget || !formData.message) {
       setErrorMsg("Please fill in all required fields.");
@@ -508,6 +509,11 @@ export default function Contact() {
                   </div>
                 </div>
               )}
+              <MarketingImage
+                src="/images/marketing/client-consultation.jpg"
+                alt="Client consultation session"
+                aspectRatio="video"
+              />
             </motion.div>
           </div>
         </div>

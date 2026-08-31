@@ -5,6 +5,7 @@ import { useSEO } from '@/hooks/use-seo';
 import { schemaGraph, webPageSchema, breadcrumbSchema } from '@/lib/schema';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import { serviceAnchor, type ServiceCategory } from '@/config/services';
+import { MarketingImage } from '@/components/marketing-image';
 
 /** SPA navigation doesn't auto-scroll to hash targets — do it manually. */
 function useScrollToHash(deps: unknown[]) {
@@ -88,13 +89,27 @@ export function ServiceCategoryPage({ category }: { category: ServiceCategory })
       {/* What We Do */}
       <section className="py-12 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6" style={{ fontFamily: 'var(--app-font-display)' }}>What We Do</h2>
-            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
-              {category.intro.map((paragraph, i) => (
-                <p key={i}>{paragraph}</p>
-              ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto items-center">
+            <div>
+              <h2 className="text-3xl font-bold mb-6" style={{ fontFamily: 'var(--app-font-display)' }}>What We Do</h2>
+              <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+                {category.intro.map((paragraph, i) => (
+                  <p key={i}>{paragraph}</p>
+                ))}
+              </div>
             </div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
+              <MarketingImage
+                src="/images/marketing/design-workshop.jpg"
+                alt="Strategy and planning session"
+                aspectRatio="portrait"
+              />
+            </motion.div>
           </div>
         </div>
       </section>
@@ -118,7 +133,7 @@ export function ServiceCategoryPage({ category }: { category: ServiceCategory })
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                   <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-primary/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                  
+
                   <div className="relative z-10 flex flex-col h-full">
                     <CheckCircle className="w-8 h-8 text-primary mb-6 group-hover:scale-110 transition-transform duration-500" />
                     <h3 className="text-2xl font-medium mb-3 group-hover:text-primary transition-colors duration-300" style={{ fontFamily: 'var(--app-font-display)' }}>{service.name}</h3>

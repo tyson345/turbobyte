@@ -3,9 +3,9 @@ import { Link, useLocation, useSearch } from 'wouter';
 import { motion } from 'framer-motion';
 import { useSEO } from '@/hooks/use-seo';
 import { schemaGraph, webPageSchema, breadcrumbSchema } from '@/lib/schema';
-import { 
-  ArrowRight, Search, X, SearchX, CheckCircle2, 
-  Settings, Zap, Shield, FileText, Bot, 
+import {
+  ArrowRight, Search, X, SearchX, CheckCircle2,
+  Settings, Zap, Shield, FileText, Bot,
   MessageSquare, LayoutGrid,
 } from 'lucide-react';
 import { Input } from '@/components/ui/input';
@@ -14,6 +14,7 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/
 import { serviceCategories, serviceAnchor } from '@/config/services';
 import { TextScramble } from '@/components/core/text-scramble';
 import { AmbientHero } from '@/components/ambient-hero';
+import { MarketingImage } from '@/components/marketing-image';
 
 const faqData = [
   {
@@ -111,7 +112,7 @@ export default function Services() {
   const hasActiveFilters = Boolean(query || activeCategory);
 
   const featuredServices = useMemo(() => {
-    return serviceCategories.flatMap(cat => 
+    return serviceCategories.flatMap(cat =>
       cat.services
         .filter(s => s.featured)
         .map(s => ({ ...s, categorySlug: cat.slug, categoryTitle: cat.title, icon: cat.icon }))
@@ -240,7 +241,7 @@ export default function Services() {
               {filteredServices.map((service, i) => {
                 const isFull = i % 5 === 0 || i % 5 === 4;
                 const colSpan = isFull ? "md:col-span-12 lg:col-span-8" : "md:col-span-6 lg:col-span-4";
-                
+
                 return (
                   <motion.div
                     key={service.name}
@@ -258,14 +259,14 @@ export default function Services() {
                         <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-500 shadow-lg mb-8">
                           <service.icon className="w-6 h-6" strokeWidth={1.5} />
                         </div>
-                        
+
                         <h3 className="text-2xl font-medium text-white mb-3 tracking-tight group-hover:text-primary transition-colors duration-300" style={{ fontFamily: 'var(--app-font-display)' }}>
                           {service.name}
                         </h3>
                         <p className="text-muted-foreground mb-8 font-light leading-relaxed flex-1">
                           {service.desc}
                         </p>
-                        
+
                         {service.benefits && service.benefits.length > 0 && (
                           <div className="mb-8 space-y-3">
                             <h4 className="text-xs uppercase tracking-widest text-white/50 font-semibold mb-4">Key Capabilities</h4>
@@ -289,7 +290,7 @@ export default function Services() {
                               <Link href={`/contact?service=${encodeURIComponent(service.name)}`}>Request Quote</Link>
                             </Button>
                           </div>
-                          
+
                           <div className="pt-2">
                             <div className="flex flex-wrap gap-3">
                               {serviceCategories.find(c => c.slug === service.categorySlug)?.services
@@ -320,7 +321,7 @@ export default function Services() {
             <h2 className="text-4xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>How We Change <span className="gradient-text">The Game</span></h2>
             <p className="text-xl text-muted-foreground">Compare the impact of TurboByte AI Solutions against conventional approaches.</p>
           </motion.div>
-          
+
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
@@ -371,7 +372,7 @@ export default function Services() {
                   <div className={`hidden lg:flex flex-1 justify-${i % 2 === 0 ? 'start' : 'end'}`}>
                     <div className="w-1/2" />
                   </div>
-                  
+
                   <div className="relative z-10 flex items-center justify-center shrink-0">
                     <div className="w-16 h-16 rounded-full bg-card border border-primary/20 flex items-center justify-center text-primary font-mono text-xl shadow-[0_0_20px_rgba(124,58,237,0.1)] relative">
                       <div className="absolute inset-[-4px] rounded-full border border-primary/30 border-dashed animate-[spin_10s_linear_infinite] motion-reduce:animate-none" />
@@ -397,28 +398,42 @@ export default function Services() {
 
       {/* Why Choose Us */}
       <section className="py-12 md:py-24 bg-card/50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>Why Choose <span className="gradient-text">Our Services</span></h2>
-          </motion.div>
-          
-          <div className="flex flex-wrap justify-center gap-4">
-            {whyChooseUs.map((reason, i) => (
-              <motion.div
-                key={reason}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="group relative"
-              >
-                <div className="absolute inset-0 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full" />
-                <div className="relative bg-white/[0.02] border border-white/10 hover:border-primary/40 px-6 py-3.5 rounded-full flex items-center gap-3 transition-all duration-300">
-                  <CheckCircle2 className="w-4 h-4 text-primary group-hover:shadow-[0_0_10px_rgba(124,58,237,0.8)] rounded-full transition-shadow duration-300" strokeWidth={2} />
-                  <span className="text-sm font-medium tracking-wide text-white/80 group-hover:text-white transition-colors duration-300">{reason}</span>
-                </div>
-              </motion.div>
-            ))}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <h2 className="text-4xl font-bold mb-8" style={{ fontFamily: 'var(--app-font-display)' }}>Why Choose <span className="gradient-text">Our Services</span></h2>
+              <div className="flex flex-wrap gap-4">
+                {whyChooseUs.map((reason, i) => (
+                  <motion.div
+                    key={reason}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.05 }}
+                    className="group relative"
+                  >
+                    <div className="absolute inset-0 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full" />
+                    <div className="relative bg-white/[0.02] border border-white/10 hover:border-primary/40 px-6 py-3.5 rounded-full flex items-center gap-3 transition-all duration-300">
+                      <CheckCircle2 className="w-4 h-4 text-primary group-hover:shadow-[0_0_10px_rgba(124,58,237,0.8)] rounded-full transition-shadow duration-300" strokeWidth={2} />
+                      <span className="text-sm font-medium tracking-wide text-white/80 group-hover:text-white transition-colors duration-300">{reason}</span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.7 }}
+            >
+              <MarketingImage
+                src="/images/marketing/developer-workspace.jpg"
+                alt="Developer workspace"
+                aspectRatio="portrait"
+              />
+            </motion.div>
           </div>
         </div>
       </section>

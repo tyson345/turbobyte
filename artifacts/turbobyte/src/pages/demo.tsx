@@ -18,6 +18,7 @@ import {
 } from '@/components/ui/dialog';
 import { Sparkles, Maximize2, X, Loader2, AlertCircle, CheckCircle2, Zap, Send, ImagePlus } from 'lucide-react';
 import { useGenerateDemoPrototype, useSubmitDemoInquiry } from '@workspace/api-client-react';
+import { MarketingImage } from '@/components/marketing-image';
 import type { DemoPrototypeResult } from '@workspace/api-client-react';
 import { TextScramble } from '@/components/core/text-scramble';
 import { TextLoop } from '@/components/core/text-loop';
@@ -57,7 +58,7 @@ export default function Demo() {
   const [submittedData, setSubmittedData] = useState<{ referenceNumber?: string } | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
-  
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -443,7 +444,7 @@ export default function Demo() {
       {/* Hero */}
       <section className="py-8 md:py-12 relative overflow-hidden">
         <AmbientHero />
-        
+
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -761,6 +762,19 @@ export default function Demo() {
                 <p className="text-muted-foreground">
                   See what's possible before committing to anything
                 </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="mb-12"
+              >
+                <MarketingImage
+                  src="/images/marketing/design-workshop.jpg"
+                  alt="Interactive design workshop"
+                  aspectRatio="wide"
+                />
               </motion.div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

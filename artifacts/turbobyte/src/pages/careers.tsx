@@ -8,6 +8,7 @@ import { siteConfig } from '@/config/site';
 import { useListJobs } from '@workspace/api-client-react';
 import { ApplicationModal } from '@/components/application-modal';
 import { AmbientHero } from '@/components/ambient-hero';
+import { MarketingImage } from '@/components/marketing-image';
 
 export default function Careers() {
   const seoTitle = 'Careers | TurboByte Tech Solutions Private Limited';
@@ -65,11 +66,11 @@ export default function Careers() {
 
   return (
     <div className="min-h-screen pt-20">
-      <ApplicationModal 
-        isOpen={modalOpen} 
-        onOpenChange={setModalOpen} 
-        jobId={selectedJobId} 
-        defaultRole={selectedRole} 
+      <ApplicationModal
+        isOpen={modalOpen}
+        onOpenChange={setModalOpen}
+        jobId={selectedJobId}
+        defaultRole={selectedRole}
       />
 
       {/* Hero Section */}
@@ -98,14 +99,23 @@ export default function Careers() {
       {/* Company Culture */}
       <section className="py-10 md:py-24 bg-card/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>
-              Our <span className="gradient-text">Culture</span>
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg">
-              The principles that drive how we work, collaborate, and build.
-            </p>
-          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12 md:mb-16">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>
+                Our <span className="gradient-text">Culture</span>
+              </h2>
+              <p className="text-muted-foreground text-base md:text-lg">
+                The principles that drive how we work, collaborate, and build.
+              </p>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
+              <MarketingImage
+                src="/images/marketing/team-culture.jpg"
+                alt="Team culture and collaboration"
+                aspectRatio="video"
+              />
+            </motion.div>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
             {cultureValues.map((value, i) => (
               <motion.div
@@ -118,7 +128,7 @@ export default function Careers() {
               >
                 <div className="group relative flex flex-col p-6 sm:p-8 md:p-10 rounded-[2rem] bg-white/[0.015] border border-white/5 hover:border-primary/20 transition-all duration-500 overflow-hidden h-full">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
+
                   <div className="relative z-10">
                     <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-500 mb-8">
                       <value.icon className="w-6 h-6" strokeWidth={1.5} />
@@ -222,11 +232,11 @@ function JobCard({ job, index, onApply }: { job: any, index: number, onApply: ()
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }} 
-      whileInView={{ opacity: 1, y: 0 }} 
-      viewport={{ once: true }} 
-      transition={{ delay: index * 0.1 }} 
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
       className="bg-white/[0.015] rounded-[2rem] border border-white/5 hover:border-primary/20 transition-all duration-300 overflow-hidden group"
     >
       <div

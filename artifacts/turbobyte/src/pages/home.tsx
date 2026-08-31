@@ -22,6 +22,7 @@ import { HomepageCampaignBanner } from '@/components/campaign/homepage-banner';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { ShowcaseCarousel } from '@/components/showcase-carousel';
+import { MarketingImage } from '@/components/marketing-image';
 import {
   ArrowRight,
   Brain,
@@ -118,7 +119,7 @@ export default function Home() {
   useSEO(
     'TurboByte Tech Solutions | Website Design & Development Company in Bengaluru, India',
     'Want a website for your business? TurboByte is a website creation and software development company in Bengaluru building professional websites, e-commerce stores, web & mobile apps, and AI automation — live in 2–3 days with a free first-year domain.',
-    { 
+    {
       absoluteTitle: true,
       jsonLd: schemaGraph(
         webPageSchema({
@@ -160,7 +161,7 @@ export default function Home() {
               <div className="inline-flex items-center gap-2 text-primary text-xs font-semibold mb-6 tracking-widest uppercase">
                 <TextScramble>BENGALURU AI TECH STUDIO</TextScramble>
               </div>
-              
+
               <h1 className="text-4xl sm:text-6xl md:text-7xl font-medium mb-6 leading-[1.05] tracking-tight" style={{ fontFamily: 'var(--app-font-display)' }}>
                 <span className="text-white">Precision Software.</span>
                 <br />
@@ -168,11 +169,11 @@ export default function Home() {
                   <TextRoll duration={0.8} getEnterDelay={(i) => i * 0.05 + 0.3}>Powered by AI.</TextRoll>
                 </span>
               </h1>
-              
+
               <p className="text-lg md:text-xl text-foreground/85 mb-8 max-w-3xl mx-auto leading-relaxed font-normal md:font-light">
                 We design, build, and ship enterprise-grade websites, custom applications, and intelligent automation for ambitious businesses ready to scale.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button asChild size="lg" className="h-14 px-8 text-base bg-white text-black hover:bg-white/90 rounded-full transition-transform hover:scale-105">
                   <Link href="/start-project" data-testid="button-hero-book-consultation">
@@ -190,7 +191,7 @@ export default function Home() {
                   </Link>
                 </Button>
               </div>
-              
+
               <div className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-4 md:gap-x-12 md:gap-y-6 text-sm text-white/50" data-testid="list-hero-trust-points">
                 {[
                   { text: 'Live in 2–3 Days' },
@@ -198,7 +199,7 @@ export default function Home() {
                   { text: '30-Day Post-Launch Support' },
                   { text: 'Local Bengaluru Team' }
                 ].map((point, i) => (
-                  <motion.div 
+                  <motion.div
                     key={point.text}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -214,7 +215,7 @@ export default function Home() {
         </div>
 
         {/* Scroll Indicator */}
-        <motion.div 
+        <motion.div
           className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-40"
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.4 }}
@@ -240,7 +241,7 @@ export default function Home() {
             </p>
           </motion.div>
         </div>
-        
+
         <ShowcaseCarousel />
       </section>
 
@@ -305,10 +306,10 @@ export default function Home() {
                 </div>
               )}
             </div>
-            
+
             <div className="lg:col-span-4 bg-card border border-white/5 p-6 sm:p-8 md:p-12 rounded-3xl flex flex-col relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.05] to-transparent" />
-              
+
               <div className="relative z-10 mb-8 md:mb-10">
                 <div className="inline-flex items-center gap-2 text-primary text-xs font-semibold mb-2 md:mb-3 uppercase tracking-widest">
                   <TextScramble>OUR COMMITMENT</TextScramble>
@@ -371,7 +372,7 @@ export default function Home() {
                 AI isn't just a feature; it's our foundation. We integrate intelligent agents and seamless automation into stunning digital products.
               </p>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -406,7 +407,7 @@ export default function Home() {
                 >
                   <Link href={service.href} className="block h-full rounded-2xl md:rounded-3xl outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background">
                     <div className="group relative flex flex-row md:flex-col justify-between items-center md:items-stretch p-4 md:p-10 rounded-[1.5rem] md:rounded-[2rem] bg-white/[0.015] border border-white/5 hover:border-primary/30 transition-all duration-500 hover:shadow-[0_0_40px_-10px_rgba(124,58,237,0.15)] overflow-hidden h-full cursor-pointer gap-4 md:gap-0" data-testid={`card-home-service-${i}`}>
-                      
+
                       <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-colors duration-700 hidden md:block" />
 
@@ -418,7 +419,7 @@ export default function Home() {
                             </div>
                             <div className="text-white/10 font-mono text-lg md:text-xl font-light select-none hidden md:block">0{i + 1}</div>
                           </div>
-                          
+
                           <div className="flex-1 mt-auto">
                             <h3 className="text-base md:text-3xl font-medium text-white mb-1 md:mb-4 tracking-tight group-hover:text-primary transition-colors duration-300 line-clamp-1 md:line-clamp-none" style={{ fontFamily: 'var(--app-font-display)' }}>
                               {service.name}
@@ -449,7 +450,7 @@ export default function Home() {
                         </span>
                         <ChevronRight className="w-5 h-5 text-white/40 md:hidden block group-hover:text-primary transition-colors" />
                       </div>
-                      
+
                     </div>
                   </Link>
                 </motion.div>
@@ -460,41 +461,61 @@ export default function Home() {
       </section>
 
       {/* Why Choose Section */}
-      <section className="py-10 md:py-32 border-y border-white/5 bg-card/50">
+      <section className="py-10 md:py-32 border-y border-white/5 bg-card/50 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-20"
-          >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium mb-6 tracking-tight text-white" style={{ fontFamily: 'var(--app-font-display)' }}>
-              Why Partner With TurboByte
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl font-light">
-              We blend engineering excellence with deep business acumen.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:p-12">
-            {whyChoose.map((item, i) => (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div>
               <motion.div
-                key={item.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group flex flex-row md:flex-col items-start gap-4 md:gap-0"
+                className="mb-12 md:mb-16"
               >
-                <div className="shrink-0">
-                  <item.icon className="w-8 h-8 text-white/30 md:mb-6" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h3 className="text-lg md:text-xl font-medium mb-2 md:mb-4 text-white tracking-tight" style={{ fontFamily: 'var(--app-font-display)' }}>{item.title}</h3>
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-light">{item.desc}</p>
-                </div>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium mb-6 tracking-tight text-white" style={{ fontFamily: 'var(--app-font-display)' }}>
+                  Why Partner With TurboByte
+                </h2>
+                <p className="text-xl text-muted-foreground font-light">
+                  We blend engineering excellence with deep business acumen.
+                </p>
               </motion.div>
-            ))}
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10">
+                {whyChoose.map((item, i) => (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    className="group flex flex-row items-start gap-4"
+                  >
+                    <div className="shrink-0 mt-1">
+                      <item.icon className="w-6 h-6 text-primary/60 group-hover:text-primary transition-colors" strokeWidth={1.5} />
+                    </div>
+                    <div>
+                      <h3 className="text-base md:text-lg font-medium mb-2 text-white tracking-tight" style={{ fontFamily: 'var(--app-font-display)' }}>{item.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed font-light">{item.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.7 }}
+              className="relative hidden lg:block"
+            >
+              <MarketingImage
+                src="/images/marketing/digital-strategy.jpg"
+                alt="Digital strategy consulting session"
+                aspectRatio="portrait"
+                className="shadow-2xl"
+              />
+              <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-primary/20 rounded-full blur-3xl -z-10" />
+            </motion.div>
           </div>
         </div>
       </section>
@@ -580,10 +601,10 @@ export default function Home() {
             >
               <Accordion type="single" collapsible className="w-full space-y-4">
                 {faqs.map((faq, i) => (
-                  <AccordionItem 
-                    key={i} 
-                    value={`item-${i}`} 
-                    className="bg-card rounded-2xl px-6 md:px-8 border border-white/5 data-[state=open]:border-white/10 transition-colors" 
+                  <AccordionItem
+                    key={i}
+                    value={`item-${i}`}
+                    className="bg-card rounded-2xl px-6 md:px-8 border border-white/5 data-[state=open]:border-white/10 transition-colors"
                     data-testid={`faq-item-${i}`}
                   >
                     <AccordionTrigger className="text-left font-medium text-base md:text-lg text-white hover:no-underline py-4 md:py-6" style={{ fontFamily: 'var(--app-font-display)' }} data-testid={`faq-trigger-${i}`}>

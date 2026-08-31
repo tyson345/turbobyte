@@ -12,6 +12,7 @@ import { useSubmitProjectInquiry } from '@workspace/api-client-react';
 import { TextScramble } from '@/components/core/text-scramble';
 import { TextRoll } from '@/components/core/text-roll';
 import { AmbientHero } from '@/components/ambient-hero';
+import { MarketingImage } from '@/components/marketing-image';
 
 /**
  * Plain-language options so non-technical visitors can pick what they need
@@ -230,9 +231,15 @@ export default function StartProject() {
                   <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium mb-6 text-white tracking-tight leading-[1.05]" style={{ fontFamily: 'var(--app-font-display)' }}>
                     <TextRoll>Start Your Project</TextRoll>
                   </h1>
-                  <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
+                  <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed mb-10">
                     Two quick steps — tell us what you need, and we'll get in touch within 24 hours to formulate a plan.
                   </p>
+
+                  <MarketingImage
+                    src="/images/marketing/developer-workspace.jpg"
+                    alt="Project planning"
+                    aspectRatio="wide"
+                  />
                 </motion.div>
 
                 {/* Progress Bar */}
@@ -258,7 +265,7 @@ export default function StartProject() {
                 {/* Form Steps */}
                 <div className="bg-card border border-white/5 p-8 md:p-12 rounded-[2.5rem] relative overflow-hidden group shadow-2xl">
                   <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl opacity-50 pointer-events-none transition-opacity duration-700 group-hover:opacity-100" />
-                  
+
                   <AnimatePresence mode="wait">
                     {/* Step 1: What do you need */}
                     {step === 1 && (
@@ -288,8 +295,8 @@ export default function StartProject() {
                                 aria-pressed={selected}
                                 onClick={() => toggleNeed(option.label)}
                                 className={`group/btn relative p-5 rounded-2xl border text-left transition-all duration-300 overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
-                                  selected 
-                                    ? 'bg-primary/[0.05] border-primary/50 shadow-[0_0_20px_rgba(124,58,237,0.15)]' 
+                                  selected
+                                    ? 'bg-primary/[0.05] border-primary/50 shadow-[0_0_20px_rgba(124,58,237,0.15)]'
                                     : 'bg-white/[0.015] border-white/5 hover:border-primary/30 hover:bg-white/[0.03]'
                                 }`}
                                 data-testid={`option-need-${option.label.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
@@ -336,8 +343,8 @@ export default function StartProject() {
                                 aria-pressed={formData.budget === budget}
                                 onClick={() => setFormData({ ...formData, budget: formData.budget === budget ? '' : budget })}
                                 className={`px-5 py-2.5 rounded-full border text-sm font-medium tracking-wide transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
-                                  formData.budget === budget 
-                                    ? 'bg-primary text-primary-foreground border-primary shadow-[0_0_15px_rgba(124,58,237,0.3)]' 
+                                  formData.budget === budget
+                                    ? 'bg-primary text-primary-foreground border-primary shadow-[0_0_15px_rgba(124,58,237,0.3)]'
                                     : 'bg-white/[0.02] border-white/10 text-white/80 hover:text-white hover:border-primary/40'
                                 }`}
                                 data-testid={`option-budget-${budget === NOT_SURE_BUDGET ? 'not-sure' : budget}`}
@@ -358,8 +365,8 @@ export default function StartProject() {
                                 aria-pressed={formData.timeline === timeline}
                                 onClick={() => setFormData({ ...formData, timeline: formData.timeline === timeline ? '' : timeline })}
                                 className={`px-5 py-2.5 rounded-full border text-sm font-medium tracking-wide transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
-                                  formData.timeline === timeline 
-                                    ? 'bg-primary text-primary-foreground border-primary shadow-[0_0_15px_rgba(124,58,237,0.3)]' 
+                                  formData.timeline === timeline
+                                    ? 'bg-primary text-primary-foreground border-primary shadow-[0_0_15px_rgba(124,58,237,0.3)]'
                                     : 'bg-white/[0.02] border-white/10 text-white/80 hover:text-white hover:border-primary/40'
                                 }`}
                               >
@@ -454,8 +461,8 @@ export default function StartProject() {
                   </div>
 
                   {error && (
-                    <motion.div 
-                      initial={{ opacity: 0, y: -10 }} 
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       className="mt-8 p-4 rounded-xl bg-destructive/10 border border-destructive/20 text-sm text-destructive-foreground flex items-start gap-3 relative z-10"
                     >
@@ -480,9 +487,9 @@ export default function StartProject() {
                     </Button>
 
                     {step < totalSteps ? (
-                      <Button 
-                        onClick={handleNext} 
-                        className="w-full sm:w-auto rounded-full bg-white text-black hover:bg-white/90 h-12 px-10 font-medium transition-transform hover:scale-105" 
+                      <Button
+                        onClick={handleNext}
+                        className="w-full sm:w-auto rounded-full bg-white text-black hover:bg-white/90 h-12 px-10 font-medium transition-transform hover:scale-105"
                         data-testid="button-next"
                       >
                         Next Step

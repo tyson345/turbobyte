@@ -5,13 +5,14 @@ import { useSEO } from '@/hooks/use-seo';
 import { schemaGraph, webPageSchema, breadcrumbSchema } from '@/lib/schema';
 import { ArrowRight, Image as ImageIcon, Briefcase } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { 
-  useListProjects, 
-  useListProjectCategories, 
-  useListCaseStudies 
+import {
+  useListProjects,
+  useListProjectCategories,
+  useListCaseStudies
 } from '@workspace/api-client-react';
 import { allServiceNames } from '@/config/services';
 import { AmbientHero } from '@/components/ambient-hero';
+import { MarketingImage } from '@/components/marketing-image';
 
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString('en-US', {
@@ -38,7 +39,7 @@ export default function Portfolio() {
   const search = useSearch();
   const params = useMemo(() => new URLSearchParams(search), [search]);
   const activeCategory = params.get('category') || 'All';
-  
+
   const projectsRef = useRef<HTMLElement>(null);
 
   const { data: projects = [], isLoading: isLoadingProjects } = useListProjects();
@@ -116,12 +117,12 @@ export default function Portfolio() {
       {/* Projects Section */}
       <section ref={projectsRef} className="py-10 md:py-16 bg-card/30 scroll-mt-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="flex flex-col items-center mb-12">
             <h3 className="text-2xl font-bold mb-6" style={{ fontFamily: 'var(--app-font-display)' }}>
               Selected Projects
             </h3>
-            
+
             {/* Filters */}
             <div className="flex flex-wrap justify-center gap-2 max-w-4xl">
               <button
@@ -172,10 +173,10 @@ export default function Portfolio() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredProjects.map((project, i) => {
-                const serviceParam = allServiceNames.includes(project.category) 
-                  ? `?services=${encodeURIComponent(project.category)}` 
+                const serviceParam = allServiceNames.includes(project.category)
+                  ? `?services=${encodeURIComponent(project.category)}`
                   : '';
-                
+
                 return (
                   <motion.div
                     key={project.id}
@@ -186,11 +187,11 @@ export default function Portfolio() {
                     className="bg-white/[0.015] rounded-[2rem] overflow-hidden border border-white/5 hover:border-primary/30 transition-all duration-500 flex flex-col group hover:shadow-[0_0_40px_-10px_rgba(124,58,237,0.15)] relative"
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                    
+
                     <Link href={`/portfolio/${project.slug}`} className="block relative aspect-[4/3] bg-card overflow-hidden">
                       {project.thumbnailPath ? (
-                        <img 
-                          src={`/api/storage${project.thumbnailPath}`} 
+                        <img
+                          src={`/api/storage${project.thumbnailPath}`}
                           alt={project.title}
                           loading="lazy"
                           className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
@@ -212,18 +213,18 @@ export default function Portfolio() {
                         )}
                       </div>
                     </Link>
-                    
+
                     <div className="p-8 flex flex-col flex-1 relative z-10">
                       <Link href={`/portfolio/${project.slug}`} className="hover:text-primary transition-colors">
                         <h4 className="text-2xl font-medium mb-3 tracking-tight group-hover:text-primary transition-colors" style={{ fontFamily: 'var(--app-font-display)' }}>
                           {project.title}
                         </h4>
                       </Link>
-                      
+
                       <p className="text-muted-foreground font-light leading-relaxed line-clamp-3 mb-6 flex-1">
                         {project.shortDescription}
                       </p>
-                      
+
                       {project.techStack && project.techStack.length > 0 && (
                         <div className="flex flex-wrap gap-2 mb-8">
                           {project.techStack.slice(0, 4).map(tech => (
@@ -238,7 +239,7 @@ export default function Portfolio() {
                           )}
                         </div>
                       )}
-                      
+
                       <div className="flex flex-col sm:flex-row gap-3 mt-auto pt-6 border-t border-white/10">
                         <Link href={`/portfolio/${project.slug}`} className="flex-1">
                           <Button variant="ghost" className="w-full rounded-full border border-white/10 hover:bg-white/5 font-medium group/btn">
@@ -293,7 +294,7 @@ export default function Portfolio() {
                     className="bg-white/[0.015] rounded-[2rem] p-6 sm:p-8 md:p-10 border border-white/5 hover:border-primary/40 transition-all duration-500 h-full flex flex-col cursor-pointer group relative overflow-hidden"
                   >
                     <div className="absolute top-0 right-0 w-48 h-48 bg-primary/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                    
+
                     <div className="relative z-10 flex flex-col h-full">
                       <div className="flex justify-between items-start mb-8">
                         <span className="text-xs px-4 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 font-medium tracking-wide">
@@ -309,7 +310,7 @@ export default function Portfolio() {
                       <p className="text-muted-foreground font-light leading-relaxed line-clamp-3 mb-8 flex-1">
                         {cs.summary}
                       </p>
-                      
+
                       <div className="flex items-center justify-between mt-auto pt-6 border-t border-white/10">
                         <div>
                           <p className="text-3xl font-medium text-white mb-1" style={{ fontFamily: 'var(--app-font-display)' }}>{cs.metricValue}</p>
@@ -330,35 +331,47 @@ export default function Portfolio() {
 
       {/* CTA */}
       <section className="py-12 md:py-24 bg-card/50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-2xl mx-auto text-center"
-          >
-            <h2
-              className="text-4xl font-bold mb-4"
-              style={{ fontFamily: 'var(--app-font-display)' }}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
             >
-              Have a Similar Project in Mind?
-            </h2>
-            <p className="text-muted-foreground leading-relaxed mb-8">
-              Let's discuss your requirements and build a custom solution tailored to your business.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link href="/start-project" className="w-full sm:w-auto">
-                <Button size="lg" className="glow-purple w-full">
-                  Start Your Project <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </Link>
-              <Link href="/contact" className="w-full sm:w-auto">
-                <Button size="lg" variant="outline" className="w-full border-white/20">
-                  Contact Us
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
+              <h2
+                className="text-4xl font-bold mb-4"
+                style={{ fontFamily: 'var(--app-font-display)' }}
+              >
+                Have a Similar Project in Mind?
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-8">
+                Let's discuss your requirements and build a custom solution tailored to your business.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/start-project" className="w-full sm:w-auto">
+                  <Button size="lg" className="glow-purple w-full">
+                    Start Your Project <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </Link>
+                <Link href="/contact" className="w-full sm:w-auto">
+                  <Button size="lg" variant="outline" className="w-full border-white/20">
+                    Contact Us
+                  </Button>
+                </Link>
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+            >
+              <MarketingImage
+                src="/images/marketing/digital-strategy.jpg"
+                alt="Project planning session"
+                aspectRatio="video"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
     </div>

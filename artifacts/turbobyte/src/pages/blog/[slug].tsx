@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { getBlogPost, formatPostDate } from '@workspace/blog';
 import NotFound from '@/pages/not-found';
 import { BlogSubscribeCard } from '@/components/blog-subscribe-card';
+import { MarketingImage } from '@/components/marketing-image';
 
 // Render markdown-style bold (**text**) and italic (*text*) within a string
 function RichText({ text }: { text: string }) {
@@ -131,7 +132,7 @@ export default function BlogArticle() {
             >
               {post.title}
             </h1>
-            <div className="flex flex-wrap items-center gap-5 text-sm text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-5 text-sm text-muted-foreground mb-12">
               <span className="inline-flex items-center gap-1.5">
                 <User className="w-4 h-4" />
                 {post.author}
@@ -145,6 +146,12 @@ export default function BlogArticle() {
                 {post.readTime}
               </span>
             </div>
+
+            <MarketingImage
+              src="/images/marketing/software-collaboration.jpg"
+              alt="Software engineers collaborating on code"
+              aspectRatio="video"
+            />
           </motion.div>
         </div>
       </section>

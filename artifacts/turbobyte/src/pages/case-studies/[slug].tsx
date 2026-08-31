@@ -15,6 +15,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { useGetCaseStudy } from '@workspace/api-client-react';
 import NotFound from '@/pages/not-found';
+import { MarketingImage } from '@/components/marketing-image';
 
 // Render markdown-style bold (**text**) within a paragraph string
 function RichText({ text }: { text: string }) {
@@ -112,7 +113,12 @@ export default function CaseStudyDetail() {
             >
               {cs.title}
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">{cs.summary}</p>
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mb-12">{cs.summary}</p>
+            <MarketingImage
+              src="/images/marketing/cloud-infrastructure.jpg"
+              alt="Enterprise infrastructure deployment"
+              aspectRatio="wide"
+            />
           </motion.div>
         </div>
       </section>

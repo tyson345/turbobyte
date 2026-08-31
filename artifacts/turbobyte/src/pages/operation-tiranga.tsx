@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/select';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { AnimatedGrid } from '@/components/animated-grid';
+import { MarketingImage } from '@/components/marketing-image';
 import { WhatsAppFloatButton } from '@/components/campaign/whatsapp-float-button';
 import { CountdownTimer } from '@/components/campaign/countdown-timer';
 import { MobileStickyCta } from '@/components/campaign/mobile-sticky-cta';
@@ -535,19 +536,23 @@ export default function OperationTiranga() {
       {/* Why choose */}
       <section className="py-20 md:py-24 bg-card/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-14"
-          >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>
-              Why Businesses Choose <span className="gradient-text">TurboByte</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We're a new company — so we lead with transparency, not inflated numbers.
-            </p>
-          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-14">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>
+                Why Businesses Choose <span className="gradient-text">TurboByte</span>
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                We're a new company — so we lead with transparency, not inflated numbers.
+              </p>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
+              <MarketingImage src="/images/marketing/software-collaboration.jpg" alt="Startup collaboration" aspectRatio="video" />
+            </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {whyChoose.map((item, i) => (

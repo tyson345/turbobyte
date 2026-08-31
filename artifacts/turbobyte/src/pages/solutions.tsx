@@ -4,6 +4,7 @@ import { useSEO } from '@/hooks/use-seo';
 import { schemaGraph, webPageSchema, breadcrumbSchema } from '@/lib/schema';
 import { ArrowRight } from 'lucide-react';
 import { AmbientHero } from '@/components/ambient-hero';
+import { MarketingImage } from '@/components/marketing-image';
 
 export default function Solutions() {
   const seoTitle = 'Industry Solutions for FinTech, Healthcare & Retail';
@@ -33,14 +34,23 @@ export default function Solutions() {
       <section className="py-12 md:py-24 relative overflow-hidden">
         <AmbientHero />
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 gradient-text" style={{ fontFamily: 'var(--app-font-display)' }}>
-              Industry Solutions
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              Deep domain expertise across six verticals — we understand your challenges
-            </p>
-          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center max-w-7xl mx-auto">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="lg:col-span-6 text-center lg:text-left">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 gradient-text" style={{ fontFamily: 'var(--app-font-display)' }}>
+                Industry Solutions
+              </h1>
+              <p className="text-xl text-muted-foreground leading-relaxed">
+                Deep domain expertise across six verticals — we understand your challenges
+              </p>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }} className="lg:col-span-6">
+              <MarketingImage
+                src="/images/marketing/digital-strategy.jpg"
+                alt="Enterprise solutions strategy session"
+                aspectRatio="video"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -48,7 +58,7 @@ export default function Solutions() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-7xl mx-auto">
             {solutions.map((solution, i) => {
-              const colSpan = 
+              const colSpan =
                 i === 0 ? "md:col-span-8 lg:col-span-8" :
                 i === 1 ? "md:col-span-4 lg:col-span-4" :
                 i === 2 ? "md:col-span-4 lg:col-span-4" :
@@ -60,11 +70,11 @@ export default function Solutions() {
                   <div className="group relative bg-white/[0.015] p-6 sm:p-8 md:p-10 rounded-[2rem] border border-white/5 hover:border-primary/30 transition-all duration-500 hover:shadow-[0_0_40px_-10px_rgba(124,58,237,0.15)] h-full flex flex-col overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                     <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                    
+
                     <div className="relative z-10 flex flex-col h-full">
                       <h2 className="text-3xl font-medium mb-3 tracking-tight group-hover:text-primary transition-colors duration-300" style={{ fontFamily: 'var(--app-font-display)' }}>{solution.industry}</h2>
                       <p className="text-sm font-semibold tracking-widest uppercase text-white/40 mb-8">{solution.pain}</p>
-                      
+
                       <ul className="space-y-4 mb-8 flex-1">
                         {solution.services.map((service, si) => (
                           <li key={si} className="text-base text-muted-foreground font-light flex items-center gap-3">
@@ -73,10 +83,10 @@ export default function Solutions() {
                           </li>
                         ))}
                       </ul>
-                      
+
                       <div className="pt-6 border-t border-white/10 mt-auto">
                         <Link href="/contact" className="inline-flex items-center text-sm font-medium text-white/70 hover:text-white transition-colors group/link">
-                          Discuss {solution.industry} solutions 
+                          Discuss {solution.industry} solutions
                           <ArrowRight className="w-4 h-4 ml-2 opacity-50 group-hover/link:opacity-100 group-hover/link:translate-x-1 transition-all" />
                         </Link>
                       </div>

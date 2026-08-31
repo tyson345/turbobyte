@@ -3,13 +3,14 @@ import { useParams, Redirect, Link } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSEO } from '@/hooks/use-seo';
 import { absUrl, schemaGraph, breadcrumbSchema, SITE_URL } from '@/lib/schema';
-import { 
-  ArrowRight, ArrowLeft, Building2, CheckCircle2, ChevronLeft, ChevronRight, 
-  Target, Lightbulb, Box, ListVideo 
+import {
+  ArrowRight, ArrowLeft, Building2, CheckCircle2, ChevronLeft, ChevronRight,
+  Target, Lightbulb, Box, ListVideo
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useGetProject, getGetProjectQueryKey, useListProjects } from '@workspace/api-client-react';
 import { allServiceNames } from '@/config/services';
+import { MarketingImage } from '@/components/marketing-image';
 
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString('en-US', {
@@ -27,7 +28,7 @@ const kindLabels: Record<string, string> = {
 
 export default function ProjectDetailRoute() {
   const params = useParams<{ slug: string }>();
-  
+
   const { data: project, isLoading, error } = useGetProject(params.slug, {
     query: {
       enabled: !!params.slug,
@@ -96,12 +97,12 @@ export default function ProjectDetailRoute() {
     return <Redirect to="/portfolio" replace />;
   }
 
-  const serviceParam = allServiceNames.includes(project.category) 
-    ? `?services=${encodeURIComponent(project.category)}` 
+  const serviceParam = allServiceNames.includes(project.category)
+    ? `?services=${encodeURIComponent(project.category)}`
     : '';
 
   const hasImages = project.images && project.images.length > 0;
-  
+
   const nextImage = () => setActiveImageIndex((i) => (i + 1) % project.images.length);
   const prevImage = () => setActiveImageIndex((i) => (i - 1 + project.images.length) % project.images.length);
 
@@ -124,9 +125,9 @@ export default function ProjectDetailRoute() {
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent" />
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl mx-auto text-center"
           >
             <span className="inline-flex text-sm px-4 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 mb-6 font-medium">
@@ -138,7 +139,7 @@ export default function ProjectDetailRoute() {
             <p className="text-xl text-muted-foreground leading-relaxed mb-10 max-w-3xl mx-auto">
               {project.shortDescription}
             </p>
-            
+
             <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
               {project.clientIndustry && (
                 <div className="flex items-center gap-2">
@@ -158,19 +159,36 @@ export default function ProjectDetailRoute() {
       </section>
 
       {/* Project Banner Image */}
-      {project.thumbnailPath && (
+      {project.thumbnailPath ? (
         <section className="pb-10 md:pb-16 pt-4">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
               className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative aspect-[21/9] bg-card"
             >
-              <img 
-                src={`/api/storage${project.thumbnailPath}`} 
+              <img
+                src={`/api/storage${project.thumbnailPath}`}
                 alt={`${project.title} banner`}
                 className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </div>
+        </section>
+      ) : (
+        <section className="pb-10 md:pb-16 pt-4">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              <MarketingImage
+                src="/images/marketing/developer-workspace.jpg"
+                alt="Software development process"
+                aspectRatio="wide"
+                className="shadow-2xl"
               />
             </motion.div>
           </div>
@@ -181,7 +199,7 @@ export default function ProjectDetailRoute() {
       <section className="py-10 md:py-16 bg-card/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:p-12">
-            
+
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-12">
               <div>
@@ -212,7 +230,7 @@ export default function ProjectDetailRoute() {
                   <p>{project.solution}</p>
                 </div>
               </div>
-              
+
               {project.results && (
                 <div>
                   <h3 className="text-2xl font-bold mb-6" style={{ fontFamily: 'var(--app-font-display)' }}>Results & Impact</h3>
@@ -239,7 +257,7 @@ export default function ProjectDetailRoute() {
                   ))}
                 </div>
               </div>
-              
+
               {project.processNotes && (
                 <div className="glassmorphism rounded-2xl p-6 border border-white/10">
                   <h3 className="text-lg font-bold mb-4 flex items-center gap-2" style={{ fontFamily: 'var(--app-font-display)' }}>
@@ -250,7 +268,7 @@ export default function ProjectDetailRoute() {
                   </div>
                 </div>
               )}
-              
+
               {project.lessonsLearned && (
                 <div className="glassmorphism rounded-2xl p-6 border border-white/10">
                   <h3 className="text-lg font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>Lessons Learned</h3>
@@ -278,7 +296,7 @@ export default function ProjectDetailRoute() {
         <section className="py-12 md:py-24 overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
             <h2 className="text-3xl font-bold mb-10 text-center" style={{ fontFamily: 'var(--app-font-display)' }}>Project Gallery</h2>
-            
+
             <div className="relative glassmorphism rounded-2xl border border-white/10 overflow-hidden bg-card/50">
               <div className="aspect-[16/9] relative flex items-center justify-center">
                 <AnimatePresence mode="wait">
@@ -293,31 +311,31 @@ export default function ProjectDetailRoute() {
                     className="absolute inset-0 w-full h-full object-contain p-4 sm:p-6 md:p-12"
                   />
                 </AnimatePresence>
-                
+
                 <div className="absolute top-4 left-4">
                   <span className="inline-flex text-xs px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white border border-white/20 font-medium">
                     {kindLabels[project.images[activeImageIndex].kind] || project.images[activeImageIndex].kind}
                   </span>
                 </div>
               </div>
-              
+
               {project.images.length > 1 && (
                 <>
-                  <button 
+                  <button
                     onClick={prevImage}
                     className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 hover:bg-primary backdrop-blur-md flex items-center justify-center text-white transition-colors border border-white/10"
                     aria-label="Previous image"
                   >
                     <ChevronLeft className="w-5 h-5" />
                   </button>
-                  <button 
+                  <button
                     onClick={nextImage}
                     className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 hover:bg-primary backdrop-blur-md flex items-center justify-center text-white transition-colors border border-white/10"
                     aria-label="Next image"
                   >
                     <ChevronRight className="w-5 h-5" />
                   </button>
-                  
+
                   <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
                     {project.images.map((_, i) => (
                       <button
@@ -333,7 +351,7 @@ export default function ProjectDetailRoute() {
                 </>
               )}
             </div>
-            
+
             {/* Gallery thumbnails */}
             {project.images.length > 1 && (
               <div className="flex gap-4 mt-6 overflow-x-auto pb-4 snap-x snap-mandatory hide-scrollbar">
@@ -345,9 +363,9 @@ export default function ProjectDetailRoute() {
                       i === activeImageIndex ? 'border-primary opacity-100' : 'border-transparent opacity-50 hover:opacity-100'
                     }`}
                   >
-                    <img 
-                      src={`/api/storage${img.imagePath}`} 
-                      alt="" 
+                    <img
+                      src={`/api/storage${img.imagePath}`}
+                      alt=""
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />
@@ -367,17 +385,17 @@ export default function ProjectDetailRoute() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {relatedProjects.map((relProj, i) => (
                 <Link key={relProj.id} href={`/portfolio/${relProj.slug}`}>
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }} 
-                    whileInView={{ opacity: 1, y: 0 }} 
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
                     className="glassmorphism rounded-xl border border-white/10 hover:border-primary/40 transition-all h-full flex flex-col group overflow-hidden"
                   >
                     <div className="aspect-video relative bg-card overflow-hidden">
                       {relProj.thumbnailPath ? (
-                        <img 
-                          src={`/api/storage${relProj.thumbnailPath}`} 
+                        <img
+                          src={`/api/storage${relProj.thumbnailPath}`}
                           alt={relProj.title}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                           loading="lazy"
@@ -399,7 +417,7 @@ export default function ProjectDetailRoute() {
                 </Link>
               ))}
             </div>
-            
+
             <div className="mt-12 text-center">
               <Link href="/portfolio">
                 <Button variant="outline" className="border-white/20">

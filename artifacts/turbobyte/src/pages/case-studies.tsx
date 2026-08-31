@@ -6,6 +6,7 @@ import { ArrowRight, BarChart3, FileText, Lightbulb, TrendingUp, CheckCircle2 } 
 import { Button } from '@/components/ui/button';
 import { useListCaseStudies } from '@workspace/api-client-react';
 import { AmbientHero } from '@/components/ambient-hero';
+import { MarketingImage } from '@/components/marketing-image';
 
 const anatomy = [
   {
@@ -87,7 +88,7 @@ export default function CaseStudies() {
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                
+
                 <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-6 md:p-12 relative z-10">
                   {/* Left: content */}
                   <div className="flex-1">
@@ -158,25 +159,35 @@ export default function CaseStudies() {
       {/* Anatomy of a Case Study */}
       <section className="py-12 md:py-24 bg-card/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-14"
-          >
-            <h2
-              className="text-4xl font-bold mb-4"
-              style={{ fontFamily: 'var(--app-font-display)' }}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-14 max-w-7xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="lg:col-span-6"
             >
-              What's in{' '}
-              <span className="gradient-text">Every Write-Up</span>
-            </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              We don't publish success theatre. Each case study follows a structured format designed
-              to give you a genuine picture of how we work.
-            </p>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              <h2
+                className="text-4xl font-bold mb-4"
+                style={{ fontFamily: 'var(--app-font-display)' }}
+              >
+                What's in{' '}
+                <span className="gradient-text">Every Write-Up</span>
+              </h2>
+              <p className="text-muted-foreground text-lg">
+                We don't publish success theatre. Each case study follows a structured format designed
+                to give you a genuine picture of how we work.
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="lg:col-span-6"
+            >
+              <MarketingImage src="/images/marketing/design-workshop.jpg" alt="Case study documentation and planning" aspectRatio="video" />
+            </motion.div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {anatomy.map((item, i) => (
               <motion.div
                 key={i}

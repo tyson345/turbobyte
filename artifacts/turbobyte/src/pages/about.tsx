@@ -30,6 +30,7 @@ import {
 import { TextScramble } from '@/components/core/text-scramble';
 import { TextRoll } from '@/components/core/text-roll';
 import { AmbientHero } from '@/components/ambient-hero';
+import { MarketingImage } from '@/components/marketing-image';
 import { siteConfig } from '@/config/site';
 
 const values = [
@@ -144,13 +145,19 @@ export default function About() {
               viewport={{ once: true, margin: "-100px" }}
               className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-7xl mx-auto"
             >
-              <div className="lg:col-span-8 bg-card border border-white/5 p-6 sm:p-8 md:p-16 rounded-[2.5rem] relative overflow-hidden">
+              <div className="lg:col-span-8 bg-card border border-white/5 p-6 sm:p-8 md:p-12 rounded-[2.5rem] relative overflow-hidden">
                 <div className="inline-flex items-center gap-2 text-primary text-xs font-semibold mb-8 uppercase tracking-widest">
                   Who We Are
                 </div>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium mb-8 text-white leading-[1.1] tracking-tight" style={{ fontFamily: 'var(--app-font-display)' }}>
                   Building intelligent software that drives real growth.
                 </h2>
+                <MarketingImage
+                  src="/images/marketing/team-culture.jpg"
+                  alt="Team collaborative session"
+                  aspectRatio="wide"
+                  className="mb-8"
+                />
                 <div className="space-y-6 text-muted-foreground text-lg leading-relaxed font-light mb-12">
                   <p>
                     {siteConfig.legalName} is an AI-first technology company dedicated to helping businesses innovate, automate, and grow through intelligent digital solutions.
@@ -158,7 +165,7 @@ export default function About() {
                   <p>{siteConfig.descriptionExtended}</p>
                   <p>{siteConfig.descriptionFocus}</p>
                 </div>
-                
+
                 <div className="border-t border-white/10 pt-8 mt-auto">
                   <h3 className="text-xl font-medium text-white mb-4 tracking-tight" style={{ fontFamily: 'var(--app-font-display)' }}>Our Journey</h3>
                   <p className="text-muted-foreground font-light leading-relaxed">
@@ -166,7 +173,7 @@ export default function About() {
                   </p>
                 </div>
               </div>
-              
+
               <div className="lg:col-span-4 flex flex-col gap-6">
                 <div className="flex-1 bg-card border border-white/5 p-6 md:p-10 rounded-[2.5rem] relative overflow-hidden group">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.05] to-transparent" />
@@ -224,11 +231,11 @@ export default function About() {
                   className="group relative flex flex-col p-6 sm:p-8 md:p-10 rounded-[2rem] bg-white/[0.015] border border-white/5 hover:border-primary/30 transition-all duration-500 hover:shadow-[0_0_40px_-10px_rgba(124,58,237,0.15)] overflow-hidden h-full"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
+
                   <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-500 shadow-lg mb-8 relative z-10">
                     <value.icon className="w-6 h-6" strokeWidth={1.5} />
                   </div>
-                  
+
                   <h3 className="text-xl font-medium text-white mb-3 tracking-tight group-hover:text-primary transition-colors duration-300 relative z-10" style={{ fontFamily: 'var(--app-font-display)' }}>{value.title}</h3>
                   <p className="text-muted-foreground leading-relaxed font-light relative z-10">{value.desc}</p>
                 </motion.div>
@@ -327,7 +334,7 @@ export default function About() {
                     <div className={`hidden lg:flex flex-1 justify-${i % 2 === 0 ? 'start' : 'end'}`}>
                       <div className="w-1/2" />
                     </div>
-                    
+
                     <div className="relative z-10 flex items-center justify-center shrink-0">
                       <div className="w-16 h-16 rounded-full bg-card border border-primary/20 flex items-center justify-center text-primary font-mono text-xl shadow-[0_0_20px_rgba(124,58,237,0.1)] relative">
                         <div className="absolute inset-[-4px] rounded-full border border-primary/30 border-dashed animate-[spin_10s_linear_infinite] motion-reduce:animate-none" />
@@ -352,7 +359,7 @@ export default function About() {
         <section className="py-12 md:py-24 bg-card/50 border-t border-white/5">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 max-w-7xl mx-auto">
-              
+
               {/* Technology Expertise */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -360,6 +367,12 @@ export default function About() {
                 viewport={{ once: true }}
               >
                 <h2 className="text-3xl font-medium mb-8 text-white tracking-tight" style={{ fontFamily: 'var(--app-font-display)' }}>Technology Stack</h2>
+                <MarketingImage
+                  src="/images/marketing/software-collaboration.jpg"
+                  alt="Software engineers collaborating on code"
+                  aspectRatio="video"
+                  className="mb-8"
+                />
                 <div className="flex flex-wrap gap-3">
                   {technologies.map((tech, i) => (
                     <motion.span
@@ -454,7 +467,7 @@ export default function About() {
               </div>
               <h3 className="text-4xl font-medium text-white mb-2 tracking-tight" style={{ fontFamily: 'var(--app-font-display)' }}>Bengaluru, India</h3>
               <p className="text-primary text-sm font-medium uppercase tracking-widest mb-8">Headquarters</p>
-              
+
               <a
                 href={siteConfig.address.mapsUrl}
                 target="_blank"
@@ -469,7 +482,7 @@ export default function About() {
                   </span>
                 ))}
               </a>
-              
+
               <div className="flex flex-col items-center gap-5 text-muted-foreground font-light">
                 <a href={siteConfig.emailHref} className="flex items-center gap-3 hover:text-primary transition-colors break-all" data-testid="link-about-email">
                   <Mail className="w-5 h-5 text-primary" />

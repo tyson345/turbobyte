@@ -5,10 +5,11 @@ import { ServiceDetailConfig } from '@/config/service-details';
 import { ServiceCategory, ServiceItem, serviceAnchor } from '@/config/services';
 import { absUrl, schemaGraph, serviceSchema, webPageSchema, breadcrumbSchema, faqSchema } from '@/lib/schema';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
-import { 
+import {
   ArrowRight, CheckCircle2, Bot, Code, Clapperboard, PenTool, Brain,
   ChevronRight, CircleDot, TerminalSquare, Server, Database, Cloud, LayoutTemplate, Box
 } from 'lucide-react';
+import { MarketingImage } from '@/components/marketing-image';
 
 const processSteps = [
   { step: "01", title: "Consultation", desc: "Understanding your exact business requirements, challenges, and goals." },
@@ -39,14 +40,14 @@ const techIconMap: Record<string, React.ElementType> = {
   "Anthropic": Bot, "Google AI": Bot, "Tailwind CSS": LayoutTemplate
 };
 
-export function ServiceDetailPage({ 
-  category, 
-  service, 
-  details 
-}: { 
-  category: ServiceCategory; 
-  service: ServiceItem; 
-  details: ServiceDetailConfig; 
+export function ServiceDetailPage({
+  category,
+  service,
+  details
+}: {
+  category: ServiceCategory;
+  service: ServiceItem;
+  details: ServiceDetailConfig;
 }) {
   const Icon = category.icon;
 
@@ -100,9 +101,9 @@ export function ServiceDetailPage({
         <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent" />
         <div className="absolute inset-0 opacity-30 animate-gradient bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl mx-auto text-center"
           >
             <Icon className="w-16 h-16 text-primary mx-auto mb-6" />
@@ -129,27 +130,41 @@ export function ServiceDetailPage({
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="glassmorphism p-6 sm:p-8 md:p-10 lg:p-14 rounded-2xl max-w-5xl mx-auto border border-white/10 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-            <h2 className="text-3xl font-bold mb-8" style={{ fontFamily: 'var(--app-font-display)' }}>Service Overview</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:p-10">
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-sm uppercase tracking-wider text-primary font-semibold mb-2">What We Deliver</h3>
-                  <p className="text-muted-foreground leading-relaxed">{details.overview.what}</p>
-                </div>
-                <div>
-                  <h3 className="text-sm uppercase tracking-wider text-primary font-semibold mb-2">Who It's For</h3>
-                  <p className="text-muted-foreground leading-relaxed">{details.overview.who}</p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 items-center">
+              <div>
+                <h2 className="text-3xl font-bold mb-8" style={{ fontFamily: 'var(--app-font-display)' }}>Service Overview</h2>
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-sm uppercase tracking-wider text-primary font-semibold mb-2">What We Deliver</h3>
+                    <p className="text-muted-foreground leading-relaxed">{details.overview.what}</p>
+                  </div>
+                  <div>
+                    <h3 className="text-sm uppercase tracking-wider text-primary font-semibold mb-2">Who It's For</h3>
+                    <p className="text-muted-foreground leading-relaxed">{details.overview.who}</p>
+                  </div>
                 </div>
               </div>
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-sm uppercase tracking-wider text-primary font-semibold mb-2">Why It Matters</h3>
-                  <p className="text-muted-foreground leading-relaxed">{details.overview.why}</p>
-                </div>
-                <div>
-                  <h3 className="text-sm uppercase tracking-wider text-primary font-semibold mb-2">How We Do It</h3>
-                  <p className="text-muted-foreground leading-relaxed">{details.overview.how}</p>
-                </div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+              >
+                <MarketingImage
+                  src="/images/marketing/client-consultation.jpg"
+                  alt="Client consultation session"
+                  aspectRatio="portrait"
+                />
+              </motion.div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-12 border-t border-white/10">
+              <div>
+                <h3 className="text-sm uppercase tracking-wider text-primary font-semibold mb-2">Why It Matters</h3>
+                <p className="text-muted-foreground leading-relaxed">{details.overview.why}</p>
+              </div>
+              <div>
+                <h3 className="text-sm uppercase tracking-wider text-primary font-semibold mb-2">How We Do It</h3>
+                <p className="text-muted-foreground leading-relaxed">{details.overview.how}</p>
               </div>
             </div>
           </div>
@@ -165,11 +180,11 @@ export function ServiceDetailPage({
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {details.problems.map((prob, i) => (
-              <motion.div 
-                key={i} 
-                initial={{ opacity: 0, y: 20 }} 
-                whileInView={{ opacity: 1, y: 0 }} 
-                viewport={{ once: true }} 
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 className="glassmorphism p-8 rounded-xl border border-white/5 relative"
               >
@@ -193,11 +208,11 @@ export function ServiceDetailPage({
               <h2 className="text-3xl font-bold mb-10" style={{ fontFamily: 'var(--app-font-display)' }}>Core Features</h2>
               <div className="space-y-6">
                 {details.features.map((feat, i) => (
-                  <motion.div 
+                  <motion.div
                     key={i}
-                    initial={{ opacity: 0, x: -20 }} 
-                    whileInView={{ opacity: 1, x: 0 }} 
-                    viewport={{ once: true }} 
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
                     transition={{ delay: i * 0.05 }}
                     className="flex gap-4"
                   >
@@ -215,11 +230,11 @@ export function ServiceDetailPage({
               <h2 className="text-3xl font-bold mb-10" style={{ fontFamily: 'var(--app-font-display)' }}>Measurable Benefits</h2>
               <div className="space-y-6">
                 {details.benefits.map((ben, i) => (
-                  <motion.div 
+                  <motion.div
                     key={i}
-                    initial={{ opacity: 0, x: 20 }} 
-                    whileInView={{ opacity: 1, x: 0 }} 
-                    viewport={{ once: true }} 
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
                     transition={{ delay: i * 0.05 }}
                     className="glassmorphism p-6 rounded-xl border border-white/5 hover:border-primary/30 transition-colors"
                   >
@@ -239,11 +254,11 @@ export function ServiceDetailPage({
           <h2 className="text-3xl font-bold mb-10" style={{ fontFamily: 'var(--app-font-display)' }}>Industries Served</h2>
           <div className="flex flex-wrap justify-center gap-3">
             {details.industries.map((ind, i) => (
-              <motion.span 
+              <motion.span
                 key={i}
-                initial={{ opacity: 0, scale: 0.9 }} 
-                whileInView={{ opacity: 1, scale: 1 }} 
-                viewport={{ once: true }} 
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
                 className="px-5 py-2.5 rounded-full border border-white/10 glassmorphism text-sm font-medium text-foreground hover:bg-white/5 transition-colors cursor-default"
               >
@@ -285,17 +300,17 @@ export function ServiceDetailPage({
       {/* Technology Stack & Why Choose Us */}
       <section className="py-12 md:py-24 bg-card/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-start">
             <div>
               <h2 className="text-3xl font-bold mb-10" style={{ fontFamily: 'var(--app-font-display)' }}>Technology Stack</h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-10">
                 {details.techStack.map((tech, i) => {
                   const TechIcon = techIconMap[tech] || Box;
                   return (
-                    <motion.div 
+                    <motion.div
                       key={i}
-                      initial={{ opacity: 0, scale: 0.9 }} 
-                      whileInView={{ opacity: 1, scale: 1 }} 
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.05 }}
                       className="glassmorphism p-4 rounded-xl flex flex-col items-center justify-center text-center gap-3 border border-white/5 hover:border-primary/40 transition-colors"
@@ -306,6 +321,18 @@ export function ServiceDetailPage({
                   )
                 })}
               </div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+              >
+                <MarketingImage
+                  src="/images/marketing/cloud-infrastructure.jpg"
+                  alt="Enterprise cloud server infrastructure"
+                  aspectRatio="video"
+                />
+              </motion.div>
             </div>
             <div>
               <h2 className="text-3xl font-bold mb-10" style={{ fontFamily: 'var(--app-font-display)' }}>Why Choose TurboByte</h2>
@@ -358,9 +385,9 @@ export function ServiceDetailPage({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {relatedServices.slice(0, 2).map((relService, i) => (
                 <Link key={i} href={`/services/${category.slug}/${serviceAnchor(relService.name)}`} className="block">
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }} 
-                    whileInView={{ opacity: 1, y: 0 }} 
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     className="glassmorphism p-8 rounded-xl border border-white/10 hover:border-primary/50 transition-all group cursor-pointer h-full"
                   >
