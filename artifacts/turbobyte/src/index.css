@@ -130,44 +130,44 @@
   --lilac-6: #D1B8E0;
   --lilac-7: #C7B6DB;
   --premium-gradient: linear-gradient(135deg, hsl(var(--primary)) 0%, #A855F7 45%, var(--lilac-3) 100%);
-  --premium-gradient-soft: linear-gradient(145deg, rgba(234, 221, 238, 0.17), rgba(199, 182, 219, 0.075));
-  --premium-shadow: 0 24px 64px -32px rgba(4, 2, 12, 0.82), 0 10px 34px -18px rgba(224, 188, 231, 0.38);
+  --premium-gradient-soft: linear-gradient(145deg, rgba(255, 255, 255, 0.62), rgba(229, 198, 234, 0.32));
+  --premium-shadow: 0 24px 64px -32px rgba(77, 55, 48, 0.28), 0 10px 34px -18px rgba(124, 58, 237, 0.2);
 }
 
 .dark {
-  /* Clean, editorial dark theme: deep plum/purple background, crisp text */
-  --background: 268 24% 8%;
-  --foreground: 0 0% 98%;
-  --border: 265 15% 15%;
+  /* Warm beige theme with deep plum typography */
+  --background: 60 56% 91%;
+  --foreground: 270 22% 16%;
+  --border: 42 22% 77%;
   
-  --card: 265 20% 9%;
-  --card-foreground: 0 0% 98%;
-  --card-border: 265 15% 15%;
+  --card: 48 48% 95%;
+  --card-foreground: 270 22% 16%;
+  --card-border: 42 22% 77%;
   
-  --sidebar: 265 25% 6%;
-  --sidebar-foreground: 0 0% 98%;
-  --sidebar-border: 265 15% 15%;
+  --sidebar: 48 48% 95%;
+  --sidebar-foreground: 270 22% 16%;
+  --sidebar-border: 42 22% 77%;
   --sidebar-primary: 262 83% 58%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 265 20% 12%;
-  --sidebar-accent-foreground: 0 0% 98%;
+  --sidebar-accent: 51 33% 88%;
+  --sidebar-accent-foreground: 270 22% 16%;
   --sidebar-ring: 262 83% 58%;
   
-  --popover: 265 25% 6%;
-  --popover-foreground: 0 0% 98%;
-  --popover-border: 265 15% 15%;
+  --popover: 48 48% 96%;
+  --popover-foreground: 270 22% 16%;
+  --popover-border: 42 22% 77%;
   
   --primary: 262 83% 58%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 265 15% 15%;
-  --secondary-foreground: 0 0% 98%;
-  --muted: 265 15% 12%;
-  --muted-foreground: 265 12% 76%;
-  --accent: 265 15% 15%;
-  --accent-foreground: 0 0% 98%;
+  --secondary: 51 33% 88%;
+  --secondary-foreground: 270 22% 16%;
+  --muted: 51 30% 87%;
+  --muted-foreground: 270 12% 38%;
+  --accent: 286 30% 89%;
+  --accent-foreground: 270 22% 16%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
-  --input: 265 15% 15%;
+  --input: 42 22% 77%;
   --ring: 262 83% 58%;
   
   --chart-1: 262 83% 58%;
@@ -183,8 +183,8 @@
   --destructive-border: hsl(var(--destructive));
   --sidebar-primary-border: hsl(var(--sidebar-primary));
   --sidebar-accent-border: hsl(var(--sidebar-accent));
-  --button-outline: rgba(255, 255, 255, 0.1);
-  --badge-outline: rgba(255, 255, 255, 0.05);
+  --button-outline: rgba(54, 38, 65, 0.16);
+  --badge-outline: rgba(54, 38, 65, 0.1);
 }
 
 @layer base {
@@ -195,10 +195,10 @@
   body {
     @apply font-sans antialiased bg-background text-foreground;
     background-image:
-      radial-gradient(circle at 12% 8%, rgba(234, 221, 238, 0.15), transparent 31rem),
-      radial-gradient(circle at 88% 24%, rgba(224, 188, 231, 0.12), transparent 36rem),
-      radial-gradient(circle at 48% 76%, rgba(199, 182, 219, 0.09), transparent 42rem),
-      linear-gradient(180deg, rgba(229, 198, 234, 0.065), transparent 28rem);
+      radial-gradient(circle at 12% 8%, rgba(234, 221, 238, 0.42), transparent 31rem),
+      radial-gradient(circle at 88% 24%, rgba(224, 188, 231, 0.3), transparent 36rem),
+      radial-gradient(circle at 48% 76%, rgba(199, 182, 219, 0.22), transparent 42rem),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.36), transparent 28rem);
     background-attachment: fixed;
   }
 
@@ -231,6 +231,27 @@
 }
 
 @layer utilities {
+  /*
+   * Compatibility for sections authored against the former dark theme.
+   * Keep legacy white-text utilities readable on beige surfaces while
+   * preserving white labels on purple CTAs and intentionally dark badges.
+   */
+  .dark [class~="text-white"],
+  .dark [class*="text-white/"] {
+    color: hsl(var(--foreground)) !important;
+  }
+
+  .dark button[class*="from-primary"],
+  .dark a[class*="from-primary"],
+  .dark [class*="bg-primary"][class*="text-white"],
+  .dark [class*="bg-black"][class*="text-white"] {
+    color: white !important;
+  }
+
+  .dark [class*="border-white/"] {
+    border-color: hsl(var(--border) / 0.9);
+  }
+
   input[type='search']::-webkit-search-cancel-button {
     @apply hidden;
   }
@@ -251,10 +272,10 @@
     -webkit-text-fill-color: transparent;
   }
   .glassmorphism {
-    background: rgba(17, 24, 39, 0.7);
+    background: rgba(250, 248, 232, 0.82);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(54, 38, 65, 0.12);
   }
   .glow-purple {
     box-shadow: 0 0 20px rgba(124, 58, 237, 0.3), 0 0 40px rgba(124, 58, 237, 0.1);
@@ -323,8 +344,8 @@
   }
 
   .glass-panel-premium {
-    background: linear-gradient(145deg, rgba(234, 221, 238, 0.14), rgba(214, 186, 226, 0.045));
-    @apply border border-white/[0.14] backdrop-blur-2xl shadow-[0_12px_40px_-12px_rgba(4,2,12,0.68),inset_0_1px_0_0_rgba(255,255,255,0.14)];
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.72), rgba(229, 198, 234, 0.32));
+    @apply border border-white/[0.14] backdrop-blur-2xl shadow-[0_12px_40px_-12px_rgba(77,55,48,0.25),inset_0_1px_0_0_rgba(255,255,255,0.72)];
   }
 
   .hover-lift {
@@ -341,7 +362,7 @@
   }
 
   .premium-gradient-text {
-    background: linear-gradient(135deg, var(--lilac-1) 0%, var(--lilac-4) 42%, hsl(var(--primary)) 100%);
+    background: linear-gradient(135deg, #5B21B6 0%, hsl(var(--primary)) 48%, #9333EA 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
