@@ -8,14 +8,14 @@ interface VantaEffect {
 declare global {
   interface Window {
     VANTA?: {
-      NET?: (options: Record<string, unknown>) => VantaEffect;
+      CLOUDS?: (options: Record<string, unknown>) => VantaEffect;
     };
     THREE?: unknown;
   }
 }
 
 const THREE_SRC = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js';
-const VANTA_NET_SRC = 'https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js';
+const VANTA_CLOUDS_SRC = 'https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.clouds.min.js';
 
 function supportsWebGL(): boolean {
   try {
@@ -49,15 +49,15 @@ function loadScript(src: string): Promise<void> {
 }
 
 /**
- * Vanta.js animated NET background.
- * Uses the CDN builds of three.js r134 + vanta.net (the versions Vanta was
+ * Vanta.js animated CLOUDS background.
+ * Uses the CDN builds of three.js r134 + vanta.clouds (the versions Vanta was
  * built against) because the npm `three` in this project is far newer and
  * incompatible with the effect's materials.
  * - Destroys the WebGL instance on unmount to avoid leaks/duplicates.
  * - Falls back to a static grid when WebGL is unavailable or the user
  *   prefers reduced motion.
  */
-export function VantaNet() {
+export function VantaClouds() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [fallback, setFallback] = useState(false);
 
@@ -78,29 +78,25 @@ export function VantaNet() {
     let cancelled = false;
 
     loadScript(THREE_SRC)
-      .then(() => loadScript(VANTA_NET_SRC))
+      .then(() => loadScript(VANTA_CLOUDS_SRC))
       .then(() => {
         if (cancelled) return;
-        const NET = window.VANTA?.NET;
-        if (!NET) {
+        const CLOUDS = window.VANTA?.CLOUDS;
+        if (!CLOUDS) {
           setFallback(true);
           return;
         }
         try {
-          effect = NET({
+          effect = CLOUDS({
             el,
             mouseControls: true,
             touchControls: true,
             gyroControls: false,
             minHeight: 200.0,
             minWidth: 200.0,
-            scale: 1.0,
-            scaleMobile: 1.0,
-            color: 0x8e3fff,
-            backgroundColor: 0xEADDEE,
-            points: 9.0,
-            maxDistance: 25.0,
-            spacing: 16.0,
+            skyColor: 0x7568d7,
+            cloudColor: 0xc1adde,
+            sunColor: 0x3418ff,
           });
         } catch {
           setFallback(true);
@@ -124,7 +120,7 @@ export function VantaNet() {
       ref={containerRef}
       aria-hidden="true"
       className="absolute inset-0 w-full h-full overflow-hidden"
-      data-testid="bg-vanta-net"
+      data-testid="bg-vanta-clouds"
     />
   );
 }

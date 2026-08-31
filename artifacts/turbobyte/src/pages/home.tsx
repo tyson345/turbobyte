@@ -3,7 +3,7 @@ import { Link } from 'wouter';
 import { motion, MotionConfig, useInView, useScroll, useTransform } from 'framer-motion';
 import { useSEO } from '@/hooks/use-seo';
 import { schemaGraph, webPageSchema, breadcrumbSchema, faqSchema } from '@/lib/schema';
-import { VantaNet } from '@/components/vanta-net';
+import { VantaClouds } from '@/components/vanta-net';
 import { NewsletterSection } from '@/components/newsletter-section';
 import { OrbitingSkills, type OrbitSkillItem } from '@/components/unlumen-ui/orbiting-skills';
 import { useReducedMotion } from 'framer-motion';
@@ -147,7 +147,7 @@ export default function Home() {
       <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
         {/* Vanta NET animated background with gradient mask */}
         <motion.div style={{ y }} className="absolute inset-0 z-0">
-          <VantaNet />
+          <VantaClouds />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
           <AmbientGlow color="mixed" position="center" className="opacity-40" />
         </motion.div>
