@@ -368,10 +368,11 @@ export default function About() {
               >
                 <h2 className="text-3xl font-medium mb-8 text-white tracking-tight" style={{ fontFamily: 'var(--app-font-display)' }}>Technology Stack</h2>
                 <MarketingImage
-                  src="/images/marketing/software-collaboration.jpg"
-                  alt="Software engineers collaborating on code"
+                  src="/images/marketing/ai-engineering-workspace.jpg"
+                  alt="AI engineering workstation with code and neural network diagrams"
                   aspectRatio="video"
                   className="mb-8"
+                  imageClassName="object-[center_42%]"
                 />
                 <div className="flex flex-wrap gap-3">
                   {technologies.map((tech, i) => (

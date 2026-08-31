@@ -516,10 +516,11 @@ export default function Home() {
               className="relative hidden lg:block"
             >
               <MarketingImage
-                src="/images/marketing/digital-strategy.jpg"
-                alt="Digital strategy consulting session"
+                src="/images/marketing/turbobyte-office.jpg"
+                alt="Branded technology office and collaboration space"
                 aspectRatio="portrait"
                 className="shadow-2xl"
+                imageClassName="object-[center_45%]"
               />
               <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-primary/20 rounded-full blur-3xl -z-10" />
             </motion.div>

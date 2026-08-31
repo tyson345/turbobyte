@@ -430,9 +430,10 @@ export default function Services() {
               transition={{ delay: 0.2, duration: 0.7 }}
             >
               <MarketingImage
-                src="/images/marketing/developer-workspace.jpg"
-                alt="Developer workspace"
+                src="/images/marketing/delivery-planning-board.jpg"
+                alt="Software delivery workflow organized on a planning board"
                 aspectRatio="portrait"
+                imageClassName="object-center"
               />
             </motion.div>
           </div>
