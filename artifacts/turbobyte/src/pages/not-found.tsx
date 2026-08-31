@@ -23,7 +23,7 @@ export default function NotFound() {
           <Logo variant="full" className="justify-center mb-8" />
           
           <div className="mb-8">
-            <h1 className="text-9xl font-bold gradient-text mb-4 animate-float" style={{ fontFamily: 'var(--app-font-display)' }}>
+            <h1 className="text-9xl font-bold premium-gradient-text mb-4 animate-float" style={{ fontFamily: 'var(--app-font-display)' }}>
               404
             </h1>
             <h2 className="text-3xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>

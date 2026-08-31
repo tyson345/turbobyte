@@ -107,7 +107,7 @@ export function ServiceDetailPage({
             className="max-w-4xl mx-auto text-center"
           >
             <Icon className="w-16 h-16 text-primary mx-auto mb-6" />
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 gradient-text" style={{ fontFamily: 'var(--app-font-display)' }}>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 premium-gradient-text" style={{ fontFamily: 'var(--app-font-display)' }}>
               {service.name}
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed mb-10">

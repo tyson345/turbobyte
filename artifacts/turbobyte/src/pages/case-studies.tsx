@@ -53,7 +53,7 @@ export default function CaseStudies() {
             className="max-w-4xl mx-auto text-center"
           >
             <h1
-              className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 gradient-text"
+              className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 premium-gradient-text"
               style={{ fontFamily: 'var(--app-font-display)' }}
             >
               Case Studies
@@ -171,7 +171,7 @@ export default function CaseStudies() {
                 style={{ fontFamily: 'var(--app-font-display)' }}
               >
                 What's in{' '}
-                <span className="gradient-text">Every Write-Up</span>
+                <span className="premium-gradient-text">Every Write-Up</span>
               </h2>
               <p className="text-muted-foreground text-lg">
                 We don't publish success theatre. Each case study follows a structured format designed
@@ -229,7 +229,7 @@ export default function CaseStudies() {
               className="text-4xl font-bold mb-4"
               style={{ fontFamily: 'var(--app-font-display)' }}
             >
-              Want to Be <span className="gradient-text">Case Study #2?</span>
+              Want to Be <span className="premium-gradient-text">Case Study #2?</span>
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-8">
               Early clients get our founding team's undivided attention and our best rates.

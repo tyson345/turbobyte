@@ -8,7 +8,7 @@ function TimeBlock({ value, label }: { value: number; label: string }) {
       <div className="relative w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 rounded-xl glassmorphism border-primary/30 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
         <span
-          className="text-2xl sm:text-3xl md:text-4xl font-bold tabular-nums gradient-text"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold tabular-nums premium-gradient-text"
           style={{ fontFamily: 'var(--app-font-display)' }}
         >
           {String(value).padStart(2, '0')}

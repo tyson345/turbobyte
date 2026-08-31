@@ -7,6 +7,7 @@ import { VantaNet } from '@/components/vanta-net';
 import { NewsletterSection } from '@/components/newsletter-section';
 import { OrbitingSkills, type OrbitSkillItem } from '@/components/unlumen-ui/orbiting-skills';
 import { useReducedMotion } from 'framer-motion';
+import { AmbientGlow } from '@/components/ambient-glow';
 
 const OUR_SERVICES: OrbitSkillItem[] = [
   { label: 'Website Design' },
@@ -147,7 +148,8 @@ export default function Home() {
         {/* Vanta NET animated background with gradient mask */}
         <motion.div style={{ y }} className="absolute inset-0 z-0">
           <VantaNet />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
+          <AmbientGlow color="mixed" position="center" className="opacity-40" />
         </motion.div>
 
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-24 pb-8 md:pb-12 max-w-7xl">
@@ -165,7 +167,7 @@ export default function Home() {
               <h1 className="text-4xl sm:text-6xl md:text-7xl font-medium mb-6 leading-[1.05] tracking-tight" style={{ fontFamily: 'var(--app-font-display)' }}>
                 <span className="text-white">Precision Software.</span>
                 <br />
-                <span className="text-white/60">
+                <span className="premium-gradient-text">
                   <TextRoll duration={0.8} getEnterDelay={(i) => i * 0.05 + 0.3}>Powered by AI.</TextRoll>
                 </span>
               </h1>
@@ -175,17 +177,17 @@ export default function Home() {
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button asChild size="lg" className="h-14 px-8 text-base bg-white text-black hover:bg-white/90 rounded-full transition-transform hover:scale-105">
+                <Button asChild size="lg" variant="premium" className="h-14 px-8 text-base">
                   <Link href="/start-project" data-testid="button-hero-book-consultation">
                     Start Your Project
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="ghost" className="h-14 px-8 text-base text-white hover:bg-white/5 rounded-full transition-colors border border-white/5">
+                <Button asChild size="lg" variant="outline" className="h-14 px-8 text-base glass-panel-premium text-white hover:text-white">
                   <Link href="/portfolio" data-testid="button-hero-view-work">
                     View Our Work
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="ghost" className="h-14 px-8 text-base text-primary hover:bg-primary/10 rounded-full transition-colors border border-primary/30">
+                <Button asChild size="lg" variant="ghost" className="h-14 px-8 text-base text-primary hover:bg-primary/10 rounded-full transition-colors border border-primary/30 premium-border-gradient">
                   <Link href="/demo" data-testid="button-hero-live-demo">
                     Try Live Demo
                   </Link>
@@ -247,6 +249,7 @@ export default function Home() {
 
       {/* About Section */}
       <section className="py-10 md:py-16 relative">
+        <AmbientGlow color="lilac" position="top-left" className="opacity-30" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -254,7 +257,8 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
             className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-7xl mx-auto"
           >
-            <div className="lg:col-span-8 bg-card border border-white/5 p-6 sm:p-8 md:p-16 rounded-3xl relative overflow-hidden">
+            <div className="lg:col-span-8 glass-panel p-6 sm:p-8 md:p-16 rounded-3xl relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <div className="inline-flex items-center gap-2 text-primary text-xs font-semibold mb-8 uppercase tracking-widest">
                 <TextScramble trigger={orbitOpen || true}>ABOUT TURBOBYTE</TextScramble>
               </div>
@@ -307,8 +311,9 @@ export default function Home() {
               )}
             </div>
 
-            <div className="lg:col-span-4 bg-card border border-white/5 p-6 sm:p-8 md:p-12 rounded-3xl flex flex-col relative overflow-hidden group">
+            <div className="lg:col-span-4 glass-panel p-6 sm:p-8 md:p-12 rounded-3xl flex flex-col relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.05] to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#DCBBE5]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
               <div className="relative z-10 mb-8 md:mb-10">
                 <div className="inline-flex items-center gap-2 text-primary text-xs font-semibold mb-2 md:mb-3 uppercase tracking-widest">
@@ -356,8 +361,9 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="py-10 md:py-32 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <section className="py-10 md:py-32 relative bg-background">
+        <AmbientGlow color="mixed" position="center" className="opacity-20 top-[30%]" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-end gap-6 md:p-12 mb-20">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -405,11 +411,11 @@ export default function Home() {
                   viewport={{ once: true }}
                   transition={{ delay: (i % 3) * 0.1 }}
                 >
-                  <Link href={service.href} className="block h-full rounded-2xl md:rounded-3xl outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background">
-                    <div className="group relative flex flex-row md:flex-col justify-between items-center md:items-stretch p-4 md:p-10 rounded-[1.5rem] md:rounded-[2rem] bg-white/[0.015] border border-white/5 hover:border-primary/30 transition-all duration-500 hover:shadow-[0_0_40px_-10px_rgba(124,58,237,0.15)] overflow-hidden h-full cursor-pointer gap-4 md:gap-0" data-testid={`card-home-service-${i}`}>
+                  <Link href={service.href} className="block h-full rounded-2xl md:rounded-3xl outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background hover-lift">
+                    <div className="group relative flex flex-row md:flex-col justify-between items-center md:items-stretch p-4 md:p-10 rounded-[1.5rem] md:rounded-[2rem] glass-panel hover:border-white/20 transition-all duration-500 overflow-hidden h-full cursor-pointer gap-4 md:gap-0" data-testid={`card-home-service-${i}`}>
 
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-colors duration-700 hidden md:block" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl group-hover:bg-[#DCBBE5]/10 transition-colors duration-700 hidden md:block" />
 
                       <div className={`relative z-10 flex ${isFull ? 'flex-col md:flex-row md:items-center gap-2 md:gap-16' : 'flex-col'} w-full h-full`}>
                         <div className={`flex flex-row md:flex-col items-center md:items-stretch gap-4 md:gap-0 ${isFull ? 'md:w-1/2' : 'flex-1'}`}>
@@ -461,8 +467,9 @@ export default function Home() {
       </section>
 
       {/* Why Choose Section */}
-      <section className="py-10 md:py-32 border-y border-white/5 bg-card/50 overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <section className="py-10 md:py-32 border-y border-white/5 relative overflow-hidden bg-white/[0.01]">
+        <AmbientGlow color="lilac" position="bottom-right" className="opacity-20" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <motion.div
@@ -522,6 +529,7 @@ export default function Home() {
 
       {/* Try the AI Demo */}
       <section className="py-20 md:py-40 relative overflow-hidden bg-background">
+        <AmbientGlow color="primary" position="center" className="opacity-30" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -538,7 +546,7 @@ export default function Home() {
               Describe your business in a single sentence and our AI will generate a live, interactive prototype right in your browser. No sign-up required.
             </p>
             <Link href="/demo">
-              <Button size="lg" className="h-14 px-10 text-lg rounded-full bg-white text-black hover:bg-white/90 transition-transform hover:scale-105" data-testid="button-home-try-demo">
+              <Button size="lg" variant="premium" className="h-14 px-10 text-lg rounded-full" data-testid="button-home-try-demo">
                 Launch The AI Demo
               </Button>
             </Link>
@@ -573,8 +581,9 @@ export default function Home() {
       )}
 
       {/* Frequently Asked Questions */}
-      <section className="py-10 md:py-32 bg-background border-t border-white/5">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <section className="py-10 md:py-32 bg-background border-t border-white/5 relative overflow-hidden">
+        <AmbientGlow color="mixed" position="bottom-left" className="opacity-20" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-8 md:gap-16 lg:gap-24">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -604,7 +613,7 @@ export default function Home() {
                   <AccordionItem
                     key={i}
                     value={`item-${i}`}
-                    className="bg-card rounded-2xl px-6 md:px-8 border border-white/5 data-[state=open]:border-white/10 transition-colors"
+                    className="glass-panel rounded-2xl px-6 md:px-8 data-[state=open]:border-white/20 transition-all duration-300 hover:bg-white/[0.07]"
                     data-testid={`faq-item-${i}`}
                   >
                     <AccordionTrigger className="text-left font-medium text-base md:text-lg text-white hover:no-underline py-4 md:py-6" style={{ fontFamily: 'var(--app-font-display)' }} data-testid={`faq-trigger-${i}`}>
@@ -622,27 +631,29 @@ export default function Home() {
       </section>
 
       {/* Big Final CTA */}
-      <section className="py-20 md:py-40 relative bg-card border-t border-white/5 text-center">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <section className="py-20 md:py-40 relative bg-background border-t border-white/5 text-center overflow-hidden">
+        <AmbientGlow color="lilac" position="top-right" className="opacity-20" />
+        <AmbientGlow color="primary" position="bottom-left" className="opacity-20" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-7xl font-medium mb-8 text-white tracking-tight leading-[1.1]" style={{ fontFamily: 'var(--app-font-display)' }}>
-              Ready to build something <span className="text-primary">extraordinary?</span>
+              Ready to build something <span className="premium-gradient-text">extraordinary?</span>
             </h2>
             <p className="text-xl md:text-2xl text-muted-foreground mb-12 font-light leading-relaxed max-w-3xl mx-auto">
-              Join the growing list of Indian businesses scaling with TurboByte's custom software, premium web development, and AI automation.
+              Join the growing list of businesses scaling with TurboByte's custom software, premium web development, and AI automation.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/start-project">
-                <Button size="lg" className="h-14 px-10 rounded-full text-base bg-white text-black hover:bg-white/90 transition-transform hover:scale-105 font-medium" data-testid="button-cta-start-project">
+                <Button size="lg" variant="premium" className="h-14 px-10 rounded-full text-base font-medium" data-testid="button-cta-start-project">
                   Start Your Project
                 </Button>
               </Link>
               <Link href="/contact">
-                <Button size="lg" variant="ghost" className="h-14 px-10 rounded-full text-base text-white hover:bg-white/5 font-medium border border-white/5" data-testid="button-cta-contact-us">
+                <Button size="lg" variant="outline" className="h-14 px-10 rounded-full text-base text-white hover:text-white font-medium glass-panel-premium" data-testid="button-cta-contact-us">
                   Schedule A Call
                 </Button>
               </Link>

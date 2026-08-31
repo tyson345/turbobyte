@@ -78,7 +78,7 @@ export default function Portfolio() {
             className="max-w-4xl mx-auto text-center"
           >
             <h1
-              className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 gradient-text"
+              className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 premium-gradient-text"
               style={{ fontFamily: 'var(--app-font-display)' }}
             >
               Our Work & Success Stories
@@ -266,7 +266,7 @@ export default function Portfolio() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mb-12">
             <h2 className="text-3xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>
-              In-Depth <span className="gradient-text">Case Studies</span>
+              In-Depth <span className="premium-gradient-text">Case Studies</span>
             </h2>
             <p className="text-muted-foreground">
               Beyond the portfolio, we document select engagements with verified outcomes, architectures, and lessons learned.

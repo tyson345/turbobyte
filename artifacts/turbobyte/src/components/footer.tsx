@@ -3,6 +3,7 @@ import { Logo } from './logo';
 import { SocialLinks } from './social-links';
 import { siteConfig, hasAnySocial } from '@/config/site';
 import { serviceCategories } from '@/config/services';
+import { AmbientGlow } from './ambient-glow';
 
 const quickLinks = [
   { href: '/', label: 'Home' },
@@ -28,8 +29,9 @@ const companyLinks = [
 
 export function Footer() {
   return (
-    <footer className="w-full overflow-visible bg-background border-t border-white/5">
-      <div className="mx-auto w-full max-w-[1440px] px-5 py-12 sm:px-8 sm:py-16 lg:px-10 lg:py-[70px]">
+    <footer className="w-full overflow-hidden bg-background border-t border-white/5 relative">
+      <AmbientGlow color="mixed" position="bottom-right" className="opacity-20" />
+      <div className="mx-auto w-full max-w-[1440px] px-5 py-12 sm:px-8 sm:py-16 lg:px-10 lg:py-[70px] relative z-10">
         <div className="grid grid-cols-1 gap-9 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-12 xl:grid-cols-[1.7fr_1fr_1.25fr_1fr_1.2fr] xl:gap-12">
           {/* Company Info */}
           <div className="min-w-0 sm:col-span-2 xl:col-span-1">

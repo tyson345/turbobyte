@@ -29,7 +29,7 @@ export function HomepageCampaignBanner() {
                 🇮🇳 {campaignCopy.shortBadge}
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold mb-3 leading-tight" style={{ fontFamily: 'var(--app-font-display)' }}>
-                Independence Day Offer: Websites from <span className="gradient-text">₹4,999</span>
+                Independence Day Offer: Websites from <span className="premium-gradient-text">₹4,999</span>
               </h2>
               <p className="text-muted-foreground mb-6 max-w-xl leading-relaxed">
                 Premium websites, WhatsApp integration and AI automation for small businesses — with over ₹35,000 in launch bonuses. Live only till 15 August 2026.

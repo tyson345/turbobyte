@@ -78,7 +78,7 @@ export default function Careers() {
         <AmbientHero />
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 gradient-text" style={{ fontFamily: 'var(--app-font-display)' }}>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 premium-gradient-text" style={{ fontFamily: 'var(--app-font-display)' }}>
               Build Your Career With TurboByte Tech Solutions
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
@@ -102,7 +102,7 @@ export default function Careers() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12 md:mb-16">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>
-                Our <span className="gradient-text">Culture</span>
+                Our <span className="premium-gradient-text">Culture</span>
               </h2>
               <p className="text-muted-foreground text-base md:text-lg">
                 The principles that drive how we work, collaborate, and build.
@@ -152,7 +152,7 @@ export default function Careers() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>
-              Why <span className="gradient-text">Join Us?</span>
+              Why <span className="premium-gradient-text">Join Us?</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg">
               What you can expect when you become part of the TurboByte team.
@@ -195,7 +195,7 @@ export default function Careers() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>
-              Open <span className="gradient-text">Positions</span>
+              Open <span className="premium-gradient-text">Positions</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg">
               Discover your next career move with us.

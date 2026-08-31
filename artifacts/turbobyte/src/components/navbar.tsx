@@ -33,7 +33,7 @@ export function Navbar() {
     <nav
       className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
         campaignBarActive ? 'top-9' : 'top-0'
-      } ${isScrolled ? 'bg-background/90 backdrop-blur-md border-b border-white/5 py-2' : 'bg-transparent py-4'}`}
+      } ${isScrolled ? 'glass-panel-premium !bg-background/70 !rounded-none !border-x-0 !border-t-0 py-2 shadow-sm' : 'bg-transparent py-4'}`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex items-center justify-between h-16">
@@ -76,7 +76,7 @@ export function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 5 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute top-full left-0 w-64 bg-card border border-white/5 rounded-xl shadow-2xl py-2 overflow-hidden"
+                    className="absolute top-full left-0 w-64 glass-panel-premium rounded-xl shadow-2xl py-2 overflow-hidden"
                   >
                     <Link href="/services" className="block px-5 py-2.5 text-sm text-white/60 hover:bg-white/5 hover:text-white transition-colors">
                       All Services
@@ -111,7 +111,7 @@ export function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 5 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute top-full left-0 w-56 bg-card border border-white/5 rounded-xl shadow-2xl py-2 overflow-hidden"
+                    className="absolute top-full left-0 w-56 glass-panel-premium rounded-xl shadow-2xl py-2 overflow-hidden"
                   >
                     <Link href="/solutions" className="block px-5 py-2.5 text-sm text-white/60 hover:bg-white/5 hover:text-white transition-colors">
                       All Solutions
@@ -165,7 +165,7 @@ export function Navbar() {
 
           <div className="hidden xl:block">
             <Link href="/start-project">
-              <Button className="rounded-full px-6 font-medium text-sm bg-white text-black hover:bg-white/90 transition-transform hover:scale-105" data-testid="button-start-project">
+              <Button variant="premium" className="rounded-full px-6 font-medium text-sm transition-transform hover:scale-105" data-testid="button-start-project">
                 Start Project
               </Button>
             </Link>
@@ -201,7 +201,7 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="fixed top-0 right-0 h-[100dvh] w-full max-w-sm bg-card border-l border-white/5 z-50 xl:hidden overflow-y-auto"
+              className="fixed top-0 right-0 h-[100dvh] w-full max-w-sm glass-panel !rounded-none z-50 xl:hidden overflow-y-auto"
             >
               <div className="p-6 flex flex-col h-full min-h-0">
                 <div className="flex justify-end mb-3">
@@ -241,7 +241,7 @@ export function Navbar() {
 
                 <div className="pt-4 pb-[max(env(safe-area-inset-bottom),0.5rem)] shrink-0">
                   <Link href="/start-project">
-                    <Button className="w-full rounded-full h-12 text-base bg-white text-black hover:bg-white/90">Start Project</Button>
+                    <Button variant="premium" className="w-full rounded-full h-12 text-base">Start Project</Button>
                   </Link>
                 </div>
               </div>

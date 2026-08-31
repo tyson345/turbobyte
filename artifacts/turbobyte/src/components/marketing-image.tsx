@@ -1,6 +1,6 @@
 import { HTMLAttributes, useRef } from 'react';
 import { cn } from '@/lib/utils';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { basePath } from '@/lib/paths';
 
 interface MarketingImageProps extends HTMLAttributes<HTMLDivElement> {
@@ -30,6 +30,10 @@ export function MarketingImage({
 }: MarketingImageProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "200px 0px" });
+  const prefersReducedMotion = useReducedMotion();
+  const supportsHover =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   const resolvedSrc = src.startsWith('/') ? `${basePath}${src}` : src;
 
   const aspectRatioClass = {
@@ -48,7 +52,16 @@ export function MarketingImage({
 
   return (
     <div ref={ref} className={cn('relative flex flex-col group', className)} {...props}>
-      <div className={cn('relative w-full overflow-hidden rounded-2xl bg-muted/20 border border-white/5', aspectRatioClass)}>
+      <motion.div
+        className={cn('relative w-full overflow-hidden rounded-2xl glass-panel-premium', aspectRatioClass)}
+        whileHover={
+          prefersReducedMotion || !supportsHover
+            ? undefined
+            : { scale: 1.018, rotateX: 1.5, rotateY: -1.5, y: -5 }
+        }
+        transition={{ duration: 0.45, ease: "easeOut" }}
+        style={{ transformPerspective: 1000 }}
+      >
         {(priority || isInView) && (
           <motion.img
             initial={{ opacity: 0, scale: 1.05 }}
@@ -63,10 +76,9 @@ export function MarketingImage({
             className={cn('w-full h-full text-transparent', objectFitClass, imageClassName)}
           />
         )}
-        {/* Subtle overlay to ensure it blends with dark theme */}
-        <div className="absolute inset-0 bg-background/10 pointer-events-none mix-blend-overlay" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent pointer-events-none mix-blend-overlay" />
         <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10 pointer-events-none" />
-      </div>
+      </motion.div>
       {caption && (
         <p className="mt-3 text-sm text-muted-foreground font-light text-center">
           {caption}

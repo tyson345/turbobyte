@@ -34,7 +34,7 @@ export default function Blog() {
             className="max-w-4xl mx-auto text-center"
           >
             <h1
-              className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 gradient-text"
+              className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 premium-gradient-text"
               style={{ fontFamily: 'var(--app-font-display)' }}
             >
               Blog

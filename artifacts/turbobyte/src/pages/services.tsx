@@ -15,6 +15,7 @@ import { serviceCategories, serviceAnchor } from '@/config/services';
 import { TextScramble } from '@/components/core/text-scramble';
 import { AmbientHero } from '@/components/ambient-hero';
 import { MarketingImage } from '@/components/marketing-image';
+import { AmbientGlow } from '@/components/ambient-glow';
 
 const faqData = [
   {
@@ -142,7 +143,7 @@ export default function Services() {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 gradient-text" style={{ fontFamily: 'var(--app-font-display)' }}>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 premium-gradient-text" style={{ fontFamily: 'var(--app-font-display)' }}>
               AI-Powered Digital Solutions for Modern Businesses
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed mb-10 max-w-3xl mx-auto">
@@ -251,9 +252,9 @@ export default function Services() {
                     viewport={{ once: true }}
                     transition={{ delay: (i % 3) * 0.1 }}
                   >
-                    <div className="group relative flex flex-col justify-between p-6 sm:p-8 md:p-10 rounded-[2rem] bg-white/[0.015] border border-white/5 hover:border-primary/30 transition-all duration-500 hover:shadow-[0_0_40px_-10px_rgba(124,58,237,0.15)] overflow-hidden h-full">
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-colors duration-700" />
+                    <div className="group relative flex flex-col justify-between p-6 sm:p-8 md:p-10 rounded-[2rem] glass-panel hover:border-white/20 transition-all duration-500 hover:shadow-[0_0_40px_-10px_rgba(224,188,231,0.15)] overflow-hidden h-full hover-lift">
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl group-hover:bg-[#DCBBE5]/10 transition-colors duration-700" />
 
                       <div className="relative z-10 flex flex-col h-full">
                         <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-500 shadow-lg mb-8">
@@ -318,7 +319,7 @@ export default function Services() {
       <section className="py-12 md:py-24 bg-card/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>How We Change <span className="gradient-text">The Game</span></h2>
+            <h2 className="text-4xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>How We Change <span className="premium-gradient-text">The Game</span></h2>
             <p className="text-xl text-muted-foreground">Compare the impact of TurboByte AI Solutions against conventional approaches.</p>
           </motion.div>
 
@@ -351,7 +352,7 @@ export default function Services() {
       <section className="py-12 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>Our <span className="gradient-text">Process</span></h2>
+            <h2 className="text-4xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>Our <span className="premium-gradient-text">Process</span></h2>
             <p className="text-xl text-muted-foreground">From initial idea to successful deployment and beyond.</p>
           </motion.div>
 
@@ -401,7 +402,7 @@ export default function Services() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="text-4xl font-bold mb-8" style={{ fontFamily: 'var(--app-font-display)' }}>Why Choose <span className="gradient-text">Our Services</span></h2>
+              <h2 className="text-4xl font-bold mb-8" style={{ fontFamily: 'var(--app-font-display)' }}>Why Choose <span className="premium-gradient-text">Our Services</span></h2>
               <div className="flex flex-wrap gap-4">
                 {whyChooseUs.map((reason, i) => (
                   <motion.div
@@ -442,7 +443,7 @@ export default function Services() {
       <section className="py-12 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>Frequently Asked <span className="gradient-text">Questions</span></h2>
+            <h2 className="text-4xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>Frequently Asked <span className="premium-gradient-text">Questions</span></h2>
           </motion.div>
 
           <div className="bg-white/[0.015] p-6 sm:p-8 md:p-10 rounded-[2.5rem] border border-white/5">

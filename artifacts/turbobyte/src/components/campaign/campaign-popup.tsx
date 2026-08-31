@@ -115,7 +115,7 @@ export function CampaignPopup() {
                 <Sparkles className="w-3.5 h-3.5" /> 🇮🇳 Operation Tiranga 2026
               </div>
               <h3 id="campaign-popup-heading" className="text-2xl font-bold mb-2 leading-tight" style={{ fontFamily: 'var(--app-font-display)' }}>
-                Websites starting <span className="gradient-text">₹4,999</span>
+                Websites starting <span className="premium-gradient-text">₹4,999</span>
               </h3>
               <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
                 Our Independence Day offer ends 15 August. Claim your premium website, WhatsApp integration and free bonuses before the countdown hits zero.

@@ -154,7 +154,7 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 gradient-text" style={{ fontFamily: 'var(--app-font-display)' }}>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 premium-gradient-text" style={{ fontFamily: 'var(--app-font-display)' }}>
               Let's Build Something Extraordinary
             </h1>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">

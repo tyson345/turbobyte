@@ -78,7 +78,7 @@ export function ServiceCategoryPage({ category }: { category: ServiceCategory })
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl mx-auto">
             <Icon className="w-16 h-16 text-primary mb-6" />
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 gradient-text" style={{ fontFamily: 'var(--app-font-display)' }}>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 premium-gradient-text" style={{ fontFamily: 'var(--app-font-display)' }}>
               {category.title}
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">{category.tagline}</p>
@@ -117,7 +117,7 @@ export function ServiceCategoryPage({ category }: { category: ServiceCategory })
       {/* Services in this category */}
       <section className="py-12 md:py-24 bg-card/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold mb-12 text-center gradient-text" style={{ fontFamily: 'var(--app-font-display)' }}>
+          <h2 className="text-4xl font-bold mb-12 text-center premium-gradient-text" style={{ fontFamily: 'var(--app-font-display)' }}>
             Services We Offer
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -153,7 +153,7 @@ export function ServiceCategoryPage({ category }: { category: ServiceCategory })
       <section className="py-12 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-12 text-center" style={{ fontFamily: 'var(--app-font-display)' }}>
-            Our <span className="gradient-text">Process</span>
+            Our <span className="premium-gradient-text">Process</span>
           </h2>
           <div className="max-w-4xl mx-auto space-y-8">
             {processSteps.map((phase, i) => (

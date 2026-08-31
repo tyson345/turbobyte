@@ -464,7 +464,7 @@ export default function Demo() {
               </span>
             </motion.div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 gradient-text leading-tight" style={{ fontFamily: 'var(--app-font-display)' }}>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 premium-gradient-text leading-tight" style={{ fontFamily: 'var(--app-font-display)' }}>
               Watch Your Idea Come to Life
             </h1>
 
@@ -665,7 +665,7 @@ export default function Demo() {
                   transition={{ delay: 0.2 }}
                   className="text-center mb-8"
                 >
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 gradient-text" style={{ fontFamily: 'var(--app-font-display)' }}>
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 premium-gradient-text" style={{ fontFamily: 'var(--app-font-display)' }}>
                     Your Prototype is Ready
                   </h2>
                   <p className="text-lg text-muted-foreground">

@@ -49,7 +49,7 @@ export function NewsletterSection() {
         >
           <Mail className="w-10 h-10 text-primary mx-auto mb-6" />
           <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>
-            Stay Ahead with <span className="gradient-text">AI Insights</span>
+            Stay Ahead with <span className="premium-gradient-text">AI Insights</span>
           </h2>
           <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
             Practical ideas on AI, automation, and digital growth — straight to your inbox. No spam, ever.

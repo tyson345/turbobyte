@@ -288,7 +288,7 @@ export default function OperationTiranga() {
               🇮🇳 {campaignCopy.name} · Independence Day Offer
             </motion.div>
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight" style={{ fontFamily: 'var(--app-font-display)' }}>
-              <span className="gradient-text animate-gradient">{campaignCopy.headline}</span>
+              <span className="premium-gradient-text animate-gradient">{campaignCopy.headline}</span>
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
               {campaignCopy.subheadline}
@@ -315,7 +315,7 @@ export default function OperationTiranga() {
             </div>
 
             <div className="mt-10 flex items-center justify-center gap-2 text-3xl sm:text-4xl font-bold" style={{ fontFamily: 'var(--app-font-display)' }}>
-              Websites starting from <span className="gradient-text"><AnimatedPrice value={4999} /></span>
+              Websites starting from <span className="premium-gradient-text"><AnimatedPrice value={4999} /></span>
             </div>
 
             <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
@@ -340,7 +340,7 @@ export default function OperationTiranga() {
             className="text-center mb-14"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>
-              Choose Your <span className="gradient-text">Launch Package</span>
+              Choose Your <span className="premium-gradient-text">Launch Package</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Every package includes a written scope, mobile-responsive build, and 30-day post-launch support.
@@ -368,7 +368,7 @@ export default function OperationTiranga() {
                   </span>
                 )}
                 <h3 className="text-lg font-semibold mb-1" style={{ fontFamily: 'var(--app-font-display)' }}>{pkg.name}</h3>
-                <div className="text-3xl font-bold gradient-text mb-2" style={{ fontFamily: 'var(--app-font-display)' }}>
+                <div className="text-3xl font-bold premium-gradient-text mb-2" style={{ fontFamily: 'var(--app-font-display)' }}>
                   {pkg.priceLabel}
                 </div>
                 <p className="text-xs text-muted-foreground mb-4 leading-relaxed min-h-[48px]">{pkg.tagline}</p>
@@ -414,7 +414,7 @@ export default function OperationTiranga() {
               <Sparkles className="w-4 h-4" /> Limited-Time Bonuses
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>
-              Benefits Worth <span className="gradient-text">{campaignBonusTotal}</span>
+              Benefits Worth <span className="premium-gradient-text">{campaignBonusTotal}</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Every package launched during Operation Tiranga includes these extras at no additional cost.
@@ -495,7 +495,7 @@ export default function OperationTiranga() {
             className="text-center mb-14"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>
-              What We Can <span className="gradient-text">Build For You</span>
+              What We Can <span className="premium-gradient-text">Build For You</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Example concepts across industries — illustrative designs showing what's possible, not delivered client work.
@@ -543,7 +543,7 @@ export default function OperationTiranga() {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>
-                Why Businesses Choose <span className="gradient-text">TurboByte</span>
+                Why Businesses Choose <span className="premium-gradient-text">TurboByte</span>
               </h2>
               <p className="text-lg text-muted-foreground">
                 We're a new company — so we lead with transparency, not inflated numbers.
@@ -583,7 +583,7 @@ export default function OperationTiranga() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>
-              Our <span className="gradient-text">Development Process</span>
+              Our <span className="premium-gradient-text">Development Process</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               A clear, predictable path from first call to launch.
@@ -630,7 +630,7 @@ export default function OperationTiranga() {
               className="text-center mb-10"
             >
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>
-                Claim Your <span className="gradient-text">Independence Day Offer</span>
+                Claim Your <span className="premium-gradient-text">Independence Day Offer</span>
               </h2>
               <p className="text-lg text-muted-foreground">
                 Tell us about your business — we'll respond within 24 business hours.
@@ -817,7 +817,7 @@ export default function OperationTiranga() {
             className="text-center mb-14"
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>
-              Frequently Asked <span className="gradient-text">Questions</span>
+              Frequently Asked <span className="premium-gradient-text">Questions</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Everything you need to know about the Operation Tiranga offer.

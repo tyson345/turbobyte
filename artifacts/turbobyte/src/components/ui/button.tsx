@@ -4,30 +4,24 @@ import { cn } from '@/lib/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0' +
-    ' hover-elevate active-elevate-2',
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0' +
+    ' hover:shadow-lg active:scale-[0.98] motion-reduce:transition-none motion-reduce:active:scale-100',
   {
     variants: {
       variant: {
         default:
-          // @replit: no hover, and add primary border
-          'bg-primary text-primary-foreground border border-primary-border',
+          'relative overflow-hidden border border-primary-border bg-primary text-primary-foreground shadow-[0_0_15px_-3px_rgba(124,58,237,0.4)] after:pointer-events-none after:absolute after:inset-0 after:-translate-x-full after:bg-gradient-to-r after:from-transparent after:via-white/20 after:to-transparent hover:-translate-y-0.5 hover:shadow-[0_0_25px_-3px_rgba(124,58,237,0.6)] hover:after:animate-[shimmer_850ms_ease-out_1] active:translate-y-0 motion-reduce:hover:translate-y-0 motion-reduce:hover:after:animate-none',
         destructive:
-          'bg-destructive text-destructive-foreground shadow-sm border-destructive-border',
+          'bg-destructive text-destructive-foreground shadow-sm border-destructive-border hover:-translate-y-0.5 active:translate-y-0 motion-reduce:hover:translate-y-0',
         outline:
-          // @replit Shows the background color of whatever card / sidebar / accent background it is inside of.
-          // Inherits the current text color. Uses shadow-xs. no shadow on active
-          // No hover state
-          ' border [border-color:var(--button-outline)] shadow-xs active:shadow-none ',
+          'border [border-color:var(--button-outline)] shadow-sm active:shadow-none hover:bg-white/5 hover:border-white/10 hover:-translate-y-0.5 active:translate-y-0 motion-reduce:hover:translate-y-0',
         secondary:
-          // @replit border, no hover, no shadow, secondary border.
-          'border bg-secondary text-secondary-foreground border border-secondary-border ',
-        // @replit no hover, transparent border
-        ghost: 'border border-transparent',
-        link: 'text-primary underline-offset-4 hover:underline',
+          'border bg-secondary text-secondary-foreground border border-secondary-border hover:bg-secondary/80 hover:-translate-y-0.5 active:translate-y-0 motion-reduce:hover:translate-y-0',
+        ghost: 'border border-transparent hover:bg-white/5 hover:text-white',
+        link: 'text-primary underline-offset-4 hover:underline hover:text-primary/80',
+        premium: 'relative overflow-hidden border border-white/10 bg-gradient-to-r from-primary via-[#a855f7] to-[#DCBBE5] text-white shadow-[0_10px_30px_-12px_rgba(224,188,231,0.55)] after:pointer-events-none after:absolute after:inset-0 after:-translate-x-full after:bg-gradient-to-r after:from-transparent after:via-white/25 after:to-transparent hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-12px_rgba(224,188,231,0.7)] hover:after:animate-[shimmer_850ms_ease-out_1] active:translate-y-0 motion-reduce:hover:translate-y-0 motion-reduce:hover:after:animate-none'
       },
       size: {
-        // @replit changed sizes
         default: 'min-h-9 px-4 py-2',
         sm: 'min-h-8 rounded-md px-3 text-xs',
         lg: 'min-h-10 rounded-md px-8',
