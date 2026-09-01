@@ -259,9 +259,9 @@ export default function Home() {
             className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-7xl mx-auto"
           >
             <div className="lg:col-span-8 glass-panel p-6 sm:p-8 md:p-16 rounded-3xl relative overflow-hidden group">
-              <div className="absolute inset-0 opacity-[0.12] mix-blend-luminosity pointer-events-none transition-opacity duration-700 group-hover:opacity-[0.2]">
+              <div className="absolute inset-0 opacity-[0.18] mix-blend-luminosity pointer-events-none transition-opacity duration-700 group-hover:opacity-[0.28]">
                 <img src={`${basePath}/images/marketing/ai-brain.jpg`} className="w-full h-full object-cover" alt="" aria-hidden="true" />
-                <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/20" />
+                <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/20" />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
               </div>
               <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -549,9 +549,9 @@ export default function Home() {
 
       {/* Try the AI Demo */}
       <section className="py-20 md:py-40 relative overflow-hidden bg-background">
-        <div className="absolute inset-0 opacity-[0.1] mix-blend-luminosity pointer-events-none">
+        <div className="absolute inset-0 opacity-[0.25] mix-blend-luminosity pointer-events-none">
           <img src={`${basePath}/images/marketing/analytics-dashboard.jpg`} className="w-full h-full object-cover" alt="" aria-hidden="true" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/30 to-background" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background" />
         </div>
         <AmbientGlow color="primary" position="center" className="opacity-30" />
@@ -657,9 +657,9 @@ export default function Home() {
 
       {/* Big Final CTA */}
       <section className="py-20 md:py-40 relative bg-background border-t border-white/5 text-center overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.1] mix-blend-luminosity pointer-events-none">
+        <div className="absolute inset-0 opacity-[0.25] mix-blend-luminosity pointer-events-none">
           <img src={`${basePath}/images/marketing/web-design-future.jpg`} className="w-full h-full object-cover" alt="" aria-hidden="true" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/60 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/40 to-background" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background" />
         </div>
         <AmbientGlow color="lilac" position="top-right" className="opacity-20" />

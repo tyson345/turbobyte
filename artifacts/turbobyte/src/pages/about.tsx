@@ -206,9 +206,9 @@ export default function About() {
 
         {/* Core Values */}
         <section className="py-12 md:py-24 bg-background border-t border-white/5 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.08] mix-blend-luminosity pointer-events-none">
+          <div className="absolute inset-0 opacity-[0.15] mix-blend-luminosity pointer-events-none">
             <img src={`${basePath}/images/marketing/developer-workspace.jpg`} className="w-full h-full object-cover" alt="" aria-hidden="true" />
-            <div className="absolute inset-0 bg-gradient-to-b from-background via-background/60 to-background" />
+            <div className="absolute inset-0 bg-gradient-to-b from-background via-background/40 to-background" />
             <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background" />
           </div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
