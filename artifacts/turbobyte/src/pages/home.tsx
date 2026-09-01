@@ -3,6 +3,7 @@ import { Link } from 'wouter';
 import { motion, MotionConfig, useInView, useScroll, useTransform } from 'framer-motion';
 import { useSEO } from '@/hooks/use-seo';
 import { schemaGraph, webPageSchema, breadcrumbSchema, faqSchema } from '@/lib/schema';
+import { basePath } from '@/lib/paths';
 import { VantaClouds } from '@/components/vanta-net';
 import { NewsletterSection } from '@/components/newsletter-section';
 import { OrbitingSkills, type OrbitSkillItem } from '@/components/unlumen-ui/orbiting-skills';
@@ -43,12 +44,12 @@ import { companyStats } from '@/config/site';
 /* ------------------------------ content data ------------------------------ */
 
 const featuredServices = [
-  { name: 'AI Customer-Support Chatbots', icon: MessageSquareText, href: '/services/ai-agents', desc: 'Chatbots that resolve customer queries instantly and work around the clock.' },
-  { name: 'AI Voice & Virtual Receptionists', icon: PhoneCall, href: '/services/ai-agents', desc: 'Natural-sounding voice agents that answer calls, route enquiries, and book appointments.' },
-  { name: 'Lead-Generation & Sales AI', icon: Target, href: '/services/ai-agents', desc: 'Assistants that engage visitors, qualify leads, and hand warm prospects to your team.' },
-  { name: 'Knowledge-Base Assistants', icon: BookOpenText, href: '/services/ai-agents', desc: 'Internal AI that answers instantly from your documents, policies, and processes.' },
-  { name: 'Business Workflow Automation', icon: Workflow, href: '/services/automation', desc: 'End-to-end automation of approvals, data entry, notifications, and reporting.' },
-  { name: 'Premium Website Development', icon: Globe, href: '/services/development', desc: 'Modern, high-performance websites enhanced with intelligent chat and personalization.' },
+  { name: 'AI Customer-Support Chatbots', icon: MessageSquareText, href: '/services/ai-agents', desc: 'Chatbots that resolve customer queries instantly and work around the clock.', images: ['ai-chatbot.jpeg'] },
+  { name: 'AI Voice & Virtual Receptionists', icon: PhoneCall, href: '/services/ai-agents', desc: 'Natural-sounding voice agents that answer calls, route enquiries, and book appointments.', images: ['virtual-receptionist.jpeg', 'ai-receptionist.jpeg'] },
+  { name: 'Lead-Generation & Sales AI', icon: Target, href: '/services/ai-agents', desc: 'Assistants that engage visitors, qualify leads, and hand warm prospects to your team.', images: ['lead-generation.jpeg'] },
+  { name: 'Knowledge-Base Assistants', icon: BookOpenText, href: '/services/ai-agents', desc: 'Internal AI that answers instantly from your documents, policies, and processes.', images: ['knowledge-assistant.jpeg'] },
+  { name: 'Business Workflow Automation', icon: Workflow, href: '/services/automation', desc: 'End-to-end automation of approvals, data entry, notifications, and reporting.', images: ['workflow-automation.jpeg'] },
+  { name: 'Premium Website Development', icon: Globe, href: '/services/development', desc: 'Modern, high-performance websites enhanced with intelligent chat and personalization.', images: ['premium-web-development.jpeg'] },
 ];
 
 const whyChoose = [
@@ -414,6 +415,19 @@ export default function Home() {
                   <Link href={service.href} className="block h-full rounded-2xl md:rounded-3xl outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background hover-lift">
                     <div className="group relative flex flex-row md:flex-col justify-between items-center md:items-stretch p-4 md:p-10 rounded-[1.5rem] md:rounded-[2rem] glass-panel hover:border-white/20 transition-all duration-500 overflow-hidden h-full cursor-pointer gap-4 md:gap-0" data-testid={`card-home-service-${i}`}>
 
+                      <div className="pointer-events-none absolute inset-0 flex overflow-hidden" aria-hidden="true">
+                        {service.images.map((image) => (
+                          <img
+                            key={image}
+                            src={`${basePath}/images/services/${image}`}
+                            alt=""
+                            loading="lazy"
+                            decoding="async"
+                            className="h-full min-w-0 flex-1 object-cover opacity-[0.14] saturate-[0.7] transition-[transform,opacity,filter] duration-700 ease-out group-hover:scale-[1.035] group-hover:opacity-[0.2] group-hover:saturate-100 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                          />
+                        ))}
+                      </div>
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/65" />
                       <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl group-hover:bg-[#DCBBE5]/10 transition-colors duration-700 hidden md:block" />
 
