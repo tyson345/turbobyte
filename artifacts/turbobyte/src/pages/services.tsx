@@ -430,8 +430,8 @@ export default function Services() {
               transition={{ delay: 0.2, duration: 0.7 }}
             >
               <MarketingImage
-                src="/images/marketing/delivery-planning-board.jpg"
-                alt="Software delivery workflow organized on a planning board"
+                src="/images/marketing/mobile-app-ui.jpg"
+                alt="Modern mobile app user interface design"
                 aspectRatio="portrait"
                 imageClassName="object-center"
               />

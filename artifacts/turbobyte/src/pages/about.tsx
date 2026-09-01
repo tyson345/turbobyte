@@ -153,8 +153,8 @@ export default function About() {
                   Building intelligent software that drives real growth.
                 </h2>
                 <MarketingImage
-                  src="/images/marketing/team-culture.jpg"
-                  alt="Team collaborative session"
+                  src="/images/marketing/web-design-future.jpg"
+                  alt="Futuristic web design interface with purple accents"
                   aspectRatio="wide"
                   className="mb-8"
                 />
@@ -368,8 +368,8 @@ export default function About() {
               >
                 <h2 className="text-3xl font-medium mb-8 text-white tracking-tight" style={{ fontFamily: 'var(--app-font-display)' }}>Technology Stack</h2>
                 <MarketingImage
-                  src="/images/marketing/ai-engineering-workspace.jpg"
-                  alt="AI engineering workstation with code and neural network diagrams"
+                  src="/images/marketing/ai-brain.jpg"
+                  alt="AI brain visualization and neural network"
                   aspectRatio="video"
                   className="mb-8"
                   imageClassName="object-[center_42%]"

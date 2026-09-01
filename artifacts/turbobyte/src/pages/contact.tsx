@@ -510,8 +510,8 @@ export default function Contact() {
                 </div>
               )}
               <MarketingImage
-                src="/images/marketing/client-consultation.jpg"
-                alt="Client consultation session"
+                src="/images/marketing/digital-ads.jpg"
+                alt="Digital marketing and advertising strategy dashboard"
                 aspectRatio="video"
               />
             </motion.div>

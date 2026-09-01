@@ -259,19 +259,24 @@ export default function Home() {
             className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-7xl mx-auto"
           >
             <div className="lg:col-span-8 glass-panel p-6 sm:p-8 md:p-16 rounded-3xl relative overflow-hidden group">
+              <div className="absolute inset-0 opacity-[0.12] mix-blend-luminosity pointer-events-none transition-opacity duration-700 group-hover:opacity-[0.2]">
+                <img src={`${basePath}/images/marketing/ai-brain.jpg`} className="w-full h-full object-cover" alt="" aria-hidden="true" />
+                <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/20" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
+              </div>
               <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <div className="inline-flex items-center gap-2 text-primary text-xs font-semibold mb-8 uppercase tracking-widest">
+              <div className="relative z-10 inline-flex items-center gap-2 text-primary text-xs font-semibold mb-8 uppercase tracking-widest">
                 <TextScramble trigger={orbitOpen || true}>ABOUT TURBOBYTE</TextScramble>
               </div>
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-medium mb-8 text-white leading-[1.1] tracking-tight" style={{ fontFamily: 'var(--app-font-display)' }}>
+              <h3 className="relative z-10 text-3xl sm:text-4xl md:text-5xl font-medium mb-8 text-white leading-[1.1] tracking-tight" style={{ fontFamily: 'var(--app-font-display)' }}>
                 We engineer intelligent software that drives real growth.
               </h3>
-              <p className="text-muted-foreground text-xl leading-relaxed max-w-2xl font-light">
+              <p className="relative z-10 text-muted-foreground text-xl leading-relaxed max-w-2xl font-light">
                 Founded in 2026 and based in Bengaluru, India, TurboByte is an AI-first development studio. We partner with ambitious startups and established enterprises to build custom software, premium websites, and intelligent automation workflows.
               </p>
 
               {prefersReducedMotion ? (
-                <div className="mt-8 md:mt-12 flex flex-wrap justify-center md:justify-start gap-3" data-testid="orbit-tech-stack">
+                <div className="relative z-10 mt-8 md:mt-12 flex flex-wrap justify-center md:justify-start gap-3" data-testid="orbit-tech-stack">
                   {OUR_SERVICES.map((t) => (
                     <span key={t.label} className="rounded-xl border border-border bg-background px-3 py-2 text-xs font-medium text-white/80">
                       {t.label}
@@ -279,7 +284,7 @@ export default function Home() {
                   ))}
                 </div>
               ) : (
-                <div className={`mt-8 flex flex-col items-center transition-[padding] duration-500 ease-out motion-reduce:transition-none ${orbitOpen ? 'py-36 md:py-32' : 'py-2 md:py-6'}`} data-testid="orbit-tech-stack">
+                <div className={`relative z-10 mt-8 flex flex-col items-center transition-[padding] duration-500 ease-out motion-reduce:transition-none ${orbitOpen ? 'py-36 md:py-32' : 'py-2 md:py-6'}`} data-testid="orbit-tech-stack">
                   {orbitOpen ? (
                     <OrbitingSkills items={OUR_SERVICES} radius={150} followCursor={false}>
                       <button
@@ -647,6 +652,11 @@ export default function Home() {
 
       {/* Big Final CTA */}
       <section className="py-20 md:py-40 relative bg-background border-t border-white/5 text-center overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.1] mix-blend-luminosity pointer-events-none">
+          <img src={`${basePath}/images/marketing/web-design-future.jpg`} className="w-full h-full object-cover" alt="" aria-hidden="true" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/60 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background" />
+        </div>
         <AmbientGlow color="lilac" position="top-right" className="opacity-20" />
         <AmbientGlow color="primary" position="bottom-left" className="opacity-20" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl relative z-10">

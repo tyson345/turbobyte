@@ -45,8 +45,8 @@ export default function Solutions() {
             </motion.div>
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }} className="lg:col-span-6">
               <MarketingImage
-                src="/images/marketing/digital-strategy.jpg"
-                alt="Enterprise solutions strategy session"
+                src="/images/marketing/analytics-dashboard.jpg"
+                alt="Data analytics and performance dashboard"
                 aspectRatio="video"
               />
             </motion.div>
