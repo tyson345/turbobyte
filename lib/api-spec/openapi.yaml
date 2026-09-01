@@ -1333,6 +1333,7 @@ components:
         slug: { type: string }
         title: { type: string }
         category: { type: string }
+        liveUrl: { type: ["string", "null"] }
         shortDescription: { type: string }
         overview: { type: string }
         clientIndustry: { type: ["string", "null"] }
@@ -1361,6 +1362,7 @@ components:
           slug,
           title,
           category,
+          liveUrl,
           shortDescription,
           overview,
           clientIndustry,
@@ -1385,6 +1387,7 @@ components:
         slug: { type: string, minLength: 1 }
         title: { type: string, minLength: 1 }
         category: { type: string, minLength: 1 }
+        liveUrl: { type: ["string", "null"] }
         shortDescription: { type: string, minLength: 1 }
         overview: { type: string, minLength: 1 }
         clientIndustry: { type: ["string", "null"] }
@@ -1408,6 +1411,7 @@ components:
         slug: { type: string, minLength: 1 }
         title: { type: string, minLength: 1 }
         category: { type: string, minLength: 1 }
+        liveUrl: { type: ["string", "null"] }
         shortDescription: { type: string, minLength: 1 }
         overview: { type: string, minLength: 1 }
         clientIndustry: { type: ["string", "null"] }

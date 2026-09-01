@@ -534,6 +534,8 @@ export interface Project {
   slug: string;
   title: string;
   category: string;
+  /** @nullable */
+  liveUrl: string | null;
   shortDescription: string;
   overview: string;
   /** @nullable */
@@ -568,6 +570,8 @@ export interface ProjectInput {
   title: string;
   /** @minLength 1 */
   category: string;
+  /** @nullable */
+  liveUrl?: string | null;
   /** @minLength 1 */
   shortDescription: string;
   /** @minLength 1 */
@@ -603,6 +607,8 @@ export interface ProjectUpdateInput {
   title?: string;
   /** @minLength 1 */
   category?: string;
+  /** @nullable */
+  liveUrl?: string | null;
   /** @minLength 1 */
   shortDescription?: string;
   /** @minLength 1 */

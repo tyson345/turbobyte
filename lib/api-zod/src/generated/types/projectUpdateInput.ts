@@ -13,6 +13,8 @@ export interface ProjectUpdateInput {
   title?: string;
   /** @minLength 1 */
   category?: string;
+  /** @nullable */
+  liveUrl?: string | null;
   /** @minLength 1 */
   shortDescription?: string;
   /** @minLength 1 */

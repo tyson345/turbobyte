@@ -22,6 +22,7 @@ export const projectsTable = pgTable("projects", {
   slug: text("slug").notNull().unique(),
   title: text("title").notNull(),
   category: text("category").notNull(),
+  liveUrl: text("live_url"),
   shortDescription: text("short_description").notNull(),
   overview: text("overview").notNull(),
   clientIndustry: text("client_industry"),

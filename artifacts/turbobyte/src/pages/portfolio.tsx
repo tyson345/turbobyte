@@ -189,9 +189,9 @@ export default function Portfolio() {
                     <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                     <Link href={`/portfolio/${project.slug}`} className="block relative aspect-[4/3] bg-card overflow-hidden">
-                      {project.thumbnailPath ? (
+                      {project.thumbnailPath || project.slug === 'ora-care-dental' ? (
                         <img
-                          src={`/api/storage${project.thumbnailPath}`}
+                          src={project.thumbnailPath ? `/api/storage${project.thumbnailPath}` : '/mockups/dental.png'}
                           alt={project.title}
                           loading="lazy"
                           className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"

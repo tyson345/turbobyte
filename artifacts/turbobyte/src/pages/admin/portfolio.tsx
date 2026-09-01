@@ -66,7 +66,7 @@ function AdminPortfolioContent() {
     slug: '', title: '', category: '', shortDescription: '', overview: '',
     clientIndustry: '', challenge: '', solution: '', techStack: '', processNotes: '',
     results: '', lessonsLearned: '', completedAt: '', seoTitle: '', seoDescription: '',
-    thumbnailPath: ''
+    thumbnailPath: '', liveUrl: ''
   });
 
   const invalidateQueries = (slug?: string) => {
@@ -139,7 +139,7 @@ function AdminPortfolioContent() {
         processNotes: project.processNotes || '', results: project.results || '',
         lessonsLearned: project.lessonsLearned || '', completedAt: project.completedAt ? project.completedAt.split('T')[0] : '',
         seoTitle: project.seoTitle || '', seoDescription: project.seoDescription || '',
-        thumbnailPath: project.thumbnailPath || ''
+        thumbnailPath: project.thumbnailPath || '', liveUrl: project.liveUrl || ''
       });
     } else {
       setCurrentProject(null);
@@ -147,7 +147,7 @@ function AdminPortfolioContent() {
         slug: '', title: '', category: categories.length > 0 ? categories[0].name : '',
         shortDescription: '', overview: '', clientIndustry: '', challenge: '',
         solution: '', techStack: '', processNotes: '', results: '', lessonsLearned: '',
-        completedAt: '', seoTitle: '', seoDescription: '', thumbnailPath: ''
+        completedAt: '', seoTitle: '', seoDescription: '', thumbnailPath: '', liveUrl: ''
       });
     }
     setIsProjectModalOpen(true);
@@ -158,6 +158,7 @@ function AdminPortfolioContent() {
       slug: formData.slug || generateSlug(formData.title),
       title: formData.title,
       category: formData.category,
+      liveUrl: formData.liveUrl || null,
       shortDescription: formData.shortDescription,
       overview: formData.overview,
       clientIndustry: formData.clientIndustry || null,
@@ -377,6 +378,10 @@ function AdminPortfolioContent() {
               <div>
                 <label className="text-xs font-medium text-muted-foreground mb-1.5 block">Client Industry</label>
                 <Input value={formData.clientIndustry} onChange={e => setFormData({ ...formData, clientIndustry: e.target.value })} />
+              </div>
+              <div>
+                <label className="text-xs font-medium text-muted-foreground mb-1.5 block">Live Website URL</label>
+                <Input type="url" value={formData.liveUrl} onChange={e => setFormData({ ...formData, liveUrl: e.target.value })} placeholder="https://example.com/" />
               </div>
               <div>
                 <label className="text-xs font-medium text-muted-foreground mb-1.5 block">Completed At</label>

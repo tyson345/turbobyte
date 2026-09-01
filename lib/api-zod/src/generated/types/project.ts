@@ -12,6 +12,8 @@ export interface Project {
   slug: string;
   title: string;
   category: string;
+  /** @nullable */
+  liveUrl: string | null;
   shortDescription: string;
   overview: string;
   /** @nullable */

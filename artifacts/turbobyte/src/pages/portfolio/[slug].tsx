@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useSEO } from '@/hooks/use-seo';
 import { absUrl, schemaGraph, breadcrumbSchema, SITE_URL } from '@/lib/schema';
 import {
-  ArrowRight, ArrowLeft, Building2, CheckCircle2, ChevronLeft, ChevronRight,
+  ArrowRight, ArrowLeft, Building2, CheckCircle2, ChevronLeft, ChevronRight, ExternalLink,
   Target, Lightbulb, Box, ListVideo
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -48,7 +48,11 @@ export default function ProjectDetailRoute() {
     {
       canonicalUrl: absUrl(pagePath),
       ogType: 'article',
-      ogImage: project?.thumbnailPath ? `/api/storage${project.thumbnailPath}` : undefined,
+              ogImage: project?.thumbnailPath
+                ? `/api/storage${project.thumbnailPath}`
+                : project?.slug === 'ora-care-dental'
+                  ? '/mockups/dental.png'
+                  : undefined,
       jsonLd: project
         ? schemaGraph(
             breadcrumbSchema([
@@ -154,12 +158,19 @@ export default function ProjectDetailRoute() {
                 </div>
               )}
             </div>
+            {project.liveUrl && (
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-flex mt-8">
+                <Button className="rounded-full px-7">
+                  Visit Live Website <ExternalLink className="w-4 h-4 ml-2" />
+                </Button>
+              </a>
+            )}
           </motion.div>
         </div>
       </section>
 
       {/* Project Banner Image */}
-      {project.thumbnailPath ? (
+      {project.thumbnailPath || project.slug === 'ora-care-dental' ? (
         <section className="pb-10 md:pb-16 pt-4">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
             <motion.div
@@ -169,7 +180,7 @@ export default function ProjectDetailRoute() {
               className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative aspect-[21/9] bg-card"
             >
               <img
-                src={`/api/storage${project.thumbnailPath}`}
+                  src={project.thumbnailPath ? `/api/storage${project.thumbnailPath}` : '/mockups/dental.png'}
                 alt={`${project.title} banner`}
                 className="w-full h-full object-cover"
               />
@@ -393,9 +404,9 @@ export default function ProjectDetailRoute() {
                     className="glassmorphism rounded-xl border border-white/10 hover:border-primary/40 transition-all h-full flex flex-col group overflow-hidden"
                   >
                     <div className="aspect-video relative bg-card overflow-hidden">
-                      {relProj.thumbnailPath ? (
+                      {relProj.thumbnailPath || relProj.slug === 'ora-care-dental' ? (
                         <img
-                          src={`/api/storage${relProj.thumbnailPath}`}
+                          src={relProj.thumbnailPath ? `/api/storage${relProj.thumbnailPath}` : '/mockups/dental.png'}
                           alt={relProj.title}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                           loading="lazy"
