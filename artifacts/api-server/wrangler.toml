@@ -58,5 +58,5 @@ enabled = true
 
 [vars]
 NODE_ENV = "production"
-ALLOWED_ORIGINS = "https://turbobytetechsolutions.com,https://www.turbobytetechsolutions.com"
+ALLOWED_ORIGINS = "https://turbobytetechsolutions.com,https://www.turbobytetechsolutions.com,https://turbobyte.pages.dev"
 PUBLIC_SITE_URL = "https://turbobytetechsolutions.com"
