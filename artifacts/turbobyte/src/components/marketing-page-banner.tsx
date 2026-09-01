@@ -15,7 +15,7 @@ export function MarketingPageBanner({
     <section
       aria-label="TurboByte office"
       className={cn(
-        'relative z-10 px-4 pt-24 sm:px-6 md:pt-28 lg:px-8',
+        'relative z-10 w-full pt-20 sm:pt-24 md:pt-28',
         compensateForPagePadding && '-mb-20',
       )}
     >
@@ -23,7 +23,7 @@ export function MarketingPageBanner({
         initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
-        className="relative mx-auto h-44 max-w-7xl overflow-hidden rounded-2xl border border-primary/20 bg-card shadow-[0_24px_70px_-32px_rgba(86,54,103,0.55)] sm:h-56 md:h-64 lg:h-72"
+        className="relative h-40 w-full overflow-hidden border-y border-primary/20 bg-card shadow-[0_24px_70px_-32px_rgba(86,54,103,0.55)] sm:h-52 md:h-64 lg:h-72 xl:h-80"
       >
         <img
           src={`${basePath}/images/marketing/turbobyte-office-banner.webp`}
