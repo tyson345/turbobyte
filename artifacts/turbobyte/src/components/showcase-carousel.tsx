@@ -79,13 +79,12 @@ export function ShowcaseCarousel() {
                     ? { opacity: isActive ? 1 : 0.5 }
                     : {
                         opacity: isActive ? 1 : 0.5,
-                        scale: isActive ? 1 : 0.95,
                         filter: isActive ? 'blur(0px)' : 'blur(2px)',
                       }
                 }
               >
                 <div
-                  className="relative overflow-hidden rounded-2xl bg-card border border-white/5"
+                  className="relative aspect-[2/1] overflow-hidden rounded-2xl bg-card border border-white/5"
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                   onFocus={() => setHoveredIndex(index)}
@@ -97,7 +96,7 @@ export function ShowcaseCarousel() {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className={`w-full h-auto block ${prefersReducedMotion ? '' : 'transition-all duration-500'} ${hoveredIndex === index ? 'blur-md scale-[1.03]' : ''}`}
+                    className={`h-full w-full object-cover object-center ${prefersReducedMotion ? '' : 'transition-all duration-500'} ${hoveredIndex === index ? 'blur-md scale-[1.03]' : ''}`}
                     loading="lazy"
                   />
 
