@@ -1,6 +1,7 @@
 import { Link } from 'wouter';
 import { motion } from 'framer-motion';
 import { useSEO } from '@/hooks/use-seo';
+import { basePath } from '@/lib/paths';
 import { schemaGraph, webPageSchema, breadcrumbSchema } from '@/lib/schema';
 import { ArrowRight } from 'lucide-react';
 import { AmbientHero } from '@/components/ambient-hero';
@@ -54,8 +55,13 @@ export default function Solutions() {
         </div>
       </section>
 
-      <section className="py-12 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 md:py-24 relative bg-background overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.05] mix-blend-luminosity pointer-events-none">
+          <img src={`${basePath}/images/marketing/digital-strategy.jpg`} className="w-full h-full object-cover" alt="" aria-hidden="true" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
+        </div>
+        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-7xl mx-auto">
             {solutions.map((solution, i) => {
               const colSpan =

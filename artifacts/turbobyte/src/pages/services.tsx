@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { Link, useLocation, useSearch } from 'wouter';
 import { motion } from 'framer-motion';
 import { useSEO } from '@/hooks/use-seo';
+import { basePath } from '@/lib/paths';
 import { schemaGraph, webPageSchema, breadcrumbSchema } from '@/lib/schema';
 import {
   ArrowRight, Search, X, SearchX, CheckCircle2,
@@ -463,7 +464,11 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 md:py-24 relative overflow-hidden">
+      <section className="py-12 md:py-24 relative overflow-hidden bg-background">
+        <div className="absolute inset-0 opacity-[0.08] mix-blend-luminosity pointer-events-none">
+          <img src={`${basePath}/images/marketing/cloud-infrastructure.jpg`} className="w-full h-full object-cover" alt="" aria-hidden="true" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/60 to-background" />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/10" />
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
           <motion.div

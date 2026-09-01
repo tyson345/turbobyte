@@ -549,6 +549,11 @@ export default function Home() {
 
       {/* Try the AI Demo */}
       <section className="py-20 md:py-40 relative overflow-hidden bg-background">
+        <div className="absolute inset-0 opacity-[0.1] mix-blend-luminosity pointer-events-none">
+          <img src={`${basePath}/images/marketing/analytics-dashboard.jpg`} className="w-full h-full object-cover" alt="" aria-hidden="true" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background" />
+        </div>
         <AmbientGlow color="primary" position="center" className="opacity-30" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center relative z-10">
           <motion.div

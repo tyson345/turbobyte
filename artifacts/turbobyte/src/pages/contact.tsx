@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { useSearch } from 'wouter';
 import { motion } from 'framer-motion';
 import { useSEO } from '@/hooks/use-seo';
+import { basePath } from '@/lib/paths';
 import { schemaGraph, webPageSchema, breadcrumbSchema } from '@/lib/schema';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -165,8 +166,13 @@ export default function Contact() {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="pt-2 pb-10 md:pb-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="pt-2 pb-10 md:pb-20 relative overflow-hidden bg-background">
+        <div className="absolute inset-0 opacity-[0.04] mix-blend-luminosity pointer-events-none">
+          <img src={`${basePath}/images/marketing/software-collaboration.jpg`} className="w-full h-full object-cover" alt="" aria-hidden="true" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background/50" />
+        </div>
+        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:p-12 max-w-6xl mx-auto">
             {/* Contact Form */}
             <motion.div
