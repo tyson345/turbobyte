@@ -423,11 +423,11 @@ export default function Home() {
                             alt=""
                             loading="lazy"
                             decoding="async"
-                            className="h-full min-w-0 flex-1 object-cover opacity-[0.14] saturate-[0.7] transition-[transform,opacity,filter] duration-700 ease-out group-hover:scale-[1.035] group-hover:opacity-[0.2] group-hover:saturate-100 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                            className="h-full min-w-0 flex-1 object-cover opacity-[0.32] saturate-[0.85] transition-[transform,opacity,filter] duration-700 ease-out group-hover:scale-[1.035] group-hover:opacity-[0.42] group-hover:saturate-100 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                           />
                         ))}
                       </div>
-                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/65" />
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-background/80 via-background/65 to-background/40" />
                       <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl group-hover:bg-[#DCBBE5]/10 transition-colors duration-700 hidden md:block" />
 
