@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion';
-import { basePath } from '@/lib/paths';
+import { marketingAssetUrl } from '@/lib/marketing-assets';
 
 export function MarketingPageBanner() {
   const prefersReducedMotion = useReducedMotion();
@@ -16,7 +16,7 @@ export function MarketingPageBanner() {
         className="relative h-32 w-full overflow-hidden border-y border-primary/20 bg-card shadow-[0_24px_70px_-32px_rgba(86,54,103,0.55)] sm:h-36 md:h-40 lg:h-44 xl:h-48"
       >
         <img
-          src={`${basePath}/images/marketing/turbobyte-office-banner.webp`}
+          src={marketingAssetUrl('/images/marketing/turbobyte-office-banner.webp')}
           alt="TurboByte office reception and workspace"
           width={1600}
           height={887}

@@ -4,6 +4,7 @@ import { motion, MotionConfig, useInView, useScroll, useTransform } from 'framer
 import { useSEO } from '@/hooks/use-seo';
 import { schemaGraph, webPageSchema, breadcrumbSchema, faqSchema } from '@/lib/schema';
 import { basePath } from '@/lib/paths';
+import { marketingAssetUrl } from '@/lib/marketing-assets';
 import { VantaClouds } from '@/components/vanta-net';
 import { NewsletterSection } from '@/components/newsletter-section';
 import { OrbitingSkills, type OrbitSkillItem } from '@/components/unlumen-ui/orbiting-skills';
@@ -260,7 +261,7 @@ export default function Home() {
           >
             <div className="lg:col-span-8 glass-panel p-6 sm:p-8 md:p-16 rounded-3xl relative overflow-hidden group">
               <div className="absolute inset-0 opacity-[0.65] pointer-events-none transition-opacity duration-700 group-hover:opacity-[0.75]">
-                <img src={`${basePath}/images/marketing/ai-brain.jpg`} className="w-full h-full object-cover object-[72%_50%]" alt="" aria-hidden="true" />
+                <img src={marketingAssetUrl('/images/marketing/ai-brain.jpg')} className="w-full h-full object-cover object-[72%_50%]" alt="" aria-hidden="true" />
                 <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/55 to-transparent" />
                 <div className="absolute inset-0 bg-gradient-to-b from-background/15 via-transparent to-background/45" />
               </div>
@@ -550,7 +551,7 @@ export default function Home() {
       {/* Try the AI Demo */}
       <section className="py-12 sm:py-16 lg:py-24 relative overflow-hidden bg-background">
         <div className="absolute inset-0 opacity-[0.58] pointer-events-none">
-          <img src={`${basePath}/images/marketing/analytics-dashboard.jpg`} className="w-full h-full object-cover" alt="" aria-hidden="true" />
+          <img src={marketingAssetUrl('/images/marketing/analytics-dashboard.jpg')} className="w-full h-full object-cover" alt="" aria-hidden="true" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/35 via-transparent to-background/35" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-transparent to-background/30" />
         </div>
@@ -659,7 +660,7 @@ export default function Home() {
       {/* Big Final CTA */}
       <section className="py-20 md:py-40 relative bg-background border-t border-white/5 text-center overflow-hidden">
         <div className="absolute inset-0 opacity-[0.55] pointer-events-none">
-          <img src={`${basePath}/images/marketing/web-design-future.jpg`} className="w-full h-full object-cover object-[center_30%]" alt="" aria-hidden="true" />
+          <img src={marketingAssetUrl('/images/marketing/web-design-future.jpg')} className="w-full h-full object-cover object-[center_30%]" alt="" aria-hidden="true" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/30" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/25 via-transparent to-background/25" />
         </div>

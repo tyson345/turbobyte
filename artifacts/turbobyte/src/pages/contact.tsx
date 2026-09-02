@@ -3,6 +3,7 @@ import { useSearch } from 'wouter';
 import { motion } from 'framer-motion';
 import { useSEO } from '@/hooks/use-seo';
 import { basePath } from '@/lib/paths';
+import { marketingAssetUrl } from '@/lib/marketing-assets';
 import { schemaGraph, webPageSchema, breadcrumbSchema } from '@/lib/schema';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -168,7 +169,7 @@ export default function Contact() {
       {/* Contact Form & Info */}
       <section className="pt-2 pb-10 md:pb-20 relative overflow-hidden bg-background">
         <div className="absolute inset-0 opacity-[0.3] pointer-events-none">
-          <img src={`${basePath}/images/marketing/software-collaboration.jpg`} className="w-full h-full object-cover" alt="" aria-hidden="true" />
+          <img src={marketingAssetUrl('/images/marketing/software-collaboration.jpg')} className="w-full h-full object-cover" alt="" aria-hidden="true" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/40" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-transparent to-background/30" />
         </div>

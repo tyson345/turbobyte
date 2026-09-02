@@ -1,7 +1,7 @@
 import { HTMLAttributes, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
-import { basePath } from '@/lib/paths';
+import { marketingAssetUrl } from '@/lib/marketing-assets';
 
 interface MarketingImageProps extends HTMLAttributes<HTMLDivElement> {
   src: string;
@@ -34,7 +34,7 @@ export function MarketingImage({
   const supportsHover =
     typeof window !== 'undefined' &&
     window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  const resolvedSrc = src.startsWith('/') ? `${basePath}${src}` : src;
+  const resolvedSrc = marketingAssetUrl(src);
 
   const aspectRatioClass = {
     square: 'aspect-square',

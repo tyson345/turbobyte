@@ -2,6 +2,7 @@ import { Link } from 'wouter';
 import { motion } from 'framer-motion';
 import { useSEO } from '@/hooks/use-seo';
 import { basePath } from '@/lib/paths';
+import { marketingAssetUrl } from '@/lib/marketing-assets';
 import { schemaGraph, webPageSchema, breadcrumbSchema } from '@/lib/schema';
 import { ArrowRight } from 'lucide-react';
 import { AmbientHero } from '@/components/ambient-hero';
@@ -57,7 +58,7 @@ export default function Solutions() {
 
       <section className="py-12 md:py-24 relative bg-background overflow-hidden">
         <div className="absolute inset-0 opacity-[0.32] pointer-events-none">
-          <img src={`${basePath}/images/marketing/digital-strategy.jpg`} className="w-full h-full object-cover" alt="" aria-hidden="true" />
+          <img src={marketingAssetUrl('/images/marketing/digital-strategy.jpg')} className="w-full h-full object-cover" alt="" aria-hidden="true" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/45 via-transparent to-background/45" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/35 via-transparent to-background/35" />
         </div>

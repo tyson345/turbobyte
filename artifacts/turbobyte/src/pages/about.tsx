@@ -2,6 +2,7 @@ import { motion, MotionConfig } from 'framer-motion';
 import { Link } from 'wouter';
 import { useSEO } from '@/hooks/use-seo';
 import { basePath } from '@/lib/paths';
+import { marketingAssetUrl } from '@/lib/marketing-assets';
 import { schemaGraph, webPageSchema, breadcrumbSchema } from '@/lib/schema';
 import {
   Target,
@@ -207,7 +208,7 @@ export default function About() {
         {/* Core Values */}
         <section className="py-12 md:py-24 bg-background border-t border-white/5 relative overflow-hidden">
           <div className="absolute inset-0 opacity-[0.36] pointer-events-none">
-            <img src={`${basePath}/images/marketing/developer-workspace.jpg`} className="w-full h-full object-cover" alt="" aria-hidden="true" />
+            <img src={marketingAssetUrl('/images/marketing/developer-workspace.jpg')} className="w-full h-full object-cover" alt="" aria-hidden="true" />
             <div className="absolute inset-0 bg-gradient-to-b from-background/45 via-transparent to-background/45" />
             <div className="absolute inset-0 bg-gradient-to-r from-background/35 via-transparent to-background/35" />
           </div>
