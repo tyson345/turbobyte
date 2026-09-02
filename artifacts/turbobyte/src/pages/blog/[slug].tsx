@@ -103,7 +103,7 @@ export default function BlogArticle() {
   const blocks = post.content.split('\n\n').filter(Boolean);
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       {/* Breadcrumb */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-8 max-w-3xl">
         <Link href="/blog">

@@ -65,7 +65,7 @@ export default function Careers() {
   };
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       <ApplicationModal
         isOpen={modalOpen}
         onOpenChange={setModalOpen}
@@ -74,7 +74,7 @@ export default function Careers() {
       />
 
       {/* Hero Section */}
-      <section className="py-10 md:py-24 relative overflow-hidden">
+      <section className="py-10 md:py-16 relative overflow-hidden">
         <AmbientHero />
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl mx-auto text-center">

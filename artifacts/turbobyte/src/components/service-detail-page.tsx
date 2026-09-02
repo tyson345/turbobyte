@@ -80,7 +80,7 @@ export function ServiceDetailPage({
   const relatedServices = category.services.filter(s => s.name !== service.name);
 
   return (
-    <div className="min-h-screen pt-20 pb-0">
+    <div className="min-h-screen pb-0">
       {/* Breadcrumb */}
       <div className="border-b border-white/10 bg-card/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">

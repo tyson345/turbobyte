@@ -266,7 +266,7 @@ export default function OperationTiranga() {
       <MobileStickyCta onClaim={() => scrollToForm()} />
 
       {/* Hero */}
-      <section className="relative min-h-[92dvh] flex items-center justify-center overflow-hidden pt-28 sm:pt-16 md:pt-24">
+      <section className="relative min-h-[70dvh] flex items-center justify-center overflow-hidden pt-12 md:pt-16">
         <AnimatedGrid />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/40 to-background" />
         <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#FF9933] via-white/50 to-[#138808]" />

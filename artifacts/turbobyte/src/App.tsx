@@ -165,9 +165,7 @@ function Router() {
       <Navbar />
       <main className="flex-1 flex flex-col">
         {hasMarketingBanner && (
-          <MarketingPageBanner
-            compensateForPagePadding={location !== '/operation-tiranga'}
-          />
+          <MarketingPageBanner />
         )}
         <Suspense fallback={<PageLoader />}>
           <ScrollToTop />

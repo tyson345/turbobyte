@@ -548,7 +548,7 @@ export default function Home() {
       </section>
 
       {/* Try the AI Demo */}
-      <section className="py-20 md:py-40 relative overflow-hidden bg-background">
+      <section className="py-12 sm:py-16 lg:py-24 relative overflow-hidden bg-background">
         <div className="absolute inset-0 opacity-[0.58] pointer-events-none">
           <img src={`${basePath}/images/marketing/analytics-dashboard.jpg`} className="w-full h-full object-cover" alt="" aria-hidden="true" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/35 via-transparent to-background/35" />
@@ -560,15 +560,15 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="glassmorphism bg-background/60 backdrop-blur-lg border border-white/10 p-8 sm:p-12 md:p-16 rounded-[3rem] shadow-2xl mx-auto"
+            className="glassmorphism bg-background/60 backdrop-blur-lg border border-white/10 p-6 sm:p-8 lg:p-12 rounded-[3rem] shadow-2xl mx-auto"
           >
-            <div className="inline-flex items-center gap-2 text-primary text-xs font-semibold mb-4 md:mb-8 uppercase tracking-widest drop-shadow-sm">
+            <div className="inline-flex items-center gap-2 text-primary text-xs font-semibold mb-3 sm:mb-4 uppercase tracking-widest drop-shadow-sm">
               Interactive Experience
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-medium mb-4 md:mb-8 tracking-tight text-white leading-[1.1] drop-shadow-md" style={{ fontFamily: 'var(--app-font-display)' }}>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium mb-4 sm:mb-6 tracking-tight text-white leading-[1.1] drop-shadow-md" style={{ fontFamily: 'var(--app-font-display)' }}>
               Watch Your Idea Come To <span className="text-white/60">Life Instantly.</span>
             </h2>
-            <p className="text-base sm:text-xl md:text-2xl text-white/90 mb-8 md:mb-12 font-light leading-relaxed max-w-3xl mx-auto drop-shadow-sm">
+            <p className="text-base sm:text-lg lg:text-xl text-white/90 mb-6 sm:mb-8 font-light leading-relaxed max-w-3xl mx-auto drop-shadow-sm">
               Describe your business in a single sentence and our AI will generate a live, interactive prototype right in your browser. No sign-up required.
             </p>
             <Link href="/demo">

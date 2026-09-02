@@ -179,9 +179,9 @@ export default function StartProject() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div className="min-h-screen pt-20 bg-background text-foreground overflow-hidden">
+      <div className="min-h-screen bg-background text-foreground overflow-hidden">
         {submittedData ? (
-          <section className="py-12 md:py-24 relative flex items-center justify-center min-h-[calc(100vh-80px)]">
+          <section className="py-10 md:py-16 relative flex items-center justify-center min-h-[70vh]">
             <AmbientHero />
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}

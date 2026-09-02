@@ -123,7 +123,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       <Dialog open={!!submittedData} onOpenChange={(open) => !open && setSubmittedData(null)}>
         <DialogContent className="sm:max-w-md glassmorphism border-white/10 text-center p-8 sm:p-6 md:p-10 text-foreground">
           <DialogHeader>
@@ -147,7 +147,7 @@ export default function Contact() {
         </DialogContent>
       </Dialog>
       {/* Hero */}
-      <section className="py-10 md:py-14 relative overflow-hidden">
+      <section className="py-10 md:py-16 relative overflow-hidden">
         <AmbientHero />
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div

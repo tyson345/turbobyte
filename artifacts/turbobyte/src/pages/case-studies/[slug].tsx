@@ -73,7 +73,7 @@ export default function CaseStudyDetail() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen pt-20">
+      <div className="min-h-screen">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl pt-16 space-y-6">
           <div className="bg-white/[0.015] rounded-[2rem] h-40 border border-white/5 animate-pulse motion-reduce:animate-none" />
           <div className="bg-white/[0.015] rounded-[2rem] h-80 border border-white/5 animate-pulse motion-reduce:animate-none" />
@@ -88,7 +88,7 @@ export default function CaseStudyDetail() {
   const solutionParagraphs = cs.solution.split('\n\n').filter(Boolean);
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       {/* Breadcrumb */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <Link href="/case-studies">

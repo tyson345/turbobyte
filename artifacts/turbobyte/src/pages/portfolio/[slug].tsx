@@ -87,7 +87,7 @@ export default function ProjectDetailRoute() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen pt-20 flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
           <div className="w-8 h-8 rounded-full border-2 border-primary border-t-transparent animate-spin motion-reduce:animate-none" />
           <p className="text-muted-foreground text-sm font-medium">Loading project details...</p>
@@ -111,7 +111,7 @@ export default function ProjectDetailRoute() {
   const prevImage = () => setActiveImageIndex((i) => (i - 1 + project.images.length) % project.images.length);
 
   return (
-    <div className="min-h-screen pt-20 pb-0">
+    <div className="min-h-screen pb-0">
       {/* Breadcrumb */}
       <div className="border-b border-white/10 bg-card/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">

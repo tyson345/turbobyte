@@ -31,8 +31,8 @@ export default function Solutions() {
   ];
 
   return (
-    <div className="min-h-screen pt-20">
-      <section className="py-12 md:py-24 relative overflow-hidden">
+    <div className="min-h-screen">
+      <section className="py-10 md:py-16 relative overflow-hidden">
         <AmbientHero />
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center max-w-7xl mx-auto">

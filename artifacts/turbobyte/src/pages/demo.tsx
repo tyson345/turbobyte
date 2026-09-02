@@ -252,7 +252,7 @@ export default function Demo() {
   const remainingChars = 200 - prompt.length;
 
   return (
-    <div className="min-h-[100dvh] pt-20">
+    <div className="min-h-[100dvh]">
       {/* Success Dialog */}
       <Dialog open={!!submittedData} onOpenChange={(open) => !open && setSubmittedData(null)}>
         <DialogContent className="sm:max-w-md glassmorphism border-white/10 text-center p-8 sm:p-6 md:p-10 text-foreground">

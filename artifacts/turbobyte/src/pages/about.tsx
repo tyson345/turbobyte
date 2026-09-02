@@ -113,9 +113,9 @@ export default function About() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div className="min-h-screen pt-20 bg-background text-foreground overflow-hidden">
+      <div className="min-h-screen bg-background text-foreground overflow-hidden">
         {/* Hero */}
-        <section className="py-12 md:py-24 relative overflow-hidden">
+        <section className="py-10 md:py-16 relative overflow-hidden">
           <AmbientHero />
           <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
