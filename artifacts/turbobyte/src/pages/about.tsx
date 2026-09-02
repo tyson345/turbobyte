@@ -216,12 +216,12 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center mb-20 max-w-3xl mx-auto"
+              className="text-center mb-16 md:mb-20 max-w-3xl mx-auto glassmorphism bg-background/50 backdrop-blur-md border border-white/10 p-6 md:p-8 rounded-[2rem] shadow-xl"
             >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium mb-6 tracking-tight text-white" style={{ fontFamily: 'var(--app-font-display)' }}>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium mb-4 md:mb-6 tracking-tight text-white drop-shadow-md" style={{ fontFamily: 'var(--app-font-display)' }}>
                 Our Core Values
               </h2>
-              <p className="text-xl text-muted-foreground font-light leading-relaxed">
+              <p className="text-lg md:text-xl text-white/90 font-light leading-relaxed drop-shadow-sm">
                 The principles that guide every project we deliver and every partnership we build.
               </p>
             </motion.div>
@@ -234,16 +234,16 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: (i % 4) * 0.1 }}
-                  className="group relative flex flex-col p-6 sm:p-8 md:p-10 rounded-[2rem] bg-white/[0.015] border border-white/5 hover:border-primary/30 transition-all duration-500 hover:shadow-[0_0_40px_-10px_rgba(124,58,237,0.15)] overflow-hidden h-full"
+                  className="group relative flex flex-col p-6 sm:p-8 md:p-10 rounded-[2rem] glassmorphism bg-background/80 backdrop-blur-md border border-white/10 hover:border-primary/40 transition-all duration-500 hover:shadow-[0_0_40px_-10px_rgba(124,58,237,0.25)] overflow-hidden h-full"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-500 shadow-lg mb-8 relative z-10">
+                  <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary/20 group-hover:border-primary/30 transition-all duration-500 shadow-lg mb-8 relative z-10">
                     <value.icon className="w-6 h-6" strokeWidth={1.5} />
                   </div>
 
-                  <h3 className="text-xl font-medium text-white mb-3 tracking-tight group-hover:text-primary transition-colors duration-300 relative z-10" style={{ fontFamily: 'var(--app-font-display)' }}>{value.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed font-light relative z-10">{value.desc}</p>
+                  <h3 className="text-xl font-medium text-white mb-3 tracking-tight group-hover:text-primary transition-colors duration-300 relative z-10 drop-shadow-sm" style={{ fontFamily: 'var(--app-font-display)' }}>{value.title}</h3>
+                  <p className="text-white/80 leading-relaxed font-light relative z-10">{value.desc}</p>
                 </motion.div>
               ))}
             </div>

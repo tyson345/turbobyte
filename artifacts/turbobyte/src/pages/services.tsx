@@ -475,14 +475,14 @@ export default function Services() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white/[0.015] p-6 md:p-12 rounded-[3rem] border border-white/5 relative overflow-hidden"
+            className="glassmorphism bg-background/70 backdrop-blur-lg p-8 sm:p-12 md:p-16 rounded-[3rem] border border-white/10 shadow-2xl relative overflow-hidden"
           >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl opacity-50" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl opacity-50" />
             <div className="relative z-10">
-              <h2 className="text-4xl sm:text-5xl font-medium mb-6 tracking-tight" style={{ fontFamily: 'var(--app-font-display)' }}>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium mb-6 tracking-tight text-white drop-shadow-md" style={{ fontFamily: 'var(--app-font-display)' }}>
                 Need a Custom Solution?
               </h2>
-              <p className="text-xl text-muted-foreground font-light mb-10 leading-relaxed">
+              <p className="text-lg sm:text-xl text-white/90 font-light mb-10 leading-relaxed max-w-2xl mx-auto drop-shadow-sm">
                 Every business is different. Our experts can design an AI-powered solution tailored specifically to your business goals.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

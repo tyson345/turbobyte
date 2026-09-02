@@ -73,17 +73,17 @@ export default function Solutions() {
 
               return (
                 <motion.div key={i} className={colSpan} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: (i % 3) * 0.1 }}>
-                  <div className="group relative bg-white/[0.015] p-6 sm:p-8 md:p-10 rounded-[2rem] border border-white/5 hover:border-primary/30 transition-all duration-500 hover:shadow-[0_0_40px_-10px_rgba(124,58,237,0.15)] h-full flex flex-col overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                    <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                  <div className="group relative glassmorphism bg-background/80 backdrop-blur-md p-6 sm:p-8 md:p-10 rounded-[2rem] border border-white/10 hover:border-primary/40 transition-all duration-500 hover:shadow-[0_0_40px_-10px_rgba(124,58,237,0.25)] h-full flex flex-col overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                    <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-primary/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
                     <div className="relative z-10 flex flex-col h-full">
-                      <h2 className="text-3xl font-medium mb-3 tracking-tight group-hover:text-primary transition-colors duration-300" style={{ fontFamily: 'var(--app-font-display)' }}>{solution.industry}</h2>
-                      <p className="text-sm font-semibold tracking-widest uppercase text-white/40 mb-8">{solution.pain}</p>
+                      <h2 className="text-3xl font-medium mb-3 tracking-tight group-hover:text-primary transition-colors duration-300 drop-shadow-sm text-white" style={{ fontFamily: 'var(--app-font-display)' }}>{solution.industry}</h2>
+                      <p className="text-sm font-semibold tracking-widest uppercase text-white/60 mb-8">{solution.pain}</p>
 
                       <ul className="space-y-4 mb-8 flex-1">
                         {solution.services.map((service, si) => (
-                          <li key={si} className="text-base text-muted-foreground font-light flex items-center gap-3">
+                          <li key={si} className="text-base text-white/90 font-light flex items-center gap-3">
                             <div className="w-1.5 h-1.5 rounded-full bg-primary/50 shrink-0 group-hover:bg-primary shadow-[0_0_10px_rgba(124,58,237,0)] group-hover:shadow-[0_0_10px_rgba(124,58,237,0.8)] transition-all duration-300" />
                             <span>{service}</span>
                           </li>

@@ -180,8 +180,8 @@ export default function Contact() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div className="glassmorphism p-6 sm:p-6 sm:p-8 md:p-10 rounded-xl">
-                <h2 className="text-3xl font-bold mb-6" style={{ fontFamily: 'var(--app-font-display)' }}>
+              <div className="glassmorphism bg-background/80 backdrop-blur-md border border-white/10 p-6 sm:p-8 md:p-10 rounded-2xl shadow-xl">
+                <h2 className="text-3xl font-bold mb-6 text-white drop-shadow-sm" style={{ fontFamily: 'var(--app-font-display)' }}>
                   Send Us a Message
                 </h2>
 
@@ -404,18 +404,18 @@ export default function Contact() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="space-y-8"
+              className="space-y-6 md:space-y-8"
             >
-              <div>
-                <h2 className="text-3xl font-bold mb-6" style={{ fontFamily: 'var(--app-font-display)' }}>
+              <div className="glassmorphism bg-background/60 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-white/10 shadow-lg">
+                <h2 className="text-3xl font-bold mb-4 text-white drop-shadow-sm" style={{ fontFamily: 'var(--app-font-display)' }}>
                   Get in Touch
                 </h2>
-                <p className="text-muted-foreground leading-relaxed mb-8">
+                <p className="text-white/90 leading-relaxed drop-shadow-sm">
                   Have questions about our services, pricing, or capabilities? Our team is ready to help you find the right solution for your business.
                 </p>
               </div>
 
-              <div className="glassmorphism p-6 sm:p-8 rounded-xl divide-y divide-white/5">
+              <div className="glassmorphism bg-background/80 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-white/10 shadow-xl divide-y divide-white/10">
                 <div className="flex items-start gap-4 pb-5">
                   <Mail className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                   <div>
@@ -493,23 +493,23 @@ export default function Contact() {
               </div>
 
               {/* Trust Card */}
-              <div className="glassmorphism p-8 rounded-xl" data-testid="card-trust">
-                <h3 className="font-semibold mb-4" style={{ fontFamily: 'var(--app-font-display)' }}>
+              <div className="glassmorphism bg-background/80 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-white/10 shadow-xl" data-testid="card-trust">
+                <h3 className="font-semibold mb-4 text-white drop-shadow-sm" style={{ fontFamily: 'var(--app-font-display)' }}>
                   Why Businesses Trust TurboByte
                 </h3>
                 <ul className="space-y-3">
                   {trustItems.map((item) => (
                     <li key={item} className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                      <span className="text-muted-foreground">{item}</span>
+                      <span className="text-white/90 font-light">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               {hasAnySocial() && (
-                <div className="glassmorphism p-8 rounded-xl">
-                  <h3 className="font-semibold mb-4">Connect With Us</h3>
+                <div className="glassmorphism bg-background/80 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-white/10 shadow-xl">
+                  <h3 className="font-semibold mb-4 text-white drop-shadow-sm">Connect With Us</h3>
                   <div className="flex items-center gap-4 flex-wrap">
                     <SocialLinks variant="circle" />
                   </div>

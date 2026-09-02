@@ -268,10 +268,10 @@ export default function Home() {
               <div className="relative z-10 inline-flex items-center gap-2 text-primary text-xs font-semibold mb-8 uppercase tracking-widest">
                 <TextScramble trigger={orbitOpen || true}>ABOUT TURBOBYTE</TextScramble>
               </div>
-              <h3 className="relative z-10 text-3xl sm:text-4xl md:text-5xl font-medium mb-8 text-white leading-[1.1] tracking-tight" style={{ fontFamily: 'var(--app-font-display)' }}>
+              <h3 className="relative z-10 text-3xl sm:text-4xl md:text-5xl font-medium mb-8 text-white leading-[1.1] tracking-tight drop-shadow-md" style={{ fontFamily: 'var(--app-font-display)' }}>
                 We engineer intelligent software that drives real growth.
               </h3>
-              <p className="relative z-10 text-muted-foreground text-xl leading-relaxed max-w-2xl font-light">
+              <p className="relative z-10 text-white/90 text-xl leading-relaxed max-w-2xl font-light drop-shadow-md">
                 Founded in 2026 and based in Bengaluru, India, TurboByte is an AI-first development studio. We partner with ambitious startups and established enterprises to build custom software, premium websites, and intelligent automation workflows.
               </p>
 
@@ -560,14 +560,15 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="glassmorphism bg-background/60 backdrop-blur-lg border border-white/10 p-8 sm:p-12 md:p-16 rounded-[3rem] shadow-2xl mx-auto"
           >
-            <div className="inline-flex items-center gap-2 text-primary text-xs font-semibold mb-4 md:mb-8 uppercase tracking-widest">
+            <div className="inline-flex items-center gap-2 text-primary text-xs font-semibold mb-4 md:mb-8 uppercase tracking-widest drop-shadow-sm">
               Interactive Experience
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-7xl font-medium mb-4 md:mb-8 tracking-tight text-white leading-[1.1]" style={{ fontFamily: 'var(--app-font-display)' }}>
-              Watch Your Idea Come To <span className="text-white/40">Life Instantly.</span>
+            <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-medium mb-4 md:mb-8 tracking-tight text-white leading-[1.1] drop-shadow-md" style={{ fontFamily: 'var(--app-font-display)' }}>
+              Watch Your Idea Come To <span className="text-white/60">Life Instantly.</span>
             </h2>
-            <p className="text-base sm:text-xl md:text-2xl text-muted-foreground mb-8 md:mb-12 font-light leading-relaxed max-w-3xl mx-auto">
+            <p className="text-base sm:text-xl md:text-2xl text-white/90 mb-8 md:mb-12 font-light leading-relaxed max-w-3xl mx-auto drop-shadow-sm">
               Describe your business in a single sentence and our AI will generate a live, interactive prototype right in your browser. No sign-up required.
             </p>
             <Link href="/demo">
@@ -664,16 +665,17 @@ export default function Home() {
         </div>
         <AmbientGlow color="lilac" position="top-right" className="opacity-20" />
         <AmbientGlow color="primary" position="bottom-left" className="opacity-20" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="glassmorphism bg-background/60 backdrop-blur-lg border border-white/10 p-8 sm:p-12 md:p-16 rounded-[3rem] shadow-2xl mx-auto"
           >
-            <h2 className="text-4xl md:text-7xl font-medium mb-8 text-white tracking-tight leading-[1.1]" style={{ fontFamily: 'var(--app-font-display)' }}>
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-medium mb-8 text-white tracking-tight leading-[1.1] drop-shadow-md" style={{ fontFamily: 'var(--app-font-display)' }}>
               Ready to build something <span className="premium-gradient-text">extraordinary?</span>
             </h2>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-12 font-light leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-white/90 mb-12 font-light leading-relaxed max-w-3xl mx-auto drop-shadow-sm">
               Join the growing list of businesses scaling with TurboByte's custom software, premium web development, and AI automation.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
