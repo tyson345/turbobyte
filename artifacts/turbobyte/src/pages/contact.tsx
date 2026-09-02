@@ -167,10 +167,10 @@ export default function Contact() {
 
       {/* Contact Form & Info */}
       <section className="pt-2 pb-10 md:pb-20 relative overflow-hidden bg-background">
-        <div className="absolute inset-0 opacity-[0.1] mix-blend-luminosity pointer-events-none">
+        <div className="absolute inset-0 opacity-[0.3] pointer-events-none">
           <img src={`${basePath}/images/marketing/software-collaboration.jpg`} className="w-full h-full object-cover" alt="" aria-hidden="true" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/60 to-background" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background/50" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-transparent to-background/30" />
         </div>
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:p-12 max-w-6xl mx-auto">

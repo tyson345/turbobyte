@@ -484,17 +484,18 @@ export default function Demo() {
               <form onSubmit={handleGenerate} className="relative">
                 <div className="bg-white/[0.03] border border-white/10 p-2 md:p-3 rounded-[2rem] shadow-[0_0_40px_-10px_rgba(124,58,237,0.3)] backdrop-blur-md relative group">
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent opacity-0 group-focus-within:opacity-100 rounded-[2rem] transition-opacity duration-500 pointer-events-none" />
-                  <div className="relative flex flex-col sm:block gap-2 z-10">
-                    <Input
+                  <div className="relative z-10 flex flex-col gap-2">
+                    <Textarea
                       value={prompt}
                       onChange={(e) => setPrompt(e.target.value)}
                       placeholder="A task manager for remote teams with real-time collaboration..."
-                      className="text-base md:text-lg h-14 md:h-16 pr-12 sm:pr-44 border-0 bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-muted-foreground/50"
+                      rows={3}
+                      className="min-h-24 resize-none border-0 bg-transparent px-4 py-3 text-base leading-relaxed placeholder:text-muted-foreground/50 focus-visible:ring-0 focus-visible:ring-offset-0 md:min-h-28 md:text-lg"
                       maxLength={200}
                       disabled={generateMutation.isPending}
                       data-testid="input-prompt"
                     />
-                    <div className="flex items-center justify-between gap-2 sm:absolute sm:right-2 sm:top-1/2 sm:-translate-y-1/2 sm:justify-end">
+                    <div className="flex items-center justify-between gap-2 px-2 pb-1">
                       <span className={`text-xs font-mono px-2 py-1 rounded ${remainingChars < 20 ? 'text-yellow-400' : 'text-muted-foreground'}`}>
                         {remainingChars}
                       </span>

@@ -56,10 +56,10 @@ export default function Solutions() {
       </section>
 
       <section className="py-12 md:py-24 relative bg-background overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.14] mix-blend-luminosity pointer-events-none">
+        <div className="absolute inset-0 opacity-[0.32] pointer-events-none">
           <img src={`${basePath}/images/marketing/digital-strategy.jpg`} className="w-full h-full object-cover" alt="" aria-hidden="true" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-background" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/45 via-transparent to-background/45" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/35 via-transparent to-background/35" />
         </div>
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-7xl mx-auto">

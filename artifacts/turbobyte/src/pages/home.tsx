@@ -259,10 +259,10 @@ export default function Home() {
             className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-7xl mx-auto"
           >
             <div className="lg:col-span-8 glass-panel p-6 sm:p-8 md:p-16 rounded-3xl relative overflow-hidden group">
-              <div className="absolute inset-0 opacity-[0.18] mix-blend-luminosity pointer-events-none transition-opacity duration-700 group-hover:opacity-[0.28]">
-                <img src={`${basePath}/images/marketing/ai-brain.jpg`} className="w-full h-full object-cover" alt="" aria-hidden="true" />
-                <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/20" />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
+              <div className="absolute inset-0 opacity-[0.65] pointer-events-none transition-opacity duration-700 group-hover:opacity-[0.75]">
+                <img src={`${basePath}/images/marketing/ai-brain.jpg`} className="w-full h-full object-cover object-[72%_50%]" alt="" aria-hidden="true" />
+                <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/55 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-b from-background/15 via-transparent to-background/45" />
               </div>
               <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <div className="relative z-10 inline-flex items-center gap-2 text-primary text-xs font-semibold mb-8 uppercase tracking-widest">
@@ -304,7 +304,7 @@ export default function Home() {
                       onClick={() => setOrbitOpen(true)}
                       aria-expanded={false}
                       aria-label="Show what we build"
-                      className="group flex flex-row md:flex-col items-center md:items-center gap-4 border border-white/5 md:border-transparent rounded-full p-2 md:p-0 pr-6 md:pr-0 w-full md:w-auto hover:bg-white/5 md:hover:bg-transparent transition-colors"
+                      className="group flex w-auto flex-col items-center gap-4 p-0"
                       data-testid="button-orbit-toggle"
                     >
                       <span className="flex size-16 md:size-24 items-center justify-center rounded-full border border-primary/40 bg-primary/10 transition-transform group-hover:scale-105 shrink-0">
@@ -549,10 +549,10 @@ export default function Home() {
 
       {/* Try the AI Demo */}
       <section className="py-20 md:py-40 relative overflow-hidden bg-background">
-        <div className="absolute inset-0 opacity-[0.25] mix-blend-luminosity pointer-events-none">
+        <div className="absolute inset-0 opacity-[0.58] pointer-events-none">
           <img src={`${basePath}/images/marketing/analytics-dashboard.jpg`} className="w-full h-full object-cover" alt="" aria-hidden="true" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/30 to-background" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/35 via-transparent to-background/35" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-transparent to-background/30" />
         </div>
         <AmbientGlow color="primary" position="center" className="opacity-30" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center relative z-10">
@@ -657,10 +657,10 @@ export default function Home() {
 
       {/* Big Final CTA */}
       <section className="py-20 md:py-40 relative bg-background border-t border-white/5 text-center overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.25] mix-blend-luminosity pointer-events-none">
-          <img src={`${basePath}/images/marketing/web-design-future.jpg`} className="w-full h-full object-cover" alt="" aria-hidden="true" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/40 to-background" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background" />
+        <div className="absolute inset-0 opacity-[0.55] pointer-events-none">
+          <img src={`${basePath}/images/marketing/web-design-future.jpg`} className="w-full h-full object-cover object-[center_30%]" alt="" aria-hidden="true" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/25 via-transparent to-background/25" />
         </div>
         <AmbientGlow color="lilac" position="top-right" className="opacity-20" />
         <AmbientGlow color="primary" position="bottom-left" className="opacity-20" />
