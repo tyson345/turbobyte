@@ -74,7 +74,7 @@ export function Logo({ className = '', variant = 'horizontal', size = 'nav' }: L
           src={logoTechSolutions}
           alt=""
           aria-hidden="true"
-          className="mt-1 block h-auto w-[74.5%] brightness-0 invert"
+          className="mt-1 block h-auto w-[74.5%]"
         />
       </span>
     </div>

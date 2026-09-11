@@ -23,10 +23,6 @@ export function TextRoll({
   onAnimationComplete,
 }: TextRollProps) {
   const prefersReducedMotion = useReducedMotion();
-  
-  if (prefersReducedMotion) {
-    return <span className={className}>{children}</span>;
-  }
 
   const defaultVariants = {
     initial: { y: '100%', rotateX: -90, opacity: 0 },
@@ -40,12 +36,12 @@ export function TextRoll({
       {children.split('').map((char, index) => (
         <motion.span
           key={index}
-          initial="initial"
+          initial={prefersReducedMotion ? false : "initial"}
           animate="animate"
           variants={activeVariants}
           transition={{
-            duration,
-            delay: getEnterDelay(index),
+            duration: prefersReducedMotion ? 0 : duration,
+            delay: prefersReducedMotion ? 0 : getEnterDelay(index),
             ease: [0.33, 1, 0.68, 1], // easeOutCubic
           }}
           onAnimationComplete={index === children.length - 1 ? onAnimationComplete : undefined}

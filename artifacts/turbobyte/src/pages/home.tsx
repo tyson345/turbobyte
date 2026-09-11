@@ -146,7 +146,7 @@ export default function Home() {
     <MotionConfig reducedMotion="user">
     <div className="min-h-screen bg-background text-foreground overflow-hidden selection:bg-primary/30">
       {/* Hero Section */}
-      <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[calc(100dvh-8.5rem)] flex items-center justify-center overflow-hidden">
         {/* Vanta NET animated background with gradient mask */}
         <motion.div style={{ y }} className="absolute inset-0 z-0">
           <VantaClouds />
@@ -154,7 +154,7 @@ export default function Home() {
           <AmbientGlow color="mixed" position="center" className="opacity-40" />
         </motion.div>
 
-        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-24 pb-8 md:pb-12 max-w-7xl">
+        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 pt-4 md:pt-6 pb-8 md:pb-12 max-w-7xl">
           <div className="max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -166,11 +166,27 @@ export default function Home() {
                 <TextScramble>BENGALURU AI TECH STUDIO</TextScramble>
               </div>
 
-              <h1 className="text-5xl sm:text-7xl md:text-8xl font-medium mb-6 leading-[1.02] tracking-tight" style={{ fontFamily: 'var(--app-font-display)' }}>
+              <h1 className="text-4xl min-[390px]:text-5xl sm:text-7xl md:text-8xl font-medium mb-6 leading-[1.02] tracking-tight" style={{ fontFamily: 'var(--app-font-display)' }}>
                 <span className="text-white">Precision Software.</span>
                 <br />
-                <span className="premium-gradient-text">
-                  <TextRoll duration={0.8} getEnterDelay={(i) => i * 0.05 + 0.3}>Powered by AI.</TextRoll>
+                <span>
+                  <TextRoll
+                    className="premium-gradient-text"
+                    duration={0.55}
+                    getEnterDelay={(i) => i * 0.025}
+                    variants={{
+                      enter: {
+                        initial: { y: '110%', rotateX: -90, opacity: 0, filter: 'blur(6px)' },
+                        animate: { y: 0, rotateX: 0, opacity: 1, filter: 'blur(0px)' },
+                      },
+                      exit: {
+                        initial: { y: 0, opacity: 1 },
+                        animate: { y: '-100%', opacity: 0 },
+                      },
+                    }}
+                  >
+                    Powered by AI.
+                  </TextRoll>
                 </span>
               </h1>
 

@@ -13,6 +13,7 @@ import {
 import { allServiceNames } from '@/config/services';
 import { AmbientHero } from '@/components/ambient-hero';
 import { MarketingImage } from '@/components/marketing-image';
+import { ORA_CARE_PREVIEW_IMAGE } from '@/lib/portfolio-assets';
 
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString('en-US', {
@@ -191,10 +192,14 @@ export default function Portfolio() {
                     <Link href={`/portfolio/${project.slug}`} className="block relative aspect-[4/3] bg-card overflow-hidden">
                       {project.thumbnailPath || project.slug === 'ora-care-dental' ? (
                         <img
-                          src={project.thumbnailPath ? `/api/storage${project.thumbnailPath}` : '/mockups/dental.png'}
+                          src={project.thumbnailPath ? `/api/storage${project.thumbnailPath}` : ORA_CARE_PREVIEW_IMAGE}
                           alt={project.title}
                           loading="lazy"
-                          className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
+                          className={`w-full h-full transition-transform duration-700 group-hover:scale-105 ${
+                            project.slug === 'ora-care-dental' && !project.thumbnailPath
+                              ? 'object-contain'
+                              : 'object-cover'
+                          }`}
                         />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center bg-card/80">

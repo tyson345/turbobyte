@@ -7,7 +7,7 @@ export function MarketingPageBanner() {
   return (
     <section
       aria-label="TurboByte office"
-      className="relative z-10 w-full pt-16 sm:pt-20"
+      className="relative z-10 w-full"
     >
       <motion.div
         initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}

@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { serviceCategories } from '@/config/services';
-import { useCampaignActive } from '@/hooks/use-campaign-active';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -13,7 +12,6 @@ export function Navbar() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [solutionsOpen, setSolutionsOpen] = useState(false);
   const [location] = useLocation();
-  const campaignBarActive = useCampaignActive();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,9 +29,9 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
-        campaignBarActive ? 'top-9' : 'top-0'
-      } ${isScrolled ? 'nav-shell-scrolled !rounded-none !border-x-0 !border-t-0 py-2 shadow-sm' : 'bg-transparent py-4'}`}
+      className={`fixed top-10 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled ? 'nav-shell-scrolled !rounded-none !border-x-0 !border-t-0 py-2 shadow-sm' : 'bg-transparent py-4'
+      }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex items-center justify-between h-16">

@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import { useGetProject, getGetProjectQueryKey, useListProjects } from '@workspace/api-client-react';
 import { allServiceNames } from '@/config/services';
 import { MarketingImage } from '@/components/marketing-image';
+import { ORA_CARE_PREVIEW_IMAGE } from '@/lib/portfolio-assets';
 
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString('en-US', {
@@ -51,7 +52,7 @@ export default function ProjectDetailRoute() {
               ogImage: project?.thumbnailPath
                 ? `/api/storage${project.thumbnailPath}`
                 : project?.slug === 'ora-care-dental'
-                  ? '/mockups/dental.png'
+                  ? ORA_CARE_PREVIEW_IMAGE
                   : undefined,
       jsonLd: project
         ? schemaGraph(
@@ -180,9 +181,13 @@ export default function ProjectDetailRoute() {
               className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative aspect-[21/9] bg-card"
             >
               <img
-                  src={project.thumbnailPath ? `/api/storage${project.thumbnailPath}` : '/mockups/dental.png'}
+                src={project.thumbnailPath ? `/api/storage${project.thumbnailPath}` : ORA_CARE_PREVIEW_IMAGE}
                 alt={`${project.title} banner`}
-                className="w-full h-full object-cover"
+                className={`w-full h-full ${
+                  project.slug === 'ora-care-dental' && !project.thumbnailPath
+                    ? 'object-contain'
+                    : 'object-cover'
+                }`}
               />
             </motion.div>
           </div>
@@ -406,9 +411,13 @@ export default function ProjectDetailRoute() {
                     <div className="aspect-video relative bg-card overflow-hidden">
                       {relProj.thumbnailPath || relProj.slug === 'ora-care-dental' ? (
                         <img
-                          src={relProj.thumbnailPath ? `/api/storage${relProj.thumbnailPath}` : '/mockups/dental.png'}
+                          src={relProj.thumbnailPath ? `/api/storage${relProj.thumbnailPath}` : ORA_CARE_PREVIEW_IMAGE}
                           alt={relProj.title}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          className={`w-full h-full transition-transform duration-500 group-hover:scale-105 ${
+                            relProj.slug === 'ora-care-dental' && !relProj.thumbnailPath
+                              ? 'object-contain'
+                              : 'object-cover'
+                          }`}
                           loading="lazy"
                         />
                       ) : (

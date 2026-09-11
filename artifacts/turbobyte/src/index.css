@@ -389,7 +389,8 @@
     @apply transition-all duration-500 hover:shadow-[0_0_30px_-5px_rgba(224,188,231,0.4)];
   }
 
-  .premium-gradient-text {
+  .premium-gradient-text,
+  .premium-gradient-text > span {
     background: linear-gradient(135deg, #5B21B6 0%, hsl(var(--primary)) 48%, #9333EA 100%);
     -webkit-background-clip: text;
     background-clip: text;

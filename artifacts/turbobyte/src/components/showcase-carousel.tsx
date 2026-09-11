@@ -1,12 +1,14 @@
 import { useEffect, useState, useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { motion, useReducedMotion } from 'framer-motion';
+import { ORA_CARE_PREVIEW_IMAGE } from '@/lib/portfolio-assets';
 
 const showcases = [
   {
     title: 'Ora-Care Dental',
     category: 'Dental Clinic Website',
-    image: '/mockups/dental.png',
+    image: ORA_CARE_PREVIEW_IMAGE,
+    imageFit: 'contain',
   },
   {
     title: 'TurboNest Interiors',
@@ -96,7 +98,7 @@ export function ShowcaseCarousel() {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className={`h-full w-full object-cover object-center ${prefersReducedMotion ? '' : 'transition-all duration-500'} ${hoveredIndex === index ? 'blur-md scale-[1.03]' : ''}`}
+                    className={`h-full w-full ${item.imageFit === 'contain' ? 'object-contain' : 'object-cover'} object-center ${prefersReducedMotion ? '' : 'transition-all duration-500'} ${hoveredIndex === index ? 'blur-md scale-[1.03]' : ''}`}
                     loading="lazy"
                   />
 

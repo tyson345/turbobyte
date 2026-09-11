@@ -1,0 +1,1 @@
+export const ORA_CARE_PREVIEW_IMAGE = '/mockups/ora-care-chair-preview.png';

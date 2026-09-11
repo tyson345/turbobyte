@@ -6,3 +6,7 @@
 - [CSS rewrite regressions](css-rewrite-regressions.md) — shared index.css rewrites silently drop classes/tokens other pages use; diff removals and grep before accepting.
 - [Public AI endpoint guardrails](public-ai-endpoint-guardrails.md) — per-IP limits are spoofable via XFF; use last hop + global budget + concurrency cap + CSP on generated HTML.
 - [Cloudflare Node HTTP bridge](cloudflare-node-http-bridge.md) — Workers typings may lag the documented Express bridge; require the HTTP-server compatibility flag and validate with Wrangler.
+- [Cloudflare watched GitHub branch](cloudflare-github-publishing.md) — Cloudflare watches a repo with history unrelated to local origin; publish guarded commits through the GitHub SDK.
+- [Reduced-motion preview behavior](reduced-motion-previews.md) — app preview screenshots may exercise reduced-motion fallbacks; use a deployed external screenshot to verify the normal animated path.
+- [TurboByte dual database migrations](turbobyte-dual-database-migrations.md) — apply schema/data changes to both Replit development Postgres and production Supabase.
+- [Static image replacement caching](static-image-replacement-caching.md) — replace public image filenames when old SPA bundles or browser caches can keep serving earlier bytes.
